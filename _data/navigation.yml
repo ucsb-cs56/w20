@@ -1,0 +1,110 @@
+# the production_url is the url that the parent/child site have in common
+#  e.g. production_url: https://ucsb-cs56.github.io
+#  for main site http://ucsb-cs56.github.io
+#  and child sites
+#    https://ucsb-cs56.github.io/w18
+#    https://ucsb-cs56.github.io/f18
+#    https://ucsb-cs56.github.io/s19
+#    etc.
+
+production_url: https://ucsb-cs56.github.io
+
+# List the title and url for each item on navigation bar.
+# For items that should be relative urls, put the baseurl of the site
+# they come from, / for main site, and /f18, /s19, etc for child sites.
+
+home:
+   title: UCSB CS56
+   url: /
+   baseurl: /
+
+main_dropdown:
+   title: Resources
+   items:
+     - title: Topics
+       url: /topic_list/
+     - title: Resources
+       url: /resource_list/
+     - title: Tutorials
+       url: /tutorial_list/
+     - title: Textbooks
+       url: /textbook_list/       
+
+offering_menus:
+  -
+    term: F18
+    baseurl: /f18
+    items: 
+      - title: Hwk
+        url: /hwk/
+        description: "Homework Assignments"
+      - title: Lab
+        url: /lab/
+        description: "Lab Assignments"
+      - title: Lecture
+        url: /lecture/
+        description: "Lecture"
+      - title: Exam
+        url: /exam/
+        description: "Exams"
+      - title: Cal
+        url: /info/calendar/
+        description: "Assignment Calendar"
+      - title: Github
+        dropdown:
+           - title: ucsb-cs56-f18
+             url: https://github.com/ucsb-cs56-f18
+           - title: ucsb-cs56-webapps
+             url: https://github.com/ucsb-cs56-webapps
+
+  -
+    term: S19
+    baseurl: /s19
+    items: 
+      - title: Hwk
+        url: /hwk/
+        description: "Homework Assignments"
+      - title: Lab
+        url: /lab/
+        description: "Lab Assignments"
+      - title: Lecture
+        url: /lecture/
+        description: "Lecture"
+      - title: Exam
+        url: /exam/
+        description: "Exams"
+      - title: Cal
+        url: /info/calendar/
+        description: "Assignment Calendar"
+      - title: Github
+        dropdown:
+           - title: ucsb-cs56-s19
+             url: https://github.com/ucsb-cs56-f18
+           - title: ucsb-cs56-webapps
+             url: https://github.com/ucsb-cs56-webapps
+  -
+    term: F19
+    baseurl: /f19
+    items: 
+      - title: Hwk
+        url: /hwk/
+        description: "Homework Assignments"
+      - title: Lab
+        url: /lab/
+        description: "Lab Assignments"
+      - title: Lecture
+        url: /lecture/
+        description: "Lecture"
+      - title: Exam
+        url: /exam/
+        description: "Exams"
+      - title: Cal
+        url: /info/calendar/
+        description: "Assignment Calendar"
+      - title: Github
+        dropdown:
+           - title: ucsb-cs56-f19
+             url: https://github.com/ucsb-cs56-f19
+           - title: ucsb-cs56-webapps
+             url: https://github.com/ucsb-cs56-webapps
+
