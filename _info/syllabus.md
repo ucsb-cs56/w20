@@ -1,7 +1,7 @@
 ---
-title: "Syllabus, CMPSC 56, Fall 2018"
+title: "Syllabus, CMPSC 56, Fall 2019"
 layout: handout
-ready: false
+ready: true
 ---
 
 <div style="font-size:110%;" markdown="1">
@@ -9,12 +9,12 @@ ready: false
 Basic Facts
 -----------
 
-* **Instructor**:  [Phill Conrad](http://www.cs.ucsb.edu/~pconrad) (contact via Piazza)
+* **Instructor**:  [Phill Conrad](http://www.cs.ucsb.edu/~pconrad) (contact via Slack)
    * Use the "instructor messsage" feature to contact Prof. Conrad, as well as all TAs, Readers and Mentors
-* **Lecture**: TIME TBA ROOM TBA. ATTENDANCE REQUIRED. 
-* **TAs**: {{site.ta_list_full}} (contact via Piazza)
-* **Mentors**: {{site.mentors_list}} (contact via Piazza)
-* **Lab** (50 minute discussion section) Thursday {{site.discussion_section_times}}, Phelps 3525. ATTENDANCE REQUIRED.                                         
+* **Lecture**: Mon/Wed 5-6:15pm, Phelps 3526.  Attendance/Participation is expected/required.
+* **TAs**: {{site.ta_list_full}} (contact via Slack)
+* **Mentors**: {{site.mentors_list}} (contact via Slack)
+* **Lab** (50 minute discussion section) Thursday {{site.discussion_section_times}}, Phelps 3525.  Attendance/Participation is expected/required.
 * Office Hours: See: <http://www.cs.ucsb.edu/~pconrad/ofchrs>  
 
 For course website links, visit the course Gauchospace site.
@@ -124,18 +124,18 @@ Project Points
 
 Project points assignments can be found in public github repositories in the organization: <http://github.com/organizations/ucsb-cs56-webapps>. The way in which these will be assigned will be explained later in the course.
 
-To earn a "perfect score" (100%) for this 20% component of your grade, you need to earn 1000 project points. If you only earn 800, then an 80% will be recorded for that 20% of your grade.
+To earn a "perfect score" (100%) for this 20% component of your grade, you need to earn 100 project points. If you only earn 80, then an 80% will be recorded for that 20% of your grade.
 
 Some assignments in the project category are worth more points, and some worth fewer.
 
-If you accumulate more than 1000 project points, up to 100 project points may be used to raise your final average in the class up to 2.0 points. (The points will be recorded as extra credit). (Each point raises your final course average by 0.02% ).
+If you accumulate more than 100 project points, up to 10 project points may be used to raise your final average in the class up to 2.0 points. (The points will be recorded as extra credit). (Each point raises your final course average by 0.2% ).
 
-You may not earn more than 1100 total project points--any points in excess of 1100 will not count towards your grade (though you'll probably learn a lot from having under taken the work to earn them.)
+You may not earn more than 110 total project points--any points in excess of 110 will not count towards your grade (though you'll probably learn a lot from having under taken the work to earn them.)
 
 ### Project Point Deadlines
 
--   You may earn up to 1100 project points over the course of the quarter
--   There may be intermediate deadlines by which you need to accmulate certain numbers of points, e.g. 500, 800, etc.
+-   You may earn up to 110 project points over the course of the quarter
+-   There may be intermediate deadlines by which you need to accmulate certain numbers of points, e.g. 50, 80, etc.
 -   The final deadline for project points is the last day of instruction at 5pm.
 
 How to interpret these "due dates":
@@ -143,10 +143,10 @@ How to interpret these "due dates":
 
 -   Unless told otherwise in the instructions for a particular project points assignment, you may complete any project point assignment at any time.
 -   However, the points have to be "recorded" somewhere to count towards your grade.
--   Before the first deadline , you have the possibility to earn up to 1100 project points.
--   If there is a deadline for the first 300 points (Project deadine 1), if you haven't yet completed/submitted any project points work, the maximum number you can earn is now 800 (1100-300).
--   If there is a second deadline for 300 more points (Project 2), if you haven't yet completed/submitted any project points work, the maximum number you can earn is now 1100-600= 500.
--   You may "work ahead"---that is, if you earn 800 points for your first assignment, we'll count 300 towards Project 1, 300 towards Project 2, and 200 towards Project 3.
+-   Before the first deadline , you have the possibility to earn up to 110 project points.
+-   If there is a deadline for the first 30 points (Project deadine 1), if you haven't yet completed/submitted any project points work, the maximum number you can earn is now 80 (110-30).
+-   If there is a second deadline for 300 more points (Project 2), if you haven't yet completed/submitted any project points work, the maximum number you can earn is now 110-60= 50.
+-   You may "work ahead"---that is, if you earn 80 points for your first assignment, we'll count 30 towards Project 1, 30 towards Project 2, and 20 towards Project 3.
 -   However, once a deadline has passed, only project points earned before that deadline may be applied to that assignment.
 
 
