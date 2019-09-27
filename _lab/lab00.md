@@ -131,4 +131,4 @@ The lab assignment {{page.num}} should appear in your Gradescope dashboard in {{
    7. Upload your work to Gradescope.com for grading.    If you are working from your own machine (i.e. ssh'ing into CSIL), you'll need to transfer the file to your own machine before you can upload it for grading.    
       * If you aren't sure how, there is a link on the CS16 web page that explains [how to copy files between CSIL and your own machine](https://ucsb-cs16.github.io/topics/csil_copying_files/).
 
-   8. Once you see that you have a score of 100 for {{page.num}} on Gradescope, you are *done* with {{page.num}}, BUT there is STILL MORE TO DO TODAY!  Get a paper copy of ic00, fill it out and use it to find your pair partner for lab01.  Then get started on [lab01](/f19/labs/lab01/).
+   8. Once you see that you have a score of 100 for {{page.num}} on Gradescope, you are *done* with {{page.num}}, BUT there is STILL MORE TO DO TODAY!  Get a paper copy of ic00, fill it out and use it to find your pair partner for lab01.  Then get started on [lab01](/f19/lab/lab01/).
