@@ -80,4 +80,6 @@ Here's a link list of some of the things it includes
 
 With the time left, let's look at <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
 
-On Wednesday, we'll pivot from Ant to Maven and look at a Spring Boot webapp.
+Next up (probably not until Wednesday): A pivot from Ant to Maven and look at a Spring Boot webapp.
+
+* <https://github.com/ucsb-cs56-f19/ucsb-course-search>
