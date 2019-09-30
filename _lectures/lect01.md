@@ -35,7 +35,7 @@ See also, code here:  <https://github.com/ucsb-cs56-f19/LECTURE_0930>
 
 Well, the course description says:
 
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 50rem;">
 <div class="card-body" markdown="1">
 <h5 class="card-title">CMPSC 56</h5>
 
