@@ -6,6 +6,8 @@ ready: false
 pdfurl:
 ---
 
+<div style="display:none;?>https://ucsb-cs56.github.io/f19/lectures/lect01</div>
+
 # What did you miss if you missed lab?
 
 * [ic00]({{ 'hwk/ic00' | relative_url }}): "Pair Partner Matching"
