@@ -70,4 +70,5 @@ Here's a link list of some of the things it includes
    * [HFDP](https://ucsb-cs56.github.io/textbooks/HFDP) - Head First Design Patterns (probably won't be time)
 * Website: <https://ucsb-cs56.github.io>
    * Especially under <https://ucsb-cs56.github.io/topics>
+   * Also, the Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
 
