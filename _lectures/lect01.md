@@ -14,7 +14,7 @@ pdfurl:
 * [ic00]({{ 'hwk/ic00' | relative_url }}): "Pair Partner Matching"
    * Finding a pair partner with similar experience
 
-See also, code here:  https://github.com/ucsb-cs56-f19/LECTURE_0930
+See also, code here:  <https://github.com/ucsb-cs56-f19/LECTURE_0930>
 
 # Homework for Wednesday, Thursday and next Monday
 
@@ -35,10 +35,19 @@ See also, code here:  https://github.com/ucsb-cs56-f19/LECTURE_0930
 
 Well, the course description says:
 
-> CMPSC 56. Advanced Applications Programming (4) CONRAD
-> Prerequisite: Computer Science 24 and 32 with a grade of C or better
->
-> Advanced application programming using a high-level, virtual-machine-based language. Topics include generic programming, exception handling, programming language implementation; automatic memory management, and application development, management, and maintenance tools; event handling, concurrency and threading, and advanced library use.
+<div class="card" style="width: 18rem;">
+<div class="card-body" markdown="1">
+<h5 class="card-title">CMPSC 56</h5>
+
+Advanced Applications Programming (4) CONRAD
+
+*Prerequisite: Computer Science 24 and 32 with a grade of C or better*
+
+<p class="card-text">
+Advanced application programming using a high-level, virtual-machine-based language. Topics include generic programming, exception handling, programming language implementation; automatic memory management, and application development, management, and maintenance tools; event handling, concurrency and threading, and advanced library use.
+</p>
+</div>
+</div>
 
 A few observations:
 * Note that it says nothing about Java, per se, but it's always been understood to be the department's "Java course".
