@@ -9,12 +9,18 @@ pdfurl:
 <div style="display:none;">https://ucsb-cs56.github.io/f19/lectures/lect01
 </div>
 
+See also, code here:  <https://github.com/ucsb-cs56-f19/LECTURE_0930>
+
 # What did you miss if you missed lab?
 
 * [ic00]({{ 'hwk/ic00' | relative_url }}): "Pair Partner Matching"
    * Finding a pair partner with similar experience
+* [lab00]({{ 'lab/lab00' | relative_url }}): "Hello World, Gradescope"
+   * Making sure you can use Java and Gradescope
+* [lab01]({{ 'lab/lab01' | relative_url }}): A pair lab: Java tools (Ant, JUnit)
+   * Based on the Rational tutorial: <https://ucsb-cs56.github.io/tutorials/rational/>, part 00 through 08
+   
 
-See also, code here:  <https://github.com/ucsb-cs56-f19/LECTURE_0930>
 
 # Homework for Wednesday, Thursday and next Monday
 
@@ -72,3 +78,6 @@ Here's a link list of some of the things it includes
    * Especially under <https://ucsb-cs56.github.io/topics>
    * Also, the Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
 
+With the time left, let's look at <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
+
+On Wednesday, we'll pivot from Ant to Maven and look at a Spring Boot webapp.
