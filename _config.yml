@@ -7,6 +7,7 @@ remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme
 url: https://ucsb-cs56.github.io # the base hostname & protocol for your site
 baseurl: /f19  # the subpath of your site, e.g. "/blog"
 
+lecture_days_of_week: MW
 
 include:
   - _pages
