@@ -24,4 +24,4 @@ See also, code here:  https://github.com/ucsb-cs56-f19/LECTURE_0930
    
 # What do new college graduates find when the go into industry
 
-* Powerpoint: [Slides](https://docs.google.com/presentation/d/e/2PACX-1vQLnl6NhgID0xXuLPo8HbjAsXom1m77CmewfTY7Zvs0yz0BE2N2osa1T1lYaEM1bfd1utBXJYNhgKEh/pub?start=true&loop=false)
+* Powerpoint: [Slides](https://docs.google.com/presentation/d/e/2PACX-1vQLnl6NhgID0xXuLPo8HbjAsXom1m77CmewfTY7Zvs0yz0BE2N2osa1T1lYaEM1bfd1utBXJYNhgKEh/pub?start=true&loop=false&delay=180000)
