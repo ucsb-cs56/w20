@@ -1,17 +1,17 @@
 ---
 layout: lab
-num: lab03
+num: lab02
 ready: true
-desc: "Intro to Web Applications"
+desc: "Spring Boot and Heroku Hello World"
 assigned: 2018-10-11 16:00
 due: 2018-10-18 23:59
 github_org: "ucsb-cs56-f18"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=1603977"
-sparkjava_01_repo_url: "https://github.com/ucsb-cs56-pconrad/sparkjava-01"
+tutorial_repo_url: "https://github.com/pconrad/spring-boot-minimal-webapp"
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56-f18.github.io/lab/lab03
+Look here for formatted version: http://ucsb-cs56-f18.github.io/lab/lab02
 </div>
 
 This is an **individual** lab on the topic of Java web apps on Heroku.
@@ -52,9 +52,11 @@ Step 1: Understanding what we are trying to do
 -   We'll use the "free plan" that they offer for folks just getting started with learning Heroku.
 -   This puts your application "on the web", for real, so that anyone in the world can access it 24/7
 
-To run a servlet locally on your own machine, you could also use a servlet container such as Tomcat, Jetty, or Resin. Configuring those to run servlets locally on your own machine is not too bad, but configuring those to run on a shared hosting environment such as CSIL can be quite painful, so we are just going to avoid that altogether.
+
 
 ### Limitations of the free plan of Heroku
+
+TL;DR: You should NOT need to enter a credit card into Heroku.  If you are asked for one, something has gone wrong.
 
 -   If no-one has accessed your web app for a while, it "goes to sleep", so to speak.
     -   The first time someone tries to access it after it has gone to sleep, there is a <em>noticable</em> delay in the response, perhaps several seconds or even up to a minute.
@@ -62,6 +64,7 @@ To run a servlet locally on your own machine, you could also use a servlet conta
     -   That is <em>very unlikely to happen</em> unless you make a web app that somehow attracts the attention of a very large audience.
     -   I suggest you try to avoid doing that with the web apps you develop for this class.
     -   I suggest you avoid doing that in general, unless/until you have some plan for how to make money off your web app to pay for the server resources. (With a credit card, you can set up Heroku to have higher usage limits, and to keep your app running so that response time is fast. But you should NOT need that for this course.)
+
 
 ### Web Apps vs. Static Web Pages
 
@@ -115,9 +118,9 @@ You'll be asked for:
 
 # Step 3: Fork the sparkjava_01 tutorial repo
 
-Fork the sparkjava_01 tutorial repo into a public copy under your own github account.
+Fork the tutorial repo into a public copy under your own github account.
 
-That repo is here: <{{page.sparkjava_01_repo_url}}>
+That repo is here: <{{page.tutorial_repo_url}}>
 
 You'll need Maven for this lab.
 
@@ -154,98 +157,40 @@ To get the web app running on the public internet, we'll need to use a cloud-com
 
 # Step 4: Create a new Heroku App using the Heroku CLI
 
+
 Logged into CSIL (or one of the machines in the CSTL, i.e. Phelps 3525), use this command to login to Heroku at the command line:
 
 ```
 heroku login
 ```
 
-Then, use this command to create a new web app running on heroku.  Substitute your github id in place of `githubid`.  Note that you should convert your githubid to all lowercase; heroku web-app names do not permit uppercase letters.
+> NOTE: If the `heroku login` command doesn't work, you can instead create the Heroku App at the Heroku Dashboard by
+> visiting <https://https://dashboard.heroku.com/apps>, clicking (at upper right):  "New&nbsp;=>&nbsp;Create New App" and
+> then creating an app with the name <tt>heroku create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> as explained in > the instructions below.
+>
 
-A reminder that this is an individual lab, so you should complete it for yourself, i.e. there is only one github id in the name, not a pair of github ids.   
-
-Note: please do not literally put the letters <tt><i>githubid</i></tt> in your app name; you are meant to substitute your own github id there.
-
+Then, use this command to create a new web app running on heroku.  Substitute your github id in place of `githubid`.  
+Note that you should convert your githubid to all lowercase; heroku web-app names do not permit uppercase letters.
 
 <tt>heroku create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt>
 
+Notes:
+* A reminder that this is an individual lab, 
+  so you should complete it for yourself, i.e. there is only one github id in the name, not a pair of github ids.   
+* Please do not literally put the letters <tt><i>githubid</i></tt> 
+  in your app name; you are meant to substitute your own github id there.
 
-# Step 5: Modify the pom.xml file to refer to your heroku app
 
-In the `pom.xml` file, locate this section.  It is a `plugin` element, and should be located inside the `plugins` element.
+# Step 5: Login to the Heroku Dashboard
 
-```xml
-  <plugin>
-	<groupId>com.heroku.sdk</groupId>
-	<artifactId>heroku-maven-plugin</artifactId>
-	<version>2.0.3</version>
-	<configuration>
-          <jdkVersion>1.8</jdkVersion>
-          <!-- Use your own application name -->
-	  <!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
-          <appName>ucsb-cs56-pconrad-08-28-18</appName> 
-          <processTypes>
-            <!-- Tell Heroku how to launch your application -->
-            <!-- You might have to remove the ./ in front   -->
-            <web>java $JAVA_OPTS -jar target/sparkjava-demo-01-1.0-jar-with-dependencies.jar</web>
+Login to <https://https://dashboard.heroku.com/apps> and look for the <tt>create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> app that you created.
 
-          </processTypes>
-	</configuration>
-   </plugin>
-```
+You should find a place where you can connect your App to Github.  
 
-The line you need to change is the one that says:
+Click on this, and select your repo to connect the Github Repo to Heroku.
 
-```
- <appName>ucsb-cs56-pconrad-08-28-18</appName> 
-```
+Then, click on "deploy branch".
 
-Change this to the name of your heroku app.  If you've forgotten it, you can locate it either by typing:
-
-```
-heroku apps
-```
-
-or by logging into the Heroku Dashboard in a web browser at <https://dashboard.heroku.com/apps>
-
-Then, type the following to deploy your web app to Heroku:
-
-```
-mvn package heroku:deploy
-```
-
-You should see a lot of output.  At the end of this output, you should see something like this:
-
-```
-...
-[INFO] remote: -----> heroku-maven-plugin app detected
-[INFO] remote: -----> Installing JDK 1.8... done
-[INFO] remote: -----> Discovering process types
-[INFO] remote:        Procfile declares types -> web
-[INFO] remote: 
-[INFO] remote: -----> Compressing...
-[INFO] remote:        Done: 54M
-[INFO] remote: -----> Launching...
-[INFO] remote:        Released v10
-[INFO] remote:        https://ucsb-cs56-pconrad-08-28-18.herokuapp.com/ deployed to Heroku
-[INFO] remote: 
-[INFO] -----> Done
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 39.539 s
-[INFO] Finished at: 2018-08-31T01:56:14-07:00
-[INFO] Final Memory: 29M/268M
-[INFO] ------------------------------------------------------------------------
-```
-
-The line that you are looking for is this one:
-
-```
-[INFO] remote:        https://ucsb-cs56-pconrad-08-28-18.herokuapp.com/ deployed to Heroku
-```
-
-That is the URL where you should now be able to see your webapp running.  This URL should be accessible from any web browser connected to the internet.
 
 # What if it doesn't work?
 
@@ -260,91 +205,81 @@ If it doesn't work, try these things before asking a mentor, TA, or instructor f
 
 # Step 6: Changing what is shown on the page
 
-Go into the Java source code under `src` and locate the file `src/main/java/edu/ucsb/cs56/pconrad/SparkDemo01.java` 
+Go into the Java source code under `src` and locate the file `/src/main/java/hello/HelloController.java` 
 
 In this file, locate the line of code that says:
 
 ```java
-spark.Spark.get("/", (req, res) -> "<b>Hello World!</b>\n");
+    @RequestMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
 ```
 
-As you can see, the method call `spark.Spark.get takes two parameters:
-* The first is a **route** such as "/"
-* The second is is a [lambda expression](https://ucsb-cs56-pconrad.github.io/topics/java_lambda_expressions/) that:
-   * takes two parameters, `req` and `res` (which stand for **request** and **response**), and
-   * returns the HTML that will be returned to the web client (i.e. your browser).
+This method returns the contents of the home page (`"/"`) for the webapp.
 
-Our first step is going to be to modify what is returned by the browser for the "/" route, which is the root of the web page.
-
-Before this line of code, add the following.  Be sure to replace `mygithubid` with your own github id:
+Change that code to the following.  Be sure to replace `mygithubid` with your own github id:
 
 ```
-String html = "<h1><a href='/hello'>Hello</a> World!</h1>\n" +
+String html = "<h1>Hello World!</h1>\n" +
     "<p>This web app is powered by \n" +
-    "<a href='https://github.com/mygithubid/sparkjava-01'>this github repo</a></p>\n";
+    "<a href='https://github.com/mygithubid/spring-boot-minimal-webapp'>this github repo</a></p>\n";
+return html;
 ```
 
-Then, change the line of code 
-```
-spark.Spark.get("/", (req, res) -> "<b>Hello World!</b>\n");
-```
-
-To read:
-
-```
-spark.Spark.get("/", (req, res) -> html);
-```
 
 Then:
 * use `mvn compile` to make sure your code still compiles
 * (optional, but suggested in case you need to debug)
-   * use `mvn exec:java` to test locally, perhaps with `curl http://localhost:4567`
-* use `mvn package heroku:deploy` to push these changes to your running Heroku app
+   * use `mvn exec:java` to test locally, perhaps with `curl http://localhost:8081`
+* Use git add, git commit, and git push to push your changes to github.
+* Visit the Heroku Dashboard, and you should see that your changes are deploying to the web.
 
 If it works, then the word "Hello" and the words "this repo" should become clickable links.  
 * The words "this repo" should link to your github repo
-* However, the word "Hello" will be a dead link.
-
-Next, let's fix that by adding this line of code:
-
-After:
-```
-spark.Spark.get("/", (req, res) -> html);
-```
-
-Add this:
-
-```
-spark.Spark.get("/hello", (req, res) -> "<p><b>Hello, World!</b>  You just clicked the first link on my web app.</p>");
-```
-
-Deploy this code to Heroku in the same way you did with the other code.  Make sure both links now work.
 
 Ok, so far, we haven't really done anything we couldn't have done with a static web page.  But we have gotten a working Java web app running on Heroku, so it's start we can build on.  
 
-That's all for the *graded* part of this lab, but there is much more to learn.   Let's get this submitted for a grade first, but then the lab is NOT OVER.  There is a part that is not graded, but is super important as a means to learn the skills we'll need to build real webapps using Heroku, and you are encouraged to stay and work on that.  For that part, you are encouraged to work in pairs or even in groups of three or more with folks from your team.
 
-# Step 7: Submitting your work for grading
+# Step 7: The test cases
+
+You'll see that when you run "mvn test" that there are test cases, some of which are now failing.
+
+The test cases are in these files:
+* `src/test/java/hello/HelloControllerTest.java` (Unit Test)
+* `src/test/java/hello/HelloControllerIT.java` (Integration Test)
+
+Run the tests and see them fail.
+
+Then modify them so that they pass.   Note that we are doing TDD "wrong" this time; to do it "the right way", 
+we should have modified the tests first, and then modified the code so that the tests pass.   We'll pivot to this
+style of working once we have a better grasp on all the moving parts here.
+
+# Step 8: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
 
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
 <div style="font-family:monospace;">
-repo name: https://github.com/chrislee123/sparkjava-01<br>
+repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
 on heroku: https://cs56-{{site.qxx}}-chrislee123-{{page.num}}.herokuapp.com<br>
 </div>
 
 Then, **and this is super important**, please make both of those URLs **clickable urls**.
 
-The instructions for doing so are here: <https://ucsb-cs56-pconrad.github.io/topics/gauchospace_clickable_urls/>
+The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauchospace_clickable_urls/>
 
-# Step 8: Reading more about SparkJava
 
-As preparation for the work we'll do in the rest of the course, start getting familiar with some of the resources about
-the SparkJava framework at this webpage: <https://ucsb-cs56-pconrad.github.io/topics/spark_java/>
+# Grading Rubric:
 
-That web page links to many other webpages.  We'll be exploring those in the weeks to come; getting a head start and doing some exploration on your own is a really good idea.
+* (20 pts) Having a repo that is a fork of <tt>{{page.tutorial_repo_url}}</tt>
+* (20 pts) Having a running web app at <tt>https://cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}.herokuapp.com</tt>
+* (20 pts) Running web app has the correct "new" content as specified in Step 6
+* (20 pts) Test cases are updated for new content, and they pass (Step 7)
+* (10 pts) There is a post on Gauchospace that has the correct content
+* (10 pts) The links on Gauchospace are clickable links (to make it easier to test your app)
+
 
 
 

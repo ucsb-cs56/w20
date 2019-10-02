@@ -2,7 +2,7 @@
 num: Lecture 1
 lecture_date: 2019-09-30
 desc: "Introduction to CS56 and Java"
-ready: false
+ready: true
 pdfurl:
 ---
 
