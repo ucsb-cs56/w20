@@ -116,7 +116,7 @@ You'll be asked for:
 </div>
 
 
-# Step 3: Fork the sparkjava_01 tutorial repo
+# Step 3: Fork the tutorial repo
 
 Fork the tutorial repo into a public copy under your own github account.
 
