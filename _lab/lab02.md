@@ -6,12 +6,12 @@ desc: "Spring Boot and Heroku Hello World"
 assigned: 2019-10-02 18:15
 due: 2018-10-09 23:59
 github_org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/tbd"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2672849"
 tutorial_repo_url: "https://github.com/pconrad/spring-boot-minimal-webapp"
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56-f18.github.io/lab/lab02
+Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab02
 </div>
 
 This is an **individual** lab on the topic of Java web apps on Heroku.
@@ -95,7 +95,7 @@ Then you probably have a disk quota problem.
 
 -   The best way to troubleshoot this, if you cannot log in, is to ask someone else that CAN log in to allow you to use a terminal window on their screen.
     -   Use `ssh yourusername@csil.cs.ucsb.edu` to get into your account from their terminal session.
--   For troubleshooting tips, visit: [CSIL Disk Quota Troubleshooting](topics/csil_disk_quota/)
+-   For troubleshooting tips, visit: [CSIL Disk Quota Troubleshooting](https://ucsb-cs56.github.io/topics/csil_disk_quota/)
 
 # Step 2: Create a Heroku Account
 
@@ -118,9 +118,16 @@ You'll be asked for:
 
 # Step 3: Fork the tutorial repo
 
-Fork the tutorial repo into a public copy under your own github account.
+"Fork" the tutorial repo into a public copy under your own github account.
 
-That repo is here: <{{page.tutorial_repo_url}}>
+To "fork" a repo in Github:
+* Look for the "fork" button in the upper right hand corner of the screen
+* Click it
+* You'll get a  copy of that repo under your own Github id
+* Make a "public" fork.
+
+The repo you are going to fork is here:
+*  <{{page.tutorial_repo_url}}>
 
 You'll need Maven for this lab.
 
@@ -165,7 +172,7 @@ heroku login
 ```
 
 > NOTE: If the `heroku login` command doesn't work, you can instead create the Heroku App at the Heroku Dashboard by
-> visiting <https://https://dashboard.heroku.com/apps>, clicking (at upper right):  "New&nbsp;=>&nbsp;Create New App" and
+> visiting <https://dashboard.heroku.com/apps>, clicking (at upper right):  "New&nbsp;=>&nbsp;Create New App" and
 > then creating an app with the name <tt>heroku create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> as explained in > the instructions below.
 >
 
