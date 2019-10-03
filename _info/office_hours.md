@@ -11,7 +11,7 @@ Conrad holds office hours for one hour following lecture on Mon/Wed in Phelps 35
 For the open lab hours (TA/Mentor):
 
 <style>
-  iframe { width: 100%; height: 1400px; overflow: scroll; }  
+  iframe { width: 100%; height: 1000px; overflow: scroll; }  
 </style>
 
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkxkaJqWiDodK7H7mYLgHqWjeOKTvs4xEXZA-SHpcDS2pWXhyo78H_QZ4g7f9AHI39H4SDEmTXj_Gg/pubhtml?gid=565120170&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
