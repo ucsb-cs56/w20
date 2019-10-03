@@ -42,19 +42,18 @@ Step-by-Step
 # Step 0: Set up your repo
 
 You may work individually or as a pair on this lab.  However, if you work as a pair, please:
-* Work with someone *else* from your same team (i.e. someone else assigned to the same mentor as you)
-* Work with someone *different* from who you worked with on lab02.
+* Pair with someone *different* from who you paired with before
+* Pair with someone from your same lab section (5, 6 or 7pm)
 * Remember to name the repo correctly, and also to add your pair on Gradescope each time you submit
 
 If there is some reason this is not feasible, please check with your mentor before starting.
 
-Create your repo the same way you did for [lab01](/lab/lab01/) and [lab02](/lab/lab02/)
+Create your repo the same way you did for [lab01](/lab/lab01/)
    * under the <tt>{{page.org}}</tt> organization
    * name should be <tt>{{page.num}}-githubid</tt> OR <tt>{{page.num}}-githubid1-githubid2</tt> as appropriate
    * private, and initially *empty* (no README.md, .gitignore or LICENSE).
    * add your pair partner as a collaborator
    
-  
 Clone this empty repo into your `~/cs56` directory, or wherever you prefer to work.
 
 The starter code is in <{{page.starter_repo}}>.  Visit that page for the approrpiate URL to add the `starter` remote.
@@ -81,7 +80,7 @@ A few things to notice:
    * `src/main/java/edu/ucsb/cs56/pconrad/menuitems` contains regular Java classes.
    * `src/test/java/edu/ucsb/cs56/pconrad/menuitems` contains the test classes.
    
-Don't change the package from `pconrad` to your name; the autograder is looking for the code under the `edu.ucsb.cs56.pconrad.menuitems` package.
+Don't change the package from `pconrad` to your name; the Gradescope autograder is looking for the code under the `edu.ucsb.cs56.pconrad.menuitems` package.
 So each source file:
 
 * must be under that directory path when it is compiled, and 
