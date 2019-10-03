@@ -9,6 +9,9 @@ github_org: "ucsb-cs56-f19"
 starter_repo: "https://github.com/ucsb-cs56-f19/STARTER_lab04"
 ---
 
+<div style="display:none;">
+https://ucsb-cs56.github.io/f19/labWIP/lab03
+</div>
 
 In this lab:
 
