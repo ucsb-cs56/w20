@@ -155,6 +155,11 @@ So, don't repeat yourself:
 
 # Submitting on Gradescope
 
+NOTE: Before you submit on Gradescope, you must at LEAST have a "stub" for each of the methods that the assignment is expecting. Otherwise, your code will not compile at all.  
+* EVEN IF it compiles perfectly and runs perfectly on your machine, and/or on CSIL, keep in mind that on Gradescope, the code will be compiled against unit tests for ALL of the methods that the assignment expects.
+* YOU CAN get a partial credit grade for partial work IF you write STUBS for all of the methods that compile cleanly.  Those stubs can return any answer (even a wrong answer) that is of the correct type.  But they must EXIST.
+* YOU CANNOT submit on gradescope for partial credit if you haven't made correct stubs for EACH AND EVERY method in the lab spec.  This is going to be true throughout the course.
+
 For this assignment, you should either 
 1. Submit on Gradescope directly from your github repo (recommended), OR
 2. submit a .zip file with your entire directory BY DOWNLOADING THAT .zip FILE FROM GITHUB without unzipping it.
