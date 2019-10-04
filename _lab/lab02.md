@@ -242,8 +242,8 @@ Then:
 * Use git add, git commit, and git push to push your changes to github.
 * Visit the Heroku Dashboard, and you should see that your changes are deploying to the web.
 
-If it works, then the word "Hello" and the words "this repo" should become clickable links.  
-* The words "this repo" should link to your github repo
+If it works, then the words "this github repo" should become clickable links.  
+* The words "this github repo" should link to your github repo
 
 Ok, so far, we haven't really done anything we couldn't have done with a static web page.  But we have gotten a working Java web app running on Heroku, so it's start we can build on.  
 
