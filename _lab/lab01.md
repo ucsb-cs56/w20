@@ -77,7 +77,7 @@ Overview of this lab
     * The following command adds a remote that you can use to get the starter code
         * `git remote add starter git@github.com:ucsb-cs56-m18/STARTER_lab01.git`
     * The following command adds a remote called `origin` that refers to the repo on github.com.  Instead of the URL below, use the URL for YOUR repo, i.e. substitute your github ids in place of `cgaucho01` and ldelplaya99`.
-        * `git remote add origin git@github.com:ucsb-cs56-m18/lab01-cgaucho01-ldelplaya99.git`
+        * <tt>git remote add origin git@github.com:ucsb-cs56-{{site.qxx}}/lab01-cgaucho01-ldelplaya99.git</tt>
 
 7.  Now, pull the starter code into your repo with this command
 
