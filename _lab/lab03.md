@@ -6,7 +6,7 @@ desc: "Testing and Test Case Coverage"
 assigned: 2019-10-03 17:00
 due: 2019-10-11 23:59
 github_org: "ucsb-cs56-f19"
-starter_repo: "https://github.com/ucsb-cs56-f19/STARTER_lab04"
+starter_repo: "https://github.com/ucsb-cs56-f19/STARTER_lab03"
 ---
 
 <div style="display:none;">
@@ -53,7 +53,7 @@ Create your repo the same way you did for [lab01](/lab/lab01/)
    * name should be <tt>{{page.num}}-githubid</tt> OR <tt>{{page.num}}-githubid1-githubid2</tt> as appropriate
    * private, and initially *empty* (no README.md, .gitignore or LICENSE).
    * add your pair partner as a collaborator
-   
+
 Clone this empty repo into your `~/cs56` directory, or wherever you prefer to work.
 
 The starter code is in <{{page.starter_repo}}>.  Visit that page for the approrpiate URL to add the `starter` remote.
@@ -64,7 +64,7 @@ To add the starter as a remote, cd into the repo you cloned, then do:
 <tt>git remote add starter {{page.starter_repo}} </tt>
 </div>
 
-Then do: 
+Then do:
 ```
 git pull starter master
 git push origin master
@@ -79,11 +79,11 @@ A few things to notice:
 * Under `src`, there are two directory trees:
    * `src/main/java/edu/ucsb/cs56/pconrad/menuitems` contains regular Java classes.
    * `src/test/java/edu/ucsb/cs56/pconrad/menuitems` contains the test classes.
-   
+
 Don't change the package from `pconrad` to your name; the Gradescope autograder is looking for the code under the `edu.ucsb.cs56.pconrad.menuitems` package.
 So each source file:
 
-* must be under that directory path when it is compiled, and 
+* must be under that directory path when it is compiled, and
 * must have `package edu.ucsb.cs56.pconrad.menuitems;` as the first line in the file
 
 Here are the commands you'll need as you work with the code. Try them out now.
@@ -103,8 +103,8 @@ Here are the commands you'll need as you work with the code. Try them out now.
 In this lab, you'll be implementing several methods of a class called `MenuItem` that represents
 item on a restaurant Menu.
 
-(There is a follow up lab in which we will add a `Menu` class that uses these menu items; but 
-we need to discuss sorting, `java.lang.Comparable`, `java.util.Comparator`, 
+(There is a follow up lab in which we will add a `Menu` class that uses these menu items; but
+we need to discuss sorting, `java.lang.Comparable`, `java.util.Comparator`,
 and Java lambda expressions in lecture first before we get to that.)
 
 A `MenuItem` represents an item on the menu of a restaurant.  It has three attributes:
@@ -167,19 +167,19 @@ Read these short articles about test coverage before moving to step 4:
 Once you've looked over those, it's time to check your test coverage, which
 we'll do in Step 4.
 
-# Step 4: Checking Test Case Coverage 
+# Step 4: Checking Test Case Coverage
 
 Be sure that you've added your pair partner to your submissions on Gauchospace
 
-Then, check your test coverage: 
+Then, check your test coverage:
 * Run: `mvn test jacoco:report`
 * Then, open the file `target/site/jacoco/index.html` in a browser:
-   * In CSIL or Phelps 3525, from your top level repo directory, use 
+   * In CSIL or Phelps 3525, from your top level repo directory, use
       either `firefox target/site/jacoco/index.html` or `google-chrome target/site/jacoco/index.html`
    * That will also work if you are ssh-ing in to CSIL, but only if you have X11 forwarding enabled.
-   * If working *directly* on your own machine (i.e. not ssh-ing in), you can probably 
+   * If working *directly* on your own machine (i.e. not ssh-ing in), you can probably
       just double-click on the file `target/site/jacoco/index.html` to open it.
- 
+
 Some of the points in the manual inspection may be awarded on the basis of having good test coverage.  
 While 100% test coverage is not always the goal, in this particular exercise, it *should be possible*.   
 
@@ -206,4 +206,3 @@ If there are lines of code that are NOT coverage by tests, add some explanation 
 README.md as to why it wasn't feasible to test those lines of code.
 
 # End of description for {{page.num}}
-
