@@ -190,7 +190,7 @@ Notes:
 
 # Step 5: Login to the Heroku Dashboard
 
-Login to <https://https://dashboard.heroku.com/apps> and look for the <tt>create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> app that you created.
+Login to <https://dashboard.heroku.com/apps> and look for the <tt>create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> app that you created.
 
 You should find a place where you can connect your App to Github.  
 
