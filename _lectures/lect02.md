@@ -5,3 +5,6 @@ desc:
 ready: false
 pdfurl:
 ---
+
+Today we completed this in-class exercise: [IC02]({{'/hwk/ic02' | relative_url}})
+
