@@ -9,11 +9,28 @@ org: ucsb-cs56-f19
 herokuapp: "https://ucsb-cs-github-linker.herokuapp.com/"
 ---
 
-If you find typos or problems with the lab instructions, please report them on Piazza
+# Lab01 Update 10/07/2019
+
+On starting to grade lab01, I realize that one element in the instructinos was not entirely clear, and it turns out to be pretty important to allowing us to grade your work within a reasonable timeframe.
+
+I need each of you to do the following steps:
+* Go back into your README.md file and edit it so that it has the following information:
+   * For both pair partners, add your name and your github id near the top of the file.
+   * Add a link to the repo itself, e.g. https://github.com/ucsb-cs56-f19/lab01-cgaucho99-ldelplaya32
+   * Add a link to your published javadoc: e.g. https://ucsb-cs56-f19.github.io/lab01-cgaucho99-ldelplaya32
+* Then, resubmit on Gradescope.
+
+The reason is that we use these links to determine whether or not you published your Javadoc, which is worth 20 points
+in the grading rubric.
+
+I will extend the deadline to 11:59pm Thursday 10/10/2019 so that I can remind you of this in lecture on Monday, Wednesday, and in lab on Thursday.    
+
+I will also ask you to do this in every future lab, including lab03 (I'm adding that to the instructions now.)
 
 Overview of this lab
 ====================
 
+If you find typos or problems with the lab instructions, please report them on Slack
 
 1. You are encouraged to work with a pair partner on this project.  Don't start working unless you are sitting together.  This should be a true pair partner assignment.    In true pairing, every line of code goes through the minds of two programmers.  Please read this [blog post from the well-known Agile Coach LLewellen Falco](http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html) that explains the idea of **strong-style pairing**.
 
@@ -76,8 +93,8 @@ Overview of this lab
 6.  We are now going to add TWO remotes to this repo.
     * The following command adds a remote that you can use to get the starter code
         * `git remote add starter git@github.com:ucsb-cs56-m18/STARTER_lab01.git`
-    * The following command adds a remote called `origin` that refers to the repo on github.com.  Instead of the URL below, use the URL for YOUR repo, i.e. substitute your github ids in place of `cgaucho01` and ldelplaya99`.
-        * `git remote add origin git@github.com:ucsb-cs56-m18/lab01-cgaucho01-ldelplaya99.git`
+    * The following command adds a remote called `origin` that refers to the repo on github.com.  Instead of the URL below, use the URL for YOUR repo, i.e. substitute your github ids in place of `cgaucho01` and `ldelplaya99`.
+        * <tt>git remote add origin git@github.com:ucsb-cs56-{{site.qxx}}/lab01-cgaucho01-ldelplaya99.git</tt>
 
 7.  Now, pull the starter code into your repo with this command
 
@@ -155,6 +172,11 @@ So, don't repeat yourself:
 
 # Submitting on Gradescope
 
+NOTE: Before you submit on Gradescope, you must at LEAST have a "stub" for each of the methods that the assignment is expecting. Otherwise, your code will not compile at all.  
+* EVEN IF it compiles perfectly and runs perfectly on your machine, and/or on CSIL, keep in mind that on Gradescope, the code will be compiled against unit tests for ALL of the methods that the assignment expects.
+* YOU CAN get a partial credit grade for partial work IF you write STUBS for all of the methods that compile cleanly.  Those stubs can return any answer (even a wrong answer) that is of the correct type.  But they must EXIST.
+* YOU CANNOT submit on gradescope for partial credit if you haven't made correct stubs for EACH AND EVERY method in the lab spec.  This is going to be true throughout the course.
+
 For this assignment, you should either 
 1. Submit on Gradescope directly from your github repo (recommended), OR
 2. submit a .zip file with your entire directory BY DOWNLOADING THAT .zip FILE FROM GITHUB without unzipping it.
@@ -163,8 +185,8 @@ We do NOT recommmend zipping the file up yourself; when folks have tried this, t
 
 # Grading
 
-* Part of your grade is determined by the automatic points assigned  on Gradescope for automated tests.
+* (80 pts) of your grade is determined by the automatic points assigned  on Gradescope for automated tests.
 * The remainder is determined by manual grading using the following rubric:
-   * (25 pts) Did you follow the instructions for setting up your repo? (naming, making it private, pulling in starter code,
+   * (10 pts) Did you follow the instructions for setting up your repo? (naming, making it private, pulling in starter code,
      adding partner as collaborator)
-   * (25 pts) Did you publish your javadoc correctly, link to it from your README, and in general, tidy up your README as indicated?
+   * (10 pts) Did you publish your javadoc correctly, link to it from your README, and in general, tidy up your README as indicated?
