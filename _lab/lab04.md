@@ -140,7 +140,25 @@ In short:
 -   Modify the `.gitignore` anytime there is some other kind of file that you also want git to ignore
 
 
-Step 3: Java Programming
+Step 3: Publish Javadoc and Fix your README!
+--------------------------------------------
+
+These steps are needed to get full credit for the lab.  Up to 10% may be deducted for not following them.
+
+* Find the comment at the top of Polynomial.java where it says "your name here", and add your name (or names)
+* Generate the javadoc with these steps:
+   ```
+   mvn javadoc:javadoc
+   mvn javadoc:test-javadoc
+   ```
+* Use `git add docs` and then do a commit and a push to push the javadocs to github on the master branch
+* Go to your repo settings and find the section for Javadoc, and select "docs/ from master branch"
+  Note that the javadoc will be public even if the repo is private
+* Add your name/github, and your pair partner's name/github to your README.md?
+* Add links to your github repo and to your published javadoc in your README.md?
+
+
+Step 4: Java Programming
 ------------------------
 
 Your programming task in this lab can be described very simply:
@@ -328,6 +346,7 @@ There may be additional deductions, however if you failed to follow any of the f
 * Did you follow the instructions for setting up your repo? (naming, making it private, pulling in starter code,
      adding partner as collaborator)
 * Is the code you submitted to Gradescope that same as the latest code that you've pushed to Github?
-* Did you publish your javadoc correctly, link to it from your README, and in general, tidy up your README, and make changes to build.xml as indicated?
+* Did you add your name/github, and your pair partner's name/github to your README.md?
+* Did you add links to your github repo and to your published javadoc in your README.md?
 * Are your commit messages in the proper form, with the initials of driver/navigator and with reasonable messages describing the changes in each commit?
    
