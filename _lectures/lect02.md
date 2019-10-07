@@ -2,7 +2,7 @@
 num: Lecture 2
 lecture_date: 2019-10-02
 desc: What makes a good team?
-ready: false
+ready: true
 pdfurl:
 ---
 
