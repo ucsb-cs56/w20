@@ -50,6 +50,9 @@ offering_menus:
       - title: Cal
         url: /info/calendar/
         description: "Assignment Calendar"
+      - title: OfcHrs
+        url: /info/office_hours/
+        description: "Office Hours"
       - title: Github
         dropdown:
            - title: ucsb-cs56-f19
