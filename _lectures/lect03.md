@@ -2,9 +2,14 @@
 num: Lecture 3
 lecture_date: 2019-10-07
 desc:
-ready: false
+ready: true
 pdfurl:
 ---
+
+# Homeworks distributed
+
+* We distributed H04, H05, H06, H07 today
+* See the [calendar](/f19/info/calendar) for due dates
 
 # Lab01 Update 10/07/2019
 
