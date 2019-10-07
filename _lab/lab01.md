@@ -9,11 +9,28 @@ org: ucsb-cs56-f19
 herokuapp: "https://ucsb-cs-github-linker.herokuapp.com/"
 ---
 
-If you find typos or problems with the lab instructions, please report them on Piazza
+# Lab01 Update 10/07/2019
+
+On starting to grade lab01, I realize that one element in the instructinos was not entirely clear, and it turns out to be pretty important to allowing us to grade your work within a reasonable timeframe.
+
+I need each of you to do the following steps:
+* Go back into your README.md file and edit it so that it has the following information:
+   * For both pair partners, add your name and your github id near the top of the file.
+   * Add a link to the repo itself, e.g. https://github.com/ucsb-cs56-f19/lab01-cgaucho99-ldelplaya32
+   * Add a link to your published javadoc: e.g. https://ucsb-cs56-f19.github.io/lab01-cgaucho99-ldelplaya32
+* Then, resubmit on Gradescope.
+
+The reason is that we use these links to determine whether or not you published your Javadoc, which is worth 20 points
+in the grading rubric.
+
+I will extend the deadline to 11:59pm Thursday 10/10/2019 so that I can remind you of this in lecture on Monday, Wednesday, and in lab on Thursday.    
+
+I will also ask you to do this in every future lab, including lab03 (I'm adding that to the instructions now.)
 
 Overview of this lab
 ====================
 
+If you find typos or problems with the lab instructions, please report them on Slack
 
 1. You are encouraged to work with a pair partner on this project.  Don't start working unless you are sitting together.  This should be a true pair partner assignment.    In true pairing, every line of code goes through the minds of two programmers.  Please read this [blog post from the well-known Agile Coach LLewellen Falco](http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html) that explains the idea of **strong-style pairing**.
 
