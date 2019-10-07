@@ -2,7 +2,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
-remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme
+remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme@pcFixWIP
 
 url: https://ucsb-cs56.github.io # the base hostname & protocol for your site
 baseurl: /f19  # the subpath of your site, e.g. "/blog"
