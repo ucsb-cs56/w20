@@ -207,11 +207,11 @@ anything.
    * Run the entire test suite each time, to make sure that when you get one test to pass, you don't break something else.
 3. I suggest you then focus on these methods first, since they don't depend on anything else, and they are useful when
    getting other things to work:
-
+   * `public static int degreeOfPolynomialCoeffsLowToHigh(int [] coeffsLowToHigh)`
+   * `public static int degreeOfPolynomialCoeffsHighToLow(int [] coeffsHighToLow)`
    * `public static int [] lowToHigh(int [] coeffsHighToLow)`
    * `public static int [] highToLow(int [] coeffsLowToHigh)` 
-   * `public static int indexFirstNonZeroCoeffsLowToHigh(int [] coeffsLowToHigh)`
-   * `public static int indexFirstNonZeroCoeffsHighToLow(int [] coeffsHighToLow)`
+
 
 4. Then, tackle these as a group.  There is a bit of a chicken and egg problem here, because
    the `equals` method is used by JUnit, and until it is correct, the JUnit test results
