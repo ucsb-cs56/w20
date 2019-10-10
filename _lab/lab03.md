@@ -4,7 +4,7 @@ num: lab03
 ready: true
 desc: "Testing and Test Case Coverage"
 assigned: 2019-10-03 17:00
-due: 2019-10-11 23:59
+due: 2019-10-12 16:59
 github_org: "ucsb-cs56-f19"
 starter_repo: "https://github.com/ucsb-cs56-f19/STARTER_lab03"
 ---
