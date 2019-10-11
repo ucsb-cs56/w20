@@ -153,9 +153,10 @@ These steps are needed to get full credit for the lab.  Up to 10% may be deducte
    ```
 * Use `git add docs` and then do a commit and a push to push the javadocs to github on the master branch
 * Go to your repo settings and find the section for Javadoc, and select "docs/ from master branch"
-  Note that the javadoc will be public even if the repo is private
-* Add your name/github, and your pair partner's name/github to your README.md?
-* Add links to your github repo and to your published javadoc in your README.md?
+  * Note that the javadoc will be public even if the repo is private
+  * Note that you may need to append `/apidocs` to the generated URL 
+* Add your name/github, and your pair partner's name/github to your README.md
+* Add links to your github repo and to your published javadoc in your README.md
 
 
 Step 4: Java Programming
