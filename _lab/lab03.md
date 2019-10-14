@@ -13,6 +13,46 @@ starter_repo: "https://github.com/ucsb-cs56-f19/STARTER_lab03"
 https://ucsb-cs56.github.io/f19/labWIP/lab03
 </div>
 
+
+
+# Lab03 Update 10/13/2019
+
+Last Monday and Wednesday 10/07/2019 and 10/09/2019 in lecture I mentioned that we were
+not generating the javadoc for lab03.  However, both the instructions and the grading
+rubric on Gradescope were sending a different message.
+
+Accordingly, I've now updated the instructions, and am providing a few extra days
+in case you want to review your submission.
+
+If your score on Gradescope shows 100%, there is no action you need to take.
+
+Otherwise, if you have a score less than 100% and want to try to increase your score,
+you have until the deadline shown on Gradescope to try to get additional test
+cases to pass, or troubleshoot whatever may be going awry.
+
+To review: the reason we are not generating the javadoc is that when jacoco test
+coverage reports are generated along side javadoc and published to Github pages,
+it leakes the source code.  That is of course not a good idea for a closed source
+assignment, since it may lead to a temptation of academic dishonesty.
+
+We are looking into alternative means to publish javadoc and jacoco reports in a way
+that makes it possible for the students authoring the repo and the course staff to
+see them, but no-one else.
+
+Also: if you had trouble with the `mvn jacoco:report` command:
+* It might be because the lab instructions said to run:<br>
+  `mvn jacoco:report site:deploy`.
+* That is actually doing two commands in one:
+  ```
+  mvn jacoco:report
+  mvn site:deploy
+  ```
+* The first one is fine, but the second one was disabled in the `pom.xml`
+* If you just try `mvn jacoco:report` after doing `mvn test`, it should work fine.
+* To see the resuts, look at `target/site/jacoco/index.html` in a browser.
+
+# lab03
+
 In this lab:
 
 -   using Maven instead of Ant
@@ -88,14 +128,14 @@ So each source file:
 
 Here are the commands you'll need as you work with the code. Try them out now.
 
-| To do this | Type this command |
-|-|-|
-| compile the code | `mvn compile` |
-| reset everything | `mvn clean` |
-| run the tests | `mvn test` |
-| generate javadoc | `mvn javadoc:javadoc site:deploy` |
-| generate a report of test coverage | `mvn test jacoco:report site:deploy` |
-| generate a jar file | `mvn package` |
+| To do this | Type this command | Notes |
+|-|-|-|
+| compile the code | `mvn compile` | |
+| reset everything | `mvn clean` | | 
+| run the tests | `mvn test` | |
+| generate javadoc | `mvn javadoc:javadoc site:deploy` | Don't do this for lab03 |
+| generate a report of test coverage | `mvn test jacoco:report ` | Leave out the `site:deploy` |
+| generate a jar file | `mvn package` | |
 
 
 # Step 2: Start writing code to make tests pass
