@@ -6,6 +6,12 @@ ready: true
 pdfurl:
 ---
 
+# A little bit of Spring Boot
+
+* <https://github.com/pconrad/spring-boot-minimal-webapp>
+
+Let's look at the `src/main/resources/templates` folder
+
 # Graded Homework Update
 
 * H00, H01, H02, and H03 are now graded, and the grades are posted to Gradescope.
@@ -13,7 +19,7 @@ pdfurl:
   via Slack message right away.
 * Use [GradeScope Regrade Requests](https://ucsb-cs56.github.io/topics/gradescope_regrade_requests/) to ask grading questions about anything that was graded via Gradescope   
 * lab00 and lab01 are updated and posted to Gradescope also
-  
+    
 
   
 # You should be on Slack
