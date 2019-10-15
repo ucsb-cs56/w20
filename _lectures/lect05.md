@@ -9,6 +9,9 @@ pdfurl:
 # A little bit of Spring Boot
 
 * <https://github.com/pconrad/spring-boot-minimal-webapp>
+   * This is the one we used for lab02
+* <https://github.com/pconrad-webapps/spring-boot-thymeleaf-bootstrap-from-cdn>
+   * This is the logical next "tiny step"
 
 Let's look at the `src/main/resources/templates` folder
 
