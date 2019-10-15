@@ -151,6 +151,16 @@ These steps are needed to get full credit for the lab.  Up to 10% may be deducte
    mvn javadoc:javadoc
    mvn javadoc:test-javadoc
    ```
+   
+* If the following line appears in your `.gitignore`
+  ```
+  docs
+  ```
+  Then change it to:
+  ```
+  docs/jacoco
+  ```
+  That line may already be `docs/jacoco` depending on when you started the lab.
 * Use `git add docs` and then do a commit and a push to push the javadocs to github on the master branch
 * Go to your repo settings and find the section for Javadoc, and select "docs/ from master branch"
   * Note that the javadoc will be public even if the repo is private
