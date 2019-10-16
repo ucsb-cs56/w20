@@ -6,6 +6,11 @@ ready: true
 pdfurl:
 ---
 
+# lab04 questions
+
+* The Secret Tests: how do you go about debugging those?
+   * Some hints
+
 # Today's Spring Boot Content:
 
 Pull Request: <https://github.com/ucsb-cs56-f19/ucsb-course-search/pull/2/files>
@@ -19,3 +24,6 @@ Pull Request: <https://github.com/ucsb-cs56-f19/ucsb-course-search/pull/2/files>
 * SPIKE vs. a real dev branch.
 
 # Today's Java content: Sorting
+
+* Review: Lambda functions <https://ucsb-cs56.github.io/tutorials/rational_ex14/>
+* Today's content: Sorting <https://ucsb-cs56.github.io/tutorials/rational_ex15/>
