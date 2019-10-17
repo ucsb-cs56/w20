@@ -20,8 +20,7 @@ Pull Request: <https://github.com/ucsb-cs56-f19/ucsb-course-search/pull/2/files>
 * Doing it as a pull request
 * Checking out a version of the code from before the pull request
 * Checking out the version from after the pull request
-* Checking out a development branch (SPIKE)
-* SPIKE vs. a real dev branch.
+
 
 # Today's Java content: Sorting
 
