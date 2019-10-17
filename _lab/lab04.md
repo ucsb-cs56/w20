@@ -43,8 +43,8 @@ And add in these lines:
 
 ```xml
     <configuration>
-		  <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-		</configuration>
+       <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+    </configuration>
 ```
 
 This tells Maven to skip the "dependency report" when generating the site.  This will make the site:deploy command go a lot faster.
