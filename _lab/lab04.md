@@ -41,7 +41,7 @@ docs
 That should allow you to do:
 
 ```
-mvn javadoc:javadoc site:deploy
+mvn javadoc:javadoc site:site site:deploy
 ```
 
 And then, if you do:
