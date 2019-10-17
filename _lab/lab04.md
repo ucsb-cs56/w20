@@ -340,7 +340,7 @@ Even if you "solo programmed" this lab, you may want to see if you can find some
 
 ### Updating javadoc
 
-If you are working along, right before you do the final submission, do a "git commit", "git push" and then run "ant javadoc".
+If you are working along, right before you do the final submission, do a "git commit", "git push" and then run "mvn javadoc:javadoc".
 
 Then do the steps to publish the updated javadoc to your public repo.
 
