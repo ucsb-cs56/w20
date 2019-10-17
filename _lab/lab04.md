@@ -27,7 +27,7 @@ It should go:
   </distributionManagement>
 ```
 
-You should also find this part of the `pom.xml`
+You should also find this part of the `pom.xml` by searching for the string `org.apache.maven.plugins`
 
 ```xml
 <plugin>
