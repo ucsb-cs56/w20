@@ -11,7 +11,11 @@ starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab04"
 
 # UPDATE: 7pm, Wed October 16, 2019
 
-In order to get the Javadoc to publish correctly to GitHub Pages, you will need to add this to your `pom.xml`.   It should go right before the `<build>` open tag:
+In order to get the Javadoc to publish correctly to GitHub Pages, you will need to add this to your `pom.xml`.   
+
+It should go:
+* right *after* the `</dependencies>` close tag 
+* right *before* the `<build>` open tag:
 
 ```xml
   <!-- For use with github pages, to publish the site to the /docs subdirectory -->	
