@@ -27,6 +27,28 @@ It should go:
   </distributionManagement>
 ```
 
+You should also find this part of the `pom.xml`
+
+```xml
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-site-plugin</artifactId>
+	<version>3.3</version>
+</plugin>
+```
+
+And add in these lines:
+* *after* the line `<version>3.3</version>`
+* *before* the close tag `</plugin>
+
+```xml
+    <configuration>
+		  <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+		</configuration>
+```
+
+This tells Maven to skip the "dependency report" when generating the site.  This will make the site:deploy command go a lot faster.
+
 Then, make sure that your `.gitignore` has this in it:
 
 ```
