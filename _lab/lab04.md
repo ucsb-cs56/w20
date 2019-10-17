@@ -9,6 +9,50 @@ github_org: "ucsb-cs56-f19"
 starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab04"
 ---
 
+# UPDATE: 7pm, Wed October 16, 2019
+
+In order to get the Javadoc to publish correctly to GitHub Pages, you will need to add this to your `pom.xml`.   It should go right before the `<build>` open tag:
+
+```xml
+  <!-- For use with github pages, to publish the site to the /docs subdirectory -->	
+  <distributionManagement>	
+    <site>	
+      <id>website</id>	
+      <url>file://${project.basedir}/docs/</url>	
+    </site>	
+  </distributionManagement>
+```
+
+Then, make sure that your `.gitignore` has this in it:
+
+```
+docs/jacoco
+```
+But that it does NOT have this in it:
+
+```
+docs
+```
+
+That should allow you to do:
+
+```
+mvn javadoc:javadoc site:deploy
+```
+
+And then, if you do:
+
+```
+git add docs
+git commit -m "add javadoc to repo"
+git push origin master
+```
+
+And if you go to the settings for your repo and turn on GitHub pages for the `docs` folder of the `master` branch, you should be able to see the docs at the url:
+
+* <https://ucsb-cs56-f19.github.io/your-repo-name/apidocs>
+
+
 In this lab:
 
 -   using inheritance
