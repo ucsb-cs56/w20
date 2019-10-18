@@ -9,6 +9,22 @@ github_org: "ucsb-cs56-f19"
 starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab04"
 ---
 
+# UPDATE 6:20PM, Thu October 17, 2019
+
+If you get a warning about the `summary` attribute on the `<table>` tag when generating Javadoc for lab04, try changing:
+
+```
+<table summary="each row ...">
+```
+
+to just:
+
+```
+<table>
+```
+
+I read in the JN7 text that `<table>` elements were supposed to have `summary` attributes for WAI compliance, but as it turns out, the version of `javadoc` we are using doesn't like that attribute.
+
 # UPDATE: 7pm, Wed October 16, 2019
 
 In order to get the Javadoc to publish correctly to GitHub Pages, you will need to add this to your `pom.xml`.   
