@@ -25,6 +25,9 @@ to just:
 
 I read in the JN7 text that `<table>` elements were supposed to have `summary` attributes for WAI compliance, but as it turns out, the version of `javadoc` we are using doesn't like that attribute.
 
+You may also need to change `<sup>i<sup>` to `<sup>i</sup>`.   That's a typo.
+
+
 # UPDATE: 7pm, Wed October 16, 2019
 
 In order to get the Javadoc to publish correctly to GitHub Pages, you will need to add this to your `pom.xml`.   
