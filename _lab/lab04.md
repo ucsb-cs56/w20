@@ -11,7 +11,7 @@ starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab04"
 
 # UPDATE 6:20PM, Thu October 17, 2019
 
-If you get a warning about the `summary` attribute on the `<table>` tag when generating Javadoc for lab04, try changing:
+If you get a warning about the `summary` attribute on the `<table>` tag when generating Javadoc for lab04, try changing this code in `Polynomial.java` from:
 
 ```
 <table summary="each row ...">
