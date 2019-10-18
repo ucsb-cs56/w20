@@ -21,13 +21,20 @@ This may also be helpful: <https://ucsb-cs56.github.io/tutorials/rational_ex15/>
 
 FINALLY: THIS LAB MUST BE DONE USING Java 11.
 
+<div style="text-align:left;" markdown="1">
+
 CSIL now has Java 11 on it.  Most of you have Java 11 on your machines.
 
 If you don't have Java 11, and you need help getting it, let your mentor/TA know.
 
 Note that `csil-01.cs.ucsb.edu` through `csil-48.cs.ucsb.edu` and the machines in Phelps 3525 have Java 11, but `csil.cs.ucsb.edu` does not.  So don't use `csil.cs.ucsb.edu`.  Use the numbered machines.
 
-If you installed Java 11 but haven't updated Maven, your Maven might be using Java 8.  Check `mvn --version` to check.
+If you installed Java 11 but haven't updated Maven, your Maven might be using Java 8.  
+
+Use `mvn --version` to check.
+
+</div>
+
 </div>
 
 
