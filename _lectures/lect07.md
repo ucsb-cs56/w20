@@ -32,3 +32,10 @@ We won't have to screen scrape anymore to get lots of this data.
 
 We will, however, have to learn how to use APIs.
 
+
+# https request
+
+<https://www.mkyong.com/java/java-https-client-httpsurlconnection-example/>
+
+# Local SSL certificate
+
