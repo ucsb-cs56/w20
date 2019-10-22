@@ -24,3 +24,11 @@ We have a spike here that puts parameter values up on the results page:
 
 * <https://github.com/ucsb-cs56-f19/ucsb-courses-search/tree/pcGetWorkingSearchButtonStandin>
 
+# [`developer.ucsb.edu`](https://developer.ucsb.edu)
+
+There are now APIs for lots of kinds of UCSB data.
+
+We won't have to screen scrape anymore to get lots of this data.
+
+We will, however, have to learn how to use APIs.
+
