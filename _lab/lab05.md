@@ -5,7 +5,7 @@ prev_num: lab03
 ready: true
 desc: "Sorting"
 assigned: 2019-10-17 16:00
-due: 2019-10-25 23:59
+due: 2019-10-28 16:00
 github_org: "ucsb-cs56-f19"
 starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab05"
 ---
