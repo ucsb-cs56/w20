@@ -67,7 +67,7 @@ Also clone this repo as a "sibling" (i.e. side by side in the same directory) wi
 Your starter code will be your <tt>{{page.prev_num}}</tt> repo, with a small number of additional files from: <tt>{{page.starter_repo}}</tt>.  So we'll define a remote for your <tt>{{page.prev_num}}</tt> repo:
 
  
-<tt>git remote add {{page.prev-num}} git@github.com:{{page.github_org}}/{{page.prev_num}}-cgaucho1-ldelplaya22.git</tt>
+<tt>git remote add {{page.prev_num}} git@github.com:{{page.github_org}}/{{page.prev_num}}-cgaucho1-ldelplaya22.git</tt>
    
 Pull from your <tt>{{page.prev_num}}</tt> repo into your <tt>{{page.num}}</tt> repo, and then push to github.
 
