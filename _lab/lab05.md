@@ -89,8 +89,8 @@ proper spots.  In that repo, <{{page.starter_repo}}>, you'll find these files:
 |------|----------|
 | `.gitignore` | root of repo |
 | `pom.xml` | root of repo |
-| `Menu.java` | `src/main/java/edu/ucsb/cs56/pconrad/menuitems` |
-| `MenuTest.java` | `src/test/java/edu/ucsb/cs56/pconrad/menuitems` |
+| `Menu.java` | `src/main/java/edu/ucsb/cs56/pconrad/menuitem` |
+| `MenuTest.java` | `src/test/java/edu/ucsb/cs56/pconrad/menuitem` |
 | `site.xml` | `src/site` (you may need to create this directory) |
 
 To copy these to their proper spots, you could do any of the following.  How you get the file there is up to you.   At this point, you will be expected to have the skills to do that, but if you need some suggestions, here you go:
