@@ -10,6 +10,60 @@ github_org: "ucsb-cs56-f19"
 starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab05"
 ---
 
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+A few updates
+
+<div style="text-align:left;" markdown="1">
+
+1.  There was a typo in the instructions for copying the starter code from <{{page.starter_repo}}> 
+    repo into your new {{page.num}} repo.  
+    
+    Specifically, the path had `menuitems` in it, which should have been `menuitem`.
+    
+    Look under `src/main/java/edu/ucsb/cs56/pconrad/` and if you have a `menuitems` directory,
+    move the files from there into `menuitem` and delete the empty `menuitems` directory, via
+    something like:
+
+    ```
+    cd src/main/java/edu/ucsb/cs56/pconrad
+    git mv menuitems/Menu.java menuitem/Menu.java
+    ```
+    
+    Then commit and push as normal
+
+2.  In {{page.prev_num}} we did NOT generate Javadoc because we found that doing so leaked the details
+    of the Jacoco test coverage reports (which contain all of your source code) onto the public web.
+    
+    But *now* I think we have the `.gitignore` and the `pom.xml` set up properly so that you should be able to
+    publish javadoc via doing:
+    
+    ```
+    mvn javadoc:javadoc
+    mvn site
+    mvn site:deploy
+    ```
+    
+    Then doing a `git add docs`, commiting and pushing it to master, and then enabling GitHub pages for the repo
+    in the repo settings (for the master branch `docs` directory).
+    
+    Please do so; part of the manual grading on Gradescope requires that you do this.
+    
+3.  The manual grading on Gradescope also requires that you:
+
+    * `README.md` has link to repo on github (github.com/ucsb-cs56-f19/...) (5 pts)
+    * `README.md` has link to published javadoc (ucsb-cs56-f19.github.io/...) (5 pts)
+       * Note that this link should be to the actual Javadoc as a webpage on GitHub Pages, not the HTML source for the Javadoc on GitHub.
+    * The links in your `README.md` to published javadoc and repo actually work when clicked on (5 pts)
+    * `README.md` has your first/last names and your github ids (5 pts)
+ 
+Since these instructions were not clear, I'm extending the deadline for lab05 to Monday at 4pm JUST so that you can fix up these aspects of the lab (NOT to give you extra time to work on the programming part).   You really should finish the lab ASAP because it's part of studying for the Midterm exam.
+
+</div>
+
+</div>
+
 <div style="background-color: #dfe; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
 
 You will need to read this article first in order to know how to do
