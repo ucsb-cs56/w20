@@ -50,6 +50,8 @@ A few updates
     
     Please do so; part of the manual grading on Gradescope requires that you do this.
     
+    If this doesn't generate a nice website at the main GitHub pages page, try getting a fresh copy of `pom.xml` from the starter code; we have made a few small updates to try to get the webpage to generate properly.
+    
 3.  The manual grading on Gradescope also requires that you:
 
     * `README.md` has link to repo on github (github.com/ucsb-cs56-f19/...) (5 pts)
