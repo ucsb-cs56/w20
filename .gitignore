@@ -1,4 +1,12 @@
 
+# Java code
+
+*.class
+
+# Java and astyle
+
+*.java.orig
+
 # Standard Jekyll Stuff
 
 _site/
