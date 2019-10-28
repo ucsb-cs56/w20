@@ -74,41 +74,7 @@ public class Food extends Product implements Edible {
 <h1>Code for </h1><h1>`TraderBobs` problem</h1>
 </div>
 
-## FreeCandy.java
-
-{% highlight java linenos %}
-public class FreeCandy implements Edible {
-
-    private int calories;
-    
-    public FreeCandy(int calories) { 
-	this.calories = calories;
-    }
-
-    public int getCalories() {return this.calories;}
-}
-{% endhighlight %}
-
-
-
-## Product.java
-
-
-{% highlight java linenos %}
-public abstract class Product {
-    String name;
-    int price;
-    
-    public int getPrice() { return price; } 
-    public String getName() {return name;}
-
-    public Product(int price, String name) {
-	this.price = price;
-	this.name = name;
-    }
-}
-{% endhighlight %}
-
+Note: `FreeCandy` and `Product` are on [Handout B](handout_b).
 
 <h2 markdown="1" class="page-break-before">Handout A, p. 2</h2>
 

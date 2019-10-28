@@ -38,10 +38,50 @@ td  {
 hr { display:none;}
 
 </style>
+<div class="page1">
+
+
+## FreeCandy.java
+
+{% highlight java linenos %}
+public class FreeCandy implements Edible {
+
+    private int calories;
+    
+    public FreeCandy(int calories) { 
+	this.calories = calories;
+    }
+
+    public int getCalories() {return this.calories;}
+}
+{% endhighlight %}
+
+
+
+## Product.java
+
+
+{% highlight java linenos %}
+public abstract class Product {
+    String name;
+    int price;
+    
+    public int getPrice() { return price; } 
+    public String getName() {return name;}
+
+    public Product(int price, String name) {
+	this.price = price;
+	this.name = name;
+    }
+}
+{% endhighlight %}
+
+
+</div>
 
 <div class="page2 page-break-before">
 
-<h2 markdown="1">Handout B, p. 1</h2>
+<h2 markdown="1">Handout B, p. 2</h2>
 
 <style>
 
