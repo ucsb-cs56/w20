@@ -6,7 +6,7 @@ desc: "Spring Boot OAuth Hello World"
 assigned: 2019-10-31 17:00
 due: 2019-11-05 23:59
 github_org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2765929"
 starter: "https://github.com/ucsb-cs56-f19/STARTER-lab06"
 prev: lab02
 ---
