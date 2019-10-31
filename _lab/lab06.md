@@ -1,7 +1,7 @@
 ---
 layout: lab
 num: lab06
-ready: false
+ready: true
 desc: "Spring Boot OAuth Hello World"
 assigned: 2019-10-31 17:00
 due: 2019-11-05 23:59
