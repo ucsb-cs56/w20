@@ -37,5 +37,21 @@ http.permitAll();
 http.anyRequest();
 http.authenticated();
 ```
-            
+           
+           
+We also discussed that the forEach and the for loop here are equivalent:
+
+```
+         Iterable<ClientRegistration> iterable;
+         iterable = ((Iterable<ClientRegistration>) clientRegistrationRepository);
+-        iterable.forEach(clientRegistration -> urls.put(clientRegistration.getClientName(),
+-                "/oauth2/authorization/" + clientRegistration.getRegistrationId()));
++        // cr = clientRegistration
++        // iterable.forEach(cr -> urls.put(cr.getClientName(),"/oauth2/authorization/" + cr.getRegistrationId()));
++
++        for (var cr : iterable) {
++            urls.put(cr.getClientName(),"/oauth2/authorization/" + cr.getRegistrationId());
++        }
++
+```
        
