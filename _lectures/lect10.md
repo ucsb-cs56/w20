@@ -9,3 +9,8 @@ pdfurl:
 Spring Boot With OAuth: <https://github.com/pconrad-webapps/spring-boot-thymeleaf-bootstrap-oauth>
 
 UCSB Courses Search: <https://github.com/ucsb-cs56-f19/ucsb-courses-search>
+
+# Terminology from today's lecture
+
+* OAuth: a way of delegating authentication to, e.g. Github, Facebook, Google
+* Bootstrap: CSS/JS framework for making our apps responsive and attractive(?)
