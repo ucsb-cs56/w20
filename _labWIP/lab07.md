@@ -368,8 +368,26 @@ You can do this by going to the pull request menu on github.com for your repo.
 
 Here's what a PR should look like for this branch:
 
+<<<<<<< Updated upstream
 ![](newpr-01.png)
 {:width="600" height="800"}
+=======
+![](newpr-01-30.png)
+
+Create the pull request.
+
+Then merge the pull request into the master branch.   You do this on the Github website by clicking the green "Merge" button.
+
+After you do that, at the command line, do this:
+
+```
+git checkout master
+git pull origin master
+```
+
+This should pull the changes into the master branch on your local repo.  Try running `mvn clear test` again to be sure.
+
+Then you are ready for the next step.
 
 ## Step 4: javadoc, jacoco, website
 
