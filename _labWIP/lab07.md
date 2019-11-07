@@ -369,7 +369,7 @@ You can do this by going to the pull request menu on github.com for your repo.
 Here's what a PR should look like for this branch:
 
 ![](newpr-01.png)
-
+{:width="600" height="800"}
 
 ## Step 4: javadoc, jacoco, website
 
