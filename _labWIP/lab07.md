@@ -205,6 +205,172 @@ git checkout -b xxFixFailingTests
 
 Now we are ready to look at the code that needs to be fixed.
 
+Running `mvn test` shows us two tests that are failing:
+
+```
+HomePageTest.getHomePage_BootstrapLoaded:43 Status expected:<200> but was:<302>
+[ERROR]   HomePageTest.getHomePage_hasCorrectTitle:54 XPath //title expected:<Getting Started: Serving Web Content> but was:<Title of your page goes here>
+```
+
+Let's tackle these one at a time.
+
+First, open up the file `src/test/java/hello/HomePageTest.java` and look for the method `getHomePage_hasCorrectTitle` at line `54`.
+
+Notice that this comes directly from the test failure message.  JUnit test output may look very messy at first, but when you learn how to read it, you can find exactly where to go in the code to fix a problem.
+
+What we see is that this test is looking for the `<title>` element on the home page (i.e. `/`).
+
+It is looking for that to be the value 
+```
+Getting Started: Serving Web Content
+```
+
+But what it is finding instead is:
+
+```
+Title of your page goes here
+```
+
+Neither of those, however, is really a good title for our page.  Let's change the test so that it is looking for:
+
+```
+CS56 Spring Boot Practice App
+```
+
+After making this change, run the test again with , and it should fail again, but with the message that it was expecting `"CS56 Spring Boot Practice App"` and it got instead `"Getting Started: Serving Web Content"`.
+
+Now, we need to find the actual place in the code that has the content `Title of your page goes here`.  Note that when we search for it, we should NOT include the `""`, since those might or might not be part of the code; it depends on where that value is coming from (HTML code, JavaScript code, Thymeleaf template, or Java code).
+
+If you are using a IDE that allows you to search across multiple files, you can use that to search for the string.  However, if you don't know how to do that, it is handy to know this Unix trick you can use at command line.
+
+```
+mvn clean
+grep -r "Title of your page goes here" .
+```
+
+The `grep -r` command recursively searches a directory for a string.  The `""` here are not part of what is being searched for; they tell the Unix shell that `"Title of your page here"` is one argument to `grep`.   The `.` signifies the curent directory.
+
+Here's the output I got:
+
+```
+pconrad$ grep -r "Title of your page goes here" .
+./src/main/resources/templates/page1.html:    <title>Title of your page goes here</title>
+./src/main/resources/templates/index.html:    <title>Title of your page goes here</title>
+./src/main/resources/templates/page2.html:    <title>Title of your page goes here</title>
+pconrad$
+``` 
+
+We can see that this string appears in three files, all of them `html` files under `src/main/resourcs/templates`.  The one we want is `index.html`, since that is the home page of the application.
+
+Side note: I do a `mvn clean` first before I do the `grep -r`.  That's because if I don't, the `grep -r` will also search my `target` directory and come up with many distracting false hits.  The `mvn clean` gets rid of the `target` directory. (It will come back each time I use `mvn` commands to build my project.)
+
+Now, back to coding: change the `<title>` element in `index.html` to the string in our test.
+
+It should look like this (probably on line 4):
+
+```
+<title>CS56 Spring Boot Practice App</title>
+```
+
+Re-run `mvn test`.  The test should now pass.  
+
+So, we'll do a commit with a commit message, where `xx` is replaced by your initials:
+
+```
+git commit -m "xx - fix failing test for title element on home page"
+```
+
+Then, do this (remembering to replace `xx` with your initials for branch name:)
+
+```
+git push origin xxFixFailingTests -u
+```
+
+The `-u` specifies the `upstream` for `git`.  It makes that remote (`origin`) and branch (`xxFixFailingTests`) the default for `git push` unless and until you change the `upstream` to something else.  This is handy if you are going to be doing many commits in a row on the same branch.
+
+We are now going to tackle the other failing test.
+
+The message on this one is:
+```
+HomePageTest.getHomePage_BootstrapLoaded:43 Status expected:<200> but was:<302>
+```
+
+The status code here refers to an HTTP status code.  Each time we make a web request, if we get back a response, that response contains a status code.   
+
+The status code `200` is we get back a reponse  `200`, which signifies `OK`, i.e a normal successful completion of the request.
+
+What we got instead was `302`, which signifies `Found`.   This is used when a URL is being redirected to another URL.   
+
+This is typically a symptom that we are trying to access a page that requires authentication without being authenticated yet.    However, note that this test is supposed to be access the home page, which typically does NOT require authentication.
+
+As it turns out, the test has a simple typo in it.  The test code looks like this:
+
+```
+@Test
+    public void getHomePage_BootstrapLoaded() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+                .andExpect(status().isOk())
+                .andExpect(xpath(BootstrapLiterals.bootstrapCSSXpath).exists());
+        for (String s: BootstrapLiterals.bootstrapJSurls) {
+            String jsXPath = String.format("//script[@src='%s']",s);
+            mvc.perform(MockMvcRequestBuilders.get("/greeting").accept(MediaType.TEXT_HTML))
+              .andExpect(status().isOk())
+              .andExpect(xpath(jsXPath).exists());
+        }
+    }
+```
+
+What is happening here is that the test is trying to load the home page (`get("/")`) and then it makes sure that the page loads ok.
+
+It then tries to ensure that the CSS file for Bootstrap loaded ok.
+
+Finally, it checks that three different JavaScript files loaded ok; it does that in a loop.  But here, we find the typo: 
+
+```
+MockMvcRequestBuilders.get("/greeting")
+```
+
+That is trying to access the page `/greeting` which is a page that doesn't even exist in the web app anymore!   Instead, that call should read:
+
+```
+MockMvcRequestBuilders.get("/")
+```
+
+Note: the part that comes before and after should remain unchanged, so the entire line after the change should read:
+
+```
+mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+```
+
+Make this change.  Then try running `mvn test` again.  
+
+Note: If the tests don't pass because of a "compilation problem" where the class `BootstrapLiterals` cannot be found, try doing
+`mvn clean test` instead.  This cleans out all of the old compiled code  before running the test; it's equivalent to doing:
+
+```
+mvn clean
+mvn test
+```
+
+I have found that sometimes if you get compilation problems, doing a `mvn clean` makes them go away.  Not always; sometimes you really did miss a semicolon or something.  But if it's saying that a given class is not there, when it clearly is, sometimes it's just confused, and a fresh compile fixes things.
+
+At this point, you should have a clean `mvn test` run.  If so, commit your second change to `HomePageTest.java` (remember, your initials, not `xx`)
+
+```
+git add src/main/java/hello/HomePageTest.java
+git commit -m "xx - fix typo in test cases for bootstrap"
+git push 
+```
+
+You should now be ready to do a pull request from this branch to master.
+
+You can do this by going to the pull request menu on github.com for your repo.
+
+Here's what a PR should look like for this branch:
+
+![](newpr-01.png)
+
+
 ## Step 4: javadoc, jacoco, website
 
 We'll set up the javadoc, website, and jacoco report next, and publish it to github pages on the master branch.
