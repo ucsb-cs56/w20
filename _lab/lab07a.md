@@ -26,7 +26,7 @@ We added two items to Step&nbsp;5.
 <div style="text-align:left;" markdown="1">
 
 1.  You need to copy a file called `system.properties` from the starter repo into the root directory.  See the
-    instructions for Step&nbsp;5 for details.  This is needed for running Java&nbsp;11 on Heroku.
+    instructions for Step&nbsp;5b for details.  This is needed for running Java&nbsp;11 on Heroku.
     
 2.  For the 5pm and 6pm labs, there was an error in `pom.xml` at line 186.  (It was fixed before the 7pm lab started).
 
@@ -510,7 +510,7 @@ To get it running on localhost, copy the `localhost.json` from the directory whe
 Type `mvn spring-boot:run` and see if you can access the web app, login, and logout.
 
 
-### Step 5a: Running on Heroku
+### Step 5b: Running on Heroku
 
 Next we'll try getting the app running on Heroku. 
 
