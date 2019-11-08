@@ -114,13 +114,17 @@ If not, try to determine what's wrong first by checking these things:
 
 If you aren't able to figure out what is wrong, seek out help from a mentor, TA, or instructor.
 
-# Step 7: First feature branch: `xxSmallUIFixes`
+## Step 7: First feature branch: `xxSmallUIFixes`
+
+### Step 7a: pull from master
 
 Now, to be sure you have the latest code (in case you changed anything on another computer, or on github), do this in your terminal before proceeding:
 
 ```
 git pull origin master
 ```
+
+### Step 7b: create a feature branch
 
 We will now create a feature branch. The first two letters should be your initials, e.g. `pc`, `ab`, etc.  
 
@@ -132,62 +136,188 @@ Type this (but not literally `xx` unless your first and last name both start wit
 git checkout -b xxSmallUIFixes
 ```
 
-Now on this branch, we are going to first change one unit test.  That test is 
+### Step 7c: Write a failing test
 
-7. We'll then create a feature branch with `git checkout -b branchName`.
+Now on this branch, the change we want to make is to change the
+text for the "brand", which is the item at the upper left hand corner
+of the web page (the thing you click to get home).  
 
+* The current text is "My-Web-App".  
+* We want to change that to "lab07"
 
-   to make some small, simple changes to the static HTML along
-   with writing test cases for those changes.  In the process we'll discuss
-   writing good commit messages, making frequent small commits,
-   and combining changes with the test cases
-   for those changes in single commits.
+So the first thing we do is write a failing test.  The test should:
+* load the home page
+* find that HTML element
+* assert that the contents are `"lab07"`
 
-   We'll finish this step by doing a pull request for that branch,
-   and then merging it into master.
+When we run that test, it should say that it expected `lab07` but found `My-Web-App`.
+
+Here's how an experienced developer would write this test:
+1.  Locate a similar test that already exists in the code.
+
+    In this case, the test `getHomePage_hasCorrectTitle()` in the file
+    `src/test/java/hello/HomePageTest.java` is a good candidate.
+    
+2.  Find the XPath expression for the HTML element 
+    containing `My-Web-App`.  We can do this by right 
+    clicking in the browser 
+    on the text `My-Web-App` and choose "Inspect".
+
+    In Chrome, at least, this brings up a pane where you can 
+    right click on the element, and there is a menu for "Copy".
+    If you go to that menu, one of the options is "Copy XPath".
+
+    The XPath for this element happens to be:
+    `/html/body/div/nav/a`.
+
+3.  We can now copy/paste the `getHomePage_hasCorrectTitle()` test,
+    rename the copied test to `getHomePage_hasCorrectBrand()`.
+
+    We can then change the code as follows:
+
+    From:
+
+    ```
+    .andExpect(xpath("//title").exists())
+    .andExpect(xpath("//title").string("CS56 Spring Boot Practice App"));
+    ```
+
+    To:
+
+    ```
+    .andExpect(xpath("/html/body/div/nav/a").exists())
+    .andExpect(xpath("/html/body/div/nav/a").string("lab07"));
+    ```
+
+This test should fail if we run it, with something like:
+
+```
+java.lang.AssertionError: XPath /html/body/div/nav/a expected:<lab07> but was:<My-Web-App>
+```
+
+### Step 7d: Make the test pass
+
+Then, we can make the test pass by replacing the text in that element.
+
+That text lives inside the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html`, which is where all of the HTML code for the navigation header can be found.
+
+We can change:
+
+```
+ <a class="navbar-brand" href="/">My-Web-App</a>
+```
+
+to 
+
+```
+ <a class="navbar-brand" href="/">lab07</a>
+```
+
+After this, the test should pass.
+
+We can then commit both the change and the test together in a single commit.   *This is professional standard practice*.    
+
+Commit this change.
+
+### Step 7e: Do it again
+
+Now, we want to change the text on the first link from "Page 1" to "Earthquakes".
+
+Write a test that fails.  Then make that test pass.
+
+Use the same technique.  
+
+Once you have this test passing, make another commit on the `xxSmallUIFixes` branch.
+
+### Step 7f: Make a pull request
+
+Now make a pull request for this branch.
+
+When you make the pull request, if Travis-Ci is working properly,
+you should see a small yellow circle that eventually turns into a green check 
+on the list of commits.    
+
+When the pull request shows that the tests have passed, 
+merge the pull request into master.
 
 # Step 8: Next feature branch: `xxCreateForm`
 
+We'll now create a second branch for creating a form.
 
-8. We'll now create a second branch for creating a form.
+Before we create the branch, we need to be sure we are working 
+with a fresh copy of master.  So do:
 
-   On this branch, we will create a simple HTML form using Thymeleaf.
+```
+git checkout master
+git pull origin master
+```
 
-   We'll need to add a controller method that routes the user to this form,
-   and be sure that a link on the navigation menu routes to this page.
+# Step 8a: Next feature branch: `xxCreateForm`
 
-   That page will gather some information from the user, and then
-   echo that information back on a second "results" page.
+Then create a new branch called `xxCreateForm` (as always, `xx` should be your actual initials, not literally `xx`, unless your name
+is, for example, "Xavier Xie".)
 
-   This is an intermediate step; echoing the information back is not
-   useful in and of itself.  In the next step, we'll do something useful
-   with that information.
+# Step 8a: Create the form
 
-   This step will end with a second pull request.  You should then merge
-   that pull request into master.
+On this branch, we will create a simple HTML form using Thymeleaf.
+
+TODO: Write instructions
+
+# Step 8b: Add a controller method for the form
+
+We'll need to add a controller method that routes the user to this form.
+
+TODO: Write instructions
+
+# Step 8c: Add a menu item that routes to the form.
+
+TODO: Write instructions
+
+and be sure that a link on the navigation menu routes to this page.
+
+# Step 8c: Add a controller method for the form results.
+
+TODO: Write instructions
+
+# Step 8e: Add a view for the results page.
+
+
+That page will gather some information from the user, and then
+echo that information back on a second "results" page.
+
+This is an intermediate step; echoing the information back is not
+useful in and of itself.  In the next step, we'll do something useful
+with that information.
+
+# Step 8f: Add tests
+
+In this case, we wrote the code before we wrote the tests.
+
+Ideally, you write the tests first.  But it isn't always feasible, especially when you are learning a new framework.
+
+# Step 8g: Pull request
+
+This step will end with a second pull request.  You should then merge
+that pull request into master.
 
 # Step 9: Next feature branch: `xxCallAPI`
 
-9. In this step, we'll make yet another branch where we do something useful
-   with the information on the results page.  We'll make a call to an API
-   that provides information in JSON format.
+In this step, we'll make yet another branch where we do something useful
+with the information on the results page.  We'll make a call to an API
+that provides information in JSON format.
 
-   In this step we'll only
-   echo that JSON information on the page; it won't yet be in a format
-   that is pleasing to an end user.   But we'll be able to see that we
-   are making progress.
+In this step we'll only
+echo that JSON information on the page; it won't yet be in a format
+that is pleasing to an end user.   But we'll be able to see that we
+are making progress.
 
 # Step 10: Next feature branch: `xxJavaObjects`
 
-10. In this final step, we'll learn how to transform that JSON string into
-    usable Java objects, and use those Java objects to put useful information
-    on the page.
+In this final step, we'll learn how to transform that JSON string into
+usable Java objects, and use those Java objects to put useful information
+on the page.
 
-    There will be one final pull request at this stage, and we'll be done.n
-
-
-# OLD STUFF
-
+There will be one final pull request at this stage, and we'll be done.n
 
 
 
