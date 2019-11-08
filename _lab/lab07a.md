@@ -17,6 +17,27 @@ starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07a
 </div>
 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+A few updates if you are having trouble getting the app running on Heroku.  
+
+We added two items to Step&nbsp;5.
+
+<div style="text-align:left;" markdown="1">
+
+1.  You need to copy a file called `system.properties` from the starter repo into the root directory.  See the
+    instructions for Step&nbsp;5b for details.  This is needed for running Java&nbsp;11 on Heroku.
+    
+2.  For the 5pm and 6pm labs, there was an error in `pom.xml` at line 186.  (It was fixed before the 7pm lab started).
+
+    Check what you have on line 186 to make sure you have the correct version:
+    
+    | WRONG: | `<mainClass>edu.ucsb.cs56.pconrad.menuitem.MenuItem</mainClass>` |
+    | CORRECT: | `<mainClass>hello.Application</mainClass>` 
+
+</div>
+
+</div>
 
 This lab builds on your work from {{page.prev}}.
 
@@ -177,10 +198,13 @@ git push origin master
 
 Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
 
-**Note:** you will need to copy `localhost.json`, `heroku.json`, and `env.sh` from your {{page.prev}} folder, or recreate them as detailed in {{page.prev}}.
+**Note:** you will need to copy `localhost.json`, `heroku.json`, and `env.sh` from your {{page.prev}} folder to the root directory of this lab, or recreate them as detailed in {{page.prev}}. Then you should run `source env.sh` in the root directory of this lab.
 
 
 ## Step 3: Fixing tests in a bug fix branch.
+
+### Step 3a: Seeing that there are test failures
+
 
 Now, type `mvn test`.  You'll see that there
 are some test failures.
@@ -190,11 +214,14 @@ in github in which we fix those problems,
 and then we'll do a pull request to merge that
 branch into master.
 
+### Step 3b: Pull from master
+
 Now, to be sure you have the latest code (in case you changed anything on another computer, or on github), do this in your terminal before proceeding:
 
 ```
 git pull origin master
 ```
+### Step 3c: Create a feature branch
 
 We will now create a feature branch. The first two letters should be your initials, e.g. `pc`, `ab`, etc.  
 
@@ -205,6 +232,8 @@ Type this (but not literally `xx` unless your first and last name both start wit
 ```
 git checkout -b xxFixFailingTests
 ```
+
+### Step 3d: Fix the tests
 
 Now we are ready to look at the code that needs to be fixed.
 
@@ -277,7 +306,9 @@ It should look like this (probably on line 4):
 
 Re-run `mvn test`.  The test should now pass.  
 
-So, we'll do a commit with a commit message, where `xx` is replaced by your initials:
+### Step 3e: Commit the changes
+
+So, now that the tests are passing, we'll do a commit with a commit message, where `xx` is replaced by your initials:
 
 ```
 git commit -m "xx - fix failing test for title element on home page"
@@ -365,13 +396,15 @@ git commit -m "xx - fix typo in test cases for bootstrap"
 git push 
 ```
 
+### Step 3f: Pull Request
+
 You should now be ready to do a pull request from this branch to master.
 
 You can do this by going to the pull request menu on github.com for your repo.
 
 Here's what a PR should look like for this branch:
 
-![](newpr-01-30.png)
+![]({{'/lab/lab07a/newpr-01-30.png' | relative_url }})
 
 Create the pull request.
 
@@ -391,6 +424,8 @@ Then you are ready for the next step.
 ## Step 4: javadoc, jacoco, website
 
 We'll set up the javadoc, website, and jacoco report next, and publish it to github pages on the master branch.
+
+### Step 4a: Fix some javadoc problems
 
 First, though, we'll have to fix some Javadoc issues.  In this case, we'll work directly on the master branch, because we want to be able to see the javadoc publish on github pages.  This is a rare exception to our general rule of working only on feature or bug fix branches.
 
@@ -423,6 +458,8 @@ see a clean run.
 
 Commit this change with an appropriate commit message.
 
+### Step 4b: Fix the pom.xml
+
 Next, we'll need to make a change to the `pom.xml` so that deploying the website works properly.
 
 In the repo <{{page.starter}}> there is a `pom.xml` that you should copy into your repo, replacing the current `pom.xml`.   
@@ -430,6 +467,9 @@ In the repo <{{page.starter}}> there is a `pom.xml` that you should copy into yo
 Next, create a directory called `src/site` and copy the file `site.xml` from <{{page.starter}}>  into `src/site/site.xml`.  
 
 Then commit these changes (the new `pom.xml` and the new `src/site/site.xml`)
+
+### Step 4c: Generate Jacoco Report
+
 
 Next, run these commands:
 
@@ -444,12 +484,18 @@ git add docs
 
 Then do a `git status`.  You should see under the `docs` directory that you now have an `index.html` file as well as a subdirectory for `apidocs` and a subdirectory for `jacoco`.   
 
+### Step 4d: Commit docs directory to master branch
+
+
 Use these commands to push these changes to github pages:
 
 ```
 git commit -m "add javadoc and jacoco report"
 git push origin master
 ```
+
+### Step 4e: Set up GitHub pages
+
 
 Then, visit the settings page of your repo, i.e. 
 
@@ -470,11 +516,27 @@ Commit this change to the master branch.
 
 Now, we'll get the app running on localhost first, then heroku.
 
+### Step 5a: Running on localhost
+
 To get it running on localhost, copy the `localhost.json` from the directory where you worked on {{page.prev}} into your current directory.   You should be able to reuse the client-id and client-secret values, since you are still running on the same web address, i.e. `http://localhost:8080`.
 
 Type `mvn spring-boot:run` and see if you can access the web app, login, and logout.
 
+
+### Step 5b: Running on Heroku
+
+Next we'll try getting the app running on Heroku. 
+
+The first step is that we need to add one more file from the <{{page.starter}}> repo.  Copy the file `system.properties` from that repo into the root of your {{page.num}} repo.  This file contains one line:
+
+```
+java.runtime.version=11
+```
+
+According to [this article](https://devcenter.heroku.com/changelog-items/1489) this is needed if you are using Java 11 on Heroku (instead of Java 8).
+
 Then, following the same steps as you did in {{page.prev}}, get your app working on heroku, under the app name `cs56-f19-lab07-githubid`.
+
 
 That is, your URL should be:
 
@@ -483,7 +545,6 @@ That is, your URL should be:
 You'll have to set up a new Github OAuth app.  You can find the instructions in the README.md for the starter code from {{page.prev}} which you copied into your current lab.
 
 Once you have your app running on heroku, put the link to the running app in the README.md, commit this change with an appropriate commit message, and push that change to master.
-
 
 
 # Final Step: Submitting your work for grading
