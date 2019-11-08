@@ -182,7 +182,7 @@ Check that you see your code on github under the  repo name <tt>{{page.labnum}}-
 
 ## Step 3: Fixing tests in a bug fix branch.
 
-## Step 3a: Seeing that there are test failures
+### Step 3a: Seeing that there are test failures
 
 
 Now, type `mvn test`.  You'll see that there
@@ -193,14 +193,14 @@ in github in which we fix those problems,
 and then we'll do a pull request to merge that
 branch into master.
 
-## Step 3b: Pull from master
+### Step 3b: Pull from master
 
 Now, to be sure you have the latest code (in case you changed anything on another computer, or on github), do this in your terminal before proceeding:
 
 ```
 git pull origin master
 ```
-## Step 3c: Create a feature branch
+### Step 3c: Create a feature branch
 
 We will now create a feature branch. The first two letters should be your initials, e.g. `pc`, `ab`, etc.  
 
@@ -212,7 +212,7 @@ Type this (but not literally `xx` unless your first and last name both start wit
 git checkout -b xxFixFailingTests
 ```
 
-## Step 3d: Fix the tests
+### Step 3d: Fix the tests
 
 Now we are ready to look at the code that needs to be fixed.
 
@@ -285,7 +285,7 @@ It should look like this (probably on line 4):
 
 Re-run `mvn test`.  The test should now pass.  
 
-## Step 3e: Commit the changes
+### Step 3e: Commit the changes
 
 So, now that the tests are passing, we'll do a commit with a commit message, where `xx` is replaced by your initials:
 
@@ -375,7 +375,7 @@ git commit -m "xx - fix typo in test cases for bootstrap"
 git push 
 ```
 
-## Step 3f: Pull Request
+### Step 3f: Pull Request
 
 You should now be ready to do a pull request from this branch to master.
 
@@ -493,7 +493,7 @@ Type `mvn spring-boot:run` and see if you can access the web app, login, and log
 
 Next we'll try getting the app running on Heroku. 
 
-The first step is that we need to add one more file from the <{{page.starter}}> repo.  Copy the file `application.properties` from that repo into the root of your {{page.num}} repo.  This file contains one line:
+The first step is that we need to add one more file from the <{{page.starter}}> repo.  Copy the file `system.properties` from that repo into the root of your {{page.num}} repo.  This file contains one line:
 
 ```
 java.runtime.version=11
