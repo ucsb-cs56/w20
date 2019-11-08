@@ -177,7 +177,7 @@ git push origin master
 
 Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
 
-**Note:** you will need to copy `localhost.json`, `heroku.json`, and `env.sh` from your {{page.prev}} folder, or recreate them as detailed in {{page.prev}}.
+**Note:** you will need to copy `localhost.json`, `heroku.json`, and `env.sh` from your {{page.prev}} folder to the root directory of this lab, or recreate them as detailed in {{page.prev}}. Then you should run `source env.sh` in the root directory of this lab.
 
 
 ## Step 3: Fixing tests in a bug fix branch.
