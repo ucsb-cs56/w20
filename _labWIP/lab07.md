@@ -9,6 +9,7 @@ github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
 prev: lab06
+starter: 
 ---
 
 <div style="display:none" >
@@ -393,7 +394,42 @@ Then you are ready for the next step.
 
 We'll set up the javadoc, website, and jacoco report next, and publish it to github pages on the master branch.
 
-Run these commands:
+First, though, we'll have to fix some Javadoc issues.  In this case, we'll work directly on the master branch, because we want to be able to see the javadoc publish on github pages.  This is a rare exception to our general rule of working only on feature or bug fix branches.
+
+Start by running the command `mvn javadoc:javadoc`.
+
+You'll see that there are some issues in the file `src/main/java/hello/MembershipService.java`.
+
+In particular, a few methods have javadoc comments that lack the `@param` and `@return` items.  We'll fix that.  I'll show you how to do the first one, and you'll figure out how to do the other two.
+
+Change the javadoc for the `isMember` function from:
+
+```
+ /** is current logged in user a member but NOT an admin
+     * of the github org */
+```
+
+To:
+
+```
+   /** check membership
+     * @param oAuth2AuthenticationToken oauth token 
+     * @return is current logged in user a member but NOT an admin of the github org?
+     * */
+```
+
+Make similar changes for the next two methods, as well as the `hasRole` method in `/src/main/java/hello/GithubOrgMembershipService.java`
+
+Then run `mvn javadoc:javadoc`, and you should
+see a clean run.
+
+Commit this change with an appropriate commit message.
+
+Next, we'll need to make a change to the `pom.xml` so that deploying the website works properly.
+
+In the repo <{{page.starter}}> there is a `pom.xml` that you should copy into your repo, replacing the current `pom.xml`.   Do that, and then commit that change.
+
+Next, run these commands:
 
 ```
 mvn javadoc:javadoc
@@ -401,6 +437,7 @@ mvn test
 mvn jacoco:report
 mvn site
 mvn site:deploy
+git add docs
 ```
 
 Then do a `git status`.  You should see under the `docs` directory that you now have an `index.html` file as well as a subdirectory for `apidocs` and a subdirectory for `jacoco`.   
@@ -408,7 +445,6 @@ Then do a `git status`.  You should see under the `docs` directory that you now 
 Use these commands to push these changes to github pages:
 
 ```
-git add docs
 git commit -m "add javadoc and jacoco report"
 git push origin master
 ```
@@ -428,7 +464,6 @@ If it does, then do an additional commit where you add a link to the web page of
 Commit this change to the master branch.
 
 
-
 ## Step 5: Deploy app on localhost and heroku
 
 Now, we'll get the app running on localhost first, then heroku.
@@ -444,6 +479,9 @@ That is, your URL should be:
 `cs56-f19-lab07-githubid.herokuapp.com`.
 
 You'll have to set up a new Github OAuth app.  You can find the instructions in the README.md for the starter code from {{page.prev}} which you copied into your current lab.
+
+Once you have your app running on heroku, put the link to the running app in the README.md, commit this change with an appropriate commit message, and push that change to master.
+
 
 
 # Step 6: Set up repo for Travis-CI
@@ -487,6 +525,9 @@ Now on this branch, we are going to first change one unit test.  That test is
    We'll finish this step by doing a pull request for that branch,
    and then merging it into master.
 
+# Step 8: Next feature branch: `xxCreateForm`
+
+
 8. We'll now create a second branch for creating a form.
 
    On this branch, we will create a simple HTML form using Thymeleaf.
@@ -504,6 +545,8 @@ Now on this branch, we are going to first change one unit test.  That test is
    This step will end with a second pull request.  You should then merge
    that pull request into master.
 
+# Step 9: Next feature branch: `xxCallAPI`
+
 9. In this step, we'll make yet another branch where we do something useful
    with the information on the results page.  We'll make a call to an API
    that provides information in JSON format.
@@ -512,6 +555,8 @@ Now on this branch, we are going to first change one unit test.  That test is
    echo that JSON information on the page; it won't yet be in a format
    that is pleasing to an end user.   But we'll be able to see that we
    are making progress.
+
+# Step 10: Next feature branch: `xxJavaObjects`
 
 10. In this final step, we'll learn how to transform that JSON string into
     usable Java objects, and use those Java objects to put useful information
@@ -522,39 +567,10 @@ Now on this branch, we are going to first change one unit test.  That test is
 
 # OLD STUFF
 
-# Step 1: Create an empty PUBLIC repo called `lab06-githubid`
-
-Create an empty PUBLIC repo called `lab06-githubid` UNDER the
-organization <tt>{{page.github_org}}</tt>.  * Initially, no README.md,
-no `.gitignore`, no license
-
-Clone that repo somewhere and cd into.
-
-Then add this remote:
 
 
-<tt>git remote add starter {{page.starter}}</tt>
 
-Then do:
-
-```
-git pull starter master
-```
-
-# Step 2: Get OAuth working on Localhost
-
-The README.md in the repo itself has instructions for getting the app working on localhost.
-
-Follow these instructions.
-
-# Step 3: Get OAuth working on Heroku
-
-The README.md in the repo itself has instructions for getting the app working on Heroku.
-
-Follow these instructions.
-
-
-# Step 4: Submitting your work for grading
+# Final Step: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
 
@@ -572,13 +588,7 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-* (20 pts) Having a repo that is built with starter code from <tt>{{page.starter}}</tt>
-* (30 pts) Having a running web app at <tt>https://cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i>.herokuapp.com</tt>
-* (30 pts) GitHub OAuth is working in this app.
-* (10 pts) There is a post on Gauchospace that has the correct content
-* (10 pts) The links on Gauchospace are clickable links (to make it easier to test your app)
-
-
+TBA
 
 
 
