@@ -425,6 +425,8 @@ Then you are ready for the next step.
 
 We'll set up the javadoc, website, and jacoco report next, and publish it to github pages on the master branch.
 
+### Step 4a: Fix some javadoc problems
+
 First, though, we'll have to fix some Javadoc issues.  In this case, we'll work directly on the master branch, because we want to be able to see the javadoc publish on github pages.  This is a rare exception to our general rule of working only on feature or bug fix branches.
 
 Start by running the command `mvn javadoc:javadoc`.
@@ -456,6 +458,8 @@ see a clean run.
 
 Commit this change with an appropriate commit message.
 
+### Step 4b: Fix the pom.xml
+
 Next, we'll need to make a change to the `pom.xml` so that deploying the website works properly.
 
 In the repo <{{page.starter}}> there is a `pom.xml` that you should copy into your repo, replacing the current `pom.xml`.   
@@ -463,6 +467,9 @@ In the repo <{{page.starter}}> there is a `pom.xml` that you should copy into yo
 Next, create a directory called `src/site` and copy the file `site.xml` from <{{page.starter}}>  into `src/site/site.xml`.  
 
 Then commit these changes (the new `pom.xml` and the new `src/site/site.xml`)
+
+### Step 4c: Generate Jacoco Report
+
 
 Next, run these commands:
 
@@ -477,12 +484,18 @@ git add docs
 
 Then do a `git status`.  You should see under the `docs` directory that you now have an `index.html` file as well as a subdirectory for `apidocs` and a subdirectory for `jacoco`.   
 
+### Step 4d: Commit docs directory to master branch
+
+
 Use these commands to push these changes to github pages:
 
 ```
 git commit -m "add javadoc and jacoco report"
 git push origin master
 ```
+
+### Step 4e: Set up GitHub pages
+
 
 Then, visit the settings page of your repo, i.e. 
 
