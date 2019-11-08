@@ -8,7 +8,7 @@ assigned: 2019-11-07 17:00
 due: 2019-11-13 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2786079&forceview=1"
 prev: lab06
 starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 ---
@@ -176,6 +176,8 @@ git push origin master
 ```
 
 Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
+
+**Note:** you will need to copy `localhost.json`, `heroku.json`, and `env.sh` from your {{page.prev}} folder, or recreate them as detailed in {{page.prev}}.
 
 
 ## Step 3: Fixing tests in a bug fix branch.
@@ -358,7 +360,7 @@ I have found that sometimes if you get compilation problems, doing a `mvn clean`
 At this point, you should have a clean `mvn test` run.  If so, commit your second change to `HomePageTest.java` (remember, your initials, not `xx`)
 
 ```
-git add src/main/java/hello/HomePageTest.java
+git add src/test/java/hello/HomePageTest.java
 git commit -m "xx - fix typo in test cases for bootstrap"
 git push 
 ```
