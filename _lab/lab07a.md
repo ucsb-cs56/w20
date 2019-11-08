@@ -8,7 +8,7 @@ assigned: 2019-11-07 17:00
 due: 2019-11-13 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2786079&forceview=1"
 prev: lab06
 starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 ---
