@@ -371,10 +371,6 @@ You can do this by going to the pull request menu on github.com for your repo.
 
 Here's what a PR should look like for this branch:
 
-<<<<<<< Updated upstream
-![](newpr-01.png)
-{:width="600" height="800"}
-=======
 ![](newpr-01-30.png)
 
 Create the pull request.
