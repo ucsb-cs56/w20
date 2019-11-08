@@ -388,7 +388,7 @@ git checkout master
 git pull origin master
 ```
 
-This should pull the changes into the master branch on your local repo.  Try running `mvn clear test` again to be sure.
+This should pull the changes into the master branch on your local repo.  Try running `mvn clean test` again to be sure.
 
 Then you are ready for the next step.
 
