@@ -19,7 +19,9 @@ Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07a
 
 <div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
 
-A few updates if you are having trouble getting the app running on Heroku.  We added two items to step 5.
+A few updates if you are having trouble getting the app running on Heroku.  
+
+We added two items to Step&nbsp;5.
 
 <div style="text-align:left;" markdown="1">
 
