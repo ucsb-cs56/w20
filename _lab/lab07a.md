@@ -14,7 +14,7 @@ starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/lab07a
+Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07a
 </div>
 
 
