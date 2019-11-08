@@ -470,11 +470,27 @@ Commit this change to the master branch.
 
 Now, we'll get the app running on localhost first, then heroku.
 
+### Step 5a: Running on localhost
+
 To get it running on localhost, copy the `localhost.json` from the directory where you worked on {{page.prev}} into your current directory.   You should be able to reuse the client-id and client-secret values, since you are still running on the same web address, i.e. `http://localhost:8080`.
 
 Type `mvn spring-boot:run` and see if you can access the web app, login, and logout.
 
+
+### Step 5a: Running on Heroku
+
+Next we'll try getting the app running on Heroku. 
+
+The first step is that we need to add one more file from the <{{page.starter}}> repo.  Copy the file `application.properties` from that repo into the root of your {{page.num}} repo.  This file contains one line:
+
+```
+java.runtime.version=11
+```
+
+According to [this article](https://devcenter.heroku.com/changelog-items/1489) this is needed if you are using Java 11 on Heroku (instead of Java 8).
+
 Then, following the same steps as you did in {{page.prev}}, get your app working on heroku, under the app name `cs56-f19-lab07-githubid`.
+
 
 That is, your URL should be:
 
@@ -483,7 +499,6 @@ That is, your URL should be:
 You'll have to set up a new Github OAuth app.  You can find the instructions in the README.md for the starter code from {{page.prev}} which you copied into your current lab.
 
 Once you have your app running on heroku, put the link to the running app in the README.md, commit this change with an appropriate commit message, and push that change to master.
-
 
 
 # Final Step: Submitting your work for grading
