@@ -17,6 +17,25 @@ starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07a
 </div>
 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+A few updates if you are having trouble getting the app running on Heroku.  We added two items to step 5.
+
+<div style="text-align:left;" markdown="1">
+
+1.  You need to copy a file called `system.properties` from the starter repo into the root directory.  See the
+    instructions for Step&nbsp;5 for details.  This is needed for running Java&nbsp;11 on Heroku.
+    
+2.  For the 5pm and 6pm labs, there was an error in `pom.xml` at line 186.  (It was fixed before the 7pm lab started).
+
+    Check what you have on line 186 to make sure you have the correct version:
+    
+    | WRONG: | `<mainClass>edu.ucsb.cs56.pconrad.menuitem.MenuItem</mainClass>` |
+    | CORRECT: | `<mainClass>hello.Application</mainClass>` 
+
+</div>
+
+</div>
 
 This lab builds on your work from {{page.prev}}.
 
