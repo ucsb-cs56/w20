@@ -360,7 +360,7 @@ I have found that sometimes if you get compilation problems, doing a `mvn clean`
 At this point, you should have a clean `mvn test` run.  If so, commit your second change to `HomePageTest.java` (remember, your initials, not `xx`)
 
 ```
-git add src/main/java/hello/HomePageTest.java
+git add src/test/java/hello/HomePageTest.java
 git commit -m "xx - fix typo in test cases for bootstrap"
 git push 
 ```
