@@ -74,15 +74,45 @@ The next step is to visit the following website, and login with your GitHub acco
 
 <https://travis-ci.org>
 
-Once there, you should try to add your repo `ucsb-cs56-f19/lab07-githubid>
+Once there, at the upper left hand corner of the dashboard, you should see a small plus sign next to the text "My Repositories".  You want to click this `+` sign as shown in this image:
 
+![Travis Dashboard + sign](travis-dashboard-plus-sign-30.png)
 
- then set up the repo for Travis-CI.   This allows us to ensure that all of the test cases are run automatically each time we
-do a pull request from a branch.
+That takes you to a page where you can add the <tt>{{page.org}}</tt> GitHub organization to your authorized organizations for Travis-CI.
 
-Note: there could be complications here with OAuth, i.e. we may need to mock and stub the OAuth stuff to get the test cases to pass if we are checking any pages that require being logged in.
+You might have to scroll down the left column where the text says:
 
-TODO: Enter set up for Travis-CI STEPS
+> MISSING AN ORGANIZATION? <br>
+> <u>Review and add</u> your authorized organizations
+
+On the page, the text "review and add" is a link; if you click it, you should be able to enable Travis-CI access for <tt>{{page.org}}</tt>.
+
+Once you do that, you should be able to see the organization 
+<tt>{{page.org}}</tt> in the left hand column.   If you click on it, you should then be able to see your repo, and enable it for Travis-CI by clicking the small button next to the repo name. 
+
+It can be a bit confusing, but if you are patient with yourself and the site, you'll figure it out.  If after trying for a while, you are still having difficulty, ask a mentor, TA or the instructor for assistance.
+
+Once you've got the repo enabled for Travis-CI, there will a web page specifically for your repo, with the url:
+
+* <https://travis-ci.org/{{page.org}}/{{page.labnum}}-githubid>
+
+where <tt>{{page.org}}/{{page.labnum}}-githubid</tt> is the name of your repo.   On that page, at the upper right, you should be able to find a button with the text "More Options". Click on this reveals the following menu:
+
+![More Options Menu](travis-more-options-menu-30.png)
+
+Clicking on the "Trigger Build" option will bring up this pop-up:
+
+![Trigger Build](travis-trigger-build-30.png)
+
+Here, you can trigger a build for any branch, with the master branch being the default.  Go ahead and trigger a build for your master branch.
+
+You should be able to see on the Travis-Ci page for your repo that the branch build successfully, all the test cases pass, and that you end up "green on master".   (The color green indicates success, i.e. that all the tests passed.)
+
+If not, try to determine what's wrong first by checking these things:
+* When you type `mvn test` locally, do all the tests pass?
+* Do you have a `.travis.yml` committed on the master branch?
+
+If you aren't able to figure out what is wrong, seek out help from a mentor, TA, or instructor.
 
 # Step 7: First feature branch: `xxSmallUIFixes`
 
