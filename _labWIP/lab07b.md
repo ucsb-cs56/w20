@@ -300,23 +300,61 @@ Replace it with this code, which is a heading and a Thymeleaf form:
 TODO
 ```
 
-# Step 8b: Add a controller method for the form
+# Step 8b: Add a bean that corresponds to the form
 
-We'll need to add a controller method that routes the user to this form.
+Thymeleaf and Spring Boot work with Java Beans to move form information around.
 
-TODO: Write instructions
+So we need a Java Bean that corresponds to this form.
 
-# Step 8c: Add a menu item that routes to the form.
+Create a Java class in the same directory as your other Java code called EqSearch.java.
+
+It should be a plain old Java class with these private data members:
+
+```
+ private int distance;
+ private int minmag;
+```
+
+It should also have a no-arg constructor, and getters and setters for each of these fields.
+
+That makes it a "Java Bean".
+
+Note that the Java Bean naming standards are very strict. With names `distance` and `minmag`:
+
+* The getters must be `public int` and named: `getDistance` and `getMinmag`
+* The setters must be `public void` and named `setDistance` and `setMinmag`
+
+If you vary from this, you'll have to be sure that the Thymeleaf code is changed accoringly, so be sure that 
+you follow the conventions strictly.  Everything has to match, or it just won't work.
+
+For example, don't be tempted to use: `getMinMag` unless you are prepared to make that change everywhere in 
+all of the Thymeleaf and Java code, consistently.
+
+Finally, be sure this `EqSearch.java` file is in the same package as the rest of your code.   That package is currently `hello`.
+
+
+# Step 8c: Add a controller method for the form
+
+In order to be able to see this form in the webapp, we need a controller method for it.
+
+In the file `WebController.java`, add this code:
+
+```
+
+```
+
+
+# Step 8d: Add a menu item that routes to the form.
 
 TODO: Write instructions
 
 and be sure that a link on the navigation menu routes to this page.
 
-# Step 8c: Add a controller method for the form results.
+# Step 8e: Add a controller method for the form results.
 
 TODO: Write instructions
 
-# Step 8e: Add a view for the results page.
+# Step 8f: Add a view for the results page.
 
 
 That page will gather some information from the user, and then
@@ -326,13 +364,13 @@ This is an intermediate step; echoing the information back is not
 useful in and of itself.  In the next step, we'll do something useful
 with that information.
 
-# Step 8f: Add tests
+# Step 8g: Add tests
 
 In this case, we wrote the code before we wrote the tests.
 
 Ideally, you write the tests first.  But it isn't always feasible, especially when you are learning a new framework.
 
-# Step 8g: Pull request
+# Step 8h: Pull request
 
 This step will end with a second pull request.  You should then merge
 that pull request into master.
