@@ -327,8 +327,16 @@ The GitHub login/logout is supposed to show your status in the GitHub organizati
 as an `admin`, a `member` or a `guest`.   However, this doesn't work properly unless you add this line into your
 `application.properties` file:
 
+CORRECT: 
 ```
-spring.security.oauth2.client.registration.github.scope: user, read:org
+spring.security.oauth2.client.registration.github.scope: user,read:org
+```
+
+This should replace this incorrect line which may be there in the starter code:
+
+INCORRECT:
+```
+spring.security.oauth2.client.registration.github.scope: "read:user", "read:org"
 ```
 
 Add this in.  For this small change, you may just do a commit directly on the master branch.
