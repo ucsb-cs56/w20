@@ -45,7 +45,23 @@ So, it's fine if the jacoco report shows lots of red.
 
 You can, if you like, start to think about how you would fix that.  But fixing that is *not* part of lab07a.
 
-## This change, though not required, may help you out
+## This change will fix a dead link on your project website
+
+On the project website on GitHub pages, the link to `Javadoc (test code)` may be a dead link.
+
+Although not required for lab07a, you can fix this by doing:
+
+```
+mvn javadoc:test-javadoc
+mvn site:deploy
+git add docs
+```
+
+and then committing the changes.
+
+Generating the javadoc for the files under `src/test/java` is a separate step from generating those under `src/main/java` as it turns out.  
+
+## This change, though not required, may help you with debugging
 
 Here is a change you can make in the file `src/main/resources/application.properties` that, while not *required* for lab07a,
 will reduce the number of errors that you are seeing in the log.  
