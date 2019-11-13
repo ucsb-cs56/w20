@@ -261,7 +261,40 @@ is, for example, "Xavier Xie".)
 
 On this branch, we will create a simple HTML form using Thymeleaf.
 
-TODO: Write instructions
+The form will have two fields in it.  It will be a form that allows the user
+to specify parameters for searching for earthquakes in the last 30 days.
+
+The two parameters will be:
+
+* a distance in kilometers from the UCSB campus (defined for our purposes as
+  Latitude 34.4140° N, Longitude 119.8489° W)
+* a minimum magnitude.  
+
+Copy the file `page1.html` to a file called `earthquakeSearch.html`.
+
+Replace this line of code:
+```
+    <title>Title of your page goes here</title>
+```
+
+with this:
+
+```
+    <title>Earthquake Search</title>
+```
+
+Find the part of the page that reads like this:
+
+```
+<h1>Page 1</h1>
+
+<p>This page is a placeholder.</p>
+```
+
+Replace it with this code, which is a Thymeleaf form:
+
+```
+```
 
 # Step 8b: Add a controller method for the form
 
