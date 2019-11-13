@@ -482,6 +482,25 @@ mvn site:deploy
 git add docs
 ```
 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+An update:
+
+<div style="text-align:left;" markdown="1">
+
+Note: You can also do this step, which was NOT in the original instructions for lab07a when published.
+
+```
+mvn javadoc:test-javadoc
+mvn site:deploy
+git add docs
+```
+
+That should fix the problem that the link to `Javadoc (test code)` is a dead link.  Since this wasn't part of the original instructions, we will not check that link when grading {{page.num}}
+
+</div>
+</div>
+
 Then do a `git status`.  You should see under the `docs` directory that you now have an `index.html` file as well as a subdirectory for `apidocs` and a subdirectory for `jacoco`.   
 
 ### Step 4d: Commit docs directory to master branch
