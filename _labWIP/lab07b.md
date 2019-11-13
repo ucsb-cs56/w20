@@ -317,9 +317,32 @@ In this final step, we'll learn how to transform that JSON string into
 usable Java objects, and use those Java objects to put useful information
 on the page.
 
-There will be one final pull request at this stage, and we'll be done.n
+There will be one final pull request at this stage, and we'll be almost done.
 
+# Step 11: A small fix to `application.properties`
 
+There is one final change to make (if you haven't done it already).
+
+The GitHub login/logout is supposed to show your status in the GitHub organization <tt>{{page.org}}</tt>, either
+as an `admin`, a `member` or a `guest`.   However, this doesn't work properly unless you add this line into your
+`application.properties` file:
+
+```
+spring.security.oauth2.client.registration.github.scope: user, read:org
+```
+
+Add this in.  For this small change, you may just do a commit directly on the master branch.
+
+Before you do, you should accept your previous pull request(s), and then do:
+
+```
+git checkout master
+git pull origin master
+```
+
+Test it, and make sure that when you logout and login, you see `member` by your username.
+
+You can ask a TA, mentor or instructor to try your app as well. They should see `admin` when they login.
 
 # Final Step: Submitting your work for grading
 
