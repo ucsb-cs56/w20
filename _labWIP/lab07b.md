@@ -339,7 +339,10 @@ INCORRECT:
 spring.security.oauth2.client.registration.github.scope: "read:user", "read:org"
 ```
 
+
 Add this in.  For this small change, you may just do a commit directly on the master branch.
+
+If you'd like to understand more about what this change means, you can read more about OAuth Scopes here: <https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/>.
 
 Before you do, you should accept your previous pull request(s), and then do:
 
