@@ -270,9 +270,12 @@ The two parameters will be:
   Latitude 34.4140° N, Longitude 119.8489° W)
 * a minimum magnitude.  
 
-Copy the file `page1.html` to a file called `earthquakeSearch.html`.
+Under `src/main/resources/templates` make a folder called `earthquakes` so that you have:
+`src/main/resources/templates/earthquakes`.
 
-Replace this line of code:
+Copy the file `page1.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
+
+In `search.html`, replace this line of code:
 ```
     <title>Title of your page goes here</title>
 ```
@@ -291,9 +294,10 @@ Find the part of the page that reads like this:
 <p>This page is a placeholder.</p>
 ```
 
-Replace it with this code, which is a Thymeleaf form:
+Replace it with this code, which is a heading and a Thymeleaf form:
 
 ```
+TODO
 ```
 
 # Step 8b: Add a controller method for the form
