@@ -592,5 +592,8 @@ TBA.  It will be 100 points divided across the five steps in the lab.
 | Clickable links on Gauchospace to repo and running Heroku app | 10 | 
 | Heroku app comes up ok | 10 |
 | OAuth works | 10 |
-|             |    |
+| Title is `CS56 Spring Boot Practice App`           |  10  |
+| Test case for `CS56 Spring Boot Practice App`           |  10  |
+| There is a branch named `xxFixFailingTests`          |  10  |
+| There is a pull request for fixing the failing tests   |  10  |
 
