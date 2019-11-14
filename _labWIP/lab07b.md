@@ -470,13 +470,59 @@ Then:
         </table>
 ```
 
+Now try running (you should restart), clicking on your `Earthquake Search` link and entering some numbers.
 
+When you click the `Search` button, you should see the numbers echoed back to you.
+
+If that works, we are ready to add some tests.
 
 # Step 8g: Add tests
 
 In this case, we wrote the code before we wrote the tests.
 
 Ideally, you write the tests first.  But it isn't always feasible, especially when you are learning a new framework.
+
+A thorough job of testing is a whole lab unto itself, so we'll just add a few small tests for now.   
+
+Let me stress it again: the code here in this step is *an inadequate job of testing* the code that we've added in this step.
+But it's at least a start.
+
+First, let's add a test that makes sure that there is indeed a page at the address `/earthquakes/search` and that we can
+retrieve that page without the server crashing.   To do that, we can use the following code, which we'll put into a file called `/src/test/java/hello/EarthquakeSearchTest.java`
+
+```
+package hello;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class EarthquakeSearchTest {
+
+    @Autowired
+    private MockMvc mvc;
+
+    @Test
+    public void getEarthquakeSearch() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/earthquakes/search").accept(MediaType.TEXT_HTML))
+                .andExpect(status().isOk())
+                .andExpect(xpath("//title").exists())
+                .andExpect(xpath("//title").string("Earthquakes Search"));
+    }           
+}
+```
 
 # Step 8h: Pull request
 
