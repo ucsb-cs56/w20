@@ -639,11 +639,45 @@ on the page.
 
 ### Step 10a: Create object for the top level GeoJSON returned
 
-TODO
+Under the directory `src/main/java/hello`, create a subdirectory called `geojson`.
 
+We will be putting the classes that represent the JSON objects into a package called `hello.geojson`.
+
+Putting them into a separate package is a way of keeping them together, and keeping the code organized.
+
+The JSON returned is a specific format called GeoJSON, described here: <https://geojson.org/>
+and in this specification: <https://tools.ietf.org/html/rfc7946>.
+
+As explained in that specification, there are three kinds of GeoJSON objects:
+* Geometry
+* Feature
+* Collection of Features
+
+The JSON we get back is this last kind, a "FeatureCollection".   We'll write a plain old 
+Java Object that represents this FeatureCollection.
+
+Our job initially is to just represent the top level fields in this object that are basic data types: `int`, `String`, `boolean`, etc.   Anything that is an array or an object, we'll leave to a later stage.
+
+We are also, (perhaps controversially), initially going to just use public data members rather than writing getters and setters for each field.  This simplifies our coding greatly.
+
+So, the Java class will look like this:
+
+```java
+package hello.geojson;
+
+public class FeatureCollection {
+  public String type;
+}
+```
+
+That's it!   Everything else at the top level of the JSON returned is an array or an object, so
+we'll leave that off for now.
+
+We won't commit this yet.  We have a bit more code to write first.
+ 
 ### Step 10b: Write method to convert JSON to Object
 
-TODO
+
 
 ### Step 10c: Use object to display results
 
