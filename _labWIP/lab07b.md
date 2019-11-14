@@ -788,6 +788,12 @@ These two lines of code:
 * convert the JSON into a Java object
 * add that object into the model so that we can access it in the view
 
+You will need to add an import for `FeatureCollection` since it is in a different package:
+
+```
+import hello.geojson.FeatureCollection;
+```
+
 To see if it worked, we need to add some code in the view that uses this.   Inside `results.html`, we'll add
 this code right after the `<pre>` element where we display the JSON:
 
@@ -830,9 +836,148 @@ What we've done here is to set up a conversion from JSON objects to
 Java Objects, and that we've demonstrated that we can get values from it in the view.  
 A good commit message would summarize that succintly.
 
-### Step 10d: Create objects for the next levels
+### Step 10d: Create object for the Metadata and display it
 
-TODO
+The next step is pretty straightforward, and pretty magical.    
+
+We just have to look at the structure of the JSON, and create Java objects that match that structure.
+
+* Any time we see an JSON Object (i.e. a new set of `{}` with key/value pairs), we need to create a Java Object to match.
+* Any time we see a JSON Array (i.e. a set of `[]` with values or object inside), we need to create a `java.util.List<>` of the appropriate object.
+
+So, for example, in our `FeatureCollection` object, the second key in the object is `metadata`.  That key refers to an object, in particular, this one:
+
+```json
+"metadata" : {
+   "generated":1573772980000,
+   "url":"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2&maxradiuskm=100&latitude=34.414000&longitude=-119.848900",
+   "title":"USGS Earthquakes",
+   "status":200,
+   "api":"1.8.1",
+   "count":29
+}
+```
+
+We can create an class called `Metadata` in a file `src/main/java/hello/geojson/Metadata.java` with the appropriate fields of the appropriate types:
+
+```
+package hello.geojson;
+
+public class Metadata {
+  public long generated; // need a long for very large ints
+  public String url;
+  public String title;
+  public int status;
+  public String api;
+  public int count;
+}
+```
+
+Once we've done that, we can add this field to the `FeatureCollection` class:
+
+```
+   public Metadata metadata;
+```
+
+With that, we should be able to add these new fields to the table in our view.  In this example,
+I've added only two of them, but you can see how we could add the rest.  
+
+The `<th>` elements are table header elements, and just contain the column headings.  The `<td>` elements
+are table data elements and contain the actual data.
+
+```
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Url</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${featureCollection.type}"></td>
+                    <td th:text="${featureCollection.metadata.url}"></td>
+                    <td th:text="${featureCollection.metadata.count}"></td>
+
+                </tr>
+            </tbody>
+        </table>
+```
+
+Commit these additional changes before moving on.
+
+### Step 10e: Handle the list of features
+
+Let's now do the same thing for the next field in our `FeatureCollection` object, which is `features` in the 
+JSON.  That field is an array of feature objects.  Each feature object has these fields (I've actually omitted
+some for space, and because we really don't need them all.)
+
+```json
+{ 
+  "type":"Feature",
+  "properties": {
+    "mag":2.5899999999999999,
+    "place":"13km SSW of Lompoc, CA",
+    "time":1573538207960,
+    "updated":1573702694943,
+    "tz":-480,
+    "url":"https://earthquake.usgs.gov/earthquakes/eventpage/ci38239258",
+    "detail":"https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=ci38239258&format=geojson",
+    ...
+    [SOME FIELDS OMITTED]
+    ...
+    "type":"earthquake",
+    "title":"M 2.6 - 13km SSW of Lompoc, CA"
+  },
+  "geometry": {
+    "type":"Point",
+    "coordinates":[-120.52800000000001,34.536333300000003,5.4400000000000004]
+  },
+  "id":"ci38239258"
+}
+```
+
+For the Feature object, most of the interesting stuff is inside the `Properties`.  So we'll need to make a Java
+object for both the Feature and the Properties.
+
+The Properties object will look very similar to the `Metadata` object, but this time, instead of putting in 
+all of the properties, we are only going to put in the ones we have an immediate use for.  Others can be added
+later as they are needed.  Put this in a file `Properties.java` under the `hello.geojson` package:
+
+```
+package hello.geojson;
+
+public class Properties {
+  public double mag;
+  public String place;
+  public String type
+  public String title;
+}
+```
+
+The `Feature.java` file will be similar:
+
+```
+package hello.geojson;
+
+public class Feature {
+  public String type;
+  public Properties properties;
+  public String id;
+}
+```
+
+With these in place, we can put the features array into the `FeatureCollection` class.  Add this code
+to `FeatureCollection.java`:
+
+```java
+   public List<Feature> features;
+```
+
+You'll need an import for `java.util.List` in `FeatureCollection.java`.
+
+Now, we'll use these new fields to display some results.
 
 ### Step 10e: Use those objects to display results
 
