@@ -276,13 +276,14 @@ Under `src/main/resources/templates` make a folder called `earthquakes` so that 
 Copy the file `page1.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
 
 In `search.html`, replace this line of code:
-```
+
+```html
     <title>Title of your page goes here</title>
 ```
 
 with this:
 
-```
+```html
     <title>Earthquake Search</title>
 ```
 
@@ -296,7 +297,7 @@ Find the part of the page that reads like this:
 
 Replace it with this code, which is a heading and a Thymeleaf form:
 
-```
+```html
  <h1>Earthquake Search</h1>
 
  <form action="#" th:action="@{/earthquakes/results}" th:object="${eqSearch}" method="get">
@@ -325,7 +326,7 @@ Create a Java class in the same directory as your other Java code called EqSearc
 
 It should be a plain old Java class with these private data members:
 
-```
+```java
  private int distance;
  private int minmag;
 ```
@@ -354,7 +355,7 @@ In order to be able to see this form in the webapp, we need a controller method 
 
 In the file `WebController.java`, add this code:
 
-```
+```java
  @GetMapping("/earthquakes/search")
     public String getEarthquakesSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             EqSearch eqSearch) {
@@ -381,7 +382,7 @@ To make it easier to get to this form, we'll add a link to it to our navigation 
 
 In the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html` you should find this code:
 
-```
+```html
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -398,7 +399,7 @@ In case we haven't mentioned it before: it is important to understand that an HT
 
 What you'll be doing is adding a new `<li>` element in between those two, so that the code looks like this:
 
-``` 
+```html
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -415,17 +416,61 @@ Run this, and you should see that there is now a link on the navigation bar that
 
 # Step 8e: Add a controller method for the form results.
 
-TODO: Write instructions
+Now we need a controller method for displaying the results.
+
+That controller method will look like this:
+
+```java
+ @GetMapping("/earthquakes/results")
+    public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+            EqSearch eqSearch) {
+        model.addAttribute("eqSearch", eqSearch);
+        // TODO: Actually do the search here and add results to the model
+        return "earthquakes/results";
+    }
+```
+
+The additional step in this controller method is that we have this line of code:
+
+```
+        model.addAttribute("eqSearch", eqSearch);
+```
+
+This allows us to send information to the view (i.e. to the Thymeleaf HTML file) that we can display on the results page.
+
+For now all we are doing is echoing back the information that the user entered.  But in a later step, we will replace this comment:
+
+```        
+// TODO: Actually do the search here and add results to the model
+
+```
+
+That comment will be replace with code that actually goes out to the web to get information on earthquakes.  We'll retreive that information and add it to the model.   That will make it available in the view.
 
 # Step 8f: Add a view for the results page.
 
+The view page `results.html` will be very similar to the page `search.html`.  Create it in the same directory,
+i.e. `src/main/resources/templates/earthquakes`.   Start by copying all of the code from `search.html`. 
 
-That page will gather some information from the user, and then
-echo that information back on a second "results" page.
+Then:
+* Change the `title` element and the `h1` element to be `Earthquake Search Results`.
+* Remove the `form` element entirely.
+* Replace it with this `table` element:
 
-This is an intermediate step; echoing the information back is not
-useful in and of itself.  In the next step, we'll do something useful
-with that information.
+```html
+         <table>
+            <tr>
+                <th>Distance (km)</th>
+                <td th:text="${eqSearch.distance}"></td>
+            </tr>
+            <tr>
+                <th>Minimum Magnitude</th>
+                <td th:text="${eqSearch.minmag}"></td>
+            </tr>
+        </table>
+```
+
+
 
 # Step 8g: Add tests
 
