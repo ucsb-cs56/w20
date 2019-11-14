@@ -587,3 +587,10 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 TBA.  It will be 100 points divided across the five steps in the lab.
 
 
+| Rubric Item | Points |
+|-------------|--------|
+| Clickable links on Gauchospace to repo and running Heroku app | 10 | 
+| Heroku app comes up ok | 10 |
+| OAuth works | 10 |
+|             |    |
+
