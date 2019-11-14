@@ -297,7 +297,22 @@ Find the part of the page that reads like this:
 Replace it with this code, which is a heading and a Thymeleaf form:
 
 ```
-TODO
+ <h1>Earthquake Search</h1>
+
+ <form action="#" th:action="@{/earthquakes/results}" th:object="${eqSearch}" method="get">
+            <table>
+                <tr class="form-group">
+                    <th><label for="distance" class="col-form-label">Distance (km)</label></th>
+                    <td><input type="number" th:field="*{distance}" class="form-control" id="distance"></td>
+                </tr>
+                <tr class="form-group">
+                    <th><label for="minmag" class="col-form-label">Minimum Magnitude</label></th>
+                    <td><input type="number" th:field="*{minmag}" class="form-control" id="minmag"></td>
+                </tr>
+            </table>
+
+            <input type="submit" class="btn btn-primary" value="Search">
+        </form>
 ```
 
 # Step 8b: Add a bean that corresponds to the form
@@ -340,15 +355,63 @@ In order to be able to see this form in the webapp, we need a controller method 
 In the file `WebController.java`, add this code:
 
 ```
-
+ @GetMapping("/earthquakes/search")
+    public String getEarthquakesSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+            EqSearch eqSearch) {
+        return "earthquakes/search";
+    }
 ```
 
+This code says
+* we are going to have an endpoint in the application at the web address `/earthquakes/search`
+* that endpoint will use the HTTP `GET` method (rather than `POST`, for example).  
+  A `GET` request is the normal way of loading
+  a web page from a URL or a link.
+* That endpoint takes three parameters
+   * The first two are needed to support the navigation bar and login/logout; we won't worry about those for now.
+   * The third one is the Java Bean that is referred to in the form, `eqsearch`.  
+   * The fields of that Bean must correspond to the fields in the form (`distance` and `minmag`).
+* The return value corresponds to the HTML template that we defined, without the trailing `.html`, i.e. `earthquakes/search.html` inside `src/main/resources/templates/`.
+
+Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes.search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
 
 # Step 8d: Add a menu item that routes to the form.
 
-TODO: Write instructions
+To make it easier to get to this form, we'll add a link to it to our navigation bar.
 
-and be sure that a link on the navigation menu routes to this page.
+In the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html` you should find this code:
+
+```
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/page1">Page 1</a>
+            </li>
+```
+
+This is two `<li>` elements (list items), each of which:
+* starts with `<li>` (the `li` open tag)
+* ends with `</li>` (the `li` close tag)
+
+In case we haven't mentioned it before: it is important to understand that an HTML element starts with an open tag, ends with a close tag, and everything in between is the elements "content".   
+
+What you'll be doing is adding a new `<li>` element in between those two, so that the code looks like this:
+
+``` 
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/earthquakes/search">Earthquake Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/page1">Page 1</a>
+            </li>`
+```
+
+Run this, and you should see that there is now a link on the navigation bar that takes you to your page.
+
 
 # Step 8e: Add a controller method for the form results.
 
