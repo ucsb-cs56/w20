@@ -527,8 +527,9 @@ public class EarthquakeSearchTest {
 
 # Step 8h: Pull request
 
-This step will end with a second pull request.  You should then merge
-that pull request into master.
+Do a pull request from your `xxCreateForm` branch into `master`.
+
+You should then merge that pull request into master.
 
 # Step 9: Next feature branch: `xxCallAPI`
 
@@ -541,13 +542,124 @@ echo that JSON information on the page; it won't yet be in a format
 that is pleasing to an end user.   But we'll be able to see that we
 are making progress.
 
+### Step 9a: Create `xxCallAPI` branch.
+
+To start, you need to checkout master and make a new branch.  As always, your initials, not `xx`.
+
+```
+git checkout master
+git pull origin master
+git checkout -b xxCallAPI
+```
+
+We have to checkout master and do `git pull origin master` to pick up the changes that were
+made in the previous pull request for `xxCreateForm`.  
+
+Do a `git log` command to be sure that you see all of those commits before proceeding.
+
+### Step 9b: Add an `EarthquakeQueryService` that generate fake data for now.
+
+For this step, we will use the idea that a commit can be more than just a way of organizing your
+changes to a project.   Rather walk you through the changes you need to make,
+I will refer you to a commit that shows you the changes needed.
+
+That commit is here:
+* <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/pull/3/commits/4581f91f90cd03ef76a95970b55f2e2fb78d6461>
+
+In this commit, you see that:
+* There is a new file called `src/main/java/hello/EarthquakeQueryService.java`.  You should 
+  create a file like this one and add it to your code base.  This is a placeholder for the 
+  code that will get the Earthquake data in JSON format.  (At a later step, we'll add in the
+  code that retrieves the information.)
+* There are also some changes to `src/main/java/hello/WebController.java`. These changes 
+  call out to the new `EarthquakeService` object and retrieve the information in JSON 
+  format.  We store that into an attribute in the model called `json`.
+* Finally, we see that we've modified the `src/main/resources/templates/earthquakes/results.html` file
+  by adding in a `<pre>` element with the `th:text` attribute.   The `th:text` attribute value
+  of `"${json}"` will fill the `<pre>` element with the value of the `json` attribute in the model,
+  replacing the `This is placeholder` text. 
+  
+Make all of these changes to your code, and then run the application.  You should see that
+when you type in values in the search form, you now get a results page that shows the "fake json"
+returned by the `EarthquakeQueryService` object.
+
+Do a commit of these changes.  Use an appropriate commit message that explains what you did, and why.
+
+Note: `"I made the changes the lab said to make"` is not what we are looking for here.
+
+Something more like:
+* `xx - Added placeholder EarthquakeQueryService and wired it up to results form`
+* `xx - Added service that will eventually get earthquake data`
+
+Describe the changes in whatever way makes sense to you, and would convey to a reader
+what the purpose of the changes is.  Of course you have to understand the purpose of the
+changes before you can do that.
+
+### Step 9c: Make the `EarthquakeQueryService` retrieve real data.
+
+The next step is to make the `EarthquakeQueryService` retrieve real data.
+
+The way to do that is illustrated in this commit:
+
+* <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/pull/3/commits/19029b2f00fd3a83262865b3904af5bee894f133>
+
+Here we see that we are using the `RestTemplate` object that is built into Spring Boot to 
+do an API call, and return the JSON string.    
+
+If you would like more information on what is happening in this code, the following article
+provides more details.  You are encouraged to look over that as/when you need to adapt
+the code here for accessing other APIs. 
+
+* <https://ucsb-cs56.github.io/topics/spring_boot_resttemplate/>
+
+For now, though, just make the indicated changes.    You should see that with these changes,
+when you run the application, it now retrieves JSON for earthquakes at the specified distance
+and minimum magnitude, and displays that JSON in the results form.
+
+Commit this code with an appropriate commit message that explains what change you made and why.
+Again, it should be a message that reflects an understanding of the code:
+
+* Not Good: `"xx - made step 9c changes"`
+* Better: `"xx - added code to retrieve earthquake data from USGS web service"`
+
+### Step 9d: Pull Request
+
+Do a pull request for this branch to master.  In the description of the pull request,
+enter a brief explanation of what these two commits, *as a group*, do to improve the code
+and/or the working website.
+
+Then accept the pull request.
+
 # Step 10: Next feature branch: `xxJavaObjects`
 
 In this final step, we'll learn how to transform that JSON string into
 usable Java objects, and use those Java objects to put useful information
 on the page.
 
-There will be one final pull request at this stage, and we'll be almost done.
+
+### Step 10a: Create object for the top level GeoJSON returned
+
+TODO
+
+### Step 10b: Write method to convert JSON to Object
+
+TODO
+
+### Step 10c: Use object to display results
+
+TODO
+
+### Step 10d: Create objects for the next levels
+
+TODO
+
+### Step 10e: Use those objects to display results
+
+TODO
+
+### Step 10f: Pull Request
+
+TODO
 
 # Step 11: A small fix to `application.properties`
 
