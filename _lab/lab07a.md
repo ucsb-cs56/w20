@@ -596,4 +596,7 @@ TBA.  It will be 100 points divided across the five steps in the lab.
 | Test case for `CS56 Spring Boot Practice App`           |  10  |
 | There is a branch named `xxFixFailingTests`          |  10  |
 | There is a pull request for fixing the failing tests   |  10  |
+| The README.md has a link to the GitHub pages webpage   |  10  |
+| The GitHub pages webpage links to javadoc  |  10  |
+| The GitHub pages webpage links to jacoco report  |  10  |
 
