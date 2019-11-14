@@ -744,6 +744,9 @@ Now, we add a method to convert JSON into a `FeatureCollection` object.  That me
         } catch (JsonProcessingException jpe) {
             logger.error("JsonProcessingException:" + jpe);
             return null;
+        } catch (Exception e) {
+            logger.error("Exception:" + e);
+            return null;
         }
     }
 ```
