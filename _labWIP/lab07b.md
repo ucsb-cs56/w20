@@ -677,11 +677,155 @@ We won't commit this yet.  We have a bit more code to write first.
  
 ### Step 10b: Write method to convert JSON to Object
 
+When converting JSON to Java Objects, we only need to write a method for the top level object.
 
+`FeatureCollection` will be our top level object.  So we'll add a method to the `FeatureColleciton` class to convert
+the JSON representation of a Feature Collection into a `FeatureCollection` object.
+
+We'll need to add these imports into `FeatureCollection.java`
+
+```
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+```
+
+We'll also need this additional depenedency in our `pom.xml`
+
+```
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+```
+
+We may also find it helpful to add logging into this class, so let's add the code for that.
+
+We need these two imports:
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+```
+
+And this declaration just inside the top of the `FeatureCollection` class.  This declaration
+gets us a `logger` instance to which we can log information.   The `getLogger` method always takes
+the name of the class in which it appears, followed by `.class`, so in this case `FeatureCollection.class`:
+
+```
+    private static Logger logger = LoggerFactory.getLogger(FeatureCollection.class);
+```
+
+Now, we add a method to convert JSON into a `FeatureCollection` object.  That method looks like this:
+
+```
+ /**
+     * Create a FeatureCollection object from json representation
+     * 
+     * @param json String of json returned by API endpoint {@code /classes/search}
+     * @return a new FeatureCollection object
+     * @see <a href=
+     *      "https://tools.ietf.org/html/rfc7946">https://tools.ietf.org/html/rfc7946</a>
+     */
+    public static FeatureCollection fromJSON(String json) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+            FeatureCollection featureCollection = objectMapper.readValue(json, FeatureCollection.class);
+            return featureCollection;
+        } catch (JsonProcessingException jpe) {
+            logger.error("JsonProcessingException:" + jpe);
+            return null;
+        }
+    }
+```
+
+At this point, we should be able to convert a JSON String into a FeatureCollection object.
+
+One of the key lines of code here is this one:
+
+```
+      objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+```
+
+This line of code configures our `ObjectMapper` instance so that if there is a property in the JSON that doesn't match any
+field in our Java object, it will just ignore that field instead of throwing an exception.   
+
+The downside of this is that we might be missing some fields, or there could be mismatches that we don't catch.  But the advantage is that we can implement the fields in the JSON a little bit at a time, testing as we go, rather than having to do it all at once. 
 
 ### Step 10c: Use object to display results
 
-TODO
+We can now try using our `FeatureCollection` object.  It won't be very exciting because we won't yet be able to format a list of earthquakes.  But we will be able to check that all of the parts are wired up correctly.
+
+Back in `WebController.java`, find these lines of code:
+
+```
+        model.addAttribute("eqSearch", eqSearch);
+        String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());
+        model.addAttribute("json", json);
+        return "earthquakes/results";
+```
+
+We are going to put two more lines of code immediately before the `return`:
+
+```
+        FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
+        model.addAttribute("featureCollection",featureCollection);
+```
+
+These two lines of code:
+* convert the JSON into a Java object
+* add that object into the model so that we can access it in the view
+
+To see if it worked, we need to add some code in the view that uses this.   Inside `results.html`, we'll add
+this code right after the `<pre>` element where we display the JSON:
+
+```html
+        <h2> Results</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${featureCollection.type}"></td>
+                </tr>
+            </tbody>
+        </table>
+```
+
+The part of this that is most important is the `<td>` element with the attribute `th:text`.
+
+Here, we are referencing `featureCollection` which was added to the model by this code in `WebController.java`:
+
+```        
+   model.addAttribute("featureCollection",featureCollection);
+```
+
+Because `featureCollection` is an instance of the class `FeatureCollection` and it has a public data member
+called `type` (this would also work if it had a public `getType` method), we can 
+use ${featureController.type} to access this value in the Thymeleaf HTML template.
+
+Try it out and see if it works.  If it does, you should see the string `FeatureCollection` come up as the 
+value of `${featureCollection.type}` when you view the results page.
+
+The next step is to unpack the array of `Feature` objects.  But first, let's commit the code we already 
+have.   
+
+What we've done here is to set up a conversion from JSON objects to 
+Java Objects, and that we've demonstrated that we can get values from it in the view.  
+A good commit message would summarize that succintly.
 
 ### Step 10d: Create objects for the next levels
 
