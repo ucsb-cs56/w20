@@ -1249,6 +1249,14 @@ git push origin master
 
 Check that your README.md has a link to your GitHub pages webpage, and that the webpage is published.
 
+# Lucky Step 13: Go back to step 6b if you didn't do it yet
+
+Chances are you didn't do Step 6b because it didn't exist at the time you started the lab.
+
+Step 6b fixes the code so that the unit tests pass on Travis-CI and we get a nice green check instead of the ugly red X.
+
+It only takes a moment.  Please go back and do that now.
+
 # Final Step: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
