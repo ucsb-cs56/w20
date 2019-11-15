@@ -1074,12 +1074,19 @@ message that indicates that the id is now a clickable link.
 
 ### Step 10i: Last cleanup things
 
-Three last cleanup items:
+A few last cleanup items:
 
 * Remove the `<h2>` header for `JSON Results` and the `<pre> element for the JSON.  We don't need those anymore.
 * In the metadata section, remove the `type` column.
 * Move the title column to the first position (left most), and make it a clickable link to the url 
   (removing the url field) just like you did with the id field in the previous step.
+* Combine the `distance` and `minmag` fields into the same table with the metadata,
+  and remove the first table.
+* On the opening `<table>` tags, change them to `<table class="table">`.  This will bring in the Boostrap CSS
+  that makes the tables look much nicer.
+* Remove `Page 1` and `Page 2` from the Navigation header.  You don't have to remove the template files
+  and the controller methods; just remove the links to them in the file where the navigation header is 
+  defined.  (If you've forgotten how, look back at earlier steps.)
  
 Do a commit for these cleanup items.  
 
