@@ -10,7 +10,7 @@ github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2801389&forceview=1"
 prev: lab07a
-starter: 
+starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 ---
 
 <div style="display:none" >
@@ -177,7 +177,7 @@ To do that, make the following changes to your code.
 It's ok to commit this directly on the master branch.
 
 NOTE: If you are doing step 6b *after* already setting up Travis-CI, now is the time to try to 
-manually trigger a build and see if it gives you a green check.
+manually trigger a build and see if it gives you a green check.   The instructions to do that are part of Step 6c.
    
 
 ### Step 6c: Set up repo on `travis-ci.org` website
@@ -341,6 +341,23 @@ Use the same technique.
 
 Once you have this test passing, make another commit on the `xxSmallUIFixes` branch.
 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+NOTE:
+<div style="text-align:left;" markdown="1">
+
+* Later in this lab, there will places where you'll change the navigation bar HTML again.
+* At each of those points, you may or may not need to modify the tests again.
+* If you do, then MODIFY THE TESTS.
+
+I'm NOT GOING TO TELL YOU when that happens, or HOW to modify the tests.  That's one part of the lab that you have to figure out on your own.  I'll just give you these hints:
+
+* The XPath expression looks for a particular element on the page.
+* The test you wrote is looking to see if the text in that link is what we expect it to be.
+
+</div>
+</div>
+
 ### Step 7f: Make a pull request
 
 Now make a pull request for this branch.
@@ -378,9 +395,13 @@ to specify parameters for searching for earthquakes in the last 30 days.
 
 The two parameters will be:
 
-* a distance in kilometers from the UCSB campus (defined for our purposes as
-  Latitude 34.4140° N, Longitude 119.8489° W)
+* a distance in kilometers from the UCSB campus
 * a minimum magnitude.  
+
+For the UCSB campus location, we are using 34.4140°N, 119.8489°W as the latitude and longitude.
+* By convention, degrees N are positive, and degrees west are negative
+* So in the code, it's `34.4140, -119.8489`
+* That probably shouldn't be hard coded, but that can be a refactor for another time.
 
 Under `src/main/resources/templates` make a folder called `earthquakes` so that you have:
 `src/main/resources/templates/earthquakes`.
@@ -499,17 +520,20 @@ In the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html` y
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/page1">Page 1</a>
+                <a class="nav-link" href="/page1">Earthquake Search</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/page2">Page 2</a>
+            </li>`
 ```
 
-This is two `<li>` elements (list items), each of which:
+This are three `<li>` elements (list items), each of which:
 * starts with `<li>` (the `li` open tag)
 * ends with `</li>` (the `li` close tag)
 
 In case we haven't mentioned it before: it is important to understand that an HTML element starts with an open tag, ends with a close tag, and everything in between is the elements "content".   
 
-What you'll be doing is adding a new `<li>` element in between those two, so that the code looks like this:
+What you'll be doing is modifying the `href` attribute on `<a>` element in the middle `<li>` so that the code looks like this:
 
 ```html
             <li class="nav-item active">
@@ -519,11 +543,19 @@ What you'll be doing is adding a new `<li>` element in between those two, so tha
                 <a class="nav-link" href="/earthquakes/search">Earthquake Search</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/page1">Page 1</a>
+                <a class="nav-link" href="/page2">Page 2</a>
             </li>`
 ```
 
 Run this, and you should see that there is now a link on the navigation bar that takes you to your page.
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+HINT: Remember that note at Step 7e about maybe needing to modify tests if/when you modify that navigation bar?
+
+You might want to try running `mvn test` right now, and if it's broken, see if you can fix it.  Just saying.
+
+</div>
 
 
 ### Step 8f: Add a controller method for the form results.
@@ -1392,9 +1424,19 @@ A few last cleanup items:
   and remove the first table.
 * On the opening `<table>` tags, change them to `<table class="table">`.  This will bring in the Boostrap CSS
   that makes the tables look much nicer.
-* Remove `Page 1` and `Page 2` from the Navigation header.  You don't have to remove the template files
+* Remove `Page 2` from the Navigation header (and `Page 1` if it is still there).  You don't have to remove the template files
   and the controller methods; just remove the links to them in the file where the navigation header is 
   defined.  (If you've forgotten how, look back at earlier steps.)
+ 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+HINT: Remember that note at Step 7e about maybe needing to modify tests if/when you modify that navigation bar?
+
+Removing  `Page 2` from the Navigation header counts.
+
+You might want to try running `mvn test` right now, and if it's broken, see if you can fix it.  Just saying.
+
+</div>
  
 Do a commit for these cleanup items.  
 
@@ -1467,32 +1509,42 @@ git push origin master
 
 Check that your README.md has a link to your GitHub pages webpage, and that the webpage is published.
 
-# Lucky Step 13: Go back to step 6b if you didn't do it yet
+## Lucky Step 13: Revisit steps 6b and 8h, and revisit the step 7e hint, for good luck.
 
-Chances are you didn't do Step 6b because it didn't exist at the time you started the lab.
+Depending on when you started this lab, Steps 6b and 8h might not have been complete at the time you did them.  If not, you might be getting ugly red X's on your commits instead of nice green checks.
 
-Step 6b fixes the code so that the unit tests pass on Travis-CI and we get a nice green check instead of the ugly red X.
+Steps 6b and 8h fix the code so that the unit tests pass on Travis-CI and we get a nice green check instead of the ugly red X.
 
-It only takes a moment.  Please go back and do that now.
+These steps go pretty quickly.    Please go back and do them now if you didn't do them before.  Either way, double check.
 
+Also, revisit the hint at Step 7e. There were some small adjustments to the Navigation bar, and the instructions about changing it and testing it.  You want to make sure you are update to date on all of those.
 
 # Final Step: Submitting your work for grading
 
+When you have:
+* a running web app
+* your code is green on CI
+* you have an updated GitHub page for javadoc/jacoco
 
-When you have a running web app, you are probably ready to submit on Gauchospace.
+Then you are probably ready to submit on Gauchospace.
 
 BUT BEFORE YOU DO:
 
 * Check that your lab07 web app runs on Heroku. 
 * ACTUALLY check that you can log out and log back in, and that you can retrieve Earthquake results.
    * I found some lab07 instances on Heroku that were redirecting back to lab06.
-   * That suggests the author tried to reuse their client id and client secret instead of creating a new one.
-   * You have to create a new one any time the URL changes.
-* Check that your README.md has a correct link to your GitHub pages documentation and that it is updated.
+   * That suggests the author tried to reuse their client id and client secret from lab06 instead of creating a new one.
+   * You have to create a new one any time the URL changes, which means *different* client-id/client-secret for:
+      * localhost
+      * lab06 on Heroku
+      * lab07 on Heroku
+* Check that your `README.md` has a correct link to your GitHub pages documentation and that it is updated.
+* Check that your `README.md` has a correct link to your running Heroku app.
 * Check that you revisited steps 6b and 8h, and that you made the necessary changes so that your submission is green on Travis-CI.
+* Check that you have all of the tests that were required by the lab and that your test cases pass locally (with `mvn test`) and
+  on Travis-CI.
 
 Then, finally visit <{{page.gauchospace_url}}> and make a submission.
-
 
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
