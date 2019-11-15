@@ -374,7 +374,7 @@ This code says
    * The fields of that Bean must correspond to the fields in the form (`distance` and `minmag`).
 * The return value corresponds to the HTML template that we defined, without the trailing `.html`, i.e. `earthquakes/search.html` inside `src/main/resources/templates/`.
 
-Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes.search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
+Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
 
 # Step 8d: Add a menu item that routes to the form.
 
