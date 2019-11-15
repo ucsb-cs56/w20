@@ -593,8 +593,8 @@ Otherwise, you'll get a message such as:
 The `200` is the expected `OK` status.  The `302` is status you get when the server is redirecting the client to another page, in this case the `"/login"` page.
 
 If you were getting that message, the new code here should fix that.  Together with the updates to step 6b, this should get you "green on CI", that is:
-* you should get a green check on your commits <svg aria-label="3 / 3 checks OK" class="octicon octicon-check" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
-* instead of a red X <svg aria-label="2 / 3 checks OK" class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+* you should get a green check on your commits <svg aria-label="3 / 3 checks OK" class="octicon octicon-check" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill="#00FF00" fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+* instead of a red X <svg aria-label="2 / 3 checks OK" class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill="#FF0000" fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
 
 </div>
 </div>
