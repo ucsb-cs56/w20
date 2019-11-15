@@ -1033,14 +1033,18 @@ Try it out and see if it works.
 If not, debug what is wrong.  If it does work, make a commit.
 
 
-### Step 10g: Now you do some work
+### Step 10g: Now you do some work: add a field
 
-Now, see if you can add the following items to the two tables we have.
+Now, see if you can add something without any instructions as to how to write the code, 
+just working from what you've seen so far.
 
-First, in the table that contains the metadata, add another column for Title
-This one is already in the Java Object; you just need more code in the view.
+In the `table` element that contains the metadata on the `results.html` page, add another column for `title`.
+This field is already in the `Metadata` java object; you just need more code in the view.
 
 Make a commit for this that indicates that you added title to the metadata.
+
+
+### Step 10h: A little more work: make id clickable
 
 Next, in the table for the earthquakes, make the id field a clickable link.
 To do this, you'll need to do two things:
@@ -1068,7 +1072,7 @@ text that becomes the clickable link.
 See if you can get this part working.  Once you do, make a commit with an appropriate 
 message that indicates that the id is now a clickable link.
 
-### Step 10h: Pull Request
+### Step 10i: Pull Request
 
 Finally, do a pull request from the `xxJavaObjects` branch.
 
