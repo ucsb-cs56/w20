@@ -14,7 +14,7 @@ starter:
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/lab07b
+Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07b
 </div>
 
 This lab builds on your work from {{page.prev}}.
