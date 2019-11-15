@@ -50,7 +50,7 @@ We will work with this repo, and with the Heroku app you configured for {{lab.pr
 # Step by step instructions
 
 
-# Step 6: Set up repo for Travis-CI
+## Step 6: Set up repo for Travis-CI
 
 We'll start this lab by setting up our repo on Travis-CI.
 
@@ -59,6 +59,9 @@ Setting up our repo on Travis-CI will set it up for "continuous integration"&mda
 Continuous integration means that we try to integrate new code into the code base early and often, and that we run all of the tests of our code base each time we do that.
 
 With Travis-CI setup, each time you push code to GitHub, or do a pull request, a server in the cloud (at the Travis-CI.org website) will pull your repo, and run all of your JUnit tests.  You'll get an indication on the GitHub site for your repo whether the tests passed or not.
+
+
+### Step 6a: Add a `.travis.yml` file to your repo
 
 To set up your repo for Travis-CI, the first step is to copy the two line file `.travis.yml` from the starter code repo <{{page.starter}}> into the root of your repo.  (For this change, we'll make an exception and just do it directly on the master branch.)
 
@@ -69,6 +72,93 @@ git add .travis.yml
 git commit -m "xx - add .travis.yml for Travis-CI"
 git push origin master
 ```
+
+### Step 6b: Fix unit tests so they work without OAuth
+
+> NOTE: This step was missing in early versions of the lab.  If you are are coming back to this step, 
+> it's ok to make the following changes directly on the master branch.  It's also fine to make a
+> separate `xxFixTravisCI` branch and do a pull request.  Your choice.
+
+The next step is to adjust our unit tests so that they can run without the OAuth secrets and the integration with GitHub.
+
+When we run on Travis-CI, we don't have access to the client-id and client-secret that is defined in our `localhost.json` and `heroku.json` files.
+
+While it is possible to set up Travis-CI to have access to those, there is a better way.  It involves "mocking" some of the parts of our application that are not being tested.
+
+To do that, make the following changes to your code.
+
+1. In `pom.xml`, add this dependency.  It can go anywhere 
+   in the `<dependencies>` section, in between two other `<dependency>` elements:
+
+   ```xml
+     <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.22.0</version>
+            <scope>test</scope>
+     </dependency>
+   ```
+
+   This update `Mockito`, which is a piece of software that lets us create "Mock Objects" for testing.
+
+2. In the file `src/test/java/hello/HomePageTest.java`, we are going to make a few changes.  Here's the first.
+
+   First add these two imports:
+   ```java
+   import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+   import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+   ```
+
+3. Next, find these lines of code:
+
+   First add this import:
+   ```java
+   @RunWith(SpringRunner.class)
+   @SpringBootTest
+   @AutoConfigureMockMvc
+   public class HomePageTest {
+   ```
+
+   And change them to:
+
+   First add this import:
+   ```java
+   @RunWith(SpringRunner.class)
+   @WebMvcTest(WebController.class)
+   public class HomePageTest {
+   ```
+   
+4. Finally, find these two lines of code:
+
+   ```java
+     @Autowired
+     private MockMvc mvc;
+   ```
+
+   and immediately after, add these:
+
+   ```java
+    @MockBean
+    private AuthControllerAdvice aca;
+
+    @MockBean
+    private ClientRegistrationRepository crr;
+   ```
+
+5. Next, try running your unit tests with `mvn test` in a new terminal window where you did NOT do `source env.sh`.
+   If they pass, then you know you did this step correctly, and your tests should pass on Travis-CI.
+
+6. Finally, commit all of these changes with a commit message that says something like: 
+
+   `xx - mock dependencies for unit testing`
+
+It's ok to commit this directly on the master branch.
+
+NOTE: If you are doing step 6b *after* already setting up Travis-CI, now is the time to try to 
+manually trigger a build and see if it gives you a green check.
+   
+
+### Step 6c: Set up repo on `travis-ci.org` website
 
 The next step is to visit the following website, and login with your GitHub account:
 
