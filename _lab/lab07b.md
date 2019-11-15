@@ -1531,6 +1531,7 @@ Then you are probably ready to submit on Gauchospace.
 BUT BEFORE YOU DO:
 
 * Check that your lab07 web app runs on Heroku. 
+* Check that you deployed your *latest* version of master to your Heroku app
 * ACTUALLY check that you can log out and log back in, and that you can retrieve Earthquake results.
    * I found some lab07 instances on Heroku that were redirecting back to lab06.
    * That suggests the author tried to reuse their client id and client secret from lab06 instead of creating a new one.
