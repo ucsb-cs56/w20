@@ -76,7 +76,7 @@ The next step is to visit the following website, and login with your GitHub acco
 
 Once there, at the upper left hand corner of the dashboard, you should see a small plus sign next to the text "My Repositories".  You want to click this `+` sign as shown in this image:
 
-![Travis Dashboard + sign](travis-dashboard-plus-sign-30.png)
+![Travis Dashboard + sign](travis-dashboard-plus-sign-50.png)
 
 That takes you to a page where you can add the <tt>{{page.org}}</tt> GitHub organization to your authorized organizations for Travis-CI.
 
@@ -98,11 +98,11 @@ Once you've got the repo enabled for Travis-CI, there will a web page specifical
 
 where <tt>{{page.org}}/{{page.labnum}}-githubid</tt> is the name of your repo.   On that page, at the upper right, you should be able to find a button with the text "More Options". Click on this reveals the following menu:
 
-![More Options Menu](travis-more-options-menu-30.png)
+![More Options Menu](travis-more-options-menu-50.png)
 
 Clicking on the "Trigger Build" option will bring up this pop-up:
 
-![Trigger Build](travis-trigger-build-30.png)
+![Trigger Build](travis-trigger-build-50.png)
 
 Here, you can trigger a build for any branch, with the master branch being the default.  Go ahead and trigger a build for your master branch.
 
