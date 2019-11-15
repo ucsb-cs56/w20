@@ -17,6 +17,18 @@ starter:
 Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07b
 </div>
 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+* There are updates at step 6b and at step 8h, each of which is necessary to get your code to pass the tests on Travis-CI.
+* Please be sure you revisit those steps, apply the necessary changes, and commit those changes to the master branch of your repo before the assignment due date.
+
+</div>
+</div>
+
 This lab builds on your work from {{page.prev}}.
 
 # What if I didn't finish {{page.prev}}
@@ -75,9 +87,18 @@ git push origin master
 
 ### Step 6b: Fix unit tests so they work without OAuth
 
-> NOTE: This step was missing in early versions of the lab.  If you are are coming back to this step, 
-> it's ok to make the following changes directly on the master branch.  It's also fine to make a
-> separate `xxFixTravisCI` branch and do a pull request.  Your choice.
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+This step was missing in early versions of the lab.  If you are are coming back to this step, 
+it's ok to make the following changes directly on the master branch.  It's also fine to make a
+separate `xxFixTravisCI` branch and do a pull request.  Your choice.
+
+</div>
+</div>
 
 The next step is to adjust our unit tests so that they can run without the OAuth secrets and the integration with GitHub.
 
@@ -1468,6 +1489,7 @@ BUT BEFORE YOU DO:
    * That suggests the author tried to reuse their client id and client secret instead of creating a new one.
    * You have to create a new one any time the URL changes.
 * Check that your README.md has a correct link to your GitHub pages documentation and that it is updated.
+* Check that you revisited steps 6b and 8h, and that you made the necessary changes so that your submission is green on Travis-CI.
 
 Then, finally visit <{{page.gauchospace_url}}> and make a submission.
 
