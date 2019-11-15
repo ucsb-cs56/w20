@@ -1140,6 +1140,24 @@ Login into the Heroku dashboard, find that app, and deploy your master branch fr
 
 Then visit the app on Heroku and make sure it works there as well.
 
+# Step 12: Update your javadoc and jacoco report
+
+To update your javadoc and jacoco report, do this:
+
+```
+mvn clean
+mvn javadoc:javadoc
+mvn javadoc:test-javadoc
+mvn test
+mvn jacoco:report
+mvn site
+mvn site:deploy
+git add docs
+git commit -m "xx - update javadoc and jacoco report"
+git push origin master
+```
+
+
 # Final Step: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
