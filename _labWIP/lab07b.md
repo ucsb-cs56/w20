@@ -289,7 +289,7 @@ with this:
 
 Find the part of the page that reads like this:
 
-```
+```html
 <h1>Page 1</h1>
 
 <p>This page is a placeholder.</p>
@@ -432,7 +432,7 @@ That controller method will look like this:
 
 The additional step in this controller method is that we have this line of code:
 
-```
+```java
         model.addAttribute("eqSearch", eqSearch);
 ```
 
@@ -440,7 +440,7 @@ This allows us to send information to the view (i.e. to the Thymeleaf HTML file)
 
 For now all we are doing is echoing back the information that the user entered.  But in a later step, we will replace this comment:
 
-```        
+```java       
 // TODO: Actually do the search here and add results to the model
 
 ```
@@ -490,7 +490,7 @@ But it's at least a start.
 First, let's add a test that makes sure that there is indeed a page at the address `/earthquakes/search` and that we can
 retrieve that page without the server crashing.   To do that, we can use the following code, which we'll put into a file called `/src/test/java/hello/EarthquakeSearchTest.java`
 
-```
+```java
 package hello;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -684,7 +684,7 @@ the JSON representation of a Feature Collection into a `FeatureCollection` objec
 
 We'll need to add these imports into `FeatureCollection.java`
 
-```
+```java
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -692,7 +692,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 We'll also need this additional depenedency in our `pom.xml`
 
-```
+```xml
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -710,7 +710,7 @@ We may also find it helpful to add logging into this class, so let's add the cod
 
 We need these two imports:
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 ```
@@ -719,13 +719,13 @@ And this declaration just inside the top of the `FeatureCollection` class.  This
 gets us a `logger` instance to which we can log information.   The `getLogger` method always takes
 the name of the class in which it appears, followed by `.class`, so in this case `FeatureCollection.class`:
 
-```
+```java
     private static Logger logger = LoggerFactory.getLogger(FeatureCollection.class);
 ```
 
 Now, we add a method to convert JSON into a `FeatureCollection` object.  That method looks like this:
 
-```
+```java
  /**
      * Create a FeatureCollection object from json representation
      * 
@@ -755,7 +755,7 @@ At this point, we should be able to convert a JSON String into a FeatureCollecti
 
 One of the key lines of code here is this one:
 
-```
+```java
       objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 ```
 
@@ -770,7 +770,7 @@ We can now try using our `FeatureCollection` object.  It won't be very exciting 
 
 Back in `WebController.java`, find these lines of code:
 
-```
+```java
         model.addAttribute("eqSearch", eqSearch);
         String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());
         model.addAttribute("json", json);
@@ -779,7 +779,7 @@ Back in `WebController.java`, find these lines of code:
 
 We are going to put two more lines of code immediately before the `return`:
 
-```
+```java
         FeatureCollection featureCollection = FeatureCollection.fromJSON(json);
         model.addAttribute("featureCollection",featureCollection);
 ```
@@ -790,7 +790,7 @@ These two lines of code:
 
 You will need to add an import for `FeatureCollection` since it is in a different package:
 
-```
+```java
 import hello.geojson.FeatureCollection;
 ```
 
@@ -818,7 +818,7 @@ The part of this that is most important is the `<td>` element with the attribute
 
 Here, we are referencing `featureCollection` which was added to the model by this code in `WebController.java`:
 
-```        
+```java        
    model.addAttribute("featureCollection",featureCollection);
 ```
 
@@ -860,7 +860,7 @@ So, for example, in our `FeatureCollection` object, the second key in the object
 
 We can create an class called `Metadata` in a file `src/main/java/hello/geojson/Metadata.java` with the appropriate fields of the appropriate types:
 
-```
+```java
 package hello.geojson;
 
 public class Metadata {
@@ -875,7 +875,7 @@ public class Metadata {
 
 Once we've done that, we can add this field to the `FeatureCollection` class:
 
-```
+```java
    public Metadata metadata;
 ```
 
@@ -885,7 +885,7 @@ I've added only two of them, but you can see how we could add the rest.
 The `<th>` elements are table header elements, and just contain the column headings.  The `<td>` elements
 are table data elements and contain the actual data.
 
-```
+```html
         <table>
             <thead>
                 <tr>
@@ -945,7 +945,7 @@ The Properties object will look very similar to the `Metadata` object, but this 
 all of the properties, we are only going to put in the ones we have an immediate use for.  Others can be added
 later as they are needed.  Put this in a file `Properties.java` under the `hello.geojson` package:
 
-```
+```java
 package hello.geojson;
 
 public class Properties {
@@ -958,7 +958,7 @@ public class Properties {
 
 The `Feature.java` file will be similar:
 
-```
+```java
 package hello.geojson;
 
 public class Feature {
@@ -977,15 +977,102 @@ to `FeatureCollection.java`:
 
 You'll need an import for `java.util.List` in `FeatureCollection.java`.
 
-Now, we'll use these new fields to display some results.
+Now, we'll use these new fields to display some results.  We'll hold off on a commit until we
+see whether that works.  That's in the next step.
 
-### Step 10e: Use those objects to display results
+### Step 10f: Use those objects to display results
 
-TODO
+For this step, we'll need to know how to loop in Thymeleaf. 
 
-### Step 10f: Pull Request
+We are doing to make a separate table for the list of all of the earthquake results that will loop over
+each of the `Feature` objects in the `List<Feature> features` member of `featureCollection`.
 
-TODO
+Here's what that table will look like.  We'll put this table in `results.html` after all of the other ones, right *before* this line of
+code:
+
+```html
+        <div th:replace="bootstrap/bootstrap_footer.html"></div>
+```
+
+That line of code, by they way is the "footer" for the page, so clearly everything else should go before it.
+
+Here's our Earthquake table:
+
+```html
+        <h3>Earthquakes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>place</th>
+                    <th>mag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f: ${featureCollection.features}"> 
+                    <td th:text="${f.id}"></td>
+                    <td th:text="${f.properties.place}"></td>
+                    <td th:text="${f.properties.mag}"></td>
+                </tr>
+            </tbody>
+        </table>
+```
+
+The most important new line of code here is this one:
+
+```
+              <tr th:each="f: ${featureCollection.features}"> 
+```
+
+The `th:each` construct here is like a "foreach" loop that sets up `f` as a variable that loops over the `features` member of `featureCollection`.  The `<tr>` element in which it occurs will be repeated as many times as there are elements in the `List<Feature>` object to which `featureCollection.feature` refers.
+
+In that way, we get a table of all of the earthquakes.
+
+Try it out and see if it works.
+
+If not, debug what is wrong.  If it does work, make a commit.
+
+
+### Step 10g: Now you do some work
+
+Now, see if you can add the following items to the two tables we have.
+
+First, in the table that contains the metadata, add another column for Title
+This one is already in the Java Object; you just need more code in the view.
+
+Make a commit for this that indicates that you added title to the metadata.
+
+Next, in the table for the earthquakes, make the id field a clickable link.
+To do this, you'll need to do two things:
+
+* Add the `url` field from the Feature JSON in the appropriate place in the Java code.
+  This field has a link to information about the earthquake.
+* Replace the `<td>` element for the id field with some HTML that makes it a link.
+
+Here is a hint.  The `<td>` element for `id` currently looks like this:
+
+```
+    <td th:text="${f.id}"></td>
+```
+
+Afterwards, it should look something like this 
+(except I haven't told you what to put inside the `{    }`:
+
+```
+<td><a th:href="${    }" th:text="${f.id}"></a></td>
+```
+
+The `<a>` element makes a link.  The `th:href` is where the url goes.  The `th:text` is the
+text that becomes the clickable link.
+
+See if you can get this part working.  Once you do, make a commit with an appropriate 
+message that indicates that the id is now a clickable link.
+
+### Step 10h: Pull Request
+
+Finally, do a pull request from the `xxJavaObjects` branch.
+
+Accept the pull request.  Then, you are almost done!
 
 # Step 11: A small fix to `application.properties`
 
