@@ -1072,7 +1072,18 @@ text that becomes the clickable link.
 See if you can get this part working.  Once you do, make a commit with an appropriate 
 message that indicates that the id is now a clickable link.
 
-### Step 10i: Pull Request
+### Step 10i: Last cleanup things
+
+Three last cleanup items:
+
+* Remove the `<h2>` header for `JSON Results` and the `<pre> element for the JSON.  We don't need those anymore.
+* In the metadata section, remove the `type` column.
+* Move the title column to the first position (left most), and make it a clickable link to the url 
+  (removing the url field) just like you did with the id field in the previous step.
+ 
+Do a commit for these cleanup items.  
+
+### Step 10j: Pull Request
 
 Finally, do a pull request from the `xxJavaObjects` branch.
 
