@@ -3,9 +3,9 @@ layout: lab
 num: lab07b
 labnum: lab07
 ready: true
-desc: "Spring Boot Skills"
-assigned: 2019-11-08 17:00
-due: 2019-11-16 23:59
+desc: "Spring Boot Skills Part 2"
+assigned: 2019-11-14 17:00
+due: 2019-11-20 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
