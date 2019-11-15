@@ -331,7 +331,7 @@ on the list of commits.
 When the pull request shows that the tests have passed, 
 merge the pull request into master.
 
-# Step 8: Next feature branch: `xxCreateForm`
+## Step 8: Next feature branch: `xxCreateForm`
 
 We'll now create a second branch for creating a form.
 
@@ -343,12 +343,12 @@ git checkout master
 git pull origin master
 ```
 
-# Step 8a: Next feature branch: `xxCreateForm`
+### Step 8a: Next feature branch: `xxCreateForm`
 
 Then create a new branch called `xxCreateForm` (as always, `xx` should be your actual initials, not literally `xx`, unless your name
 is, for example, "Xavier Xie".)
 
-# Step 8a: Create the form
+### Step 8b: Create the form
 
 On this branch, we will create a simple HTML form using Thymeleaf.
 
@@ -407,7 +407,7 @@ Replace it with this code, which is a heading and a Thymeleaf form:
         </form>
 ```
 
-# Step 8b: Add a bean that corresponds to the form
+### Step 8c: Add a bean that corresponds to the form
 
 Thymeleaf and Spring Boot work with Java Beans to move form information around.
 
@@ -440,7 +440,7 @@ all of the Thymeleaf and Java code, consistently.
 Finally, be sure this `EqSearch.java` file is in the same package as the rest of your code.   That package is currently `hello`.
 
 
-# Step 8c: Add a controller method for the form
+### Step 8d: Add a controller method for the form
 
 In order to be able to see this form in the webapp, we need a controller method for it.
 
@@ -467,7 +467,7 @@ This code says
 
 Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
 
-# Step 8d: Add a menu item that routes to the form.
+### Step 8e: Add a menu item that routes to the form.
 
 To make it easier to get to this form, we'll add a link to it to our navigation bar.
 
@@ -505,7 +505,7 @@ What you'll be doing is adding a new `<li>` element in between those two, so tha
 Run this, and you should see that there is now a link on the navigation bar that takes you to your page.
 
 
-# Step 8e: Add a controller method for the form results.
+### Step 8f: Add a controller method for the form results.
 
 Now we need a controller method for displaying the results.
 
@@ -538,7 +538,7 @@ For now all we are doing is echoing back the information that the user entered. 
 
 That comment will be replace with code that actually goes out to the web to get information on earthquakes.  We'll retreive that information and add it to the model.   That will make it available in the view.
 
-# Step 8f: Add a view for the results page.
+### Step 8g: Add a view for the results page.
 
 The view page `results.html` will be very similar to the page `search.html`.  Create it in the same directory,
 i.e. `src/main/resources/templates/earthquakes`.   Start by copying all of the code from `search.html`. 
@@ -567,9 +567,37 @@ When you click the `Search` button, you should see the numbers echoed back to yo
 
 If that works, we are ready to add some tests.
 
-# Step 8g: Add tests
+### Step 8h: Add tests
 
-In this case, we wrote the code before we wrote the tests.
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+Note: This step has been updated. 
+
+<div style="text-align:left;" markdown="1">
+
+* You'll need to come back and apply these updates before submitting.
+* If you already submitted, no problem; but you still need to do this before the assignment deadline.   (Your links are still valid).
+* You may do so in a new branch and do a pull request, or directly on master.
+
+#### Why the update? 
+
+As it turns out, because this application is protected with OAuth login, we have to take that into account when writing
+unit tests for any endpoint other than the home page (`"/"`).
+
+Otherwise, you'll get a message such as: 
+
+```
+[ERROR]   EarthquakeSearchTest.getEarthquakeSearch:38 Status expected:<200> but was:<302>
+```
+
+The `200` is the expected `OK` status.  The `302` is status you get when the server is redirecting the client to another page, in this case the `"/login"` page.
+
+If you were getting that message, the new code here should fix that.  Together with the updates to step 6b, this should get you "green on CI", that is:
+* you should get a green check on your commits <svg aria-label="3 / 3 checks OK" class="octicon octicon-check" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+* instead of a red X <svg aria-label="2 / 3 checks OK" class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+
+</div>
+</div>
 
 Ideally, you write the tests first.  But it isn't always feasible, especially when you are learning a new framework.
 
@@ -580,6 +608,17 @@ But it's at least a start.
 
 First, let's add a test that makes sure that there is indeed a page at the address `/earthquakes/search` and that we can
 retrieve that page without the server crashing.   To do that, we can use the following code, which we'll put into a file called `/src/test/java/hello/EarthquakeSearchTest.java`
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+Replace the entire contents of `/src/test/java/hello/EarthquakeSearchTest.java` with this new version.
+
+</div>
+</div>
 
 ```java
 package hello;
@@ -597,32 +636,189 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
 
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.junit.Before;
+
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
+
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureMockMvc
+@WebMvcTest(WebController.class)
 public class EarthquakeSearchTest {
 
     @Autowired
     private MockMvc mvc;
 
+    @MockBean
+    private AuthControllerAdvice aca;
+
+    @MockBean
+    private ClientRegistrationRepository crr;
+
+    private OAuth2User principal;
+
+    /**
+     * Set up an OAuth mock user so that we can unit test protected endpoints
+     */
+    @Before
+    public void setUpUser() {
+        principal = OAuthUtils.createOAuth2User("Chris Gaucho", "cgaucho@example.com");
+    }
+
     @Test
+    @WithMockUser
     public void getEarthquakeSearch() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/earthquakes/search").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
-                .andExpect(xpath("//title").exists())
-                .andExpect(xpath("//title").string("Earthquakes Search"));
-    }           
+        mvc.perform(MockMvcRequestBuilders.get("/earthquakes/search")
+            .with(authentication(OAuthUtils.getOauthAuthenticationFor(principal)))
+            .accept(MediaType.TEXT_HTML))
+            .andExpect(status().isOk())
+            .andExpect(xpath("//title").exists())
+            .andExpect(xpath("//title").string("Earthquake Search"));
+    }
 }
 ```
 
-# Step 8h: Pull request
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+This is an entirely new file you should add to your project.
+
+</div>
+</div>
+
+We also need the following file, which you should put into `/src/test/java/hello/OAuthUtils.java`.  This file is adapted from code describing in [this article about testing OAuth secured Spring Boot Applications](https://medium.com/@mark.hoogenboom/testing-a-spring-boot-application-secured-by-oauth-e40d1e9a6f60) and that appears in [this repo](https://github.com/mark-hoogenboom/spring-boot-oauth-testing)
+
+```java
+package hello;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.oauth2.core.user.OAuth2UserAuthority;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+
+
+/**
+ * Utility methods for testing OAuth protected endpoints.
+ * <a href="https://github.com/mark-hoogenboom/spring-boot-oauth-testing">
+ * https://github.com/mark-hoogenboom/spring-boot-oauth-testing
+ * </a>
+ */
+
+public class OAuthUtils {
+
+    public static OAuth2User createOAuth2User(String name, String email) {
+
+        Map<String, Object> authorityAttributes = new HashMap<>();
+        authorityAttributes.put("key", "value");
+
+        GrantedAuthority authority = new OAuth2UserAuthority(authorityAttributes);
+
+        Map<String, Object> attributes = new HashMap<>();
+        attributes.put("sub", "1234567890");
+        attributes.put("name", name);
+        attributes.put("email", email);
+
+        Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+        authorities.add(authority);
+
+        return new DefaultOAuth2User(authorities, attributes, "sub");
+    }
+
+    public static Authentication getOauthAuthenticationFor(OAuth2User principal) {
+
+        Collection<? extends GrantedAuthority> authorities = principal.getAuthorities();
+
+        String authorizedClientRegistrationId = "my-oauth-client";
+
+        return new OAuth2AuthenticationToken(principal, authorities, authorizedClientRegistrationId);
+    }
+}
+```
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+You need this change to the `pom.xml`
+
+</div>
+</div>
+
+We also need a new depenedency in the `pom.xml`.  Add it into the `<dependencies>` section, in between two other `<dependency>` elements.
+
+```xml
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+```
+
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+You need this change in `/src/main/resources/template/earthquakes/search.html` 
+
+</div>
+</div>
+
+Unless you started the lab very late, if you run the tests at this point with `mvn test`, you'll discover that they may still be failing, because one other change is needed.
+The reason is that the packages we are using to do unit tests on the HTML code are very picky about the formatting of the HTML.
+
+If you already created the form in `/src/main/resources/template/earthquakes/search.html` before the typos were fixed, your input elements are "not properly closed".  That is, they look like these:
+
+* `<td><input type="number" th:field="*{distance}" class="form-control" id="distance"></td>`
+* `<td><input type="number" th:field="*{minmag}" class="form-control" id="minmag"></td>`
+* `<input type="submit" class="btn btn-primary" value="Search">`
+
+However, they should look like this instead.  The change is subtle, but crucial.   While most web browsers just silently ignore the error, and everything looks fine, in fact, the HTML above is malformed.   The fix is to add a `/` just before the end of each `<input>` tag so that it becomes a "self-closing" element.
+
+* `<td><input type="number" th:field="*{distance}" class="form-control" id="distance" /></td>`
+* `<td><input type="number" th:field="*{minmag}" class="form-control" id="minmag" /></td>`
+* `<input type="submit" class="btn btn-primary" value="Search" />`
+
+Fix each of these typos in `/src/main/resources/template/earthquakes/search.html`
+
+At that point, your `mvn test` should return no test failures.  When that's true, do a commit.
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+UPDATE:
+
+<div style="text-align:left;" markdown="1">
+
+Be sure that you commit and merge the changes above, and that it gets you "green on Travis-CI". 
+</div>
+</div>
+
+### Step 8i: Pull request
 
 Do a pull request from your `xxCreateForm` branch into `master`.
 
 You should then merge that pull request into master.
 
-# Step 9: Next feature branch: `xxCallAPI`
+## Step 9: Next feature branch: `xxCallAPI`
 
 In this step, we'll make yet another branch where we do something useful
 with the information on the results page.  We'll make a call to an API
