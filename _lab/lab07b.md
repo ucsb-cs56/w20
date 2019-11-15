@@ -1132,6 +1132,14 @@ Test it, and make sure that when you logout and login, you see `member` by your 
 
 You can ask a TA, mentor or instructor to try your app as well. They should see `admin` when they login.
 
+# Step 11: Login into Heroku and deploy your Master Branch
+
+Back in lab07a, you created a Heroku app for lab07.
+
+Login into the Heroku dashboard, find that app, and deploy your master branch from Github to that app.
+
+Then visit the app on Heroku and make sure it works there as well.
+
 # Final Step: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
