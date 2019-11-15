@@ -1258,9 +1258,23 @@ Step 6b fixes the code so that the unit tests pass on Travis-CI and we get a nic
 
 It only takes a moment.  Please go back and do that now.
 
+
 # Final Step: Submitting your work for grading
 
-When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
+
+When you have a running web app, you are probably ready to submit on Gauchospace.
+
+BUT BEFORE YOU DO:
+
+* Check that your lab07 web app runs on Heroku. 
+* ACTUALLY check that you can log out and log back in, and that you can retrieve Earthquake results.
+   * I found some lab07 instances on Heroku that were redirecting back to lab06.
+   * That suggests the author tried to reuse their client id and client secret instead of creating a new one.
+   * You have to create a new one any time the URL changes.
+* Check that your README.md has a correct link to your GitHub pages documentation and that it is updated.
+
+Then, finally visit <{{page.gauchospace_url}}> and make a submission.
+
 
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
