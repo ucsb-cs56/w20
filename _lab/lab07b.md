@@ -103,10 +103,11 @@ To do that, make the following changes to your code.
 
 2. In the file `src/test/java/hello/HomePageTest.java`, we are going to make a few changes.  Here's the first.
 
-   First add these two imports:
+   First add these three imports:
    ```java
    import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
    import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+   import org.springframework.boot.test.mock.mockito.MockBean;
    ```
 
 3. Next, find these lines of code:
