@@ -1157,6 +1157,7 @@ git commit -m "xx - update javadoc and jacoco report"
 git push origin master
 ```
 
+Check that your README.md has a link to your GitHub pages webpage, and that the webpage is published.
 
 # Final Step: Submitting your work for grading
 
