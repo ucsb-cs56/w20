@@ -1420,6 +1420,10 @@ A few last cleanup items:
 * In the metadata section, remove the `type` column.
 * Move the title column to the first position (left most), and make it a clickable link to the url 
   (removing the url field) just like you did with the id field in the previous step.
+  * Clarification: There are two tables.  One is the table with metadata, and the other is the table with one row
+    per earthquake.   I'm talking here about the metadata table.  The idea is to move the "title" field to the left,
+    and make it be a link that links to what the url field had in it.    The syntax is similar to what you did 
+    in the table with the earthquake detail, when you made id a clickable link.
 * Combine the `distance` and `minmag` fields into the same table with the metadata,
   and remove the first table.
 * On the opening `<table>` tags, change them to `<table class="table">`.  This will bring in the Boostrap CSS
