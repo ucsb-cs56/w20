@@ -32,5 +32,9 @@ Most web frameworks have some way of doing this.
 
 It allows you to factor out things that should "always happen" at the beginning and the end.
 
+Here's a pull request that illustrates how this works:
+
+* <https://github.com/ucsb-cs56-f19/STAFF-lab07c-dev/pull/1/files>
+
 # While we are at it, let's look at at ControllerAdvice as well.
 
