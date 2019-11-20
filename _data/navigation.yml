@@ -22,13 +22,13 @@ main_dropdown:
    title: Resources
    items:
      - title: Topics
-       url: /topic_list/
+       url: /topics/
      - title: Resources
-       url: /resource_list/
+       url: /resources/
      - title: Tutorials
-       url: /tutorial_list/
+       url: /tutorials/
      - title: Textbooks
-       url: /textbook_list/       
+       url: /textbooks/       
 
 offering_menus:
   -
@@ -53,12 +53,14 @@ offering_menus:
       - title: OfcHrs
         url: /info/office_hours/
         description: "Office Hours"
+      - title: Projects
+        url: /info/projects/
+        description: "Projects"
       - title: Github
         dropdown:
            - title: ucsb-cs56-f19
              url: https://github.com/ucsb-cs56-f19
-           - title: ucsb-cs56-webapps
-             url: https://github.com/ucsb-cs56-webapps
+          
   -
     term: F18
     baseurl: /f18
