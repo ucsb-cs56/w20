@@ -3,7 +3,6 @@ title: Projects
 layout: default
 ---
 
-{:.table .table-sm .table-striped .table-bordered}
 | Section | Project | Epics | Lead | Mentors| Production |
 |---------|---------|-----|------|--------|-----|
 | 5pm |  [Tutor Scheduler](https://github.com/ucsb-cs56-f19/ucsb-tutor-scheduler/) | [Epics](https://github.com/ucsb-cs56-f19/ucsb-tutor-scheduler/projects/6) | Scott | *Kate*, Vikram, Sumeet, *Yinon*  |
