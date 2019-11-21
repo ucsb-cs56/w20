@@ -137,7 +137,15 @@ Profiles in a `pom.xml` allow us to use the same `pom.xml` file for different co
 * We'll set up the `heroku` profile as the default profile so that when we deploy our app on Heroku, it does the right thing.
 * When running locally, we'll henceforth need to use `mvn -P localhost spring-boot:run`
 
-Here is the `<profile>` section to add.
+To prepare to add a profile, checkout a clean version of master, and then create a new branch (your initials instead of `xx` as usual):
+
+```
+git checkout master
+git pull origin master
+git checkout -b xxAddProfiles
+```
+
+Here is the `<profile>` section to add into `pom.xml`
 
 ```xml
 ```
