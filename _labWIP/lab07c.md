@@ -38,9 +38,13 @@ You may cooperate with one or more pair partners from your team to help in debug
 # Goals
 
 In this lab, we add the following learning goals:
+* Understanding a few basic concepts of SQL databases (tables, rows, columns)
 * Setting up a Spring Boot app to use an SQL database
    * We are using Hibernate, JPA and JDBC as layers in between the SQL database and our application code.
-* Understanding a few basic concepts of SQL databases (tables, rows, columns)
+   * We are using H2, a temporary "in-memory" database when running on `localhost`.   The data in this
+     temporary in-memory database is lost each time we shut down and restart the application.
+   * We are using `postgres`, a real SQL database when running on Heroku.  That database will
+     "persist" the data (meaning the data stays there even if the application is shut down.)
 * Setting up a new `@Entity`, a Java class that represents one row in a database
 * Setting up a new `@Repository`, a Java class that represents a database table
 * Setting up a separate controller and view that corresponds to a database table
@@ -62,26 +66,66 @@ We will work with this repo, and with the Heroku app you configured for {{lab.pr
 # Step by step instructions
 
 
-## Step 14: Setting up a Spring Boot app to use an SQL database
-
-We are using Hibernate, JPA and JDBC as layers in between the SQL database and our application code.
-
-
-
-## Step 15:  Understanding SQL databases (tables, rows, columns)
+## Step 14:  Understanding SQL databases (tables, rows, columns)
 
 TODO
 
+## Step 15: Setting up a Spring Boot app to use an SQL database
+
+We are using Hibernate, JPA and JDBC as layers in between the SQL database and our application code.
+
+There is so much to learn about all three of these technologies, and we'll only be able to barely scratch 
+the surface.  In many cases, it won't be clear, for any particular part of what we are doing, whether its
+Hibernate, JPA, or JDBC is that involved.   That may make you wonder why I'm even mentioning the words.
+
+The reason is that if/when something goes wrong, and you are debugging, it's helpful to know what keywords
+to include in your web searches, and/or what keywords to look for in the results.    Even if you don't know
+exactly what Hibernate, JPA and JDBC are, at least knowing that you are using them is a good start.
+
+### Two different database instances
+
+For the actual database, we'll be using two different technologies:
+
+* When running on localhost, we are using H2
+  * This is a temporary "in-memory" database.
+  * The chief advantage of H2 is that it is completely built into Spring Boot, and requires no additional software.
+  * Therefore, it should run anywhere that Spring Boot runs, including on CSIL.
+  * The chief disadvantage is that it is an "in memory" temporary database.  The data stored in the database
+    exists *only* as long as the spring boot application is running.  If you shut down the application, all of the
+    data stored in the database is lost.
+  * *Obviously* that's no good for a real applicaiton.  But it's fine for testing purposes.
+  * Setting up a real database on localhost is possible, but tricky, especially given that it works differently
+    on Mac, Windows, Linux (different for each variety!), and CSIL.   Thus avoiding that is great!
+* When running on Heroku, we'll use *Postgres*
+  * Postgres is a "real" SQL database system.  When you store data in postgres, it stays there until you delete it,
+    even if the application is shut down.
+  * Heroku offers Postgres as a free add on in the "Hobby/Dev" tier.   That has enough data storage capacity for our needs.   
+  * If we exceeded the data storage capacity of the free tier, then we'd have to pay for it, but that won't happen
+    in this lab assignment.
+    
+
 ## Step 16:  Creating an  `@Entity`, for `AppUser`
 
+In this step, we'll set up a new `@Entity`, a Java class that represents one row in a database.
 
-Setting up a new `@Entity`, a Java class that represents one row in a database
+The row in the database will store the `uid` and the `login` name of each GitHub user that logs into our application. 
 
 ## Step 17:  Creating a `@Repository` for users
 
+In this step, we'll set up a new `@Repository`, a Java class that represents one table in the database.
+
+The table we are setting up is one that stores all of the `AppUser` instances that we want to keep track of.
+We'll call this class `UserRepository`, and put it in a new directory `/src/main/java/hello/repositories` in 
+a file called `UserRepository.java`.
+
 ## Step 18:  Creating a `UsersController`
 
+It is a common practice to have a separate controller class for each database entity.  So in this step, we'll create a file called `UsersController.java` and put it into a new directory called `/src/main/java/hello/controllers`. 
+
+
 ## Step 19:  Add users to table
+
+In this step, we need to add some code that puts users into the `UserRepository` (i.e. stores them in the SQL database table for users.)
 
 ## Step 20:  Add a placeholder user settings page
 
