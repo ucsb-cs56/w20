@@ -4,8 +4,8 @@ num: lab07c
 labnum: lab07
 ready: true
 desc: "Spring Boot Skills Part 3"
-assigned: 2019-11-14 17:00
-due: 2019-11-20 23:59
+assigned: 2019-11-21 17:00
+due: 2019-11-27 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
@@ -28,6 +28,13 @@ will get partial credit for this lab simply for doing the unfinished
 steps from {{page.prev}}, even if you missed the deadline for
 {{page.prev}}
 
+# Individual lab vs Project Track
+
+* If you are on the individual lab track, the deadline for this lab is Wednesday Nov 27, 23:59pm.  Late submissions will 
+be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.
+* If you are on the project track, you are still responsible for completing this lab, but you should prioritize getting started with your project.  Your deadline for this lab is Saturday 12/07, 23:59pm.    Late submissions will 
+be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.
+
 # Individual lab
 
 This is an **individual** lab on the topic of Java web apps on Heroku.
@@ -37,7 +44,10 @@ You may cooperate with one or more pair partners from your team to help in debug
 
 # Goals
 
-In this lab, we add the following learning goals:
+The big picture of this lab is to learn how to add a database that would support individual user settings in a
+web app.  It also gives us a basis for adding database functionality to our webapp.
+
+Goals:
 * Understanding a few basic concepts of SQL databases (tables, rows, columns)
 * Setting up a Spring Boot app to use an SQL database
    * We are using Hibernate, JPA and JDBC as layers in between the SQL database and our application code.
@@ -273,15 +283,28 @@ If there are problems, try to fix them on your own first; ask for help if you ne
 
 If not, do a pull request, and merge this branch into master.
 
-## Step 16:  Creating an  `@Entity`, for `AppUser`
+## Step 16:  Adding a table for Users
 
-In this step, we'll set up a new `@Entity`, a Java class that represents one row in a database.
+In this step, we'll:
 
-The row in the database will store the `uid` and the `login` name of each GitHub user that logs into our application.
+* Set up a new `@Entity`, a Java class that represents one row in a database.
+   * The row in the database will store the `uid` and the `login` name of each GitHub user that logs into our application.
+* Set up a new `@Repository`, a Java class that represents one table in the database.
 
-### Step 16a:  Create a branch `xxAppUsersTable`
+### Step 16a:  Create a feature branch `xxAppUsersTable`
 
+When starting a new branch, you always should start with a clean version of master:
 
+```
+git checkout master
+git pull origin master
+git checkout -b xxAppUsersTable
+```
+
+From here on out, we'll just describe the steps above like this:
+* Create a feature branch called `xxSomeNewFeature` off of master.
+
+The idea that you should start with a clean branch of master will be understood to be a given.  You should also anticipate being asked about this on a future exam.
 
 ### Step 16b:  Create `AppUser.java`
 
@@ -329,9 +352,11 @@ public class AppUser {
 }
 ```
 
-Do `mvn clean compile` to ensure that this code compiles.  If so, do a commit to add this entity 
+Do `mvn clean compile` to ensure that this code compiles.  If so, do a commit.   Add an appropriate commit message,
+and push the commit to your current feature branch.  You can use `git status` to see what the current feature branch is.
 
-## Step 17:  Creating a `@Repository` for users
+
+### Step 16c:  Creating a `@Repository` for users
 
 In this step, we'll set up a new `@Repository`, a Java class that represents one table in the database.
 
@@ -339,20 +364,67 @@ The table we are setting up is one that stores all of the `AppUser` instances th
 We'll call this class `UserRepository`, and put it in a new directory `/src/main/java/hello/repositories` in 
 a file called `UserRepository.java`.
 
-## Step 18:  Creating a `UsersController`
+The contents of `UserRepository.java` should be as follows:
+
+```java
+package hello.repositories;
+
+import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import hello.entities.AppUser;
+
+@Repository
+public interface UserRepository extends CrudRepository<AppUser, Long> {
+   List<AppUser> findByUid(String uid);
+}
+```
+
+Do `mvn clean compile` to ensure that this code compiles.  If so, do a commit.   Add an appropriate commit message,
+and push the commit to your current feature branch.  
+
+
+
+### Step 16d:  Creating a `UsersController`
 
 It is a common practice to have a separate controller class for each database entity.  So in this step, we'll create a file called `UsersController.java` and put it into a new directory called `/src/main/java/hello/controllers`. 
 
+Here's the code that goes into `UsersController.java`:
 
-## Step 19:  Add users to table
+```java
+
+```
+
+### Step 16e:  Add users to table
 
 In this step, we need to add some code that puts users into the `UserRepository` (i.e. stores them in the SQL database table for users.)
 
-## Step 20:  Add a placeholder user settings page
+### Step 16f:  Exploratory Testing
 
-## Step 21:  Add columns to db for User Settings
+Make sure that the app still runs on localhost and that all of the other features work.  This is called "exploratory testing".  It isn't foolproof; it's tedious and easy to miss thing that were accidentally broken, or stopped working.
 
-## Step 22:  Make User Settings work
+That's why a better approach is automated unit and integration testing.   We haven't been doing it as we've been developing, which is not ideal.    But, some tests are better than none, so go ahead and run:
+
+```
+mvn test
+``` 
+
+And ensure that the tests we *do* have still run ok.
+
+### Step 16g: Push, PR
+
+Assuming that all went well in the previous step, push your feature branch to the `origin`, do a pull request,
+and merge the pull request into master.
+
+## Step 17:  User Settings
+
+Create a new feature branch off of master called `xxUserSettings`
+
+### Step 17a:  Add a placeholder user settings page
+
+### Step 17b:  Add columns to db for User Settings
+
+### Step 17c:  Make User Settings work
 
 
 # Final Steps
