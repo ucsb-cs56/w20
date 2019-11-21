@@ -145,10 +145,81 @@ git pull origin master
 git checkout -b xxAddProfiles
 ```
 
-Here is the `<profile>` section to add into `pom.xml`
+Here is the `<profile>` section to add into `pom.xml`.   Look at it a bit before just blinding copying and pasting it into your `pom.xml` to understand what it is doing.
+
+* You'll see that it creates two profiles, one called `localhost`, and one called `heroku`.  
+* Each profile specifies a `<build>` section that indicates where `<resources>` can be found, i.e. a series of directories.   One of those is shared, i.e. `src/main/resources`.  The other is unique to each profile.
+* Each profile also has separate dependencies. 
+   * The `localhost` profile has `h2`, the in-memory database, as a dependency.
+   * The `heroku` profile has `postgres`, the database used on heroku, as a dependency, along with `jdbc`, which is 
+     a layer used by Java to connect to databases over the internet (*J*ava *D*ata*b*ase *C*onnectivity).
+* Finally, the `<activeByDefault>` element signifies that `heroku` is the default profile.  This is necessary
+  so that when we deploy to Heroku, this profile is chosen.
+
+If you scroll all the way to the bottom of your current `pom.xml`, you should find this comment just before the end:
+
+```
+<!-- (28) <profiles/> -->
+```
+
+Copy this into your `pom.xml` as an entire element right after that comment, before the closing `</profile>` tag. 
 
 ```xml
+  <profiles>
+        <profile>
+            <id>localhost</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/config/localhost</directory>
+                    </resource>
+                </resources>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <scope>runtime</scope>
+                 </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>heroku</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/config/heroku</directory>
+                    </resource>
+                </resources>
+
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-jdbc</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 ```
+
+Do a commit with a commit message that indicates you added separate profiles for localhost and heroku, and
+push it your current feature branch (i.e. `xxAddProfiles`).
+
 
     
 
