@@ -389,17 +389,156 @@ and push the commit to your current feature branch.
 
 It is a common practice to have a separate controller class for each database entity.  So in this step, we'll create a file called `UsersController.java` and put it into a new directory called `/src/main/java/hello/controllers`. 
 
-Here's the code that goes into `UsersController.java`:
+Here's the code that goes into `UsersController.java`.   Take a look and notice a few things:
+
+* We have 
 
 ```java
+package hello.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import hello.entities.AppUser;
+import hello.repositories.UserRepository;
+
+@Controller
+public class UsersController {
+
+    private UserRepository userRepository;
+
+    @Autowired
+    public UsersController(UserRepository userRepository) {
+        this.userRepository = userRepository;   
+    }
+    
+    @GetMapping("/users")
+    public String index(Model model) {
+        Iterable<AppUser> users= userRepository.findAll();
+        model.addAttribute("users", users);
+        return "users/index";
+    }
+
+}
+```
+
+### Step 16e:  Creating a view for the Users
+
+We now need a view to go along with our `/users` endpoint.  
+* The endpoint is marked with `@GetMapping("/users")` 
+* That endpoint is served up by the `index` method of `UsersController`
+* The return value of that method is `"users/index"`
+* That implies there should be a file called `src/main/resources/templates/users/index.html`
+
+Take a look at that again, and understand the pattern:
+
+| If the return value of the endpoint is: | We are looking for this file under `/src/main/resources/templates` |
+|--|--|
+| `"foo"` | `foo.html` |
+| `"bar/fum"` | `/bar/fum.html` |
+
+So we need to create a new directory (folder) under `/src/main/resources/templates/` called  `users` and put 
+a file in there called `index.html`.
+
+That file should look similar to all of our other full web pages.   We can start with our `index.html` from the
+root of our application, make a copy of that, and then modify it.
+
+Here's what the `index.html` in `/src/main/resources/templates` should look like:
+
+```
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"> 
+  <head>
+    <title>CS56 Spring Boot Practice App</title>
+    <div th:replace="bootstrap/bootstrap_head.html"></div>
+  </head>
+  <body>
+    <div class="container">
+      <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
+
+      <h1>Home Page</h1>
+
+      <p>This page is a placeholder.</p>
+
+      <div th:replace="bootstrap/bootstrap_footer.html"></div>
+    </div>
+    <div th:replace="bootstrap/bootstrap_scripts.html"></div>
+  </body>
+</html>
 
 ```
 
-### Step 16e:  Add users to table
+We'll modify the part of the page that changes, which is the part inside the `<div class="container">` element between
+the bootstrap header and bootstrap footer.
+
+Here's the code we'll put in there, replacing this:
+
+```html
+ <h1>Home Page</h1>
+
+ <p>This page is a placeholder.</p>
+```
+
+with this. 
+
+```html 
+  <h3>Users</h3>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>id</th>
+                  <th>uid</th>
+                  <th>login</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="u: ${users}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.uid}"></td>
+                <td th:text="${u.login}"></td>
+              </tr>
+          </tbody>
+      </table>
+```
+
+ Look over the HTML code above and see how it works.  There is an HTML table element, with headers for `id`, `uid` and `login`.   The `<tr>` element has an Thymeleaf attribute `th:each="u: ${users}"` which causes the `<tr>` element to be repeated
+for each instance in the `users` variable.  For this to work, `users` in the `Model` object has to be some kind of `Iterable<>`.   The code that makes this work is two lines of code in the `UsersController.java` that read:
+
+```
+        Iterable<AppUser> users= userRepository.findAll();
+        model.addAttribute("users", users);
+```        
+
+* The `users = userRepository.findAll()` is the Java equivalent of an SQL statement such as `SELECT * from app_users;`
+* The `model.addAttribute("users", users);` puts that value into the `model`; that makes it available in the view (the Thymeleaf HTML template files.)
+
+We can't really test this very effectively yet with no users in our table.  But we can at least make sure that the 
+code doesn't crash.  
+
+So fire up the app with the following (the `-P localhost` is super important!)
+
+```
+mvn -P localhost spring-boot:run
+```
+
+Then navigate to the `/users` endpoint.  You should see an empty table of users (not an error message).
+
+If you see an error, look at the console output closely and try to locate the actual root cause of the error, and fix it.  If you need help, ask for it.
+
+If you do get a nice clean empty table, then you are ready to do a commit on the code you've put in so far for the
+view (`src/main/resources/templates/users/index.html`).  
+
+### Step 16f:  Add users to table
 
 In this step, we need to add some code that puts users into the `UserRepository` (i.e. stores them in the SQL database table for users.)
 
-### Step 16f:  Exploratory Testing
+We are going to add that code into a file called `src/main/java/hello/AuthControllerAdvice.java`
+
+TODO: CONTINUE FROM HERE
+
+### Step 16g:  Exploratory Testing
 
 Make sure that the app still runs on localhost and that all of the other features work.  This is called "exploratory testing".  It isn't foolproof; it's tedious and easy to miss thing that were accidentally broken, or stopped working.
 
