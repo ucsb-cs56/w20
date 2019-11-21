@@ -125,7 +125,7 @@ For the actual database, we'll be using two different technologies:
   * If we exceeded the data storage capacity of the free tier, then we'd have to pay for it, but that won't happen
     in this lab assignment.
     
-## Step 15a: Adding profiles to our `pom.xml`
+### Step 15a: Adding profiles to our `pom.xml`
 
 The first step is to add a section to our `pom.xml` called `<profiles>`.
 
@@ -217,17 +217,119 @@ Copy this into your `pom.xml` as an entire element right after that comment, bef
     </profiles>
 ```
 
-Do a commit with a commit message that indicates you added separate profiles for localhost and heroku, and
+To check the syntax of your `pom.xml` you can run this command:
+
+```
+mvn validate
+```
+
+This will simply check whether the XML elements are formatted properly.  If there are errors, try to fix them on your own first, by looking at the error messages and the instructions.  If you are still stuck, ask for help.
+
+Once you get a clean result from `mvn validate`, do a commit with a commit message that indicates you added separate profiles for localhost and heroku, and
 push it your current feature branch (i.e. `xxAddProfiles`).
 
+### Step 15b: Additional dependencies for working with database
 
-    
+To work with databases, we need a few more dependencies that will go in the main `<dependencies>` element of our
+`pom.xml`.
+
+Add these:
+
+```xml
+        <!-- jpa, crud repository -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.25.0-GA</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+```
+
+Check the syntax of your `pom.xml` with `mvn validate.   When there are no errors, 
+do a commit with a commit message that indicates you added dependencies needed for SQL databases,
+and push the commit to your feature branch (i.e. `xxAddProfiles`) on the `origin` remote (i.e. on GitHub).
+
+### Step 15c: Test that nothing is broken locally
+
+As a sanity check, do the following steps before doing a pull request, and merging this branch into master:
+
+* `mvn -P localhost spring-boot:run`
+   * Just check that everything still seems to work as it did before
+* `mvn test`
+   * Do the test cases still pass?
+   
+If there are problems, try to fix them on your own first; ask for help if you need it.
+
+If not, do a pull request, and merge this branch into master.
 
 ## Step 16:  Creating an  `@Entity`, for `AppUser`
 
 In this step, we'll set up a new `@Entity`, a Java class that represents one row in a database.
 
-The row in the database will store the `uid` and the `login` name of each GitHub user that logs into our application. 
+The row in the database will store the `uid` and the `login` name of each GitHub user that logs into our application.
+
+### Step 16a:  Create a branch `xxAppUsersTable`
+
+
+
+### Step 16b:  Create `AppUser.java`
+
+Make a new directory called `/src/main/java/hello/entities`, and into this directory, you'll put the code
+shown below, in a file called `AppUser.java`.
+
+Note a few things about this code:
+
+* It is in the package `hello.entities`
+* It has three fields, `id`, `uid` and `login`.
+* These three fields will be the fields in each row of a database table for users.
+* The `@Id` and `@GeneratedValue(strategy = GenerationType.IDENTITY)` are used to make sure that each database
+  row in the table gets a unique id value.  The framework requires us to use a `long` to represent this value.
+* The other fields are the ones that we want to store in this database object.  We are storing `uid`, which is a
+  permanent "user id" string assigned to each GitHub user, and `login` which the actual login name that users are
+  used to seeing.  User are allowed to change their login name, but their `uid` stays the same permanently.
+* We need to follow the Java Bean standard and have standard getters and setters for the fields.
+
+```java
+package hello.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class AppUser {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String uid;
+    private String login;
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getLogin() { return login; }
+    public void setLogin(String login) { this.login = login; }
+   
+    public String getUid() { return uid; }
+    public void setUid (String uid) { this.uid = uid; }
+}
+```
+
+Do `mvn clean compile` to ensure that this code compiles.  If so, do a commit to add this entity 
 
 ## Step 17:  Creating a `@Repository` for users
 
