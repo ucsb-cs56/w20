@@ -242,7 +242,56 @@ This will simply check whether the XML elements are formatted properly.  If ther
 Once you get a clean result from `mvn validate`, do a commit with a commit message that indicates you added separate profiles for localhost and heroku, and
 push it your current feature branch (i.e. `xxAddProfiles`).
 
-### Step 15b: Additional dependencies for working with database
+### Step 15b: Adding additional `properties` files
+
+Part of what the profile step did was to allow us to set up separate `.properties` files for `localhost` vs. `heroku`.
+
+Create these directories:
+* `src/main/config/localhost`
+* `src/main/config/heroku`
+
+Note that these are the directories defined in the `<directory>` elements in the two profiles you just put in your `pom.xml`.
+
+In the directory `src/main/config/localhost`, create a file called `localhost.properties` and put this in as its contents:
+
+```
+spring.jpa.hibernate.ddl-auto=create
+```
+
+In the directory `src/main/config/heroku`, create a file called `heroku.properties` and put this in as its contents:
+
+```
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.driver-class-name = org.postgresql.Driver
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+
+spring.datasource.url=${JDBC_DATABASE_URL}
+spring.datasource.username=${JDBC_DATABASE_USERNAME}
+spring.datasource.password=${JDBC_DATABASE_PASSWORD}
+
+spring.jpa.hibernate.ddl-auto=update
+```
+
+Finally, put these values into your `src/main/resources/application.properties` at the end:
+
+```
+spring.output.ansi.enabled=DETECT
+logging.level.org.hibernate.SQL=debug
+
+spring.jpa.show-sql=true
+```
+
+Add these files to a commit:
+
+```
+git add -p src/main/resources/application.properties
+git add src/main/config/heroku/heroku.properties
+git add src/main/config/localhost/localhost.properties
+```
+
+No need to test just yet, but do push this commit to your feature branch.
+
+### Step 15c: Additional dependencies for working with database
 
 To work with databases, we need a few more dependencies that will go in the main `<dependencies>` element of our
 `pom.xml`.
@@ -274,7 +323,7 @@ Check the syntax of your `pom.xml` with `mvn validate.   When there are no error
 do a commit with a commit message that indicates you added dependencies needed for SQL databases,
 and push the commit to your feature branch (i.e. `xxAddProfiles`) on the `origin` remote (i.e. on GitHub).
 
-### Step 15c: Test that nothing is broken locally
+### Step 15d: Test that nothing is broken locally
 
 As a sanity check, do the following steps before doing a pull request, and merging this branch into master:
 
@@ -614,6 +663,8 @@ With this code in place, you should be able to run on localhost with:
 mvn -P localhost 
 ```
 
+See whether, if you logout and login, you can go to the `/users` endpoint and see your user 
+
 ### Step 16g:  Exploratory Testing
 
 Make sure that the app still runs on localhost and that all of the other features work.  This is called "exploratory testing".  It isn't foolproof; it's tedious and easy to miss thing that were accidentally broken, or stopped working.
@@ -631,15 +682,53 @@ And ensure that the tests we *do* have still run ok.
 Assuming that all went well in the previous step, push your feature branch to the `origin`, do a pull request,
 and merge the pull request into master.
 
-## Step 17:  User Settings
+## Step 17: Add a navigation bar item for Users
 
-Create a new feature branch off of master called `xxUserSettings`
+For this step, I will not give you specific instructions.  You should be able to use the instructions from
+previous steps of lab07a, lab07b, and lab07c to figure out how to do items listed below.
 
-### Step 17a:  Add a placeholder user settings page
+You should create a feature branch with an appropriate name, and use appropriate commit messages.
 
-### Step 17b:  Add columns to db for User Settings
+* Add a navigation bar link called `Users` that goes to the `/users` endpoint.
+* Add a test that the navigation bar has a link called `Users` that links to the `/users` endpoint.
 
-### Step 17c:  Make User Settings work
+Do a pull request when your tests pass, and when the feature works properly, and merge the request to master.
+
+
+## Step 18: Deploying on Heroku
+
+Before deploying the master branch anew on Heroku, you'll need to do one more step.
+
+### Step 18a: Provision an Heroku Postgres database addon
+
+1. Go to the Heroku dashboard for your app, at <https://dashboard.heroku.com/apps/cs56-f19-lab07-githubid> where
+`githubid` is your github id.
+2. There should be a "Resources" tab. Click on it.
+3. Find the AddOns box where can type in the name of add-ons to search for them.  Type in `Heroku Postgres`
+4. When it comes up, click on it.  You want to add the "Hobby/Dev" free tier.
+
+That's it.  If it worked, you should be able to to the "Settings" tab, click on "Reveal Config Vars" and see a new variable called `DATABASE_URL`.  If you see that, then you have a database provisioned and ready for use.
+
+The `DATABASE_URL` contains the hostname, port, username, password, and database name needed to connect to your database.  When Heroku sees a Java application, it automatically parses these into environment variables with the names
+we already specified in our `heroku.properties` file earlier, i.e.:
+
+```
+spring.datasource.url=${JDBC_DATABASE_URL}
+spring.datasource.username=${JDBC_DATABASE_USERNAME}
+spring.datasource.password=${JDBC_DATABASE_PASSWORD}
+```
+
+This is how our spring boot app  can connect to the database when running on Heroku.
+
+We are now ready to deploy again.
+
+### Step 18b: Deploy master branch
+
+In the "Deploy" tab of the Heroku dashboard, find the "Deploy Branch" button, and deploy from the master branch.
+
+### Step 18c: Exploratory testing of the Heroku version
+
+Now, try the application on Heroku.  Get another student, a tutor, TA or instructor to try logging into your app so that you can see if the users table works properly.
 
 
 # Final Steps
