@@ -629,6 +629,43 @@ Now we are going to use that method in another context as well. Find the method 
     }  
 ```
 
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+A few updates
+
+<div style="text-align:left;" markdown="1">
+
+In addition to the code below, if your code is/was not working at this step, it may be because these lines were missing in the first version of the lab.   These updates were made about 8pm on Thursday, Nov 21.
+
+(1) Just after the opening class line:
+
+```
+public class AuthControllerAdvice {
+```
+
+Add this declaration:
+
+```java
+    @Autowired   
+    private UserRepository userRepository;
+
+```
+
+
+(2) You'll need some additional imports:
+
+```
+import hello.repositories.UserRepository;
+import hello.entities.AppUser;
+import hello.repositories.UserRepository;
+import java.util.List;
+```
+
+I apologize for the oversight.
+
+</div>
+</div>
+
 
 We are going to put code into this method that will check, every time we look up a users GitHub `id`, we'll check to 
 see if that user was *not* found in our `userRepository` (i.e. if the size of `List<AppUser>` returned was 0.)  
