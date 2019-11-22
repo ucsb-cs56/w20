@@ -30,10 +30,14 @@ steps from {{page.prev}}, even if you missed the deadline for
 
 # Individual lab vs Project Track
 
-* If you are on the individual lab track, the deadline for this lab is Wednesday Nov 27, 23:59pm.  Late submissions will 
-be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.
-* If you are on the project track, you are still responsible for completing this lab, but you should prioritize getting started with your project.  Your deadline for this lab is Saturday 12/07, 23:59pm.    Late submissions will 
-be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.
+* If you are on the **individual lab** track, the **deadline for this lab is Wednesday Nov 27, 23:59pm**.  
+   * Late submissions will 
+     be accepted only up until grading is complete; submissions received 
+     after grading is complete will NOT be accepted   for regrades.
+* If you are on the **project track**, you are still responsible for completing this lab, but you should probably **prioritize getting started with your project**.  
+   * Work on this if/when you are stuck/blocked and don't know how to proceed on your project, and/or when you need to understand how to work with databases and users settings.     
+   * For Project track folks, your deadline for this lab is Saturday 12/07, 23:59pm.    
+   * Late submissions will be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.
 
 # Individual lab
 
@@ -162,7 +166,7 @@ Here is the `<profile>` section to add into `pom.xml`.   Look at it a bit before
 * Each profile also has separate dependencies. 
    * The `localhost` profile has `h2`, the in-memory database, as a dependency.
    * The `heroku` profile has `postgres`, the database used on heroku, as a dependency, along with `jdbc`, which is 
-     a layer used by Java to connect to databases over the internet (*J*ava *D*ata*b*ase *C*onnectivity).
+     a layer used by Java to connect to databases over the internet (**J**ava **D**ata**b**ase **C**onnectivity).
 * Finally, the `<activeByDefault>` element signifies that `heroku` is the default profile.  This is necessary
   so that when we deploy to Heroku, this profile is chosen.
 
@@ -447,7 +451,7 @@ root of our application, make a copy of that, and then modify it.
 
 Here's what the `index.html` in `/src/main/resources/templates` should look like:
 
-```
+```html
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
@@ -506,7 +510,7 @@ with this.
  Look over the HTML code above and see how it works.  There is an HTML table element, with headers for `id`, `uid` and `login`.   The `<tr>` element has an Thymeleaf attribute `th:each="u: ${users}"` which causes the `<tr>` element to be repeated
 for each instance in the `users` variable.  For this to work, `users` in the `Model` object has to be some kind of `Iterable<>`.   The code that makes this work is two lines of code in the `UsersController.java` that read:
 
-```
+```java
         Iterable<AppUser> users= userRepository.findAll();
         model.addAttribute("users", users);
 ```        
@@ -536,7 +540,79 @@ In this step, we need to add some code that puts users into the `UserRepository`
 
 We are going to add that code into a file called `src/main/java/hello/AuthControllerAdvice.java`
 
-TODO: CONTINUE FROM HERE
+First let's add this private method to the very end of the class:
+
+```java
+    private String token2login(OAuth2AuthenticationToken token) {
+        return token.getPrincipal().getAttributes().get("login").toString();
+    }
+```
+
+Look at the return value of this method. This method takes an OAuth token (returned by GitHub), uses it to look
+up the `Principal`, which is a Java abstraction for a user.   It then gets an attribute called `login`, which is the
+users GitHub login name (e.g. `pconrad`, `cgaucho`, etc.)
+
+We are going to use this to keep our code DRY.  Find this method, which loads that same value into an attribute
+in the model called `login`.  This is what the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html` uses to put the login name at the top of the page after you login.
+
+```
+    @ModelAttribute("login")
+    public String getLogin(OAuth2AuthenticationToken token){
+        if (token == null) return "";
+        return token.getPrincipal().getAttributes().get("login").toString();
+    }
+```
+
+You'll see that the return value of `getLogin` is the same as that of `token2login`.  So let's use that
+method call; you should replace the return value from `getLogin` with a call to `token2login`:
+
+```
+       return token2login(token);
+```
+
+Now we are going to use that method in another context as well. Find the method `getUid`.  It should look like this:
+
+```java
+    @ModelAttribute("id")
+    public String getUid(OAuth2AuthenticationToken token){
+        if (token == null) return "";
+        return token.getPrincipal().getAttributes().get("id").toString();
+    }  
+```
+
+
+We are going to put code into this method that will check, every time we look up a users GitHub `id`, we'll check to 
+see if that user was *not* found in our `userRepository` (i.e. if the size of `List<AppUser>` returned was 0.)  
+If it was indeed not found, we'll
+add this user to the `userRepository` (which adds it to the database).  
+
+Here's the new version.  Look over this code, and replace the code for the `getUid` method:
+
+```java
+ @ModelAttribute("id")
+    public String getUid(OAuth2AuthenticationToken token){
+        if (token == null) return "";
+
+        String uid = token.getPrincipal().getAttributes().get("id").toString();
+
+        List<AppUser> users = userRepository.findByUid(uid);
+
+        if (users.size()==0) {
+            AppUser u = new AppUser();
+            u.setUid(uid);
+            u.setLogin(token2login(token));
+            userRepository.save(u);
+        }
+
+        return uid;
+    }
+```
+
+With this code in place, you should be able to run on localhost with:
+
+```
+mvn -P localhost 
+```
 
 ### Step 16g:  Exploratory Testing
 
