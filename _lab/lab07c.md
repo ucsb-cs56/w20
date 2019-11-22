@@ -657,7 +657,6 @@ Add this declaration:
 ```
 import hello.repositories.UserRepository;
 import hello.entities.AppUser;
-import hello.repositories.UserRepository;
 import java.util.List;
 ```
 
