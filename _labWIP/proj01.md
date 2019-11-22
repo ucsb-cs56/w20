@@ -1,109 +1,53 @@
 ---
 layout: lab
-num: lab07c
-labnum: lab07
+num: proj01
 ready: true
-desc: "Spring Boot Skills Part 3"
-assigned: 2019-11-21 17:00
-due: 2019-11-27 23:59
+desc: "Individual Lab Track Project 1"
+assigned: 2019-11-22 17:00
+due: 2019-12-03 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
-prev: lab07b
-starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07c
-Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/lab07c
+Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab08
+Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/lab08
 </div>
 
-This lab builds on your work from {{page.prev}}.
 
-# What if I didn't finish {{page.prev}}
+# This project is only for the individual lab track
 
-If you were not successful in completing {{page.prev}}, you should go
-back and complete any unfinished steps from {{page.prev}} first.  You
-will get partial credit for this lab simply for doing the unfinished
-steps from {{page.prev}}, even if you missed the deadline for
-{{page.prev}}
+This project is only for those on the "individual lab" track.  It counts towards the project portion of your grade (20% of your final grade, rather than the lab component of your grade.)
 
-# Individual lab vs Project Track
+You may cooperate with one or more pair partners from your team to help in debugging and understanding the project, but each person should complete the work separately for themselves.
 
-* If you are on the **individual lab** track, the **deadline for this lab is Wednesday Nov 27, 23:59pm**.  
-   * Late submissions will 
-     be accepted only up until grading is complete; submissions received 
-     after grading is complete will NOT be accepted   for regrades.
-* If you are on the **project track**, you are still responsible for completing this lab, but you should probably **prioritize getting started with your project**.  
-   * Work on this if/when you are stuck/blocked and don't know how to proceed on your project, and/or when you need to understand how to work with databases and users settings.     
-   * For Project track folks, your deadline for this lab is Saturday 12/07, 23:59pm.    
-   * Late submissions will be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.
-
-# Individual lab
-
-This is an **individual** lab on the topic of Java web apps on Heroku.
-
-You may cooperate with one or more pair partners from your team to help in debugging and understanding the lab, but each person should complete the lab separately for themselves.
+Late submissions will be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.   To ensure that your submission is accepted, be sure that you complete it and submit on Gradescope before the published deadline.
 
 
 # Goals
 
-The big picture of this lab is to learn how to add a database that would support individual user settings in a
-web app.  It also gives us a basis for adding database functionality to our webapp.
-
-Goals:
-* Understanding a few basic concepts of SQL databases (tables, rows, columns)
-* Setting up a Spring Boot app to use an SQL database
-   * We are using Hibernate, JPA and JDBC as layers in between the SQL database and our application code.
-   * We are using H2, a temporary "in-memory" database when running on `localhost`.   The data in this
-     temporary in-memory database is lost each time we shut down and restart the application.
-   * We are using `postgres`, a real SQL database when running on Heroku.  That database will
-     "persist" the data (meaning the data stays there even if the application is shut down.)
-* Setting up a new `@Entity`, a Java class that represents one row in a database
-* Setting up a new `@Repository`, a Java class that represents a database table
-* Setting up a separate controller and view that corresponds to a database table
-* Adding code to an `@ControllerAdvice` class that will run before each web request/response
-  to add new users to an AppUsers table in our database
-* Adding a User Settings page to our application
-* Adding columns to our database to store User Settings
+The goal of this project is to determine whether you can apply the skills covered in lab07a, lab07b and lab07c in a new context, and to see if you can apply those skills in a new context.
 
 
 
-# Picking up from where [{{page.prev}}]({{page.prev}}) left off
-
-Please return to your same repo:
-
-* <tt>{{page.labnum}}-githubid</tt>.
-
-We will work with this repo, and with the Heroku app you configured for {{lab.prev}}
 
 # Step by step instructions
 
 
-## Step 14:  Understanding SQL databases (tables, rows, columns)
+## Step 1:  Create a public {{page.num}}-githubid repo
 
-It's helpful to have at least a little understanding of how SQL databases work.
+* Create a repo in the <tt>{{page.org}}</tt> organization with the name <tt>{{page.num}}-<i>githubid</i></tt>, substituting
+your github id in place of <tt><i>githubid</i></tt>
+* Add a remote that points to your `lab07c` code.
+* Pull in the `lab07c` code as your starter code.
+* Push to `origin master`
 
-If you are familiar with, and comfortable with the following concepts, that's enough for what we are doing:
-* database tables
-* rows in a database
-* columns in a database
-* fields (which are the names of the columns) in a database row.
+## Step 2:  Set up your new project on Heroku at <tt>cs56-f19-{{page.num}}-<i>github</i><tt>
 
-If you are unfamiliar with these concepts, I recommend looking over the following *four pages* from the w3schools website. 
+* Create a Heroku app with the name <tt>cs56-f19-{{page.num}}-<i>github</i><tt>.
+* CONTINUE FROM HERE
 
-* [SQL Intro](https://www.w3schools.com/sql/sql_intro.asp)
-* [SQL Syntax](https://www.w3schools.com/sql/sql_syntax.asp)
-* [SQL SELECT](https://www.w3schools.com/sql/sql_select.asp)
-* [SQL INSERT INTO](https://www.w3schools.com/sql/sql_insert.asp)
-
-While the tutorial goes
-on at much more length, you will likely not need more than these pages of it for the work we are
-doing with SQL databases in this lab.   You just need to know what we mean when we say *table*, *row*, *field*, and *column*.
-
-In fact, arguably, these few pages, which should take no more than
-about 5-10 minutes to look over, have more information about SQL that you'll likely need, since Spring Boot
-takes care of most of the low level details of SQL databases for us.  
 
 
 ## Step 15: Setting up a Spring Boot app to use an SQL database
