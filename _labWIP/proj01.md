@@ -121,7 +121,11 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     Try running `mvn clean compile` to see what does and does not compile.
     
     Then, run your `mvn test` as well as testing with `mvn -P localhost spring-boot:run` to make sure everything still works.
-    If so, do a commit with an appropriate message.
+
+    You'll likely find that a few tests need to be modified as well.
+    
+    Once everything is fixed, commit with an appropriate message.
+
 2.  The files `src/main/resources/templates/page1.html` and `src/main/resources/templates/page2.html` are no longer being used, 
     so remove them from the application.  You'll need to use `git rm filename` to make sure that the removal goes into a commit.
     
