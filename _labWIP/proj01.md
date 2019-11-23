@@ -389,7 +389,7 @@ something like this (the formatting may be slightly different, but the structure
 
 </div>
 
-At this point, you can take out the part of the view that displays the JSON on the results page, just as we did in Step 10i.
+At this point, you should take out the part of the view that displays the JSON on the results page, just as we did in Step 10i.  It was only there as temporary scaffolding to help us make sure things were working as we built out the real table of results.
 
 When you have the ability to type in locations and see them displayed, and the page looks nice and clean, commit these changes,
 do a pull request, and merge them into master.
