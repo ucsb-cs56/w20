@@ -70,7 +70,7 @@ git commit -m "xx - update javadoc and jacoco report"
 git push origin master
 ```
 
-## Step 2:  Set up your new project on Heroku at <br/ > <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
+## Step 2: Set up new project on Heroku
 
 * Create a Heroku app with the name <tt>cs56-f19-{{page.num}}-<i>github</i></tt>.
 * Provision that Heroku app with a Heroku Postgres database.
