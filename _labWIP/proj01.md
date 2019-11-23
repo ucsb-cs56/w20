@@ -1,6 +1,7 @@
 ---
 layout: lab
 num: proj01
+package: earthquakes
 ready: true
 desc: "Individual Lab Track Project, part 1"
 assigned: 2019-11-22 17:00
