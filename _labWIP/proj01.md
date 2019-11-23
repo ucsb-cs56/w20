@@ -160,16 +160,11 @@ The user story for this feature is:
 
 We'll add another form with just one field: one where the user can enter a place name (location).   
 
-There will be a search button.   When that button is clicked, a location API will be used to find a list of 
-matching locations.  The latitude and longitude of each of those will then be displayed.
+There will be a search button.   Eventually, when that button is clicked, a location API will be used to find a list of 
+matching locations.  The latitude and longitude of each of those will then be displayed.  For now, though, we'll just echo back
+the location entered.
 
-This step just adds the form; the API interaction is in the step after this one.
-
-In an even later step, we'll add a button beside each of these that allows it to be added into a database of known locations.  
-
-Finally, that database of known locations will be used to allow the user to search for Earthquakes from any location in the database.
-
-For this step, I recommend that you proceed in a manner similar to Steps 8 and 9 of lab07b.  We'll first concentrate just on Step 8.
+For this step, I recommend that you proceed in a manner similar to Step 8 lab07b. 
 
 1. Create a feature branch off of master.
 2. In `src/main/resources/templates/` create a directory called `locations`.  
@@ -189,14 +184,318 @@ This is all enough for a pull request, just like it was in lab07b.   Test all of
 
 Then, pull request, merge it into master, and deploy it to Heroku and test there.
 
-## Step 4: Implement Location Lookup API
+## Step 4: Implement Location Query Service
+
+This step will proceed in a manner similar to step 9 of lab07b.
+
+First, Create a feature branch with an appropriate name.
 
 
 
-1. In the `services` directory, create a `LocationQueryService` similar to the `EarthquakeQueryService`. 
-   * Your first version of it should return fake JSON, just as we did in lab7b (step 9b).
-   * The fake JSON is enough for now.
-3. 
+In the `services` directory, create a `LocationQueryService` similar to the `EarthquakeQueryService`. 
+* Your first version of it should return fake JSON, just as we did in lab7b (step 9b).
+* Also add some code into the results form that displays the json, so that you know it is coming through.
+* Manually test doing a location search, and making sure that when you search for "Santa Barbara" or "Goleta" then you see
+  the fake json returned by the service.
+
+Test this and do a commit.
+
+Now we are ready for the real service.  The API we are using is documented here:
+* <https://nominatim.org/release-docs/develop/api/Search/>
+
+The api endpoint we are using has this URL syntax:
+* <tt>https://nominatim.org/release-docs/develop/api/Search/<i><b>search-string</b></i>?format=json</tt>
+
+You should do a GET request on that endpoint, putting the location entered by the user in where <tt><i><b>search-string</b></i></tt> appears.
+
+The JSON that comes back for a query to "Santa Barbara" is shown at either of these links below:
+* The raw result: <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
+* Formatted with some notes: [example_json](example_json).
+
+Test with some queries such as "Santa Barbara", "Goleta", etc. and see what comes up.  When you are satisfied that you are getting
+good results, commit this, do a pull request, and merge into master.
+
+Note that each element in the JSON returned has a `license` element. That requires us both legally and ethically to so some things to comply with the license requirements. Fortunately, these requirements are fairly easy to comply with (they are noted here: <https://www.openstreetmap.org/copyright>).   We'll take care of that in the next step. 
+
+## Step 4: JSON to Objects for Locations
+
+Now we are ready to parse the JSON into actual objects.  But first, let's take care of the license requirements.
+
+Create a feature branch for the JSON parsing.
+
+Then, go into the file 
+* `src/main/resources/templates/bootstrap/bootstrap_footer.html`
+
+You'll see that we have a `<p>` element that references CS56.  Leave that there.  But also add a second `<p>` element afterwards that reads a follows:
+
+```html
+ <p>
+   Location data from the 
+   <a href="https://nominatim.org/release-docs/develop/api/Overview/">Nominatum API</a> 
+   is © OpenStreetMap contributors, and used under 
+   <a href="https://www.openstreetmap.org/copyright">these license and copyright terms.</a>
+  </p>
+```
+
+This should now appear at the bottom of each page in the application.  **I am not a lawyer**, but from my plain reading of the copyright notice linked to there, this appears to be a sufficient good faith effort to comply with the licensing terms.
+
+While we are at it, even though it doesn't appear to be legally required, it is probably both good ethical practice and documentation
+to add this additional paragraph:
+
+```html
+   <p>
+        Earthquake data is from the <a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS API</a>.
+   </p>
+```
+
+With that dealt with, now lets turn our attention to deserializing the JSON.  
+
+Just as we created a separate package `geojson` for the objects that deserialized the earthquake data, let's create a package `osm` (for "Open Street Map") for the objects that deserialize the Open Street Map data.  That's a new directory under <tt>src/main/java/{{page.num}}</tt>.
+
+Note that the object returned is an array of objects at the very top.  As a result, we'll need to map that to a `List<>`, which is a bit different from how we dealt with deserializing the JSON for the Earthquake Search Results object, where the top level JSON object was indeed an plain old object.
+
+So, our first class will be an object (Java Bean) that represents one element of this array, e.g. an object such as:
+
+```json
+ {
+        "place_id": 198134367,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 112224,
+        "boundingbox": [
+            "34.336029",
+            "34.463922",
+            "-119.859791",
+            "-119.639946"
+        ],
+        "lat": "34.4221319",
+        "lon": "-119.7026673",
+        "display_name": "Santa Barbara, Santa Barbara County, California, United States",
+        "class": "place",
+        "type": "city",
+        "importance": 0.7840479382888761,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+    },
+```
+
+The only fields that we'll need for now are `place_id`, `lat`, `lon`, `display_name` and `type`.  Accordingly, we won't need more than one object.  We can call the class `Place`, taking a cue from the `place_id` field. 
+
+The field `place_id` appears to be numeric.  We could use `String` anyway, but I'd suggest using a Java `long` since the number might exceed the capacity of a regular java `int`, but is unlikely to exceed that of a `long`.   For `lat` and `lon`, it appears that `double` is appropriate.
+
+For deserializing, for Earthquakes, we put a `fromJSON` method in our top level object that took json as a `String`, and returned a `FeatureCollection`  
+
+To deal with the fact that our top level JSON object is a `List<Place>` rather than a `Place`, we'll need to get some slightly different code from that we used for deseralizing the Earthquake JSON into a `FeatureCollection`.
+
+In the `Place.java` class, make a method with this signature:
+```java
+  public static List<Place> listFromJson(String json)
+```
+
+The `listFromJSON` method will be SIMILAR to the `public static FeatureCollection fromJSON(String json)` method of `FeatureCollection`, 
+BUT you'll need the trick from this Stack Overflow answer to make the `readValue` method of `ObjectMapper` return a
+`List<Place>` instead of a `Place`
+* <https://stackoverflow.com/a/6349488>
+
+
+
+(Note that the `%20` in the URL shown is the result of converting the space between `Santa` and `Barbara` into something escaped for a URL)
+
+* Example results for <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
+
+```json
+[
+    {
+        "place_id": 198134367,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 112224,
+        "boundingbox": [
+            "34.336029",
+            "34.463922",
+            "-119.859791",
+            "-119.639946"
+        ],
+        "lat": "34.4221319",
+        "lon": "-119.7026673",
+        "display_name": "Santa Barbara, Santa Barbara County, California, United States",
+        "class": "place",
+        "type": "city",
+        "importance": 0.7840479382888761,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+    },
+    {
+        "place_id": 198096124,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 396510,
+        "boundingbox": [
+            "33.4083677",
+            "35.114665",
+            "-120.734382",
+            "-118.9633999"
+        ],
+        "lat": "34.7136533",
+        "lon": "-119.9858232",
+        "display_name": "Santa Barbara County, California, United States",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.7546072318185599,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    },
+    {
+        "place_id": 198409263,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 315081,
+        "boundingbox": [
+            "-20.218",
+            "-19.889",
+            "-43.696",
+            "-43.209"
+        ],
+        "lat": "-19.959444",
+        "lon": "-43.415278",
+        "display_name": "Santa Bárbara, Microrregião Itabira, Mesorregião Metropolitana de Belo Horizonte, Minas Gerais, Southeast Region, Brazil",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.605606179366181,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    },
+    {
+        "place_id": 198048004,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 362549,
+        "boundingbox": [
+            "-12.063",
+            "-11.806",
+            "-39.076",
+            "-38.897"
+        ],
+        "lat": "-11.9543757",
+        "lon": "-38.9736385",
+        "display_name": "Santa Bárbara, Microrregião de Feira de Santana, Região Metropolitana de Feira de Santana, Mesorregião do Centro-Norte baiano, Bahia, Northeast Region, Brazil",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.555322246270835,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    },
+    {
+        "place_id": 198106447,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 1307234,
+        "boundingbox": [
+            "5.7229867",
+            "6.0215927",
+            "-75.6504107",
+            "-75.5328605"
+        ],
+        "lat": "5.87213125",
+        "lon": "-75.5777766103402",
+        "display_name": "Santa Bárbara, Suroeste, Antioquia Department, Colombia",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.55,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    },
+    {
+        "place_id": 199345766,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 4627395,
+        "boundingbox": [
+            "14.6426721",
+            "15.5472873",
+            "-88.7592934",
+            "-87.9771042"
+        ],
+        "lat": "15.0944971",
+        "lon": "-88.3723217829678",
+        "display_name": "Santa Bárbara, Honduras",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.536046957362672,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    },
+    {
+        "place_id": 184478708,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 516405912,
+        "boundingbox": [
+            "42.8229493",
+            "42.8286515",
+            "-2.3702731",
+            "-2.3666005"
+        ],
+        "lat": "42.8268225",
+        "lon": "-2.3675025",
+        "display_name": "Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01207, Spain",
+        "class": "waterway",
+        "type": "stream",
+        "importance": 0.525
+    },
+    {
+        "place_id": 186194797,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 516368775,
+        "boundingbox": [
+            "42.8474827",
+            "42.8475616",
+            "-2.3854288",
+            "-2.3853151"
+        ],
+        "lat": "42.8475616",
+        "lon": "-2.3854288",
+        "display_name": "Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01200, Spain",
+        "class": "waterway",
+        "type": "stream",
+        "importance": 0.525
+    },
+    {
+        "place_id": 199351520,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 5668081,
+        "boundingbox": [
+            "10.0056952",
+            "10.1584704",
+            "-84.1735498",
+            "-84.1209884"
+        ],
+        "lat": "10.0824578",
+        "lon": "-84.1462968555599",
+        "display_name": "Cantón Santa Bárbara, Heredia Province, Costa Rica",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.48555688494777904,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    },
+    {
+        "place_id": 198656652,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation",
+        "osm_id": 3726378,
+        "boundingbox": [
+            "0.5442677",
+            "0.6620911",
+            "-77.6009043",
+            "-77.478057"
+        ],
+        "lat": "0.60369345",
+        "lon": "-77.5194447232037",
+        "display_name": "Santa Bárbara, Sucumbíos, Sucumbíos Province, Ecuador",
+        "class": "boundary",
+        "type": "administrative",
+        "importance": 0.44999999999999996,
+        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
+    }
+]
+```
+
+
 
 
 ## Step 5: Add another database table to your application.
