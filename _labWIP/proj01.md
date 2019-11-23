@@ -33,7 +33,7 @@ The goal of this project is to determine whether you can apply the skills covere
 We'll add the ability for the user to search for earthquakes at some distance from any location, not just the hardcoded latitude and longitude of the UCSB campus.
 
 In Part 1 of this project, we will:
-* Start with your lab07 code, deploying it to a new Heroku instance
+* Start with your `lab07` code, deploying it to a new Heroku instance
 * Do some refactoring to get the code base ready for a larger application
 * Add a form where you the user can enter a location
 * Add interaction with a separate API that looks up latitude and longitude of locations (also known as "geocoding").
@@ -47,11 +47,14 @@ In later steps of the project, we'll:
 
 ## Step 1:  Create a public {{page.num}}-githubid repo
 
+
 * Create a repo in the <tt>{{page.org}}</tt> organization with the name <tt>{{page.num}}-<i>githubid</i></tt>, substituting
 your github id in place of <tt><i>githubid</i></tt>
 * Add a remote that points to your `lab07c` code.
 * Pull in the `lab07c` code as your starter code.
 * Push to `origin master`
+* Set up your repo to publish to Travis-CI (see lab07b Step 6)
+* Set up GitHub Pages on your repo, and generate javadoc and jacoco report (see lab07 final steps for details)
 
 ## Step 2:  Set up your new project on Heroku at <tt>cs56-f19-{{page.num}}-<i>github</i><tt>
 
@@ -67,6 +70,9 @@ your github id in place of <tt><i>githubid</i></tt>
      ```
      to load those values into Heroku in the `SPRING_APPLICATION_JSON` environment variable.
  * Deploy your master branch to your Heroku app and make sure that is loads and operates correctly.
+
+Now, add links to your Heroku App, your app's GitHub pages home page, and your Travis-CI page into your README.md.
+* You may make that change directly on the master branch.
 
 ## Step 3: Refactoring
 
@@ -120,13 +126,13 @@ Then, do these refactorings.  In general we want to put code into subdirectories
 5.  Finally, we've lived with the name `hello` as our package name long enough.  That's just a package name we inherited from some
     "Hello World" type app that we used as the basis of this code originally.
     
-    A proper name would be <tt>edu.ucsb.cs56.f19.{{page.num}}</tt>.  But 
-    we'll keep it simple and settle on  <tt>{{page.num}}</tt>.
+    A proper name would be <tt>edu.ucsb.cs56.f19.{{page.package}}</tt>.  But 
+    we'll keep it simple and settle on  <tt>{{page.package}}</tt>.
     
-    Change the name of your `src/main/java/hello` directory to <tt>src/main/java/{{page.num}}</tt>.
+    Change the name of your `src/main/java/hello` directory to <tt>src/main/java/{{page.package}}</tt>.
     
-    Then, change the package name `hello` in all of your source code to <tt>{{page.num}}</tt>.   
-    * That means also changing, for example, <tt>hello.entities</tt> to <tt>{{page.num}}.entities</tt> 
+    Then, change the package name `hello` in all of your source code to <tt>{{page.package}}</tt>.   
+    * That means also changing, for example, <tt>hello.entities</tt> to <tt>{{page.package}}.entities</tt> 
     
     Before you panic, read through this advice:
     * If you are still editing individual files with `vim` or `emacs`, i.e. you aren't yet using an IDE that allows you to look at the whole project at once, this is a moment when the power of a "whole app" IDE such as VSCode, Atom, SublimeText, IntelliJ, etc. begins
@@ -148,7 +154,7 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     ```
 
     And change it appropriately (hint: the `public static void main...` is currently in `Application.java`, 
-    which used to be in the `hello` package, but is now in the `proj01` package.)
+    which used to be in the <tt>hello</tt> package, but is now in the <tt>{{page.package}}</tt> package.)
     
 When this all seems to work, do a pull request, and merge this branch into master.    
 
@@ -385,6 +391,62 @@ To add a new database table to your application, you'll need to:
 Make sure that the code you've added so far works, and that the test you added passes.
 
 Then merge that branch into master.  Deploy the master branch on Heroku, and make sure the code works on Heroku as well.
+
+# Final Steps
+
+## Final Step 1: Check that your code is all on master and Heroku
+
+* Have you pushed all changes to your last feature branch?
+* Have you done a final pull request?
+* Have you accepted that pull request?
+* Have you deployed your master branch to Heroku?
+* Do all the parts of your application work? Can you login/logout, and access all pages?
+
+## Final Step 2: Update your javadoc and jacoco report
+
+To update your javadoc and jacoco report, do this:
+
+```
+mvn clean
+mvn javadoc:javadoc
+mvn javadoc:test-javadoc
+mvn test
+mvn jacoco:report
+mvn site
+mvn site:deploy
+git add docs
+git commit -m "xx - update javadoc and jacoco report"
+git push origin master
+```
+
+## Final Step 3: Check your README.md
+
+Check that your README.md has links to
+* your GitHub pages webpage, and that the webpage is published.
+* your app running on Heroku
+* your repos Travis-CI status
+
+## Final Step 4: Submit on Gauchospace
+
+Then, finally visit <{{page.gauchospace_url}}> and make a submission.
+
+In the text area, enter something like this, substituting your repo name and your Heroku app name:
+
+<div style="font-family:monospace;">
+repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
+on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
+</div>
+
+Then, **and this is super important**, please make both of those URLs **clickable urls**.
+
+The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauchospace_clickable_urls/>
+
+
+# Grading Rubric:
+
+TBA
+
+
 
 
 
