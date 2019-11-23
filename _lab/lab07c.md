@@ -279,6 +279,7 @@ spring.output.ansi.enabled=DETECT
 logging.level.org.hibernate.SQL=debug
 
 spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
 ```
 
 Add these files to a commit:
@@ -766,6 +767,15 @@ In the "Deploy" tab of the Heroku dashboard, find the "Deploy Branch" button, an
 
 Now, try the application on Heroku.  Get another student, a tutor, TA or instructor to try logging into your app so that you can see if the users table works properly.
 
+If your application loads, but you get a `500 Application Error` when you try to do a login, there are two possible causes:
+* Make sure you provisioned your `Heroku Postgres` database as a Heroku Add on (see step 18a).
+   * You can tell if you did it by looking under `Settings`, `Reveal Config Vars` for `DATABASE_URL`.  If it's there, you are good.
+* Make sure that you added this extra line into the `application.properties`.  This line was not in the first version of the lab; we caught the error about 8:30pm Friday 11/22.
+   ```
+   spring.jpa.generate-ddl=true
+   ```
+   * If that line isn't there, then Spring Boot doesn't automatically create the database tables the first time the
+     application runs.
 
 # Final Steps
 
