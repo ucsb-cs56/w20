@@ -108,9 +108,10 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     * Then, delete the old `src/main/java/hello/WebController.java`, since all of its code is now in the other two controllers.
     
     This may break some of your existing code, but you'll be able to figure out how to fix it.  
-    * Your controllers were in the package `hello`.
-    * Now they are in the package `hello.controllers`
-    * That means that any classes they might have been using, such as `EarthquakeQueryService` might need an `import` statement
+    * Remember that the classes need to be named the same as the files they are in.
+    * The first line should now be `package hello.controllers;`
+    * Since the package is now `hello.controllers` that are in different packages (e.g. `hello`)  such as `EarthquakeQueryService` 
+      might now need an `import` statement
       such as:
       ```
       import hello.EarthquakeQueryService;
