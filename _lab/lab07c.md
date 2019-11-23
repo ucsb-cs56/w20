@@ -18,6 +18,20 @@ Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07c
 Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/lab07c
 </div>
 
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+Updates 
+<div style="text-align:left;" markdown="1">
+
+There are updates at:
+* Step 15b (one extra line in `application.properties` needed to fix `HTTP Status 500 - Internal Server Error` on Heroku.
+* Step 16f (one extra declaration, and a few import statements, so that the new `getUid` method compiles.)
+
+</div>
+</div>
+
+
 This lab builds on your work from {{page.prev}}.
 
 # What if I didn't finish {{page.prev}}
@@ -281,6 +295,27 @@ logging.level.org.hibernate.SQL=debug
 spring.jpa.show-sql=true
 spring.jpa.generate-ddl=true
 ```
+
+<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+An update
+
+<div style="text-align:left;" markdown="1">
+
+The first versions of the lab did not have the final line for the `application.properties` file, i.e. the line:
+
+```
+spring.jpa.generate-ddl=true
+```
+
+This doesn't really come into play until you try to deploy on Heroku.   If you have trouble with that, check and make sure that you put this line in your `application.properties` file, and the trying deploying again.
+
+Apologies for the omission.
+
+</div>
+</div>
+
+
 
 Add these files to a commit:
 
@@ -770,7 +805,7 @@ Now, try the application on Heroku.  Get another student, a tutor, TA or instruc
 If your application loads, but you get a `500 Application Error` when you try to do a login, there are two possible causes:
 * Make sure you provisioned your `Heroku Postgres` database as a Heroku Add on (see step 18a).
    * You can tell if you did it by looking under `Settings`, `Reveal Config Vars` for `DATABASE_URL`.  If it's there, you are good.
-* Make sure that you added this extra line into the `application.properties`.  This line was not in the first version of the lab; we caught the error about 8:30pm Friday 11/22.
+* Make sure that you added this extra line into the `application.properties` (Step 15b).  This line was not in the first version of the lab; we caught the error about 8:30pm Friday 11/22.
    ```
    spring.jpa.generate-ddl=true
    ```
