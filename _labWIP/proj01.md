@@ -12,8 +12,8 @@ gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TB
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab08
-Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/lab08
+Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/proj01
+Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/proj01
 </div>
 
 
