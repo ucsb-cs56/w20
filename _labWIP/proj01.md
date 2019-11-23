@@ -196,7 +196,7 @@ This is all enough for a pull request, just like it was in lab07b.   Test all of
 
 Then, pull request, merge it into master, and deploy it to Heroku and test there.
 
-## Step 4: Implement Location Query Service
+## Step 5: Implement Location Query Service
 
 This step will proceed in a manner similar to step 9 of lab07b.
 
@@ -233,7 +233,7 @@ good results, commit this, do a pull request, and merge into master.
 
 Note that each element in the JSON returned has a `license` element. That requires us both legally and ethically to so some things to comply with the license requirements. Fortunately, these requirements are fairly easy to comply with (they are noted here: <https://www.openstreetmap.org/copyright>).   We'll take care of that in the next step. 
 
-## Step 4: JSON to Objects for Locations
+## Step 6: JSON to Objects for Locations
 
 Now we are ready to parse the JSON into actual objects.  But first, let's take care of the license requirements.
 
@@ -336,63 +336,8 @@ At this point, you can take out the part of the view that displays the JSON on t
 When you have the ability to type in locations and see them displayed, and the page looks nice and clean, commit these changes,
 do a pull request, and merge them into master.
 
+Then, deploy the master branch to Heroku, and make sure everything works there too.  If so, you are done with part 1 of the project.
 
-
-
-## Step 5: Add another database table to your application.
-
-In this step, you'll add a second database table to your application, one that stores locations.  We'll add a button to each of the search results that allows us to store that search result into the database.  Locations that are stored in the database will then be Locations have a name, and a latitude and longitude.  This will enable you to calculate earthquake distances not only from UCSB (currently hard coded), but from any location you enter into your application.
-
-Create a feature branch with an appropriate name, prefixed with your initials, and do your work on the feature branch (not on `master`)
-
-The database table will store locations, and it will have these fields
-* `id`, which every SQL database table generally has
-* `name`, the name of a location (e.g. `UCSB`, `Isla Vista`, `LAX Airport`, `Golden Gate Bridge`)
-* `latitude`, the latitude of that location
-* `longitude`, the longitude of that location
-
-To add a new database table to your application, you'll need to:
-1. Add an `@Entity` class.  Call this file `Location.java`, and add it under the `hello/entities` directory, 
-   just as you did for `AppUser` in the lab07 series.    
-   * (Note that the `App` prefix on `AppUser` was just a hack
-     because `user` is a reserved word in Postgres SQL.  Normally we would have just called that class `User.java`)
-2. Add a `@Repository` class.  Call this file `LocationRepository.java`, and add it under the `hello/repositories` directory.
-   Add a `@Controller` class called `LocationsController.java` under `hello/controllers`.  
-   * Initially, just start with an endpoint to list the locations, similar 
-    to the `UsersController.java`.
-3. Add a view in a directory `src/main/resources/templates/locations` in a file `index.html`.  Put in an HTML table that
-   has appropriate headers, and that will list each location in the locations table.
-4. Add an item to the navigation menu that directs the user to the endpoint that lists locations.  Note that present,
-   since there are no locations in your database, you'll have an empty list. But at least you should get that, 
-   and not an error.  We'll add code to put stuff in this table in a later step.
-5. Add a test in the file `src/test/java/hello/HomePageTest.java` that checks whether there is a link on the Navigation header
-   called "Locations" takes the user to the endpoint for listing locations.
-  
-   It might look similar to this one that checks whether there is an endpoint for `Users`.  If you didn't add this test already
-   in the lab07 sequence, add it now as well.  
-  
-   ```
-   @Test
-    public void getHomePage_hasUsersLink() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
-                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[3]/a").exists())
-                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[3]/a").string("Users"));
-    }
-    ``` 
-   
-   Note that your XPath expressions may be different from the ones shown; the
-   exact XPath expression depends on the structure of your HTML.  You can find the right XPath expression by using the developer
-   tools of your browser.  For example:
-   
-   * Firefox: <https://stackoverflow.com/a/51665922>
-   * Chrome: <https://stackoverflow.com/a/42194160>
-
-   A primer on XPath is here: <https://www.w3schools.com/xml/xpath_intro.asp>
-
-Make sure that the code you've added so far works, and that the test you added passes.
-
-Then merge that branch into master.  Deploy the master branch on Heroku, and make sure the code works on Heroku as well.
 
 # Final Steps
 
