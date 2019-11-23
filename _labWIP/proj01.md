@@ -56,7 +56,7 @@ your github id in place of <tt><i>githubid</i></tt>
 * Set up your repo to publish to Travis-CI (see lab07b Step 6)
 * Set up GitHub Pages on your repo, and generate javadoc and jacoco report (see lab07 final steps for details)
 
-## Step 2:  Set up your new project on Heroku at <tt>cs56-f19-{{page.num}}-<i>github</i><tt>
+## Step 2:  Set up your new project on Heroku at <br/ > <tt>cs56-f19-{{page.num}}-<i>github</i><tt>
 
 * Create a Heroku app with the name <tt>cs56-f19-{{page.num}}-<i>github</i><tt>.
 * Provision that Heroku app with a Heroku Postgres database.
@@ -65,9 +65,11 @@ your github id in place of <tt><i>githubid</i></tt>
      the URL is different.
    * Remember that you'll need to copy `heroku.json.SAMPLE` to `heroku.json`, put in the values, and then
      run:
+
      ```
      setHerokuEnv.py --app APPNAME
      ```
+
      to load those values into Heroku in the `SPRING_APPLICATION_JSON` environment variable.
  * Deploy your master branch to your Heroku app and make sure that is loads and operates correctly.
 
