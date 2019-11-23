@@ -58,7 +58,7 @@ your github id in place of <tt><i>githubid</i></tt>
 
 ## Step 2:  Set up your new project on Heroku at <br/ > <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
 
-* Create a Heroku app with the name <tt>cs56-f19-{{page.num}}-<i>github</i><tt>.
+* Create a Heroku app with the name <tt>cs56-f19-{{page.num}}-<i>github</i></tt>.
 * Provision that Heroku app with a Heroku Postgres database.
 * Configure this a GitHub OAuth client-id/client-secret for this Heroku app. 
    * Note that you won't be able to reuse the client-id/client-secret from previous Heroku apps, because
