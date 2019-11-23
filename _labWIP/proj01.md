@@ -2,7 +2,7 @@
 layout: lab
 num: proj01
 ready: true
-desc: "Individual Lab Track Project 1"
+desc: "Individual Lab Track Project, part 1"
 assigned: 2019-11-22 17:00
 due: 2019-12-03 23:59
 github_org: "ucsb-cs56-f19"
@@ -31,13 +31,16 @@ The goal of this project is to determine whether you can apply the skills covere
 
 We'll add the ability for the user to search for earthquakes at some distance from any location, not just the hardcoded latitude and longitude of the UCSB campus.
 
-In this project, we will:
+In Part 1 of this project, we will:
 * Start with your lab07 code, deploying it to a new Heroku instance
 * Do some refactoring to get the code base ready for a larger application
 * Add a form where you the user can enter a location
 * Add interaction with a separate API that looks up latitude and longitude of locations (also known as "geocoding").
-* Add a database table for locations, and the ability to store locations in that table
+* Add the ability to list all of the matching locations returned by the API.
+
+In later steps of the project, we'll:
 * Add the ability to look up Earthquakes from any of those locations.
+* Add a database table for locations, and the ability to store locations in that table
 
 # Step by step instructions
 
@@ -208,9 +211,13 @@ The api endpoint we are using has this URL syntax:
 
 You should do a GET request on that endpoint, putting the location entered by the user in where <tt><i><b>search-string</b></i></tt> appears.
 
-The JSON that comes back for a query to "Santa Barbara" is shown at either of these links below:
-* The raw result: <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
-* Formatted with some notes: [example_json](example_json).
+The JSON that should come back for a query to "Santa Barbara" is shown at either of these links below:
+* A snapshot of that on Github: <https://github.com/ucsb-cs56/f19/blob/master/_lab/proj01/Santa%20Barbara.json>
+* The "live" raw result: <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
+
+(Note that the `%20` in the URL shown is the result of converting the space between `Santa` and `Barbara` into something escaped for a URL)
+
+You'll see that for "Santa Barbara" we get not only Santa Barbara, California, but several other places in the world with that name.  We'll eventually show all of these to the user, and let the user choose which result they want to work with.
 
 Test with some queries such as "Santa Barbara", "Goleta", etc. and see what comes up.  When you are satisfied that you are getting
 good results, commit this, do a pull request, and merge into master.
@@ -248,7 +255,7 @@ to add this additional paragraph:
    </p>
 ```
 
-With that dealt with, now lets turn our attention to deserializing the JSON.  
+With that dealt with, now lets turn our attention to deserializing the JSON.  This will be similar to step 10 of lab07b.
 
 Just as we created a separate package `geojson` for the objects that deserialized the earthquake data, let's create a package `osm` (for "Open Street Map") for the objects that deserialize the Open Street Map data.  That's a new directory under <tt>src/main/java/{{page.num}}</tt>.
 
@@ -296,211 +303,36 @@ BUT you'll need the trick from this Stack Overflow answer to make the `readValue
 `List<Place>` instead of a `Place`
 * <https://stackoverflow.com/a/6349488>
 
+We now have code that deserializes.  We now need to put a call to that code in the appropriate endpoint in the `LocationController`, along with code that adds the `locations` as an attribute in the model, along with code that allows us to display locations in the view.
 
+When we are done, we should be able to see a table in the view after putting in `Santa Barbara` as our search query that looks 
+something like this (the formatting may be slightly different, but the structure of the table should be similar):
 
-(Note that the `%20` in the URL shown is the result of converting the space between `Santa` and `Barbara` into something escaped for a URL)
+| Place Id | Latitude | Longitude | Display Name | City | 
+|-|-|-|-|-|
+| 198134367 | 34.4221319 | -119.7026673 | Santa Barbara, Santa Barbara County, California, United States | city |
+| 198096124 | 34.7136533 | -119.9858232 | Santa Barbara County, California, United States | administrative | 
+| 198409263 | -19.959444 | -43.415278   | Santa Bárbara, Microrregião Itabira, Mesorregião Metropolitana de Belo Horizonte, Minas Gerais, Southeast Region, Brazil | administrative |  
+| 198048004 | -11.9543757 | -38.9736385 | Santa Bárbara, Microrregião de Feira de Santana, Região Metropolitana de Feira de Santana, Mesorregião do Centro-Norte baiano, Bahia, Northeast Region, Brazil | administrative | 
+| 198106447 | 5.87213125| -75.5777766103402 | Santa Bárbara, Suroeste, Antioquia Department, Colombia | administrative | 
+| 199345766 | 15.0944971 | -88.3723217829678 | Santa Bárbara, Honduras |administrative| 
+| 184478708 | 42.8268225 | -2.3675025 | Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01207, Spain | stream | 
+| 186194797 | 42.8475616 | -2.3854288 | stream | 
+| 199351520 | 10.0824578" | -84.1462968555599 | Cantón Santa Bárbara, Heredia Province, Costa Rica | administrative |
+| 198656652 | 0.60369345 | -77.5194447232037 | Santa Bárbara, Sucumbíos, Sucumbíos Province, Ecuador | administrative |
+{:.table}
 
-* Example results for <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
+At this point, you can take out the part of the view that displays the JSON on the results page, just as we did in Step 10i.
 
-```json
-[
-    {
-        "place_id": 198134367,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 112224,
-        "boundingbox": [
-            "34.336029",
-            "34.463922",
-            "-119.859791",
-            "-119.639946"
-        ],
-        "lat": "34.4221319",
-        "lon": "-119.7026673",
-        "display_name": "Santa Barbara, Santa Barbara County, California, United States",
-        "class": "place",
-        "type": "city",
-        "importance": 0.7840479382888761,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
-    },
-    {
-        "place_id": 198096124,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 396510,
-        "boundingbox": [
-            "33.4083677",
-            "35.114665",
-            "-120.734382",
-            "-118.9633999"
-        ],
-        "lat": "34.7136533",
-        "lon": "-119.9858232",
-        "display_name": "Santa Barbara County, California, United States",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.7546072318185599,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    },
-    {
-        "place_id": 198409263,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 315081,
-        "boundingbox": [
-            "-20.218",
-            "-19.889",
-            "-43.696",
-            "-43.209"
-        ],
-        "lat": "-19.959444",
-        "lon": "-43.415278",
-        "display_name": "Santa Bárbara, Microrregião Itabira, Mesorregião Metropolitana de Belo Horizonte, Minas Gerais, Southeast Region, Brazil",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.605606179366181,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    },
-    {
-        "place_id": 198048004,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 362549,
-        "boundingbox": [
-            "-12.063",
-            "-11.806",
-            "-39.076",
-            "-38.897"
-        ],
-        "lat": "-11.9543757",
-        "lon": "-38.9736385",
-        "display_name": "Santa Bárbara, Microrregião de Feira de Santana, Região Metropolitana de Feira de Santana, Mesorregião do Centro-Norte baiano, Bahia, Northeast Region, Brazil",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.555322246270835,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    },
-    {
-        "place_id": 198106447,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 1307234,
-        "boundingbox": [
-            "5.7229867",
-            "6.0215927",
-            "-75.6504107",
-            "-75.5328605"
-        ],
-        "lat": "5.87213125",
-        "lon": "-75.5777766103402",
-        "display_name": "Santa Bárbara, Suroeste, Antioquia Department, Colombia",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.55,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    },
-    {
-        "place_id": 199345766,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 4627395,
-        "boundingbox": [
-            "14.6426721",
-            "15.5472873",
-            "-88.7592934",
-            "-87.9771042"
-        ],
-        "lat": "15.0944971",
-        "lon": "-88.3723217829678",
-        "display_name": "Santa Bárbara, Honduras",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.536046957362672,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    },
-    {
-        "place_id": 184478708,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 516405912,
-        "boundingbox": [
-            "42.8229493",
-            "42.8286515",
-            "-2.3702731",
-            "-2.3666005"
-        ],
-        "lat": "42.8268225",
-        "lon": "-2.3675025",
-        "display_name": "Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01207, Spain",
-        "class": "waterway",
-        "type": "stream",
-        "importance": 0.525
-    },
-    {
-        "place_id": 186194797,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 516368775,
-        "boundingbox": [
-            "42.8474827",
-            "42.8475616",
-            "-2.3854288",
-            "-2.3853151"
-        ],
-        "lat": "42.8475616",
-        "lon": "-2.3854288",
-        "display_name": "Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01200, Spain",
-        "class": "waterway",
-        "type": "stream",
-        "importance": 0.525
-    },
-    {
-        "place_id": 199351520,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 5668081,
-        "boundingbox": [
-            "10.0056952",
-            "10.1584704",
-            "-84.1735498",
-            "-84.1209884"
-        ],
-        "lat": "10.0824578",
-        "lon": "-84.1462968555599",
-        "display_name": "Cantón Santa Bárbara, Heredia Province, Costa Rica",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.48555688494777904,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    },
-    {
-        "place_id": 198656652,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation",
-        "osm_id": 3726378,
-        "boundingbox": [
-            "0.5442677",
-            "0.6620911",
-            "-77.6009043",
-            "-77.478057"
-        ],
-        "lat": "0.60369345",
-        "lon": "-77.5194447232037",
-        "display_name": "Santa Bárbara, Sucumbíos, Sucumbíos Province, Ecuador",
-        "class": "boundary",
-        "type": "administrative",
-        "importance": 0.44999999999999996,
-        "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_boundary_administrative.p.20.png"
-    }
-]
-```
+When you have the ability to type in locations and see them displayed, and the page looks nice and clean, commit these changes,
+do a pull request, and merge them into master.
 
 
 
 
 ## Step 5: Add another database table to your application.
 
-In this step, you'll add a second database table to your application, one that stores locations.  Locations have a name, and a latitude and longitude.  This will enable you to calculate earthquake distances not only from UCSB (currently hard coded), but from any location you enter into your application.
+In this step, you'll add a second database table to your application, one that stores locations.  We'll add a button to each of the search results that allows us to store that search result into the database.  Locations that are stored in the database will then be Locations have a name, and a latitude and longitude.  This will enable you to calculate earthquake distances not only from UCSB (currently hard coded), but from any location you enter into your application.
 
 Create a feature branch with an appropriate name, prefixed with your initials, and do your work on the feature branch (not on `master`)
 
