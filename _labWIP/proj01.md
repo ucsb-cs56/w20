@@ -105,7 +105,8 @@ Then, do these refactorings.  In general we want to put code into subdirectories
        * In this one, delete all of the methods except the ones for the `/` and `/login` endpoints.
     * The second one should be called `src/main/java/hello/controllers/EarthquakesControlller.java`. 
        * In this one, delete all of the methods except the ones for the `/earthquakes/search` and `/earthquakes/results` endpoints.
-       
+    * Then, delete the old `src/main/java/hello/WebController.java`, since all of its code is now in the other two controllers.
+    
     This may break some of your existing code, but you'll be able to figure out how to fix it.  
     * Your controllers were in the package `hello`.
     * Now they are in the package `hello.controllers`
