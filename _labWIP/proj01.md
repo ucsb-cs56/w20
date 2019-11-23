@@ -120,11 +120,45 @@ Then, do these refactorings.  In general we want to put code into subdirectories
       
     Try running `mvn clean compile` to see what does and does not compile.
     
-    Then, run your `mvn test` as well as testing with `mvn -P localhost spring-boot:run` to make sure everything still works.
+    Then, run:
+    * `mvn test` to make sure that the unit tests still work
+    * `mvn -P localhost spring-boot:run` to make sure the app still runs.
 
-    You'll likely find that a few tests need to be modified as well.
+    You'll likely find that a few tests need to be modified, and that you need a `localhost.json` and
+    to run `source env.sh` to get the app to run locally.
+ 
+     Once everything is fixed, commit with an appropriate message.
+
+    <div style="background-color: #dfe; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+
+    Tip: if you get these errors when running with `-P localhost`
+    ```
+    ***************************
+    APPLICATION FAILED TO START
+    ***************************
+
+    Description:
+
+    Failed to bind properties under '' to com.zaxxer.hikari.HikariDataSource:
+
+    Property: driverclassname
+    Value: org.postgresql.Driver
+    Origin: "driverClassName" from property source "source"
+    Reason: Failed to load driver class org.postgresql.Driver in either of HikariConfig class loader or Thread context classloader
+    ```
     
-    Once everything is fixed, commit with an appropriate message.
+    If you see that, make sure you don't have
+    the following leftover bits in your `localhost.json`.  These should no longer be there.  Remove them, along with the
+    comma on the preceding line:
+    
+    ```
+    "spring.datasource.url":"jdbc:postgresql://localhost:5432/postgres",
+    "spring.datasource.username" : "postgres",
+    "spring.datasource.password" : "password"
+    ```
+   
+    </div>
+
 
 2.  The files `src/main/resources/templates/page1.html` and `src/main/resources/templates/page2.html` are no longer being used, 
     so remove them from the application.  You'll need to use `git rm filename` to make sure that the removal goes into a commit.
