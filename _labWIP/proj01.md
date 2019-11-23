@@ -47,14 +47,28 @@ In later steps of the project, we'll:
 
 ## Step 1:  Create a public {{page.num}}-githubid repo
 
-
 * Create a repo in the <tt>{{page.org}}</tt> organization with the name <tt>{{page.num}}-<i>githubid</i></tt>, substituting
 your github id in place of <tt><i>githubid</i></tt>
 * Add a remote that points to your `lab07c` code.
 * Pull in the `lab07c` code as your starter code.
 * Push to `origin master`
 * Set up your repo to publish to Travis-CI (see lab07b Step 6)
-* Set up GitHub Pages on your repo, and generate javadoc and jacoco report (see lab07 final steps for details)
+* Set up GitHub Pages on your repo, and generate javadoc and jacoco report 
+
+As a reminder, that last part goes like this:
+   
+```
+mvn clean
+mvn javadoc:javadoc
+mvn javadoc:test-javadoc
+mvn test
+mvn jacoco:report
+mvn site
+mvn site:deploy
+git add docs
+git commit -m "xx - update javadoc and jacoco report"
+git push origin master
+```
 
 ## Step 2:  Set up your new project on Heroku at <br/ > <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
 
