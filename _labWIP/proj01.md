@@ -172,12 +172,23 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     * `src/main/java/hello/MembershipService.java`
 
     Note that this will break some of your existing code for the same reason as before; we are changing which package these classes
-    belong to.  Sort all of that out.
+    belong to.  
+    
+    For example, in `EarthquakesController` you'll now need the line
+
+    ```
+    import hello.services.EarthquakeQueryService;
+    ```
+    
+    That's just the first of several changes you'll need to make.  Sort all of that out so that all the tests pass, and
+    the application works properly on localhost. Then do another commit, as always with a commit message that communicates
+    to a reader *at a glance* what the commit is for.
 
 4.  Finally, create a directory called `src/main/java/hello/searches`.  Into this one we are going to put the file
     * `src/main/java/hello/EqSearch.java`
     
-    Adjust package names as needed.
+    Adjust package names as needed,  sort out any compilation problems, and do another commit.  Each commit message should be
+    one that conveys what the commit is doing.
     
 5.  Finally, we've lived with the name `hello` as our package name long enough.  That's just a package name we inherited from some
     "Hello World" type app that we used as the basis of this code originally.
