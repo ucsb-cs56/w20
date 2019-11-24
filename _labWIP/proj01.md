@@ -272,7 +272,7 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
 
 1. Create a feature branch off of master with an appropriate name.
 2. In `src/main/resources/templates/` create a directory called `locations`.  
-   * In it, create a form for your location search (similar to the form you created in Step 8b of lab07b). 
+   * In it, create a form for your location search (similar to the form you created in Step 8b of lab07b), called `search.html`.  You can use `earthquakes/search.html` as your example to follow.
    * It will have just one field on it called `location`.
 3. In the `searches` directory, create a bean called `LocSearch` similar to the `EqSearch` bean we created in Step 8c.
    * The object represented by this class will have only one field, a `String` field called `location`.
