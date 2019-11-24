@@ -295,20 +295,45 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
 
    Try clicking on it and testing whether the link works.
 
-6. Add a file `/src/test/java/hello/LocationSearchTest.java` that tests whether there is a "Locations" menu item on the navigation bar
-   that routes to your location search page.   This will be similar to  `/src/test/java/hello/EarthquakeSearchTest.java`.  
+6. Add a test in `src/test/java/earthquakes/HomePageTest.java` that tests whether there is a "Locations" menu item on the navigation bar
+   that routes to your location search page.  
+  
+   It might look similar to this one that checks whether there is an endpoint for `Users`.  If you didn't add this test already
+   in the lab07 sequence, add it now as well.  
+  
+   ```
+   @Test
+    public void getHomePage_hasUsersLink() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[3]/a").exists())
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[3]/a").string("Users"));
+    }
+    ``` 
+   
+   Note that your XPath expressions may be different from the ones shown; the
+   exact XPath expression depends on the structure of your HTML.  You can find the right XPath expression by using the developer
+   tools of your browser.  For example:
+   
+   * Firefox: <https://stackoverflow.com/a/51665922>
+   * Chrome: <https://stackoverflow.com/a/42194160>
 
-7. You guesssed it: Add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
+   A primer on XPath is here: <https://www.w3schools.com/xml/xpath_intro.asp>
+
+7. Now add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
    your location search.  The view will initially just echo back the location we entered.   Later we'll add the results after
    we have a service that looks up the JSON.   
 
    Note that the advice for `results.html` from steps 8f and 8g of lab07b is likely
-   more useful as a model than the current code in `earthquakes/results.html` at this stage. 
+   more useful as a model than the current code in `earthquakes/results.html` at this stage.  
 
+Make sure that:
+* `mvn test` still works
+* that `mvn -P localhost spring-boot:run` still works, for all your major functions.
 
-This is all enough for a pull request, just like it was in lab07b.   Test all of this throughly with `mvn test` and on localhost.
+Once you've tested this all thoroughly, this is enough for a pull request, just like it was in lab07b.   
 
-Then, pull request, merge it into master, and deploy it to Heroku and test there.
+Do a pull request, merge it into master, and deploy it to Heroku and test there.
 
 ## Step 5: Implement a Location Query Service
 
