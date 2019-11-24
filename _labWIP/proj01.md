@@ -527,6 +527,8 @@ So, our first class will be an object (Java Bean) that represents one element of
 
 The only fields that we'll need for now are `place_id`, `lat`, `lon`, `display_name` and `type`.  Accordingly, we won't need more than one object.  We can call the class `Place`, taking a cue from the `place_id` field. 
 
+For the starting point code of `src/main/java/earthquakes/osm/Place.java` I suggest starting with the code for `src/main/java/earthquakes/geojson/FeatureCollection.java`, because we'll need code very similar to the `fromJSON` method, and many of the same imports for dealing with conversion from JSON to Java Objects.
+
 The field `place_id` appears to be numeric.  We could use `String` anyway, but I'd suggest using a Java `long` since the number might exceed the capacity of a regular java `int`, but is unlikely to exceed that of a `long`.   For `lat` and `lon`, it appears that `double` is appropriate.
 
 For deserializing, for Earthquakes, we put a `fromJSON` method in our top level object that took json as a `String`, and returned a `FeatureCollection`  
@@ -543,7 +545,13 @@ BUT you'll need the trick from this Stack Overflow answer to make the `readValue
 `List<Place>` instead of a `Place`
 * <https://stackoverflow.com/a/6349488>
 
-We now have code that deserializes.  We now need to put a call to that code in the appropriate endpoint in the `LocationController`, along with code that adds the `locations` as an attribute in the model, along with code that allows us to display locations in the view.
+That code will require this import:
+
+```
+import com.fasterxml.jackson.core.type.TypeReference;
+```
+
+Once you've written the `listFromJSON` method, you have code that deserializes.  We now need to put a call to that code in the appropriate endpoint in the `LocationController`, along with code that adds the `List<Places>` value as an attribute in the model, along with code that allows us to display locations in the view.
 
 When we are done, we should be able to see a table in the view after putting in `Santa Barbara` as our search query that looks 
 something like this (the formatting may be slightly different, but the structure of the table should be similar):
