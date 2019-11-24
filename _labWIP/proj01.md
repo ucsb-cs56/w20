@@ -239,6 +239,17 @@ Then, do these refactorings.  In general we want to put code into subdirectories
        logging.level.earthquakes=INFO
        ```
     
+A few tips:
+
+* `grep -r hello .` will search for all instances of the string `hello` under the current directory
+   * This is helpful to search in case you missed one.
+* You may find it helpful to first do a `mvn clean` and also remove the `docs` directory before doing that search
+   * You can recreate the `docs` directory with the sequence of commands in an earlier step in this lab.
+   * If you don't, it will have lots of instances of `hello` that you do NOT need to change by hand.
+* `git diff` and `git diff --staged` may help you a lot in terms of making sure you got everything
+* `mvn clean` may be needed several times while you are in the process of doing changes, especially before
+   running `mvn test`
+   
 When this all seems to work, do a pull request, and merge this branch into master.    
 
 ## Step 4: Add a location search form to your app
