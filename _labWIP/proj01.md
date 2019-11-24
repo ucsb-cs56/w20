@@ -417,7 +417,7 @@ Your first version of it should return fake JSON, just as we did in lab7b (step 
 
 Test this and do a commit.
 
-## Step 5a: Real Location Query Service
+## Step 5b: Real Location Query Service
 
 Now we are ready for the real service.  This just involves replacing the fake code inside the `getJSON` method of `LocationQueryService`
 with real code that gets location information from an API.
