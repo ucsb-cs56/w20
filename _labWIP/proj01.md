@@ -428,9 +428,16 @@ The API we are using is documented here, and is part of the Open Street Map proj
 * <https://nominatim.org/release-docs/develop/api/Search/>
 
 The api endpoint we are using has this URL syntax:
-* <tt>https://nominatim.org/release-docs/develop/api/Search/<i><b>search-string</b></i>?format=json</tt>
+* <tt>https://nominatim.openstreetmap.org/search/<i><b>search-string</b></i?format=json</tt>
 
-You should do a GET request on that endpoint, putting the location entered by the user in where <tt><i><b>search-string</b></i></tt> appears.
+Examples:
+* <https://nominatim.openstreetmap.org/search/Santa Barbara?format=json>
+* <https://nominatim.openstreetmap.org/search/Golden Gate Bridge?format=json>
+* <https://nominatim.openstreetmap.org/search/San Diego Zoo?format=json>
+* <https://nominatim.openstreetmap.org/search/Staples Center?format=json>
+* <https://nominatim.openstreetmap.org/search/Badaling Great Wall?format=json>
+
+Your code should do a GET request on that endpoint, putting the `location` entered by the user in where <tt><i><b>search-string</b></i></tt> appears.
 
 The JSON that should come back for a query to "Santa Barbara" is shown at either of these links below:
 * A snapshot of that on Github: <https://github.com/ucsb-cs56/f19/blob/master/_lab/proj01/Santa%20Barbara.json>
