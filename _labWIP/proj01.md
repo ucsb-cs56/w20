@@ -525,6 +525,37 @@ Then, deploy the master branch to Heroku, and make sure everything works there t
 
 # Final Steps
 
+## Final Step 0: A few things to check
+
+* Check that every instance of `Logger` (such as the one below) passes the correct class name to the `getLogger` factory
+  method.  
+  ```
+  private Logger logger = LoggerFactory.getLogger(LocationQueryService.class);
+  ```
+  To check this, you can use this search from the main directory of your repo:
+
+  ```
+  grep -r src LoggerFactory.getLogger
+  ```
+  This should show you every line of code that invokes `LoggerFactory.getLogger` under `src`.  For each, you can check the the 
+  filename reported by `grep` matches the name of the class passed to the constructor.
+
+  Here is an example of what you *should* see, where the filename `FeatureCollection.java` matches the parameter of `getLogger`, i.e. `FeatureCollection.class`
+
+  ```
+  src/main/java/earthquakes/geojson/FeatureCollection.java:    
+  private static Logger logger = LoggerFactory.getLogger(FeatureCollection.class);
+  ```
+
+  Here is an example of what you *not* see, where the filename `LocationQueryService.java` does *not* match the parameter of `getLogger`, i.e. `EarthquakeQueryService.class`
+
+  ```
+  src/main/java/earthquakes/services/LocationQueryService.java:    
+  private Logger logger = LoggerFactory.getLogger(EarthquakeQueryService.class);
+  ```
+
+  If you see any of these mismatches, fix them.
+
 ## Final Step 1: Check that your code is all on master and Heroku
 
 * Have you pushed all changes to your last feature branch?
