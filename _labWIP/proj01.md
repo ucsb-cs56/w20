@@ -419,7 +419,7 @@ something like this (the formatting may be slightly different, but the structure
 | 199345766 | 15.0944971 | -88.3723217829678 | Santa Bárbara, Honduras |administrative| 
 | 184478708 | 42.8268225 | -2.3675025 | Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01207, Spain | stream | |
 | 186194797 | 42.8475616 | -2.3854288 | Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01200, Spain| stream | 
-| 199351520 | 10.0824578" | -84.1462968555599 | Cantón Santa Bárbara, Heredia Province, Costa Rica | administrative |
+| 199351520 | 10.0824578 | -84.1462968555599 | Cantón Santa Bárbara, Heredia Province, Costa Rica | administrative |
 | 198656652 | 0.60369345 | -77.5194447232037 | Santa Bárbara, Sucumbíos, Sucumbíos Province, Ecuador | administrative |
 {:.table}
 
