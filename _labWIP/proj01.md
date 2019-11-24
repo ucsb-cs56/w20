@@ -457,9 +457,12 @@ good results for the JSON returned, commit this, do a pull request, and merge in
 
 Note that each element in the JSON returned has a `license` element. That requires us both legally and ethically to so some things to comply with the license requirements. Fortunately, these requirements are fairly easy to comply with (they are noted here: <https://www.openstreetmap.org/copyright>).   We'll take care of that in the next step. 
 
-## Step 6: JSON to Objects for Locations
+## Step 6: Licensing, and JSON to Objects for Locations
 
 Now we are ready to parse the JSON into actual objects.  But first, let's take care of the license requirements.
+
+
+### Step 6: Licensing Footer
 
 Create a feature branch for the JSON parsing.
 
@@ -487,6 +490,10 @@ to add this additional paragraph:
         Earthquake data is from the <a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS API</a>.
    </p>
 ```
+
+Do a commit with this.
+
+### Step 6b: JSON to Objects for Locations
 
 With that dealt with, now lets turn our attention to deserializing the JSON.  This will be similar to step 10 of lab07b.
 
