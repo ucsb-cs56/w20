@@ -129,7 +129,7 @@ Then, do these refactorings.  In general we want to put code into subdirectories
  
      Once everything is fixed, commit with an appropriate message.
 
-    <div style="background-color: #dfe; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
+    <div style="background-color: #dfe; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:left;" markdown="1">
 
     Tip: if you get these errors when running with `-P localhost`
     ```
