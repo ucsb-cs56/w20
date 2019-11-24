@@ -274,9 +274,15 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
 2. In `src/main/resources/templates/` create a directory called `locations`.  
    * In it, create a form for your location search (similar to the form you created in Step 8b of lab07b), called `search.html`.  You can use `earthquakes/search.html` as your example to follow.
    * It will have just one field on it called `location`.
+   * I'm not going to walk you through every change that you'll need to make to the form.  Go through it line by line, and make the changes that seem obvious. 
+   * I will however, give you two hints: 
+      * For `location`, you should use: `input type="text"`, not `input type="number"` 
+      * For `th:object` you specify the name of the instance of a Java Bean.  If you look ahead to the next step, you'll get a clue.
 3. In the `searches` directory, create a bean called `LocSearch` similar to the `EqSearch` bean we created in Step 8c.
    * The object represented by this class will have only one field, a `String` field called `location`.
-4. In the `controllers` directory, create a new controller called `LocationsController.java`.  You can use `EarthquakesController.java` as an example to follow.  You'll want a controller method that routes to your form, just as you created one in Step 8d of lab07b.
+4. In the `controllers` directory, create a new controller called `LocationsController.java`.  
+   You can use `EarthquakesController.java` as an example to follow.  
+   You'll want a controller method that routes to your form, just as you created one in Step 8d of lab07b.
 5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.
 6. You guesssed it: Add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
    your location search.  The view will initially just echo back the location we entered.   Later we'll add the results after
