@@ -45,7 +45,7 @@ In the final step, we'll:
 
 Continue with your:
 * Github repo: <tt>{{page.num}}-githubid</tt>
-* Heroku App:  <tt>cs56-f19-{{page.num}}-<i>github</i><tt>
+* Heroku App:  <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
 
 ## Step n: Add parameter to Earthquake Search
 
@@ -84,30 +84,7 @@ To add a new database table to your application, you'll need to:
 4. Add an item to the navigation menu that directs the user to the endpoint that lists locations.  Note that present,
    since there are no locations in your database, you'll have an empty list. But at least you should get that, 
    and not an error.  We'll add code to put stuff in this table in a later step.
-5. Add a test in the file `src/test/java/hello/HomePageTest.java` that checks whether there is a link on the Navigation header
-   called "Locations" takes the user to the endpoint for listing locations.
-  
-   It might look similar to this one that checks whether there is an endpoint for `Users`.  If you didn't add this test already
-   in the lab07 sequence, add it now as well.  
-  
-   ```
-   @Test
-    public void getHomePage_hasUsersLink() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
-                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[3]/a").exists())
-                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[3]/a").string("Users"));
-    }
-    ``` 
-   
-   Note that your XPath expressions may be different from the ones shown; the
-   exact XPath expression depends on the structure of your HTML.  You can find the right XPath expression by using the developer
-   tools of your browser.  For example:
-   
-   * Firefox: <https://stackoverflow.com/a/51665922>
-   * Chrome: <https://stackoverflow.com/a/42194160>
 
-   A primer on XPath is here: <https://www.w3schools.com/xml/xpath_intro.asp>
 
 Make sure that the code you've added so far works, and that the test you added passes.
 
