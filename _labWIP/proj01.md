@@ -197,9 +197,13 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     we'll keep it simple and settle on  <tt>{{page.package}}</tt>.
     
     Change the name of your `src/main/java/hello` directory to <tt>src/main/java/{{page.package}}</tt>.
-    
-    Then, change the package name `hello` in all of your source code to <tt>{{page.package}}</tt>.   
-    * That means also changing, for example, <tt>hello.entities</tt> to <tt>{{page.package}}.entities</tt> 
+
+    Also change the name of your `src/test/java/hello` directory to <tt>src/test/java/{{page.package}}</tt>.
+
+    Then, change the package name `hello` in all of your source code under both `src/main/java` and `src/test/java`
+    to <tt>{{page.package}}</tt>.
+   
+    * That means also changing, for example, <tt>hello.entities</tt> to <tt>{{page.package}}.entities</tt>, etc.
     
     Before you panic, read through this advice:
     * If you are still editing individual files with `vim` or `emacs`, i.e. you aren't yet using an IDE that allows you to look at the whole project at once, this is a moment when the power of a "whole app" IDE such as VSCode, Atom, SublimeText, IntelliJ, etc. begins
@@ -212,16 +216,28 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     After such a major change, you'll definitely need to do a `mvn clean compile` to make sure that everything still compiles before
     even trying to run.
     
-    And before you try to run, you'll need to make this change in your `pom.xml`:
+    And before you try to run, you'll need to make two other changes
     
-    Find the line that says:
+    1. In your `pom.xml`, find the line that says:
     
-    ```
-      <mainClass>hello.Application</mainClass>
-    ```
+       ```
+          <mainClass>hello.Application</mainClass>
+       ```
 
-    And change it appropriately (hint: the `public static void main...` is currently in `Application.java`, 
-    which used to be in the <tt>hello</tt> package, but is now in the <tt>{{page.package}}</tt> package.)
+       And change it appropriately (hint: the `public static void main...` is currently in `Application.java`, 
+       which used to be in the <tt>hello</tt> package, but is now in the <tt>{{page.package}}</tt> package.)
+
+    2. In `application.properties`, you'll need to find the line that sets up logging for the hello package:
+    
+       ```
+       logging.level.hello=INFO
+       ```
+       
+       and change it so that it does logging for the `earthquakes` package:
+
+       ```
+       logging.level.earthquakes=INFO
+       ```
     
 When this all seems to work, do a pull request, and merge this branch into master.    
 
@@ -261,13 +277,11 @@ This is all enough for a pull request, just like it was in lab07b.   Test all of
 
 Then, pull request, merge it into master, and deploy it to Heroku and test there.
 
-## Step 5: Implement Location Query Service
+## Step 5: Implement a Location Query Service
 
 This step will proceed in a manner similar to step 9 of lab07b.
 
 First, Create a feature branch with an appropriate name.
-
-
 
 In the `services` directory, create a `LocationQueryService` similar to the `EarthquakeQueryService`. 
 * Your first version of it should return fake JSON, just as we did in lab7b (step 9b).
