@@ -290,14 +290,21 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
    
    At first, you'll only want a controller method that routes to your search form, just as in Step 8d of lab07b.
   
-5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.
+5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.  Adding it to the right
+   of the `Users` item is less likely to cause existing tests to break.
 
-6. You guesssed it: Add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
+   Try clicking on it and testing whether the link works.
+
+6. Add a file `/src/test/java/hello/LocationSearchTest.java` that tests whether there is a "Locations" menu item on the navigation bar
+   that routes to your location search page.   This will be similar to  `/src/test/java/hello/EarthquakeSearchTest.java`.  
+
+7. You guesssed it: Add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
    your location search.  The view will initially just echo back the location we entered.   Later we'll add the results after
-   we have a service that looks up the JSON.
+   we have a service that looks up the JSON.   
 
-7. Add a file `/src/test/java/hello/LocationSearchTest.java` that tests whether there is a "Locations" menu item on the navigation bar
-   that routes to your location search page.
+   Note that the advice for `results.html` from steps 8f and 8g of lab07b is likely
+   more useful as a model than the current code in `earthquakes/results.html` at this stage. 
+
 
 This is all enough for a pull request, just like it was in lab07b.   Test all of this throughly with `mvn test` and on localhost.
 
