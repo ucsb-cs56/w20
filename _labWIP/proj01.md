@@ -270,7 +270,7 @@ the location entered.
 
 For this step, I recommend that you proceed in a manner similar to Step 8 lab07b. 
 
-1. Create a feature branch off of master.
+1. Create a feature branch off of master with an appropriate name.
 2. In `src/main/resources/templates/` create a directory called `locations`.  
    * In it, create a form for your location search (similar to the form you created in Step 8b of lab07b). 
    * It will have just one field on it called `location`.
