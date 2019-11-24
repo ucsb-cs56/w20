@@ -437,6 +437,7 @@ Examples:
 * <https://nominatim.openstreetmap.org/search/Staples%20Center?format=json>
 * <https://nominatim.openstreetmap.org/search/Badaling%20Great%20Wall?format=json>
 * <https://nominatim.openstreetmap.org/search/北京?format=json>
+* <https://nominatim.openstreetmap.org/search/臺北市?format=json>
 
 
 Your code should do a GET request on that endpoint, putting the `location` entered by the user in where <tt><i><b>search-string</b></i></tt> appears.
