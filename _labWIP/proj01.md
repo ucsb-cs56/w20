@@ -287,7 +287,7 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
    As for what code goes in this controller, my advice to you is to look both at the code you have for the `EarthquakesController`,
    as well as the code that you used to *start out* the `EarthquakesController` in Step 8d of lab07b.   That code started much
    simpler at first, and we added to it a bit a time.   
-   
+
    At first, you'll only want a controller method that routes to your search form, just as in Step 8d of lab07b.
   
 5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.  
@@ -382,17 +382,49 @@ Do a pull request, merge it into master, and deploy it to Heroku and test there.
 
 This step will proceed in a manner similar to step 9 of lab07b.
 
+
+## Step 5a: Fake Location Query Service
+
 First, Create a feature branch with an appropriate name.
 
-In the `services` directory, create a `LocationQueryService` similar to the `EarthquakeQueryService`. 
-* Your first version of it should return fake JSON, just as we did in lab7b (step 9b).
+As in lab7b, it's a really good idea to create a "fake" location query service first, in order to be sure that you've "wired everything up correctly", i.e. that the data flows from one object to the next, and that the web page returns the results you expect.
+
+Then, when you go to focus on the part where you try to get results from the real API, you are focusing on only *one* thing, and have only a *single* reason why the app might not work. You'll have already ruled out any other problems (for the most part.)
+
+So: in the `services` directory, create a `LocationQueryService` similar to the `EarthquakeQueryService`. 
+
+Your first version of it should return fake JSON, just as we did in lab7b (step 9b).
+
+* You may want to just comment out all of the code inside the body of the `getJSON` method for now.
+* The parameters should not be `int distance, int minmag`.   What should the parameter(s) be?  That's up to you to figure out.
+  * Hint: Think about what this service is supposed to do.  We pass in the data the user provided in the location search form,
+    pass that data to an API, the looks up information, and get back answers formatted as JSON, which we display on the results
+    page.   
+* As a reminder, the original "stub" version of `getJSON` in `EarthquakeQueryService` had this in the body of the method when
+  we first wrote it in lab07b.  I recommend exactly the same starting point here:
+
+  ```java
+        String fakeJson = "{ \"key\": \"value\" }";
+        String json = fakeJson;
+        logger.info("json=" + json);
+        return json;
+  ```
+
 * Also add some code into the results form that displays the json, so that you know it is coming through.
-* Manually test doing a location search, and making sure that when you search for "Santa Barbara" or "Goleta" then you see
-  the fake json returned by the service.
+  * This commit from lab07b shows how we did this for earthquake searches: <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/pull/3/commits/4581f91f90cd03ef76a95970b55f2e2fb78d6461> 
+  * You need to do something parallel to that for location searches.
+* Once you've made these changes, manually test doing a location search, and making sure that when you search for "Santa Barbara" or "Goleta" then you see the fake json returned by the service.
 
 Test this and do a commit.
 
-Now we are ready for the real service.  The API we are using is documented here:
+## Step 5a: Real Location Query Service
+
+Now we are ready for the real service.  This just involves replacing the fake code inside the `getJSON` method of `LocationQueryService`
+with real code that gets location information from an API.
+
+There are many geolocation APIs, with one of the most well known being the one associated with Google Maps.  However, most of these cost money and require registration.  We are using one that requires no registration, and is free for reasonable, non-commerical usage such as our educational app.
+
+The API we are using is documented here, and is part of the Open Street Map project:
 * <https://nominatim.org/release-docs/develop/api/Search/>
 
 The api endpoint we are using has this URL syntax:
@@ -408,8 +440,10 @@ The JSON that should come back for a query to "Santa Barbara" is shown at either
 
 You'll see that for "Santa Barbara" we get not only Santa Barbara, California, but several other places in the world with that name.  We'll eventually show all of these to the user, and let the user choose which result they want to work with.
 
-Test with some queries such as "Santa Barbara", "Goleta", etc. and see what comes up.  When you are satisfied that you are getting
-good results, commit this, do a pull request, and merge into master.
+Armed with this information you should be able to adapt the code from the `EarthquakeQueryService` to the code you need for the `LocationQueryService.   If you need more information about the `RestTemplate` object, you can start here: <https://ucsb-cs56.github.io/topics/spring_boot_resttemplate/>.
+
+Once you've implemented the service, test it with some queries such as "Santa Barbara", "Goleta", etc. and see what comes up.  When you are satisfied that you are getting
+good results for the JSON returned, commit this, do a pull request, and merge into master.
 
 Note that each element in the JSON returned has a `license` element. That requires us both legally and ethically to so some things to comply with the license requirements. Fortunately, these requirements are fairly easy to comply with (they are noted here: <https://www.openstreetmap.org/copyright>).   We'll take care of that in the next step. 
 
