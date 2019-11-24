@@ -428,14 +428,16 @@ The API we are using is documented here, and is part of the Open Street Map proj
 * <https://nominatim.org/release-docs/develop/api/Search/>
 
 The api endpoint we are using has this URL syntax:
-* <tt>https://nominatim.openstreetmap.org/search/<i><b>search-string</b></i?format=json</tt>
+* <tt>https://nominatim.openstreetmap.org/search/<i><b>search-string</b></i>?format=json</tt>
 
 Examples:
-* <https://nominatim.openstreetmap.org/search/Santa Barbara?format=json>
-* <https://nominatim.openstreetmap.org/search/Golden Gate Bridge?format=json>
-* <https://nominatim.openstreetmap.org/search/San Diego Zoo?format=json>
-* <https://nominatim.openstreetmap.org/search/Staples Center?format=json>
-* <https://nominatim.openstreetmap.org/search/Badaling Great Wall?format=json>
+* <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
+* <https://nominatim.openstreetmap.org/search/Golden%20Gate%20Bridge?format=json>
+* <https://nominatim.openstreetmap.org/search/San%20Diego%20Zoo?format=json>
+* <https://nominatim.openstreetmap.org/search/Staples%20Center?format=json>
+* <https://nominatim.openstreetmap.org/search/Badaling%20Great%20Wall?format=json>
+* <https://nominatim.openstreetmap.org/search/北京?format=json>
+
 
 Your code should do a GET request on that endpoint, putting the `location` entered by the user in where <tt><i><b>search-string</b></i></tt> appears.
 
