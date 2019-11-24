@@ -358,9 +358,21 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
    Note that the advice for `results.html` from steps 8f and 8g of lab07b is likely
    more useful as a model than the current code in `earthquakes/results.html` at this stage.  
 
+
 Make sure that:
 * `mvn test` still works
 * that `mvn -P localhost spring-boot:run` still works, for all your major functions.
+
+TIPS:
+* If you get the supremely unhelpful error message: 
+  ```
+  2019-11-23 18:05:09.319 ERROR 16924 --- [nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] 
+  Exception processing template "locations/search": An error happened during template parsing 
+  (template: "class path resource [templates/locations/search.html]")
+  ```
+  then you should **start** with the `locations/search.html` file.   But, don't only look there.  Remember that `locations/search.html` is the **view** that goes along with the controller `controllers/LocationsController.java` and the **model** `searchs/LocSearch`.   If the model, view and controller are not all in sync, then bad stuff happens when you try to render the view.   
+* A common source of errors is using one model/view/controller trio (e.g. the ones for earthquakes) as a starting point, and then forgetting to change part of it as you go through.   For instance, mine didn't work the first time because I had `EqSearch locSearch` as one of my parameters to a controller method in my `LocationsController` class.  This will *compile* just fine, but it certainly won't run.   So watch out for stuff such as that.
+
 
 Once you've tested this all thoroughly, this is enough for a pull request, just like it was in lab07b.   
 
