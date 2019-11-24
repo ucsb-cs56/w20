@@ -144,7 +144,8 @@ Then, do these refactorings.  In general we want to put code into subdirectories
     Property: driverclassname
     Value: org.postgresql.Driver
     Origin: "driverClassName" from property source "source"
-    Reason: Failed to load driver class org.postgresql.Driver in either of HikariConfig class loader or Thread context classloader
+    Reason: Failed to load driver class org.postgresql.Driver in either of 
+            HikariConfig class loader or Thread context classloader
     ```
     
     If you see that, make sure you don't have
@@ -282,11 +283,19 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
    * The object represented by this class will have only one field, a `String` field called `location`.
 4. In the `controllers` directory, create a new controller called `LocationsController.java`.  
    You can use `EarthquakesController.java` as an example to follow.  
-   You'll want a controller method that routes to your form, just as you created one in Step 8d of lab07b.
+
+   As for what code goes in this controller, my advice to you is to look both at the code you have for the `EarthquakesController`,
+   as well as the code that you used to *start out* the `EarthquakesController` in Step 8d of lab07b.   That code started much
+   simpler at first, and we added to it a bit a time.   
+   
+   At first, you'll only want a controller method that routes to your search form, just as in Step 8d of lab07b.
+  
 5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.
+
 6. You guesssed it: Add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
    your location search.  The view will initially just echo back the location we entered.   Later we'll add the results after
    we have a service that looks up the JSON.
+
 7. Add a file `/src/test/java/hello/LocationSearchTest.java` that tests whether there is a "Locations" menu item on the navigation bar
    that routes to your location search page.
 
