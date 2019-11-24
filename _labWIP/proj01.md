@@ -556,28 +556,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 Once you've written the `listFromJSON` method, you have code that deserializes.  We now need to put a call to that code in the appropriate endpoint in the `LocationController`, along with code that adds the `List<Places>` value as an attribute in the model, along with code that allows us to display locations in the view.
 
-When we are done, we should be able to see a table in the view after putting in `Santa Barbara` as our search query that looks 
-something like this (the formatting may be slightly different, but the structure of the table should be similar):
+When we are done, we should be able to see a table in the view similar to the one that comes up here in the working version of the staff's implementation:
 
-<div style="margin-left: 4em; margin-right: 4em;" markdown="1">
+* <https://cs56-f19-staff-proj01.herokuapp.com/locations/results?location=Santa+Barbara>
 
-| Place Id | Latitude | Longitude | Display Name | City | 
-|-|-|-|-|-|
-| 198134367 | 34.4221319 | -119.7026673 | Santa Barbara, Santa Barbara County, California, United States | city |
-| 198096124 | 34.7136533 | -119.9858232 | Santa Barbara County, California, United States | administrative | 
-| 198409263 | -19.959444 | -43.415278   | Santa Bárbara, Microrregião Itabira, Mesorregião Metropolitana de Belo Horizonte, Minas Gerais, Southeast Region, Brazil | administrative |  
-| 198048004 | -11.9543757 | -38.9736385 | Santa Bárbara, Microrregião de Feira de Santana, Região Metropolitana de Feira de Santana, Mesorregião do Centro-Norte baiano, Bahia, Northeast Region, Brazil | administrative | 
-| 198106447 | 5.87213125| -75.5777766103402 | Santa Bárbara, Suroeste, Antioquia Department, Colombia | administrative | 
-| 199345766 | 15.0944971 | -88.3723217829678 | Santa Bárbara, Honduras |administrative| 
-| 184478708 | 42.8268225 | -2.3675025 | Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01207, Spain | stream | |
-| 186194797 | 42.8475616 | -2.3854288 | Santa Barbara, Agurain/Salvatierra, Arabako lautada/Llanada Alavesa, Álava, Basque Country, 01200, Spain| stream | 
-| 199351520 | 10.0824578 | -84.1462968555599 | Cantón Santa Bárbara, Heredia Province, Costa Rica | administrative |
-| 198656652 | 0.60369345 | -77.5194447232037 | Santa Bárbara, Sucumbíos, Sucumbíos Province, Ecuador | administrative |
-{:.table}
 
-</div>
+### Step 6c: Remove temporary raw JSON display from the view
 
-At this point, you should take out the part of the view that displays the JSON on the results page, just as we did in Step 10i.  It was only there as temporary scaffolding to help us make sure things were working as we built out the real table of results.
+If you get those results, then at this point, you should take out the part of the view that displays the raw JSON on the results page, just as we did in Step 10i.  It was only there as temporary scaffolding to help us make sure things were working as we built out the real table of results.
 
 When you have the ability to type in locations and see them displayed, and the page looks nice and clean, commit these changes,
 do a pull request, and merge them into master.
