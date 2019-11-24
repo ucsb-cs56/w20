@@ -290,16 +290,34 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
    
    At first, you'll only want a controller method that routes to your search form, just as in Step 8d of lab07b.
   
-5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.  Adding it to the right
-   of the `Users` item is less likely to cause existing tests to break.
+5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.  
 
-   Try clicking on it and testing whether the link works.
+   At this point, we can remove the menu item for the home page, since it is redundant with the "brand" link:
+   ```
+   <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+   </li>
+   ```         
+   Leaving three menu items, which you may put in any order. This order is suggested, but as long as your tests
+   (which we'll revisit in the next step) match your order, it's fine:
 
-6. Add a test in `src/test/java/earthquakes/HomePageTest.java` that tests whether there is a "Locations" menu item on the navigation bar
-   that routes to your location search page.  
-  
-   It might look similar to this one that checks whether there is an endpoint for `Users`.  If you didn't add this test already
-   in the lab07 sequence, add it now as well.  
+   ```
+            <li class="nav-item">
+                <a class="nav-link" href="/earthquakes/search">Earthquake Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/locations/search">Locations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
+            </li>
+           
+   ```
+
+   Try clicking on the new menu item and see whether it works properly.
+
+6. Now add tests in `src/test/java/earthquakes/HomePageTest.java` that tests check whether thesse menu items are there.  Here is
+   one example of such a test:
   
    ```
    @Test
@@ -319,6 +337,19 @@ For this step, I recommend that you proceed in a manner similar to Step 8 lab07b
    * Chrome: <https://stackoverflow.com/a/42194160>
 
    A primer on XPath is here: <https://www.w3schools.com/xml/xpath_intro.asp>
+
+   You should have three test methods like this in `HomePageTest.java`, one for each of the three menu items.
+   
+   In case you are wondering whether this testing is very superficial, the answer is **yes, of course**.  So far, we have
+   only written tests that show whether a link to some page exists.  We haven't even started to test whether the link does
+   what it is supposed to do when you click on it!
+
+   If time
+   permits, we'll get into deeper testing of the functionality of our web application.  Be warned though that the
+   deeper you go in, the more complicated it gets.   So, having a bit of comfort and 
+   experience with some of these superficial tests
+   is helpful as the testing gets more challenging.  That's why I'm making you get comfortable with these tests now,
+   even though they may seem superficial.
 
 7. Now add a route for the results, and a view for the results (steps 8f and 8g) of lab7b, but as appropriate for 
    your location search.  The view will initially just echo back the location we entered.   Later we'll add the results after
