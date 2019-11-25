@@ -4,7 +4,7 @@ num: proj01
 package: earthquakes
 ready: true
 desc: "Individual Lab Track Project, part 1"
-assigned: 2019-11-22 17:00
+assigned: 2019-11-23 21:00
 due: 2019-12-03 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
