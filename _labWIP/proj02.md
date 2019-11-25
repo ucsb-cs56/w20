@@ -144,7 +144,7 @@ At this point, you should be able to enter latitude, longitude, and location on 
 
 Now we'll do a second commit
 
-* Modify the `EarthquakeQueryService` so that the `getJSON` method takes the `lat` and lon` params in addition to the params
+* Modify the `EarthquakeQueryService` so that the `getJSON` method takes the `lat` and `lon` params in addition to the params
   for distance and minmag.
 * Modify the place that we call the `EarthquakeQueryService` (in the `EarthquakesController`) to pass the values from the form
   into the service.
