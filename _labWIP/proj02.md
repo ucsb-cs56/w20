@@ -123,8 +123,8 @@ For our new query params `lat`, `lon` and `location`, we will:
 
 When all of that is done, we should be able to test and see that we are able to search for Earthquakes at any latitude and longitude.  Temporarily, we can use our location search to find the latitude and longitude of some interesting place (e.g. `Storke Tower` or `Isla Vista`) and search for Earthquakes near there.   Of course it will be inconvenient to have to write down the lat/lon, or copy/paste it from one window to the other.  So then we'll connect these services together:
 
-* We'll add a getter to `Place` for the URL of the earthquake search page that corresponds to that place; we'll pass the `lat` and `lon` values, and then pass the name of the page in as the `location`.
-* We'll use that getter to add a link to the earthquake search page onto every location result.
+
+* We'll use Thymeleaf's features to generate a URL that links to the earthquake search page from every location result, passing in the appropriate values for `lat`, `lon` and `location`.
 
 Ok, to get started, create a feature branch (off of master) for adding fields to the earthquake search form. Give it a suitable name.
 
@@ -158,24 +158,6 @@ passed into `getJSON` are actually used to do the search.
 
 Test this. When it works, you should do another commit, and then a pull request.  Merge the pull request into master.  
 
-### Step 7e: A getter for the URL
-
-In the results page for Location search, we can now add a link in each each row that jumps immediately to the Search page for that latitude, longitude and location.
-
-We'll start by adding a getter in the `earthquakes.osm.Place` class that can return to us a URL that corresponds to the link in our
-application that will take us to the earthquake.
-
-That getter looks like this:
-
-```java
-   public String getEarthquakesUrl() {
-         return String.format("earthquakes/search?lat=%f&lon=%f&location=%s",
-             lat,lon,display_name);
-    }
-```    
-
-Be sure your application still compiles and runs.  
-
 ### Step 7f: A link on the Earthquake results
 
 Now, in each row of the table for `Place` values, add another column.
@@ -187,10 +169,86 @@ Now, in each row of the table for `Place` values, add another column.
 That link will look like this:
 
 ```html
-<a th:href="${p.earthquakesUrl}">Get Earthquakes</a>
+  <a th:href="@{/earthquakes/search/(lat=${p.lat},lon=${p.lon},location=${p.display_name})}">Get Earthquakes</a>
 ```
+
+In case you are wondering, the syntax of this link comes from the the Thymeleaf Tutorial, [Section 4.4 on Link URLs](https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#link-urls).  This generates a link that is
+* automatically prefixed with the correct root (e.g. `http://localhost:8080`, or `https://cs56-f19-proj01-githubid.herokuapp.com`)
+* has the appropriate query params appended (all of the key values pairs inside the parentheses), in the correct syntax for URLs.
 
 To test this out, try doing a search on a location.  You should find that there is a link in each row of the location results that takes you to the earthquakes search page, where you can then do an earthquakes search on that latitude, and longitude, and location.  You'll still have to specify the distance and the minimum magnitude on that page.
 
 If/when it works, do a commit, and then do a pull request and merge it.
+
+
+# Final Steps
+
+## Final Step 0: A few things to check
+
+1. Look over the staff's working version here:
+
+   * <https://cs56-f19-staff-proj02.herokuapp.com/>
+   
+   Compare it to your working version on Heroku.  If you see differences, try to determine which of these is true:
+   * Is is a minor difference that doesn't matter?
+   * Did the staff miss part of the instructions?
+   * Did you miss part of the instructions?
+   
+   If you aren't sure, ask questions on Slack.
+
+## Final Step 1: Check that your code is all on master and Heroku
+
+* Have you pushed all changes to your last feature branch?
+* Have you done a final pull request?
+* Have you accepted that pull request?
+* Have you deployed your master branch to Heroku?
+* Do all the parts of your application work? Can you login/logout, and access all pages?
+
+## Final Step 2: Update your javadoc and jacoco report
+
+To update your javadoc and jacoco report, do this:
+
+```
+mvn clean
+mvn javadoc:javadoc
+mvn javadoc:test-javadoc
+mvn test
+mvn jacoco:report
+mvn site
+mvn site:deploy
+git add docs
+git commit -m "xx - update javadoc and jacoco report"
+git push origin master
+```
+
+## Final Step 3: Check your README.md
+
+Check that your README.md has links to
+* your GitHub pages webpage, and that the webpage is published.
+* your app running on Heroku
+* your repos Travis-CI status
+
+## Final Step 4: Submit on Gauchospace
+
+Then, finally visit <{{page.gauchospace_url}}> and make a submission.
+
+In the text area, enter something like this, substituting your repo name and your Heroku app name:
+
+<div style="font-family:monospace;">
+repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
+on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
+</div>
+
+Then, **and this is super important**, please make both of those URLs **clickable urls**.
+
+The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauchospace_clickable_urls/>
+
+
+# Grading Rubric:
+
+TBA
+
+
+
+
 
