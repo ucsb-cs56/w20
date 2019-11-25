@@ -47,8 +47,8 @@ Here are working versions of the proj01 and proj02 code, so that you can see wha
 
 | Project | Working Version |
 |-|-|
-|[proj01]({{'/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01> |
-|[proj02]({{'/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad> |
+| [proj01]({{ '/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01> |
+| [proj02]({{ '/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad> |
 
 # Step by step instructions
 
