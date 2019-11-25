@@ -101,7 +101,7 @@ that could search for Earthquakes in those locations (though we'd have to choose
 
 We'll add the ability to do that in this step.
 
-## Step 7b: Understanding the big pGET request query params
+## Step 7b: Understanding the big picture
 
 The query params correspond to the `EqSearch` object (Java Bean) in our application.   We can add additional query params by doing the following steps.  
 
@@ -121,7 +121,10 @@ For our new query params `lat`, `lon` and `location`, we will:
 * Modify the place that we call the `EarthquakeQueryService` (in the `EarthquakesController`) to pass the values from the form
   into the service and use them.
 
-When all of that is done, we should be able to test and see that we are able to search for Earthquakes at any latitude and longitude.  Temporarily, we can use our location search to find the latitude and longitude of some interesting place (e.g. `Storke Tower` or `Isla Vista`) and search for Earthquakes near there.   Of course it will be inconvenient to have to write down the lat/lon, or copy/paste it from one window to the other.  So in a later step, we'll connect these services together.
+When all of that is done, we should be able to test and see that we are able to search for Earthquakes at any latitude and longitude.  Temporarily, we can use our location search to find the latitude and longitude of some interesting place (e.g. `Storke Tower` or `Isla Vista`) and search for Earthquakes near there.   Of course it will be inconvenient to have to write down the lat/lon, or copy/paste it from one window to the other.  So then we'll connect these services together:
+
+* We'll add a getter to `Place` for the URL of the earthquake search page that corresponds to that place; we'll pass the `lat` and `lon` values, and then pass the name of the page in as the `location`.
+* We'll use that getter to add a link to the earthquake search page onto every location result.
 
 Ok, to get started, create a feature branch (off of master) for adding fields to the earthquake search form. Give it a suitable name.
 
@@ -137,7 +140,7 @@ On your feature branch:
    
 At this point, you should be able to enter latitude, longitude, and location on the search results form, and see those values both in the URL, as well as on the results page.   At this stage, the actual search will still be using the hard coded latitude and longitude of UCSB.  Nevertheless, do a commit of these changes, with a note in the commit that indicates both what *is* and is *not* done yet.
 
-## Step 7d: Use the fields in the service
+### Step 7d: Use the fields in the service
 
 Now we'll do a second commit
 
@@ -153,13 +156,9 @@ passed into `getJSON` are actually used to do the search.
 
 Test this. When it works, you should do another commit, and then a pull request.  Merge the pull request into master.  
 
-## Step 8: Link from locations results to earthquake searches
+### Step 7e: A getter for the URL
 
 In the results page for Location search, we can now add a link in each each row that jumps immediately to the Search page for that latitude, longitude and location.
-
-Create a feature branch for this change.
-
-### Step 8a: A getter for the URL
 
 We'll start by adding a getter in the `earthquakes.osm.Place` class that can return to us a URL that corresponds to the link in our
 application that will take us to the earthquake.
@@ -175,7 +174,7 @@ That getter looks like this:
 
 Be sure your application still compiles and runs.  
 
-### Step 8b: A link on the Earthquake results
+### Step 7f: A link on the Earthquake results
 
 Now, in each row of the table for `Place` values, add another column.
 
