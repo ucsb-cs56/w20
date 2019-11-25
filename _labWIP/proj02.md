@@ -65,7 +65,7 @@ The search is performed relative to the latitude and longitude of the UCSB campu
 We are going to modify the search so that the latitude, longitude, and location can be specified.   This will be a first step
 towards being able to automatically link from the location search to an Earthquake search.
 
-## Step 7a: Understanding GET request query params
+### Step 7a: Understanding GET request query params
 
 We'll start by looking at your current application as it runs on localhost, or alternatively, the reference implementation
 of proj1 running on heroku here:
@@ -101,7 +101,7 @@ that could search for Earthquakes in those locations (though we'd have to choose
 
 We'll add the ability to do that in this step.
 
-## Step 7b: Understanding the big picture
+### Step 7b: Understanding the big picture
 
 The query params correspond to the `EqSearch` object (Java Bean) in our application.   We can add additional query params by doing the following steps.  
 
@@ -128,7 +128,7 @@ When all of that is done, we should be able to test and see that we are able to 
 
 Ok, to get started, create a feature branch (off of master) for adding fields to the earthquake search form. Give it a suitable name.
 
-## Step 7c: Add fields to bean and forms
+### Step 7c: Add fields to bean and forms
 
 On your feature branch:
 
