@@ -151,7 +151,7 @@ Now we'll do a second commit
   
 With these two changes, the app should compile and run; make sure that it does before moving on to the final step.
 
-When it does, you can now modify the code inside the `getJSON` method of `EarthquakeQueryService` so that the `lat` and lon` values
+When it does, you can now modify the code inside the `getJSON` method of `EarthquakeQueryService` so that the `lat` and `lon` values
 passed into `getJSON` are actually used to do the search.
 
 Test this. When it works, you should do another commit, and then a pull request.  Merge the pull request into master.  
