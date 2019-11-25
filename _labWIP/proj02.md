@@ -134,6 +134,8 @@ On your feature branch:
 
 1. Add `lat`, `lon` and `location` to the `EqSearch` object (Java Bean), with appropriate data types.
 2. Add these to the HTML form for the Earthquake search  (`src/main/resources/templates/earthquakes/search.html`)
+   * Note that for `<input>` fields with `type="number"`, to allow arbitrary decimal points instead of just integers, you need
+     to add the attribute `step="any"`
 3. Modify the results view   (`src/main/resources/templates/earthquakes/results.html`) so that we can see the latitude, longitude,
    and the location as part of the results.  At this point, it is up to you to decide how to format the page.   Format it in some
    way that the results will be easy to read and understand.
