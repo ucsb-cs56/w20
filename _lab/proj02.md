@@ -25,6 +25,7 @@ You may cooperate with one or more pair partners from your team to help in debug
 Late submissions will be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.   To ensure that your submission is accepted, be sure that you complete it and submit on Gradescope before the published deadline.
 
 
+
 # This is a Continuation of Proj01
 
 In Part 1 of this project, we 
@@ -39,6 +40,15 @@ In this steps of the project, we'll:
 
 In the final step, we'll:
 * Add a database table for locations, and the ability to store locations in that table
+
+# A working version
+
+Here are working versions of the proj01 and proj02 code, so that you can see what the app is supposed to do when it is finished.
+
+| Project | Working Version |
+|-|-|
+|[proj01]({{'/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01> |
+|[proj02]({{'/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad> |
 
 # Step by step instructions
 
