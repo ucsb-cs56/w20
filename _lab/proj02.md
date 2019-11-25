@@ -43,7 +43,7 @@ In the final step, we'll:
 
 # A working version
 
-Here are working versions of the proj01 and proj02 code, so that you can see what the app is supposed to do when it is finished.
+Here are working versions of the staff's versions of the proj01 and proj02 code, so that you can see what the app is supposed to do when it is finished.  (Note that these are closed-source.  Sorry&mdash;you'll have to write your own code here.  If you need help, though,reach out on Slack, or come to open lab hours.)
 
 | Project | Working Version |
 |-|-|
