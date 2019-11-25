@@ -47,8 +47,8 @@ Here are working versions of the staff's versions of the proj01 and proj02 code,
 
 | Project | Working Version |
 |-|-|
-| [proj01]({{ '/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01> |
-| [proj02]({{ '/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad> |
+| [proj01]({{ '/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01.herokuapp.com> |
+| [proj02]({{ '/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad.herokuapp.com> |
 {:.table .table-sm .table-striped .table-bordered}
 
 
