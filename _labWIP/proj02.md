@@ -3,9 +3,9 @@ layout: lab
 num: proj02
 package: earthquakes
 ready: true
-desc: "Individual Lab Track Project, part 1"
-assigned: 2019-11-22 17:00
-due: 2019-12-03 23:59
+desc: "Individual Lab Track Project, part 2"
+assigned: 2019-11-24 21:00
+due: 2019-12-04 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
