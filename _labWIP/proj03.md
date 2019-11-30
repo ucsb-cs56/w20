@@ -65,7 +65,8 @@ To add a new database table to your application, take the following steps:
    * This endpoint should be similar to the one that lists all of the users in `UsersController`.
 4. Add a view in a directory `src/main/resources/templates/locations` in a file `index.html`.  Put in an HTML table that
    has appropriate headers, and that will list each location in the locations table.
-5. Add an item to the navigation menu that directs the user to the endpoint that lists locations.  Note that at present,
+5. Add an item to the navigation menu that directs the user to the endpoint that lists locations.   The link in the menu
+   should say "Favorites", but it should link to `locations/index`.   Note that at present,
    since there are no locations in your database, you'll have an empty list. But at least you should get that, 
    and not an error.  We'll add code to put stuff in this table in a later step.
 
@@ -152,6 +153,68 @@ Create a feature branch off of master for this step with an appropriate name.
    each time you do a locations search.  Clicking any of these buttons should lead you to the index pages for `Locations`,
    where you'll see that the location has been added to the database.
    
- Test these changes.   If/when they work, do a commit. and then a pull request.  Merge that pull request into master.
+Test these changes.   If/when they work, do a commit. and then a pull request.  Merge that pull request into master.
  
+## Step 11: Add a link from the locations index page to be able to list earthquakes.
  
+You'll now see that while the `locations/results` page has a link `Get Earthquakes` in every row, the `locations/index` page does not.
+ 
+Your task in this step is simple: add that feature to every row of the `locations/index` page as well.  
+ 
+I won't provide detailed instructions; by now, you should have enough information to know how to proceed.
+ 
+Make a feature branch and implement the feature. You may divide this among multiple commits, or do it in a single commit, as you see fit.   Test, and then do a pull request, and merge that pull request into master.
+
+## Step 12: Add a "delete" button for each row of `locations/index`
+
+We now have a way to add things to our favorites (the "Add" button on `locations/results`) but we don't have a way to delete
+them.  In this step, we'll add that.
+
+Create a feature branch for the delete button.
+
+1.  First make a controller endpoint for deleting locations.  It will look like this:
+
+    ```
+    @DeleteMapping("/locations/delete/{id}")
+    public String delete(@PathVariable("id") long id, Model model) {
+        Location location = locationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid courseoffering Id:" + id));
+        locationRepository.delete(location);
+        model.addAttribute("locations", locationsRepository.findAll());
+        return "locations/index";
+    }
+    ```
+   
+    This will allow us to create a form that will allow us to delete a particular location by specifying its id right in the URL.
+    You'll need an import for the `@DeleteMapping` annoation (exactly what that is is left as an exercise to figure out.)
+
+    Add in this code, and makes sure that your app still compiles and runs.  If so, that's worthy of a commit.
+
+2.  The next step is to add a column to the table on the `locations/results` page with the column heading "Delete".
+3.  Now, add an extra `<td></td>` element with  the placeholder word `Delete` inside.  We'll replace this with a form element later.
+    
+    If you can see the placeholder when loading the `locations/results` page, that's worthy of another commit.
+
+3.  Now add a form element that looks like this.  
+    ```html
+    <form action="#" th:action="locations/delete/${p.id}" method="delete">   
+       <input type="submit" class="btn btn-danger" value="Delete" />
+    </form>
+    ```
+    
+    Note that we used `btn-danger` as one of the CSS `class` values we added to the `input` element.  In the Bootstrap framework,
+    this makes the button appear in a different color, one associated with delete actions.   (For more info, see [this reference](https://getbootstrap.com/docs/4.0/components/buttons/).)
+    
+    Each of these buttons is associated with deleting a different element from the database by virtue of the `${p.id}` part of the
+    `th:action` attribute, which specifies the URL to which the button will direct the application.
+    
+    Try adding and deleting some locations to see if this code works properly.   Note that at present, it is possible to add
+    duplicate locations (e.g. adding the city of Santa Barbara multiple times), however these duplicates will be distinguished by
+    having different `id` values, even if they have the same `place_id` value.
+    
+    An additional feature that could be added would be the ability to automatically check for duplicates before adding, and 
+    not adding a place that already exists in the database.  However, we'll not require that as part of this project. Once your
+    add and delete buttons work properly, we are done!
+    
+    
+    
