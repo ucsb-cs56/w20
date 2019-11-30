@@ -115,4 +115,43 @@ Create a feature branch off of master for this step with an appropriate name.
    
    So, inside `src/main/resources/template/locations/results.html` find the part that creates each row in the table of results.
    
+   The row will start with `<tr th:each="p : ${places}">` and end with the closing tag `</tr>`.
    
+   You'll need to add an additional `<td></td>` element into this row at the end.  The `<form>` element will go inside this.  But for now, just add this as `<td>Add</td>`.  We'll replace that word `Add` with the form at a later step. 
+   
+   To give this column in the table a heading, 
+   you'll want to add `<th>Add to favorites</th>` element into the matching header row at the top. 
+
+   Do a location search, and see whether you the table of locations has an `Add to favorites` column with the word `Add` in every
+   item in that column.   
+
+   If so, do a commmit, and we'll add the `<form>` in the next step.
+   
+3. Now replace the word `Add` with a form element that looks like this.  You may want to first separate the `<td>` and `</td>` tags
+   and put them on separate lines so that you can indent the `<form>` element inside:
+
+   ```html
+   <form action="#" th:action="@{/locations/add}" th:object="${location}" method="post">
+       <input type="submit" class="btn btn-primary" value="Add" />
+   </form>
+   ```
+ 
+   This creates a form, but it is missing something important: the data that goes into the new object.  In this instance, that data isn't going to be typed in by the user, but instead it comes from the row of data.   To get it into the form we used what are known as "hidden fields" in HTML.  Each of those will look like this one.  
+
+   ```html
+     <input type="hidden" th:field="*{place_id}" th:value="${p.place_id}" />
+   ```
+   
+   You'll need a line like this for each of the fields `place_id`, `name`, `latitude`, `longitude`.    
+   Place each of these between the `<form ... >` open tag, and the existing `<input type=submit... >` element.   
+   Take note that the `th:field` values need to match the field names of the `Location` class (the `@Entity` class), 
+   while the field names in the `th:value` expressions need to match those coming from the `p` variable, which is 
+   an instance of the `LocSearch` class.   Be mindful of the difference between `lat` and `latitude`, for example.
+
+   When you have made these changes, you should see a button with the word `Add` on it instead of simply the word `Add` 
+   each time you do a locations search.  Clicking any of these buttons should lead you to the index pages for `Locations`,
+   where you'll see that the location has been added to the database.
+   
+ Test these changes.   If/when they work, do a commit. and then a pull request.  Merge that pull request into master.
+ 
+ 
