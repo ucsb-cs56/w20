@@ -217,4 +217,76 @@ Create a feature branch for the delete button.
     add and delete buttons work properly, we are done!
     
     
+    # Final Steps
+
+## Final Step 0: A few things to check
+
+1. Look over the staff's working version here:
+
+   * <https://cs56-f19-proj03-pconrad.herokuapp.com/>
+   
+   Compare it to your working version on Heroku.  If you see differences, try to determine which of these is true:
+   * Is is a minor difference that doesn't matter?
+   * Did the staff miss part of the instructions?
+   * Did you miss part of the instructions?
+   
+   If you aren't sure, ask questions on Slack.
+
+## Final Step 1: Check that your code is all on master and Heroku
+
+* Have you pushed all changes to your last feature branch?
+* Have you done a final pull request?
+* Have you accepted that pull request?
+* Have you deployed your master branch to Heroku?
+* Do all the parts of your application work? Can you login/logout, and access all pages?
+
+## Final Step 2: Update your javadoc and jacoco report
+
+To update your javadoc and jacoco report, do this:
+
+```
+mvn clean
+mvn javadoc:javadoc
+mvn javadoc:test-javadoc
+mvn test
+mvn jacoco:report
+mvn site
+mvn site:deploy
+git add docs
+git commit -m "xx - update javadoc and jacoco report"
+git push origin master
+```
+
+## Final Step 3: Check your README.md
+
+Check that your README.md has links to
+* your GitHub pages webpage, and that the webpage is published.
+* your app running on Heroku
+* your repos Travis-CI status
+
+## Final Step 4: Submit on Gauchospace
+
+Then, finally visit <{{page.gauchospace_url}}> and make a submission.
+
+In the text area, enter something like this, substituting your repo name and your Heroku app name:
+
+<div style="font-family:monospace;">
+repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
+on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
+</div>
+
+Then, **and this is super important**, please make both of those URLs **clickable urls**.
+
+The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauchospace_clickable_urls/>
+
+
+# Grading Rubric:
+
+TBA
+
+
+
+
+
+
     
