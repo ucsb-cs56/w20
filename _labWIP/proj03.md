@@ -216,8 +216,7 @@ Create a feature branch for the delete button.
     not adding a place that already exists in the database.  However, we'll not require that as part of this project. Once your
     add and delete buttons work properly, we are done!
     
-    
-    # Final Steps
+# Final Steps
 
 ## Final Step 0: A few things to check
 
