@@ -80,15 +80,20 @@ To add a new database table to your application, take the following steps:
      passed in from the `@GetMapping("/locations")` controller method.
    * If you copy/paste code from the `locations/results.html` to get started, note that an `earthquakes.osm.Place` object and a `earthquakes.entities.Location` object are not exactly the same.  Be aware of the differences when coding.  This is a possible source of confusion and errors. 
    * To be very clear: the `earthquakes.osm.Place` field names have to match, exactly, the fields in the JSON (by convention) unless we take extra steps to override the default mappings.  Thus: `place_id` vs. `placeId`, and `lat` vs. `latitude`.      
-5. Add an item to the navigation menu that directs the user to the endpoint that lists locations.   The link in the menu
-   should say "Favorites", but it should link to `locations/index`.   Note that at present,
+5. Try firing up the application on localhost (remember to `source env.sh` and use `mvn -P localhost spring-boot:run`).
+   
+   Navigate to <http://localhost:8080/locations> and see whether you get an empty list of locations.   Note that at present,
    since there are no locations in your database, you'll have an empty list. But at least you should get that, 
    and not an error.  We'll add code to put stuff in this table in a later step.
+   
+6. Add an item to the navigation menu that directs the user to your new endpoint that lists locations from the database.   
+   The link in the menu
+   should say "Favorites", but it should link to `locations/index`.  You probably should add it as the rightmost menu item so that
+   the relative position of the other items doesn't change (otherwise you'l have to adjust your tests).
 
-Make sure that the code you've added so far works.
+Make sure that the code you've added so far works.   Also run `mvn test` to make sure you didn't break any existing tests.
 
-Then merge that branch into master.  Deploy the master branch on Heroku, and make sure the code works on Heroku as well.
-
+Then merge that branch into `master`.  Deploy the master branch on Heroku, and make sure the code works on Heroku as well.
 
 ## Step 10: Add an "Add to Favorites" button on locations results page
  
