@@ -121,8 +121,8 @@ You can use some of the code in the codebase for the [ucsb-mapache-search](https
 Note however, that the code in the `ucsb-mapache-search` (at least as of the time I wrote this; it's an evolving code base) doesn't necessarily do everything right.  I'l note some of the ways you can improve on that code below.
 
 1. Add additional fields called `defaultDistance` and `defaultMinMag` to the database `@Entity` for users (`AppUser`).  They should
-   have the same data types as `distance` and `minmag` in the Earthquakes search.   When new users are created, those values should
-   initially be zero.
+   have the same data types as `distance` and `minmag` in the Earthquakes search.   Locate the place in the code where new users are created.  When new users are created, ensure that the initial values of `defaultDistance` and `defaultMinMag` are zero before the new `AppUser` entity is stored in the `userRepository` (i.e. the database.)
+   
 2. Add an additional button for User Settings on the drop down menu that appears when users are logged in.  It should be a link to User Settings, and it should appear above the Logout button when the drop down menu is selected.   It should link to a new endpoint called `user/settings`
 3. In the `UsersController` add endpoints for `/user/settings` and `user/settings/update`.  As a guide, you can adapt code from
    the `UserController` in the Mapache Search app linked to above.  Note that the sanitizing for removing whitespace doesn't really
