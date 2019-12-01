@@ -4,11 +4,11 @@ num: proj04
 package: earthquakes
 ready: true
 desc: "Individual Lab Track Project, Extra Credit"
-assigned: 2019-12-01 17:00
+assigned: 2019-12-01 16:00
 due: 2019-12-05 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2861299"
 ---
 
 <div style="display:none" >
