@@ -55,7 +55,7 @@ To earn the extra credit:
 
 In this option, you make it so that each individual user that logs in your application has their own version of the "favorites" (this is more like what would be the case in a real application of this type.)
 
-1. Add a field `uid` to the locations table.  (You do this by adding the field, and it's getters and setters to the appropriate `@Entity` class.
+1. Add a field `uid` to the locations table.  (You do this by adding the field, and it's getters and setters to the appropriate `@Entity` class.  It should have the same data type as the existing `uid` field in the `AppUser` entity.)
 2. Whenever you add an item to the locations table, be sure the uid of the currently logged in user is stored in the uid field.
 3. Add a `findByUid` method to the `LocationRepository` class.
 4. In the list of favorite locations, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
