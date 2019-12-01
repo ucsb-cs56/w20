@@ -32,12 +32,21 @@ In the final step, we'll add a database table for locations, and the ability to 
 
 # Step by step instructions
 
-Continue with your:
-* Github repo: <tt>{{page.num}}-githubid</tt>
-* Heroku App:  <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
+Continue with the repo and Heroku app you used for proj02, whether that's:
 
+* Github repo: <tt>proj01-githubid</tt>
+* Heroku App:  <tt>cs56-f19-proj01-<i>github</i></tt>
 
-## Step 9: Add Locations table to your application
+OR
+
+* Github repo: <tt>proj02-githubid</tt>
+* Heroku App:  <tt>cs56-f19-proj02-<i>github</i></tt>
+
+Either way is fine.  You don't need to create a new repo and Heroku app for proj03.   
+
+Note that after 5 Heroku apps, you may run out of heroku apps on your free plan, so it's wise to not create extras if we don't need them.   You can recycle lab02 and/or lab06 if they have already been graded (i.e. remove it from your Heroku dashboard, and then reuse that "slot").
+
+## Step 9: Add `Locations` table to your application
 
 In this step, you'll add a second database table to your application, one that stores favoriate locations.  We'll add a button to each of the search results that allows us to store that search result into the database, along with the id of the user that stored it.   We'll then be able to list both all locations, plus the "favorite" locations of the currently logged in user.   For each of these, we'll be able to go right to an Earthquake search for that location.
 
@@ -313,9 +322,11 @@ Then, finally visit <{{page.gauchospace_url}}> and make a submission.
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
 <div style="font-family:monospace;">
-repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
-on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
+repo name: https://github.com/chrislee123/proj01-githubid<br>
+on heroku: https://cs56-{{site.qxx}}-proj01-chrislee123.herokuapp.com<br>
 </div>
+
+(Use proj01 or proj02 as appropriate).
 
 Then, **and this is super important**, please make both of those URLs **clickable urls**.
 
