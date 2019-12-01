@@ -46,6 +46,18 @@ Either way is fine.  You don't need to create a new repo and Heroku app for proj
 
 Note that after 5 Heroku apps, you may run out of heroku apps on your free plan, so it's wise to not create extras if we don't need them.   You can recycle lab02 and/or lab06 if they have already been graded (i.e. remove it from your Heroku dashboard, and then reuse that "slot").
 
+Note that in this project, at various steps, you may need additional `import` statements in order to implement the example code.  Figuring out which imports those are is left as an exercise.  
+
+However, you should not need additional dependencies in your `pom.xml` unless the instructions specifically indicate that you do.  If your debugging steps are leading you down a road where you think you do you need additional dependencies, ask for help; perhaps something else is wrong.
+
+Also: when you get the `Whitelabel Error Message` in your browser, know that the "real" error message can be found in one of two places:
+* On the console output in the terminal, when you are running on localhost
+* In the output of <tt>heroku logs --app cs56-f19-proj02-<i>github</i></tt> where the string following `--app` is the name of your heroku app.
+
+It may be tough to find these errors among lots of other log output.  **Learning how to find it is one of the real world application development skills we are trying to develop in this course**.   In real application development, whether for business, industry, research, education government, or non-profits, error messages are typically a bit of a "needle in haystack" problem.    The sooner you develop those skills, the more valuable and productive you will be as a software developer.
+
+Also know that **you are not alone**.  Use the Slack as well as open lab hours to ask for help, 
+
 ## Step 9: Add `Locations` table to your application
 
 In this step, you'll add a second database table to your application, one that stores favoriate locations.  We'll add a button to each of the search results that allows us to store that search result into the database, along with the id of the user that stored it.   We'll then be able to list both all locations, plus the "favorite" locations of the currently logged in user.   For each of these, we'll be able to go right to an Earthquake search for that location.
