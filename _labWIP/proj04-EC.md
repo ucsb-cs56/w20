@@ -148,6 +148,9 @@ Note however, that the code in the `ucsb-mapache-search` (at least as of the tim
      various entities.
    * If/when the form is submitted to the `user/settings/update` endpoint, the values should be updated.  Those updated values should
      be seen if/when the user returns to the User Settings form
+   
+   The basic structure of the HTML in the view should match that of the rest of the application.  So you are advised to use one of the
+   existing HTML files from this app as a starting point, and change only the part of the code at the core of the `<div class="container">` element.   The parts you pick up from other apps should be thing such as the `<form>` elements in the `mapache-search` and `ucsb-tutor-scheduler` apps.
 
    Be cautious about `user` vs `users` in the names of template files, endpoints, and classes.   There are some differences between
    the conventions in the `mapache-search` app and this one, as well as a few inconsistencies between the user of `user` in some places and `users` in others.  It's ok for you to resolve those
