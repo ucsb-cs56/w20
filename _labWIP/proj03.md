@@ -138,7 +138,7 @@ Create a feature branch off of master for this step with an appropriate name.
          @PostMapping("/locations/add")
          public String add(Location location, Model model) {
            locationRepository.save(location);
-           model.addAttribute("locations", locationsRepository.findAll());
+           model.addAttribute("locations", locationRepository.findAll());
            return "locations/index";
          }
      ```
