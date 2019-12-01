@@ -136,7 +136,9 @@ Note however, that the code in the `ucsb-mapache-search` (at least as of the tim
      ```
 3. In the `UsersController` add endpoints for `/user/settings` and `user/settings/update`.  As a guide, you can adapt code from
    the `UserController` in the Mapache Search app linked to above.  Note that the sanitizing for removing whitespace doesn't really
-   apply; that was intended to remove white space from a key.
+   apply; that was intended to remove white space from a key.    You'll need some imports, and maybe an autowired dependency 
+   as well.
+   
 4. You'll need a view for the user settings page; that view should provide the  update a form on which they can update default distance, as well as a form to update the default minimum magnitude.  
    * There should be a button that submits the form as a post request to the endpoint `user/settings/update`
    * There should also be a link that says "Cancel" that takes you to the home page of the application
@@ -146,6 +148,14 @@ Note however, that the code in the `ucsb-mapache-search` (at least as of the tim
      various entities.
    * If/when the form is submitted to the `user/settings/update` endpoint, the values should be updated.  Those updated values should
      be seen if/when the user returns to the User Settings form
+
+   Be cautious about `user` vs `users` in the names of template files, endpoints, and classes.   There are some differences between
+   the conventions in the `mapache-search` app and this one, as well as a few inconsistencies between the user of `user` in some places and `users` in others.  It's ok for you to resolve those
+   in whatever way you see fit *as long as the application works*.   Understanding how to make this work requires understanding
+   what each of these name means in different contexts.   For example:
+   * The names of routes in controllers, e.g. `@GetMapping("user/settings")` have to be consistent with URLs that you link to.
+   * The names of template files, e.g. `src/main/resources/templates/users/settings.html` have to be consistent with the values
+     you return from the controller that uses that view, e.g. `return "users/settings";`
 5. To see whether it is working or not, add columns for "Default Distance" and "Default MinMag" to the `users/index` view
    that lists users.  You should see at least your own default distance and minmag show up there.  If you have the opportunity to allow
    another user to login to your app (e.g. a friend with a GitHub account that can login in via a different browser on your machine)
