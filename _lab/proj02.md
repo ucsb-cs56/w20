@@ -54,10 +54,26 @@ Here are working versions of the staff's versions of the proj01 and proj02 code,
 
 # Step by step instructions
 
+
+<div style="background-color: #fec; border: 5px solid blue; margin-left: 5em; margin-right: 5em; margin-top: 1em; margin-bottom: 1em;" markdown="1">
+
+NOTE: An earlier version of these instructions indicated that you should:
+
 Continue with your:
 * Github repo: <tt>{{page.num}}-githubid</tt>
 * Heroku App:  <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
 
+If you made a new repo for proj02, and pulled in the code from proj01 as the starter, that's fine.  That was an entirely reasonably interpretation of the instructions.
+
+The intention was for you to instead to do the following, which is far easier for you and for the staff:
+
+Continue with your:
+* Github repo: <tt>proj01-githubid</tt>
+* Heroku App:  <tt>cs56-f19-proj01-<i>github</i></tt>
+
+The important thing is that you indicate which one you did when you submit on Gauchospace at the end of these instructions.
+
+</div>
 
 ## Step 7: Adding more query params
 
@@ -198,7 +214,7 @@ If/when it works, do a commit, and then do a pull request and merge it.
 
 1. Look over the staff's working version here:
 
-   * <https://cs56-f19-staff-proj02.herokuapp.com/>
+   * <https://cs56-f19-proj02-pconrad.herokuapp.com/>
    
    Compare it to your working version on Heroku.  If you see differences, try to determine which of these is true:
    * Is is a minor difference that doesn't matter?
@@ -246,9 +262,11 @@ Then, finally visit <{{page.gauchospace_url}}> and make a submission.
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
 <div style="font-family:monospace;">
-repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
-on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
+repo name: https://github.com/chrislee123/proj01-githubid<br>
+on heroku: https://cs56-{{site.qxx}}-proj01-chrislee123.herokuapp.com<br>
 </div>
+
+(Or, if you used <tt>proj02</tt> in your repo and Heroku name, then use that.)
 
 Then, **and this is super important**, please make both of those URLs **clickable urls**.
 
