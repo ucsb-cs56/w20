@@ -59,6 +59,14 @@ To add a new database table to your application, take the following steps:
      because `user` is a reserved word in Postgres SQL.  Normally we would have just called that class `User.java`
    * So your class is just `Location.java` not `AppLocation.java`.
 2. Add a `@Repository` class.  Call this file `LocationRepository.java`, and add it under the `hello/repositories` directory.
+   * Model it after the `UserRepository` class, but instead of a collection of `AppUser` objects, it's a colleciton of `Location` entity objects.
+   * You won't have a method called `findByUid`, since `uid` is not a member of `Location`. 
+   * Instead, you can either:
+     * define a method called `findByPlaceId` with appropriate return type, parameter type and parameter name.
+     * Leave this out altogether for now, since you won't even need it unless you are planning to do the extra credit part of the project.
+   (For background: in general, you can define `findByAbcd` methods for any field `abcd` that is that is part of the `@Entity` that the repo represents as part of the `interface` for the repo, and the Spring framework will automatically generate code for the class that implements the interface.    The generated code will do the correct database query.)
+   
+   It's probably a good idea to do a `mvn clean compile` to make sure everything still compiles before going on to the next item in the list, as well as a `mvn test`.     
 3. Add a `@Controller` class called `LocationsController.java` under `hello/controllers`.  
    * Initially, just start with an endpoint to list the locations, similar 
      to the `UsersController.java`.  
