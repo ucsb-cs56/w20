@@ -151,12 +151,20 @@ Create a feature branch off of master for this step with an appropriate name.
    If so, do a commmit, and we'll add the `<form>` in the next step.
    
 3. Now replace the word `Add` with a form element that looks like this.  You may want to first separate the `<td>` and `</td>` tags
-   and put them on separate lines so that you can indent the `<form>` element inside:
+   and put them on separate lines so that you can indent the `<form>` element inside like this:
 
    ```html
-   <form action="#" th:action="@{/locations/add}" th:object="${location}" method="post">
+       <td>
+         <form>
+         </form>
+       </td>
+   ```
+   The `<form>` element will look like this:
+
+   ```html
+     <form action="#" th:action="@{/locations/add}" th:object="${location}" method="post">
        <input type="submit" class="btn btn-primary" value="Add" />
-   </form>
+     </form>
    ```
  
    This creates a form, but it is missing something important: the data that goes into the new object.  In this instance, that data isn't going to be typed in by the user, but instead it comes from the row of data.   To get it into the form we used what are known as "hidden fields" in HTML.  Each of those will look like this one.  
