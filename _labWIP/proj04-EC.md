@@ -56,7 +56,12 @@ To earn the extra credit:
 In this option, you make it so that each individual user that logs in your application has their own version of the "favorites" (this is more like what would be the case in a real application of this type.)
 
 1. Add a field `uid` to the locations table.  (You do this by adding the field, and it's getters and setters to the appropriate `@Entity` class.  It should have the same data type as the existing `uid` field in the `AppUser` entity.)
-2. Whenever you add an item to the locations table, be sure the uid of the currently logged in user is stored in the uid field.  Figuring out where this code goes, and how to write it, is left as an exercise to you.   
+2. Whenever you add an item to the locations table, be sure the uid of the currently logged in user is stored in the uid field.  Figuring out where this code goes, and how to write it, is mostly left as an exercise to you.   Just these hints:
+   * On any controller method, you can add `OAuth2AuthenticationToken token` as a parameter, and a token with information about the
+     currently logged in user becomes available inside that controller method.   Spring Boot takes care of initializing that parameter
+     for you.
+   * There is example code somewhere in your application already that can compute the `uid` from an `OAuth2AuthenticationToken`; you
+     just need to find it and do likewise in the appropriate spot.
 3. Add a `findByUid` method to the `LocationRepository` class.
 4. In the list of favorite locations, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
    currently logged in user.
