@@ -82,7 +82,18 @@ In this option, you make it so that each individual user that logs in your appli
 5. Now, in the controller method for the the list of favorite locations at the `/locations` endpoint, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
    currently logged in user.   This view doesn't need the `uid` field, since it is implied that only favorite locations of the currently
    logged in user are being shown.
-6. To really know whether it is working or not, you'll need to have a separate GitHub user test your app.   If you have a friend with
+
+   Of course you'll need to know the uid of the currently logged in user so that you can pass it to `findByUid`. You already did that
+   once in another controller method, so you'll need that same trick again.
+6. At this point, if you've followed all the instructions and  you are able to test, you'll see that things *almost* work,
+   but there is still a bug: 
+   * When selected, the Admin menu correctly shows all locations for all users
+   * When selected, the Favorites menu correctly shows only locations added by the current user
+   * BUT, when a user adds a new favorite, they are redirected to a page showing ALL of the favorite locations for all users.
+   Locate the root cause of this bug, and fix it.   To do that, you'll need to trace through the code that handles the case of
+   adding a new favorite.  Since you wrote that code in an earlier part of the project, you should be able to find it, and know
+   how to fix it.
+7. Of course, to really know whether any of this is working or not, you'll need to have a separate GitHub user test your app.   If you have a friend with
    a GitHub account handy, you can test on localhost, by opening a different browser.  
    
    But if you can't test with multiple GitHub users on localhost, because no-one else is around, then here's what to do:
@@ -96,7 +107,8 @@ In this option, you make it so that each individual user that logs in your appli
 
    This should allow you to check whether different users can have different favorites.   You should see the others users show up
    in the users menu, and you should see the other users Favorites show up in the Admin menu, but you should *only* see your
-   own favorites under the favorites menu.
+   own favorites under the favorites menu.   And after adding a new favorite, you should see only your own favorites in the page
+   to which you are redirected.
    
 When all seems to be working, skip down to the "final steps".   
    
