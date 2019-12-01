@@ -8,12 +8,11 @@ assigned: 2019-11-30 20:00
 due: 2019-12-05 23:59
 github_org: "ucsb-cs56-f19"
 org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2861289"
 ---
 
 <div style="display:none" >
 Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/proj03
-Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/proj03
 </div>
 
 
