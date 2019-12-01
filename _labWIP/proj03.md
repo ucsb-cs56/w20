@@ -79,7 +79,13 @@ To add a new database table to your application, take the following steps:
    * The table should contain a row for each location in the locations database table.   You are iterating over the variable that was
      passed in from the `@GetMapping("/locations")` controller method.
    * If you copy/paste code from the `locations/results.html` to get started, note that an `earthquakes.osm.Place` object and a `earthquakes.entities.Location` object are not exactly the same.  Be aware of the differences when coding.  This is a possible source of confusion and errors. 
-   * To be very clear: the `earthquakes.osm.Place` field names have to match, exactly, the fields in the JSON (by convention) unless we take extra steps to override the default mappings.  Thus: `place_id` vs. `placeId`, and `lat` vs. `latitude`.      
+   * To be very clear: the `earthquakes.osm.Place` field names have to match, exactly, the fields in the JSON (by convention) unless we take extra steps to override the default mappings.  Thus: `place_id` vs. `placeId`, and `lat` vs. `latitude`.   
+   * You'll need to refer to the `locationsRepository` inside the controller method that lists locations.  
+     You'll put this into the 
+     `LocationsController` in a way similar to the `userRepository` is declared inside the 
+     `UsersController`.    It is declared as a private variable, and then injected into the 
+     constructor.   You should code this in a similar way.
+
 5. Try firing up the application on localhost (remember to `source env.sh` and use `mvn -P localhost spring-boot:run`).
    
    Navigate to <http://localhost:8080/locations> and see whether you get an empty list of locations.   Note that at present,
@@ -115,11 +121,7 @@ Create a feature branch off of master for this step with an appropriate name.
            return "locations/index";
          }
      ```
-   * Note that this requires a variable `locationRepository`.  You'll put this into the 
-     `LocationsController` in a way similar to the `userRepository` is declared inside the 
-     `UsersController`.    It is declared as a private variable, and then injected into the 
-     constructor.   You should code this in a similar way.
-
+ 
    * The code here takes a parameter `location` of type `Location` as a parameter.  That will get passed in from the `th:object` 
      attribute passed in in the form we create in the next item below.  
 
