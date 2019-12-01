@@ -45,7 +45,7 @@ Create a feature branch with an appropriate name, prefixed with your initials, a
 
 The database table will store locations, and it will have these fields
 * `id`, which every SQL database table generally has
-* `place_id`, the id that is returned by the location search API (e.g. `198134367` for the city of Santa Barbara) 
+* `placeId`, the id that is returned by the location search API (e.g. `198134367` for the city of Santa Barbara) 
   when returned by the search at <https://cs56-f19-proj02-pconrad.herokuapp.com/locations/results?location=Santa+Barbara>
 * `name`, the name of a location (e.g. `UCSB`, `Isla Vista`, `LAX Airport`, `Golden Gate Bridge`)
 * `latitude`, the latitude of that location
