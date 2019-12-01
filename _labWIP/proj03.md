@@ -162,7 +162,7 @@ Create a feature branch off of master for this step with an appropriate name.
    The `<form>` element will look like this:
 
    ```html
-     <form action="#" th:action="@{/locations/add}" th:object="${location}" method="post">
+    <form action="#" th:action="@{/locations/add}"  th:object="${location}"  method="post">
        <input type="submit" class="btn btn-primary" value="Add" />
      </form>
    ```
@@ -170,21 +170,34 @@ Create a feature branch off of master for this step with an appropriate name.
    This creates a form, but it is missing something important: the data that goes into the new object.  In this instance, that data isn't going to be typed in by the user, but instead it comes from the row of data.   To get it into the form we used what are known as "hidden fields" in HTML.  Each of those will look like this one.  
 
    ```html
-     <input type="hidden" th:field="*{placeId}" th:value="${p.place_id}" />
+      <input type="hidden" name="placeId" th:value="${p.place_id}" value=""/>
+
    ```
    
    You'll need a line like this for each of the fields `placeId`, `name`, `latitude`, `longitude`.    
    Place each of these between the `<form ... >` open tag, and the existing `<input type=submit... >` element.   
-   Take note that the `th:field` values need to match the field names of the `Location` class (the `@Entity` class), 
+   Take note that the `name` values need to match the field names of the `Location` class (the `@Entity` class), 
    while the field names in the `th:value` expressions need to match those coming from the `p` variable, which is 
    an instance of the `earthquakes.osm.Place` class.   Be mindful of the difference between `lat` and `latitude`, for example.
 
    When you have made these changes, you should see a button with the word `Add` on it instead of simply the word `Add` 
    each time you do a locations search.  Clicking any of these buttons should lead you to the index pages for `Locations`,
    where you'll see that the location has been added to the database.
-   
+
+  
 Test these changes.   If/when they work, do a commit. and then a pull request.  Merge that pull request into master.
  
+**Note that certain errors in the `locations/index.html` might not show up until now.**  Since you didn't have any actual 
+records in the `locations` variable until now, the code that iterated in the view over each row was never executed until now.  
+
+So, when debugging, we are actually having to debug two things at once: 
+* the code that adds items to the `locationsRepository`
+* the code that lists elements in the `locationsRepository`
+   
+This is not ideal.   Development goes more smoothly and easily when you can focus only on one unit of code at a time; so that if something doesn't work, you are fairly sure that you know which unit of code is the source of the problem.   One way we might have proceeded instead was to make tests where we artificially added items to the `locationRepository` and then tested whether the `location/index` view properly returned those items.    
+
+There isn't sufficient time left this quarter to explore that approach, but I do want to note it so that you can begin to see the advantage of writing tests, and how even though it may seem like extra work, once you've mastered it and made it a habit, it can actually shorten development cycles because it helps you isolate sources of bugs sooner, and focus on one unit of code at a time.
+
 ## Step 11: Add a link from the locations index page to be able to list earthquakes.
  
 You'll now see that while the `locations/results` page has a link `Get Earthquakes` in every row, the `locations/index` page does not.
