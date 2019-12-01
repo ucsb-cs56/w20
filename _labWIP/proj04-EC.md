@@ -65,14 +65,23 @@ In this option, you make it so that each individual user that logs in your appli
 3. In a later step, we are going to restrict the listing of favorites to only show favorites for the currently logged in user.
    But, "Admin" users should still be able to see all of the favorites for all users.
    
-   So, to make it clear whether the app is working or not, add an Admin menu item in the navigation bar that allows you to see
+   So, to make it clear whether the app is working or not, add an `Admin` menu item in the navigation bar that allows you to see
    all of the favorites, regardless of uid.  (In reality, that menu should probably be shown only to Admin users, 
    but we won't implement that in this version.)   
    
-   This feature should use a different view; one that has all of the fields from the `locations/index` view, but also shows the `uid` field.   Call this view `locations/admin` (i.e. `src/main/resources/templates/locations/admin.html`).
-4. Now, to prepare for showing only the individual users favorites, add a `findByUid` method to the `LocationRepository` class.
-5. In the list of favorite locations, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
-   currently logged in user.
+   This feature should use a different view; one that has all of the fields from the `locations/index` view, but also shows the `uid` field.   Call this view `locations/admin` (i.e. `src/main/resources/templates/locations/admin.html`).  (Of course, this will need
+   a controller endpoint; the code will be similar to the `/locations` controller endpoint.)
+   
+   Make sure that you can view the locations along with their `uid` values at this new page.  If you have a friend with a GitHub account
+   handy, you can ask them to login to your localhost app in a different browser, and try adding some favorites.  Those should show up
+   on this page with a differnet uid.  If that isn't possible, don't worry about it for now; we'll test at a later step.
+4. Now, to prepare for showing only the individual users favorites, add a `findByUid` method to the `LocationRepository` interface.
+   Note that you don't have to write any code for it; you just have to specify the method with the correct naming convention,
+   and Spring Boot will make sure that the proper code gets generated.  You need to make sure the return value and parameter types
+   and names are correct though.  See other examples of Spring Boot database repositories for examples.
+5. Now, in the controller method for the the list of favorite locations at the `/locations` endpoint, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
+   currently logged in user.   This view doesn't need the `uid` field, since it is implied that only favorite locations of the currently
+   logged in user are being shown.
 6. To really know whether it is working or not, you'll need to have a separate GitHub user test your app.   If you have a friend with
    a GitHub account handy, you can test on localhost, by opening a different browser.  
    
