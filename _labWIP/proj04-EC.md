@@ -123,7 +123,17 @@ Note however, that the code in the `ucsb-mapache-search` (at least as of the tim
 1. Add additional fields called `defaultDistance` and `defaultMinMag` to the database `@Entity` for users (`AppUser`).  They should
    have the same data types as `distance` and `minmag` in the Earthquakes search.   Locate the place in the code where new users are created.  When new users are created, ensure that the initial values of `defaultDistance` and `defaultMinMag` are zero before the new `AppUser` entity is stored in the `userRepository` (i.e. the database.)
    
-2. Add an additional button for User Settings on the drop down menu that appears when users are logged in.  It should be a link to User Settings, and it should appear above the Logout button when the drop down menu is selected.   It should link to a new endpoint called `user/settings`
+2. Add an additional link for User Settings on the drop down menu that appears when users are logged in.  The label on the link should be `User Settings`, and it should appear above the Logout button when the drop down menu is selected.   It should link to a new endpoint called `user/settings`
+   * Hint: It can go just above a line of code that looks like this:
+     ```html
+       <li role="separator" class="divider"></li>
+     ```
+   * Additional hint: it will look something like this (though you'll have to figure out the correct url):
+     ```html
+       <li class="nav-item dropdown">
+         <a class="dropdown-item" href="/user/settings">Settings</a>
+       </li>
+     ```
 3. In the `UsersController` add endpoints for `/user/settings` and `user/settings/update`.  As a guide, you can adapt code from
    the `UserController` in the Mapache Search app linked to above.  Note that the sanitizing for removing whitespace doesn't really
    apply; that was intended to remove white space from a key.
