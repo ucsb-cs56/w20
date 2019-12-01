@@ -62,12 +62,34 @@ In this option, you make it so that each individual user that logs in your appli
      for you.
    * There is example code somewhere in your application already that can compute the `uid` from an `OAuth2AuthenticationToken`; you
      just need to find it and do likewise in the appropriate spot.
-3. Add a `findByUid` method to the `LocationRepository` class.
-4. In the list of favorite locations, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
-   currently logged in user.
-5. To make it clear whether the app is working or not, add an Admin menu item in the navigation bar that allows you to see
+3. In a later step, we are going to restrict the listing of favorites to only show favorites for the currently logged in user.
+   But, "Admin" users should still be able to see all of the favorites for all users.
+   
+   So, to make it clear whether the app is working or not, add an Admin menu item in the navigation bar that allows you to see
    all of the favorites, regardless of uid.  (In reality, that menu should probably be shown only to Admin users, 
-   but we won't implement that in this version.)
+   but we won't implement that in this version.)   
+   
+   This feature should use a different view; one that has all of the fields from the `locations/index` view, but also shows the `uid` field.   Call this view `locations/admin` (i.e. `src/main/resources/templates/locations/admin.html`).
+4. Now, to prepare for showing only the individual users favorites, add a `findByUid` method to the `LocationRepository` class.
+5. In the list of favorite locations, use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
+   currently logged in user.
+6. To really know whether it is working or not, you'll need to have a separate GitHub user test your app.   If you have a friend with
+   a GitHub account handy, you can test on localhost, by opening a different browser.  
+   
+   But if you can't test with multiple GitHub users on localhost, because no-one else is around, then here's what to do:
+
+   * Do a pull request and accept it to deploy
+     your app to Heroku, and then go on the Slack, in `#proj4`  channel and ask for a buddy to help test your app.  Hopefully, they can
+     help test yours as well.
+    
+   * Post a link to your running Heroku app, and indicate you need someone to login,  try add a "favorite location" or two, and then
+     ping you back on Slack.
+
+   This should allow you to check whether different users can have different favorites.   You should see the others users show up
+   in the users menu, and you should see the other users Favorites show up in the Admin menu, but you should *only* see your
+   own favorites under the favorites menu.
+   
+When all seems to be working, skip down to the "final steps".   
    
 # Option 2: Add User Settings
 
@@ -93,7 +115,32 @@ Note however, that the code in the `ucsb-mapache-search` (at least as of the tim
      various entities.
    * If/when the form is submitted to the `user/settings/update` endpoint, the values should be updated.  Those updated values should
      be seen if/when the user returns to the User Settings form
-5. Finally, the Earthquake search should be modified so that when the `earthquakes/search` endpoint is loaded, the values of `Distance (km)` and `Minimum Magnitude` that show up on the form are pre-filled with the defaults from the User Settings, and those values are used in the Earthquake search unless the user changes them.
+5. To see whether it is working or not, add columns for "Default Distance" and "Default MinMag" to the `users/index` view
+   that lists users.  You should see at least your own default distance and minmag show up there.  If you have the opportunity to allow
+   another user to login to your app (e.g. a friend with a GitHub account that can login in via a different browser on your machine)
+   test that now.  Otherwise, we'll test that in the last step.
+6. Now, the Earthquake search should be modified so that when the `earthquakes/search` endpoint is loaded, the 
+   values of `Distance (km)` and `Minimum Magnitude` that show up on the form are pre-filled with the defaults from 
+   the User Settings, and those values are used in the Earthquake search unless the user changes them.
+
+7. Finally, to really know whether it is working or not, you'll need to have a separate GitHub user test your app.   
+   If you have a friend with
+   a GitHub account handy, you can test on localhost, by opening a different browser.  You should see that you are able to set
+   different values for distance and minmag, and see those values show up when listing Users, and searching for Earthquakes.
+   
+   But if you can't test with multiple GitHub users on localhost, because no-one else is around, then here's what to do:
+
+   * Do a pull request and accept it to deploy
+     your app to Heroku, and then go on the Slack, in `#proj4`  channel and ask for a buddy to help test your app.  Hopefully, they can
+     help test yours as well.
+    
+   * Post a link to your running Heroku app, and indicate you need someone to login,  try updating their Users Settings for default
+     distance and minmag, and then ping you back on Slack.
+
+   This should allow you to check whether different users can have different distance and minmag settings.   You should see these values
+   show up in the users menu.
+   
+When all seems to be working, skip down to the "final steps".   
 
 
 # Final Steps
