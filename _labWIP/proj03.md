@@ -170,14 +170,14 @@ Create a feature branch off of master for this step with an appropriate name.
    This creates a form, but it is missing something important: the data that goes into the new object.  In this instance, that data isn't going to be typed in by the user, but instead it comes from the row of data.   To get it into the form we used what are known as "hidden fields" in HTML.  Each of those will look like this one.  
 
    ```html
-     <input type="hidden" th:field="*{place_id}" th:value="${p.place_id}" />
+     <input type="hidden" th:field="*{placeId}" th:value="${p.place_id}" />
    ```
    
-   You'll need a line like this for each of the fields `place_id`, `name`, `latitude`, `longitude`.    
+   You'll need a line like this for each of the fields `placeId`, `name`, `latitude`, `longitude`.    
    Place each of these between the `<form ... >` open tag, and the existing `<input type=submit... >` element.   
    Take note that the `th:field` values need to match the field names of the `Location` class (the `@Entity` class), 
    while the field names in the `th:value` expressions need to match those coming from the `p` variable, which is 
-   an instance of the `LocSearch` class.   Be mindful of the difference between `lat` and `latitude`, for example.
+   an instance of the `earthquakes.osm.Place` class.   Be mindful of the difference between `lat` and `latitude`, for example.
 
    When you have made these changes, you should see a button with the word `Add` on it instead of simply the word `Add` 
    each time you do a locations search.  Clicking any of these buttons should lead you to the index pages for `Locations`,
