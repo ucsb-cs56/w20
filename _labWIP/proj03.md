@@ -269,16 +269,27 @@ Create a feature branch for the delete button.
     Note that we used `btn-danger` as one of the CSS `class` values we added to the `input` element.  In the Bootstrap framework,
     this makes the button appear in a different color, one associated with delete actions.   (For more info, see [this reference](https://getbootstrap.com/docs/4.0/components/buttons/).)
     
-    Each of these buttons is associated with deleting a different element from the database by virtue of the `${p.id}` part of the
+    Each of these buttons is associated with deleting a different element from the database by virtue of the `${loc.id}` part of the
     `th:action` attribute, which specifies the URL to which the button will direct the application.
+    
+    Note also that we are using the `delete` method instead of the `get` or `put` methods.  If you are interested in the detail
+    on this, this Stack Overflow answer may be of interest: <https://stackoverflow.com/a/24753505>.
     
     Try adding and deleting some locations to see if this code works properly.   Note that at present, it is possible to add
     duplicate locations (e.g. adding the city of Santa Barbara multiple times), however these duplicates will be distinguished by
-    having different `id` values, even if they have the same `place_id` value.
+    having different `id` values, even if they have the same `place_id` value.  So they can be deleted independently.
     
     An additional feature that could be added would be the ability to automatically check for duplicates before adding, and 
-    not adding a place that already exists in the database.  However, we'll not require that as part of this project. Once your
-    add and delete buttons work properly, we are done!
+    not adding a place that already exists in the database.  However, we'll not require that as part of this project. 
+    
+    So, once your
+    add and delete buttons work properly:
+    * Test thoroughly on localhost
+    * Run your `mvn test` unit tests
+    * Do a commit, a pull request, and merge into master
+    * Deploy from the master branch on your heroku app
+    * Test again, not just the code from this step, but all the steps in this project.
+    * If everything works, then we are ready for final submission of {{page.num}}!
     
 # Final Steps
 
