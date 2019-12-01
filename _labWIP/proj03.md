@@ -75,17 +75,17 @@ To add a new database table to your application, take the following steps:
    * The code will be similar in some ways to `users/index.html` and in other ways to `locations/results.html`
    * It's up to you to figure out when to follow which model.
    * The `<title>` and `<h1>` elements should say `Favorite Locations`
-   * The `<table>` for the list of all the locations should have appropriate headers, and the table should contain a row for each location in the locations database table (i.e. the `locationsRepository`).
-   * Note that an `earthquakes.osm.Place` object and a `earthquakes.entities.Location` object are not exactly the same.   
-   * Be aware of the differences when coding.  This is a possible source of confusion and errors. 
-   * The `earthquakes.osm.Place` field names have to match, exactly, the fields in the JSON (by convention) unless we take
-        extra steps to override the default mappings.  Thus: `place_id` vs. `placeId`, and `lat` vs. `latitude`.      
+   * The `<table>` that shows the locations should have columns for all of the fields that are available in an instance of the `@Entity` class `Location`.
+   * The table should contain a row for each location in the locations database table.   You are iterating over the variable that was
+     passed in from the `@GetMapping("/locations")` controller method.
+   * If you copy/paste code from the `locations/results.html` to get started, note that an `earthquakes.osm.Place` object and a `earthquakes.entities.Location` object are not exactly the same.  Be aware of the differences when coding.  This is a possible source of confusion and errors. 
+   * To be very clear: the `earthquakes.osm.Place` field names have to match, exactly, the fields in the JSON (by convention) unless we take extra steps to override the default mappings.  Thus: `place_id` vs. `placeId`, and `lat` vs. `latitude`.      
 5. Add an item to the navigation menu that directs the user to the endpoint that lists locations.   The link in the menu
    should say "Favorites", but it should link to `locations/index`.   Note that at present,
    since there are no locations in your database, you'll have an empty list. But at least you should get that, 
    and not an error.  We'll add code to put stuff in this table in a later step.
 
-Make sure that the code you've added so far works, and that the test you added passes
+Make sure that the code you've added so far works.
 
 Then merge that branch into master.  Deploy the master branch on Heroku, and make sure the code works on Heroku as well.
 
