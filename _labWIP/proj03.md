@@ -261,8 +261,8 @@ Create a feature branch for the delete button.
 
 3.  Now add a form element that looks like this.  
     ```html
-    <form action="#" th:action="locations/delete/${p.id}" method="delete">   
-       <input type="submit" class="btn btn-danger" value="Delete" />
+    <form th:method="delete" th:action="@{/locations/delete/} + ${loc.id}">
+         <input type="submit" class="btn btn-danger" value="Delete" />
     </form>
     ```
     
