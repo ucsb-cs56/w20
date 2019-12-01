@@ -67,12 +67,19 @@ To add a new database table to your application, take the following steps:
    (For background: in general, you can define `findByAbcd` methods for any field `abcd` that is that is part of the `@Entity` that the repo represents as part of the `interface` for the repo, and the Spring framework will automatically generate code for the class that implements the interface.    The generated code will do the correct database query.)
    
    It's probably a good idea to do a `mvn clean compile` to make sure everything still compiles before going on to the next item in the list, as well as a `mvn test`.     
-3. Add a `@Controller` class called `LocationsController.java` under `hello/controllers`.  
-   * Initially, just start with an endpoint to list the locations, similar 
-     to the `UsersController.java`.  
-   * This endpoint should be similar to the one that lists all of the users in `UsersController`.
-4. Add a view in a directory `src/main/resources/templates/locations` in a file `index.html`.  Put in an HTML table that
-   has appropriate headers, and that will list each location in the locations table.
+3. In the `@Controller` class called `LocationsController.java`, add an endpoint `@GetMapping("/locations")`
+   * The code will be similar to the code for `@GetMapping("/users")` in the `UsersController`, that is, it should
+     lookup all of locations in the `LocationRepository`, and put those into an attribute of the model called `locations`.
+   * It should then redirect to a view (which we'll implement in the next step) `"locations/index"`
+4. Add a view in a directory `src/main/resources/templates/locations` in a file `index.html`.   
+   * The code will be similar in some ways to `users/index.html` and in other ways to `locations/results.html`
+   * It's up to you to figure out when to follow which model.
+   * The `<title>` and `<h1>` elements should say `Favorite Locations`
+   * The `<table>` for the list of all the locations should have appropriate headers, and the table should contain a row for each location in the locations database table (i.e. the `locationsRepository`).
+   * Note that an `earthquakes.osm.Place` object and a `earthquakes.entities.Location` object are not exactly the same.   
+   * Be aware of the differences when coding.  This is a possible source of confusion and errors. 
+   * The `earthquakes.osm.Place` field names have to match, exactly, the fields in the JSON (by convention) unless we take
+        extra steps to override the default mappings.  Thus: `place_id` vs. `placeId`, and `lat` vs. `latitude`.      
 5. Add an item to the navigation menu that directs the user to the endpoint that lists locations.   The link in the menu
    should say "Favorites", but it should link to `locations/index`.   Note that at present,
    since there are no locations in your database, you'll have an empty list. But at least you should get that, 
