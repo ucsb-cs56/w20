@@ -1565,7 +1565,17 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA
-
+| Points | Item |
+|--------|------------------------------|
+|  10    | Repo is set up for Travis-CI | 
+|  10    | The app runs on Heroku |
+|  10    | There is a form at `/earthquakes/search` where you can type in distance and minimum magnitude |
+|  10    | There is a menu item that takes you to the `earthquakes/search` endpoint |
+|  10    | When you submit the form, you can see information about Earthquakes near UCSB | 
+|  10    | The id link of each earthquake is clickable | 
+|  10    | There are pull requests for branches `xxSmallUIFixes`, `xxCreateForm`, `xxCallAPI`, rather than the changes just all being made on the `master` branch |
+|  10    | Comments on commits are reasonably descriptive | 
+|  10    | Javadoc and Jacoco are published and linked to from README.md | 
+|  10    | All other instructions were followed (e.g. clickable links on Gauchospace, cleanup items at step 10i, etc. |
 
 
