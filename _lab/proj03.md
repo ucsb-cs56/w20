@@ -296,7 +296,7 @@ Create a feature branch for the delete button.
 
 1. Look over the staff's working version here:
 
-   * <https://cs56-f19-proj03-pconrad.herokuapp.com/>
+   * <https://cs56-f19-proj3-pconrad.herokuapp.com/>
    
    Compare it to your working version on Heroku.  If you see differences, try to determine which of these is true:
    * Is is a minor difference that doesn't matter?
