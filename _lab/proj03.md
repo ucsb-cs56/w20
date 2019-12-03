@@ -253,11 +253,11 @@ Create a feature branch for the delete button.
 
     Add in this code, and makes sure that your app still compiles and runs.  If so, that's worthy of a commit.
 
-2.  The next step is to add a column to the table on the <tt style="background-color:yellow"><s>locations/results</s></tt>  <tt style="background-color:green">/locations/index</tt> page with the column heading "Delete".    
+2.  The next step is to add a column to the table on the <tt style="background-color:yellow"><s>locations/results</s></tt>  <tt style="background-color:#00f">/locations/index</tt> page with the column heading "Delete".    
     
 3.  Now, add an extra `<td></td>` element with  the placeholder word `Delete` inside.  We'll replace this with a form element later.
     
-    If you can see the placeholder when loading the <tt style="background-color:yellow"><s>locations/results</s></tt>  <tt style="background-color:green">/locations/index</tt> page, that's worthy of another commit.
+    If you can see the placeholder when loading the <tt style="background-color:yellow"><s>locations/results</s></tt>  <tt style="background-color:#00f">/locations/index</tt> page, that's worthy of another commit.
 
 3.  Now add a form element that looks like this.  
     ```html
