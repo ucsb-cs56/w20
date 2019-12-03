@@ -243,7 +243,7 @@ Create a feature branch for the delete button.
         Location location = locationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid courseoffering Id:" + id));
         locationRepository.delete(location);
-        model.addAttribute("locations", locationsRepository.findAll());
+        model.addAttribute("locations", locationRepository.findAll());
         return "locations/index";
     }
     ```
