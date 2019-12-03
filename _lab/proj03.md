@@ -114,7 +114,7 @@ To add a new database table to your application, take the following steps:
    
 6. Add an item to the navigation menu that directs the user to your new endpoint that lists locations from the database.   
    The link in the menu
-   should say "Favorites", but it should link to `locations/index`.  You probably should add it as the rightmost menu item so that
+   should say "Favorites", but it should link to `/locations` url (i.e. the `locations/index.html` template).  You probably should add it as the rightmost menu item so that
    the relative position of the other items doesn't change (otherwise you'l have to adjust your tests).
 
 Make sure that the code you've added so far works.   Also run `mvn test` to make sure you didn't break any existing tests.
