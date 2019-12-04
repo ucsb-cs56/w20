@@ -865,7 +865,10 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA
-
-
+| Points | Step |
+|-|-|
+| 30 | Github login works | 
+| 30 | After github login, the Users menu shows that the user has logged in (i.e. their record is in the database) |
+| 20 | /src/main/java/hello has controllers and entities subdirectories | 
+| 20 | README.md has a link to Travis-CI, and repo is green on CI (no points if no link) |
 
