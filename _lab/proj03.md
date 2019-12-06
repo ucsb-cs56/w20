@@ -358,7 +358,16 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA
+| item | points | description |
+|-|-|-|
+| (a) | 20 | There is a Favorites Button on your application that lists favorites |
+| (b) | 20 | You can click "add" on location results and add them to the favorites |
+| (c) | 20 | You can get earthquakes for a favorite |
+| (d) | 20 | You can click "delete" on favorites and they go away |
+| (e) | 20 | The Travis-CI tests pass, and the javadoc is update to date (look for a `delete` method in the `LocationsController` and there are links to each of those |
+
+
+
 
 
 
