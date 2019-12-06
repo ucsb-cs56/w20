@@ -275,7 +275,16 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA
+# Grading Rubric:
+
+| item | points | description |
+|-|-|-|
+| (a) | 40 | The Earthquakes page has query params for latitude, longitude, and location |
+| (b) | 40 | You can click on "Get Earthquakes" and get earthquakes for a location result |
+| (c) | 20 | README.md has links to github pages webpage, app on Heroku, Travis-CI |
+
+
+
 
 
 
