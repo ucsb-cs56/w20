@@ -179,8 +179,13 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 
 # Grading Rubric:
-
-TBA
+| item | points | description |
+|-|-|-|
+|(a)|	20|		README has links to GitHub-Pages (javadoc, etc) and Travis-CI |
+|(b)|	20|		In Javadoc, there is apidocs/earthquakes/entities/Location.html and it has getUid indicating Javadoc was updated|
+|(c)|	20|		You can login and add a favorite|
+|(d)|	20|		There is an admin menu where you can see locations for more than one user|
+|(e)|	20	|	On the favorites menu you only see your own favorites |
 
 
 
