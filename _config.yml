@@ -4,34 +4,62 @@ plugins:
 
 remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme@pcfix
 
-url: https://ucsb-cs56.github.io # the base hostname & protocol for your site
-baseurl: /f19  # the subpath of your site, e.g. "/blog"
-
-lecture_days_of_week: MW
+kramdown:
+   parse_block_html: true
 
 include:
-  - _pages
+   - _pages
 exclude:
-  - .sass-cache
-  - Gemfile
-  - LICENSE
-  - .bundle
+   - vendor
+   - setup.sh
+   - jekyll.sh
+   - .sass-cache
+   - Gemfile
+   - LICENSE
+   - .bundle
+
+timezone: America/Los_Angeles
+
+url: https://ucsb-cs56.github.io # the base hostname & protocol for your site
+baseurl: /w20  # the subpath of your site, e.g. "/blog"
+github_url: https://github.com/ucsb-cs56/w20
+
+
 
 course: "CS56"
 qtr: "F19"
 qxx: "f19"
 quarter: "Fall 2019"
+
+lecture_days_of_week: MW
+
+start_week: 1
+start_date: 2020-01-05
+num_weeks: 10
+extra_exam_week: true
+
+cal_dates: >
+  [
+    {"label":"W20 1st day of instruction", "date":"2019-09-26" },	
+    {"label":"Univ Holiday", "date":"2020-01-20" },
+    {"label":"Univ Holiday", "date":"2020-02-17" },
+    {"label":"W20 instruction ends", "date":"2020-03-13" },
+    {"label":"W20 finals start", "date":"2020-03-13" },
+    {"label":"W20 finals end", "date":"2020-03-20" },
+    {"label":"W20 qtr ends", "date":"2020-03-20" }
+  ]
+
 piazza_url: https://piazza.com
 gauchospace_course_page: https://gauchospace.ucsb.edu/courses/course/view.php?id=tbd
-github_org_name: ucsb-cs56-f19
-github_org_url: https://github.com/ucsb-cs56-f19
+github_org_name: ucsb-cs56-w20
+github_org_url: https://github.com/ucsb-cs56-w20
 
 ta_list: "Scott and Zachary"
 ta_list_full: "Scott Chow and Zachary Sisco"
-mentors_list: "Daniel, George, and Meredith"
+mentors_list: "TBA"
 discussion_section_times: "5pm,&nbsp;6pm,&nbsp;7pm"
 
-github_url: https://github.com/ucsb-cs56/f19
+
 mentor_url: https://ucsb-cs56-pconrad-mentors.github.io
 
 on_campus: http://proquest.safaribooksonline.com
@@ -45,23 +73,6 @@ legacy_wiki_name: "56wiki"
 
 sections: "5pm,&nbsp;6pm,&nbsp;7pm"
 
-start_week: 0
-start_date: 2019-09-22
-num_weeks: 11
-extra_exam_week: true
-
-cal_dates: >
-  [
-    {"label":"F19 official start date", "date":"2019-09-22" },
-    {"label":"F19 1st day of instruction", "date":"2019-09-26" },	
-    {"label":"Univ Holiday", "date":"2019-11-11" },
-    {"label":"Univ Holiday", "date":"2019-11-28" },
-    {"label":"Univ Holiday", "date":"2019-11-29" },
-    {"label":"F19 instruction ends", "date":"2019-12-06" },
-    {"label":"F19 finals start", "date":"2019-12-07" },
-    {"label":"F19 finals end", "date":"2019-12-13" },
-    {"label":"F19 qtr ends", "date":"2019-12-13" }
-  ]
 
 hwk_drop_lowest: three
 
@@ -72,17 +83,6 @@ legacy_wiki_url: "https://foo.cs.ucsb.edu/56wiki"
 hfj_chapter_url_prefix: "http://ucsb-cs56-pconrad.github.io/hfj/HFJ_Chapter_"
 hfdp_chapter_url_prefix: "http://ucsb-cs56-pconrad.github.io/hfdp/HFDP_Chapter_"
 
-kramdown:
-   parse_block_html: true
-
-
-exclude:
-   - vendor
-   - _exam/e02/cs56_m16_e02/code
-   - _exam/e01/cs56_f16_e01/code
-
-
-timezone: America/Los_Angeles
 
 collections:
   hwk:
