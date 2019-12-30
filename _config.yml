@@ -44,7 +44,7 @@ cal_dates: >
     {"label":"Univ Holiday", "date":"2020-01-20" },
     {"label":"Univ Holiday", "date":"2020-02-17" },
     {"label":"W20 instruction ends", "date":"2020-03-13" },
-    {"label":"W20 finals start", "date":"2020-03-13" },
+    {"label":"W20 finals start", "date":"2020-03-14" },
     {"label":"W20 finals end", "date":"2020-03-20" },
     {"label":"W20 qtr ends", "date":"2020-03-20" }
   ]
