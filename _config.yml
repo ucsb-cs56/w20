@@ -31,7 +31,7 @@ qtr: "F19"
 qxx: "f19"
 quarter: "Fall 2019"
 
-lecture_days_of_week: MW
+lecture_days_of_week: MTWR
 
 start_week: 1
 start_date: 2020-01-05
