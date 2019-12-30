@@ -1,14 +1,15 @@
 ---
+assigned: 2020-02-11 17:00
+desc: Spring Boot OAuth Hello World
+due: 2020-02-16 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2765929
+github_org: ucsb-cs56-f19
 layout: lab
 num: lab06
-ready: true
-desc: "Spring Boot OAuth Hello World"
-assigned: 2019-10-31 17:00
-due: 2019-11-05 23:59
-github_org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2765929"
-starter: "https://github.com/ucsb-cs56-f19/STARTER-lab06"
 prev: lab02
+ready: false
+starter: https://github.com/ucsb-cs56-f19/STARTER-lab06
+
 ---
 
 <div style="display:none" >

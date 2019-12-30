@@ -1,11 +1,12 @@
 ---
+assigned: 2020-01-07 17:00
+desc: Getting Started
+due: 2020-01-13 23:59
 layout: lab
 num: lab00
-ready: true
-desc: "Getting Started"
-assigned: 2019-09-26 17:00
-due: 2019-10-02 23:59
+ready: false
 signup_app: https://ucsb-cs-github-linker.herokuapp.com/
+
 ---
 
 If you find typos or problems with the lab instructions, please report

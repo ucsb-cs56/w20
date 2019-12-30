@@ -1,12 +1,13 @@
 ---
+assigned: 2020-01-18 17:00
+desc: Polynomials
+due: 2020-01-29 23:59
+github_org: ucsb-cs56-f19
 layout: lab
 num: lab04
-ready: true
-desc: "Polynomials"
-assigned: 2019-10-07 17:00
-due: 2019-10-18 23:59
-github_org: "ucsb-cs56-f19"
-starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab04"
+ready: false
+starter_repo: https://github.com/ucsb-cs56-f19/STARTER-lab04
+
 ---
 
 # UPDATE 6:20PM, Thu October 17, 2019

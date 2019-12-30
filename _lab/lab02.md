@@ -1,13 +1,14 @@
 ---
+assigned: 2020-01-13 18:15
+desc: Spring Boot and Heroku Hello World
+due: 2020-01-20 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2672849
+github_org: ucsb-cs56-f19
 layout: lab
 num: lab02
-ready: true
-desc: "Spring Boot and Heroku Hello World"
-assigned: 2019-10-02 18:15
-due: 2019-10-09 23:59
-github_org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2672849"
-tutorial_repo_url: "https://github.com/pconrad/spring-boot-minimal-webapp"
+ready: false
+tutorial_repo_url: https://github.com/pconrad/spring-boot-minimal-webapp
+
 ---
 
 <div style="display:none" >

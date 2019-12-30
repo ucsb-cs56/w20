@@ -1,14 +1,15 @@
 ---
+assigned: 2020-03-06 21:00
+desc: Individual Lab Track Project, part 2
+due: 2020-03-16 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2845594&forceview=1
+github_org: ucsb-cs56-f19
 layout: lab
 num: proj02
+org: ucsb-cs56-f19
 package: earthquakes
-ready: true
-desc: "Individual Lab Track Project, part 2"
-assigned: 2019-11-24 21:00
-due: 2019-12-04 23:59
-github_org: "ucsb-cs56-f19"
-org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2845594&forceview=1"
+ready: false
+
 ---
 
 <div style="display:none" >

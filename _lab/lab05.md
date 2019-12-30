@@ -1,13 +1,14 @@
 ---
+assigned: 2020-01-28 16:00
+desc: Sorting
+due: 2020-02-08 16:00
+github_org: ucsb-cs56-f19
 layout: lab
 num: lab05
 prev_num: lab03
-ready: true
-desc: "Sorting"
-assigned: 2019-10-17 16:00
-due: 2019-10-28 16:00
-github_org: "ucsb-cs56-f19"
-starter_repo: "https://github.com/ucsb-cs56-f19/STARTER-lab05"
+ready: false
+starter_repo: https://github.com/ucsb-cs56-f19/STARTER-lab05
+
 ---
 
 

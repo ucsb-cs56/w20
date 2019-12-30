@@ -1,16 +1,17 @@
 ---
+assigned: 2020-03-03 17:00
+desc: Spring Boot Skills Part 3
+due: 2020-03-09 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2837754&forceview=1
+github_org: ucsb-cs56-f19
+labnum: lab07
 layout: lab
 num: lab07c
-labnum: lab07
-ready: true
-desc: "Spring Boot Skills Part 3"
-assigned: 2019-11-21 17:00
-due: 2019-11-27 23:59
-github_org: "ucsb-cs56-f19"
-org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2837754&forceview=1"
+org: ucsb-cs56-f19
 prev: lab07b
+ready: false
 starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
+
 ---
 
 <div style="display:none" >

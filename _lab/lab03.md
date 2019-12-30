@@ -1,12 +1,13 @@
 ---
+assigned: 2020-01-14 17:00
+desc: Testing and Test Case Coverage
+due: 2020-01-23 16:59
+github_org: ucsb-cs56-f19
 layout: lab
 num: lab03
-ready: true
-desc: "Testing and Test Case Coverage"
-assigned: 2019-10-03 17:00
-due: 2019-10-12 16:59
-github_org: "ucsb-cs56-f19"
-starter_repo: "https://github.com/ucsb-cs56-f19/STARTER_lab03"
+ready: false
+starter_repo: https://github.com/ucsb-cs56-f19/STARTER_lab03
+
 ---
 
 <div style="display:none;">
