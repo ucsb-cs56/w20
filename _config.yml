@@ -2,7 +2,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
-remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme@pcfix
+remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme@pcMultLectSect
 
 kramdown:
    parse_block_html: true
