@@ -2,7 +2,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
-remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme@pcMultLectSect
+remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme@pcmultlect
 
 kramdown:
    parse_block_html: true
@@ -32,6 +32,11 @@ qxx: "f19"
 quarter: "Fall 2019"
 
 lecture_days_of_week: MTWR
+
+assigned_text: " assigned(MW)"
+assigned2_text: " assigned(TR)"
+due_text: " due(MW) "
+due2_text: " due(TR) "
 
 start_week: 1
 start_date: 2020-01-05
