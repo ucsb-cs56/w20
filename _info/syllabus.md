@@ -1,5 +1,5 @@
 ---
-title: "Syllabus, CMPSC 56, Fall 2019"
+title: "Syllabus, CMPSC 56, Winter 2020"
 layout: handout
 ready: true
 ---
@@ -11,25 +11,31 @@ Basic Facts
 
 * **Instructor**:  [Phill Conrad](http://www.cs.ucsb.edu/~pconrad) (contact via Slack)
    * Use the "instructor messsage" feature to contact Prof. Conrad, as well as all TAs, Readers and Mentors
-* **Lecture**: Mon/Wed 5-6:15pm, Phelps 3526.  Attendance/Participation is expected/required.
+* **Lecture**:
+   * Mon/Wed 12:30-1:45pm OR Tue/Thu 11am-12:15pm Phelps 3526.
+   * Attendance/Participation is expected/required.
 * **TAs**: {{site.ta_list_full}} (contact via Slack)
-* **Mentors**: {{site.mentors_list}} (contact via Slack)
-* **Lab** (50 minute discussion section) Thursday {{site.discussion_section_times}}, Phelps 3525.  Attendance/Participation is expected/required.
+* **Lab** (50 minute discussion section)
+  * Tuesday or Wednesday {{site.discussion_section_times}}, Phelps 3525.
+  * Attendance/Participation is expected/required.
+  * You must attend the section for which you are registered
 * Office Hours: See: <http://www.cs.ucsb.edu/~pconrad/ofchrs>  
 
-For course website links, visit the course Gauchospace site.
+Course website: <https://ucsb-cs56.github.io/w20/>
 
 About the Course
 ----------------
 
 -   Our goal is to learn Java---but not just to learn Java for the sake of learning Java. After all, some of you already "know Java", at some level.
 -   Our bigger goals are:
-    -   to practice using big APIs to get stuff done--a very relevant real world job skill!
+    -   to practice using APIs and frameworks to get stuff done--a very relevant real world job skill!
     -   to learn how to learn a new language or technology--something you'll do a lot in your career
-    -   to learn about a few specific topics: the JVM, threads, Swing GUIs, etc..
     -   to learn some professional-level, real-world programming practices.
 
-The way I'm planning to teach the course is a bit different from what you may have experienced before--I'm trying to create a learning environment that *mirrors how real world software is developed* more than is the case is traditionally structured courses.
+The way I'm planning to teach the course is a bit different from what
+you may have experienced before--I'm trying to create a learning
+environment that *mirrors how real world software is developed* more
+than is the case is traditionally structured courses.
 
 So, the emphasis will be on:
 
@@ -37,7 +43,9 @@ So, the emphasis will be on:
 -   collaboration
 -   writing code, that, where possible is actually useful and usable.
 
-Note that "sharing code" doesn't mean "stealing code". We still don't take credit for other people's work---academic honesty still applies. It just 'looks different' in this course.
+Note that "sharing code" doesn't mean "stealing code". We still don't
+take credit for other people's work---academic honesty still
+applies. It just 'looks different' in this course.
 
 The official course description is here:
 
@@ -72,12 +80,11 @@ A+ grades: These may be awarded to the very best performing students in the clas
 
 | Grade Item                                                                   | Percentage of Final Grade |
 |------------------------------------------------------------------------------|---------------------------|
-| Midterm 1 | 20 % |
-| Midterm 2 | 20 % |
-| Final | 20 % |
+| Midterm 1 | 30 % |
+| Final | 30 % |
 | Hwks, In Class Assignments | 10 % |
 | Labs (typically closed source, some open source) | 10 % |
-| Projects (open source) | 20 % |
+| Projects (typically open source) | 20 % |
 
 Missing homework/in-class activities: Drop the lowest {{ site.hwk_drop_lowest }}
 -------------------------------------------------------
@@ -89,7 +96,6 @@ There is no makeup. In lieu of providing a makeup opportunity, I will
 drop the lowest {{ site.hwk_drop_lowest }} homework/in-class-assignment grades (which may be
 zeros if you miss an assignment.) Each homework and in-class-activity
 will be of equal value (100 pts).
-
 
 Notes sheets on exams
 ---------------------
@@ -103,11 +109,20 @@ Notes sheets on exams
 More On Grading
 ---------------
 
-We'll have three exams--two midterms and a final. That part of the course will be traditional. And, there will be some traditional lab and homework assignments (and perhaps quizzes) where "everybody in the class does roughly the same thing"---those make up another 20% of your grade.
+We'll have two exams--a midterms and a final. That part of the course
+will be traditional. And, there will be some traditional lab and
+homework assignments (and perhaps quizzes) where "everybody in the
+class does roughly the same thing"---those make up another 20% of your
+grade.
 
-Some homework assignments might be submitted on Gradescope, and those may have the option of submitting as a pair or as a group.  If you *choose* this option, you are making *one* submission for the pair or group, and everyone gets a grade based on that submission.  If you just work together as "homework buddies", you are not required to make a pair submission, but if you do, you both earn the same grade (even if you have an earlier submission in your submission history.)
+Some homework assignments might be submitted on Gradescope, and those
+may have the option of submitting as a pair or as a group.  If you
+*choose* this option, you are making *one* submission for the pair or
+group, and everyone gets a grade based on that submission.  If you
+just work together as "homework buddies", you are not required to make
+a pair submission, but if you do, you both earn the same grade (even
+if you have an earlier submission in your submission history.)
 
-Note that, at the discretion of the instructor, part of one of the midterms, and/or part of the final exam may a "lab final", i.e. a set of exercises done in the laboratory setting under exam conditions.   The division of points between written final the lab final will be at the discretion of the instructor, and announced later in the quarter.
 
 The remaining part of your grade--the last 20%--comes from project points which are explained in more detail later in this syllabus.
 
@@ -122,7 +137,9 @@ The remaining part of your grade--the last 20%--comes from project points which 
 Project Points
 ==============
 
-Project points assignments can be found in public github repositories in the organization: <http://github.com/organizations/ucsb-cs56-webapps>. The way in which these will be assigned will be explained later in the course.
+Project points will be earned by contributing to one of several open source legacy code projects.  You'll be
+assigned to a project team, and the project team will be assigned to a set of bug fixes and feature requests.
+This mirrors real world software development practice.
 
 To earn a "perfect score" (100%) for this 20% component of your grade, you need to earn 100 project points. If you only earn 80, then an 80% will be recorded for that 20% of your grade.
 
@@ -131,6 +148,13 @@ Some assignments in the project category are worth more points, and some worth f
 If you accumulate more than 100 project points, up to 10 project points may be used to raise your final average in the class up to 2.0 points. (The points will be recorded as extra credit). (Each point raises your final course average by 0.2% ).
 
 You may not earn more than 110 total project points--any points in excess of 110 will not count towards your grade (though you'll probably learn a lot from having under taken the work to earn them.)
+
+Individual Track
+================
+
+At the discretion of the instructor, there may (or may not) be an alternative "individual track" option, a way to earn  the project points&mdash;either all, or a designated portion of the points&mdash;without participating in a project team.   In this track, you'll complete a series of assignments, and your average grade on those assignments will be used in place of the designated portion of your project grade.
+
+This is not guaranteed; if it is offered at all, the process by which students may opt-in to this option will be explained at an appropriate stage of the course.
 
 ### Project Point Deadlines
 
@@ -182,7 +206,8 @@ Attendance
 This course moves quickly. So attendance is very important.
 
 We'll be trying to master the material from about 14 chapters in the
-Head First Java book, and several chapters of the Head First Design Patterns book.   That's a pace of about 4 chapters per week. We need to go at that pace,
+Head First Java book (1-11, 16, 17) plus portions of the Java in a Nutshell book.
+That's a pace of about 4 chapters per week. We need to go at that pace,
 because we'll lose a couple of weeks to exams, and the last few
 lectures the quarter, you can't really start anything new, because
 there isn't time to put it into practice with programming
@@ -241,15 +266,6 @@ important to approach such conversations in a respectful manner,
 accepting that the instructor, TA and grader have been given
 responsibility for determining course standards, and applying those in
 a fair way to all students.
-
-In any case, once the two week deadline for challenges has passed,
-each grade becomes final---and it is your responsibility to come to
-scheduled TA or instructor office hours to have this discussion. If
-you cannot make office hours, you may request an appointment, but you
-must request the appointment within ONE WEEK of the assignment being
-posted. If you wait until the last office hours opportunity during the
-two week window, and you are not able to be seen (e.g. because of a
-long line of students), then you lose the right to appeal your grade.
 
 </div>
 
