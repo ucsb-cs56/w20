@@ -45,7 +45,7 @@ extra_exam_week: true
 
 cal_dates: >
   [
-    {"label":"W20 1st day of instruction", "date":"2019-09-26" },	
+    {"label":"W20 1st day of instruction", "date":"2020-01-06" },	
     {"label":"Univ Holiday", "date":"2020-01-20" },
     {"label":"Univ Holiday", "date":"2020-02-17" },
     {"label":"W20 instruction ends", "date":"2020-03-13" },
