@@ -3,7 +3,6 @@ num: Lecture 1
 lecture_date: 2020-01-06
 desc: "Introduction to CS56"
 ready: false
-pdfurl:
 ---
 
 <div style="display:none;">https://ucsb-cs56.github.io/w20/lectures/lect01
