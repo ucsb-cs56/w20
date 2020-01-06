@@ -66,6 +66,15 @@ Because as a young software developer I saw a gap between what I learned in scho
    * JUnit testing
    * Packages
 
+# Now we shuffle
+
+* Seating Chart: <https://docs.google.com/spreadsheets/d/e/2PACX-1vSKZmZ4J0Whie1MEozBYHfyHUnlfkDj7r8iFA3cq5XzhWO3wL_fLxnIJCaT8t5ZKQ8q69l9ZRfPHeZm/pubhtml?gid=0&single=true>
+
+Then we do 
+* [ic00]({{ 'hwk/ic00' | relative_url }}): "Meeting our first team"
+
+
+# IF THERE's TIME... OTHERWISE NEXT LECTURE...
 
 # New Grads in Industry
 
