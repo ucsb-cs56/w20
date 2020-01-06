@@ -18,8 +18,6 @@ Note the two parts:
 * Permanent part for CS56
 * The part for /w20/ specifically
 
-* <https://ucsb-cs56.github.io/w20/info/syllabus/>
-
 # Where is the syllabus?
 
 It's here.  We're saving some trees.
