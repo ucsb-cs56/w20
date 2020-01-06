@@ -10,11 +10,35 @@ ready: false
 
 See also, code here:  <https://github.com/ucsb-cs56-w20/LECTURE_0106>
 
+# The course website
+
+Here: <https://ucsb-cs56.github.io>
+
+Note the two parts:
+* Permanent part for CS56
+* The part for /w20/ specifically
+
+* <https://ucsb-cs56.github.io/w20/info/syllabus/>
+
 # Where is the syllabus?
 
 It's here.  We're saving some trees.
 
 * <https://ucsb-cs56.github.io/w20/info/syllabus/>
+
+# The special circumstances that led to two lectures
+
+* I'm teaching an extra lecture section
+* This is a voluntary service I'm doing for no extra compensation
+* Why?
+   * The altrusitic reason: I want to help students that were stranded due to poor resource planning
+   * The selfish reason: a class larger than 72 doesn't work for this style of teaching
+
+# My special passion: Teaching real world software practice
+
+Why is this course different from all other courses?
+
+Because as a young software developer I saw a gap between what I learned in school, and what i needed in industry.
 
 # Logistics
 
@@ -34,6 +58,16 @@ It's here.  We're saving some trees.
 * [h00]({{ 'hwk/h00' | relative_url }}): "Listening to Developers"
    * What do new college graduates find when they go into industry?
    
+*  The Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex00/>
+   * Start reading, and start coding.
+   * Your first lab assignment will be based on this code.
+   * Even if you are a Java expert, there is probably some new stuff
+   
+* What might be new?
+   * Ant, Maven
+   * JUnit testing
+   * Packages
+
 # New Grads in Industry
 
 * Powerpoint: 
@@ -80,5 +114,4 @@ Here's a link list of some of the things it includes
    * Especially under <https://ucsb-cs56.github.io/topics>
    * Also, the Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex00/>
 
-With the time left, let's look at <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
 
