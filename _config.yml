@@ -27,9 +27,9 @@ github_url: https://github.com/ucsb-cs56/w20
 
 
 course: "CS56"
-qtr: "F19"
-qxx: "f19"
-quarter: "Fall 2019"
+qtr: "W20"
+qxx: "w20"
+quarter: "Winter 2020"
 
 lecture_days_of_week: MTWR
 
