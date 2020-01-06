@@ -1,5 +1,13 @@
 ---
 num: Lecture 13
+lecture_date: 2020-01-28
+desc:
+ready: false
+pdfurl:
+---
+
+---
+num: Lecture 13
 lecture_date: 2019-11-11
 desc:
 ready: false

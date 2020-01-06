@@ -1,5 +1,13 @@
 ---
 num: Lecture 17
+lecture_date: 2020-02-04
+desc:
+ready: false
+pdfurl:
+---
+
+---
+num: Lecture 17
 lecture_date: 2019-11-25
 desc: "Standup Meetings"
 ready: false

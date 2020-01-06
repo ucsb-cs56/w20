@@ -1,5 +1,13 @@
 ---
 num: Lecture 16
+lecture_date: 2020-02-03
+desc:
+ready: false
+pdfurl:
+---
+
+---
+num: Lecture 16
 lecture_date: 2019-11-20
 desc: Decision Day
 ready: false

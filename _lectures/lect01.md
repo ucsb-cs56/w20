@@ -1,5 +1,13 @@
 ---
 num: Lecture 1
+lecture_date: 2020-01-06
+desc:
+ready: false
+pdfurl:
+---
+
+---
+num: Lecture 1
 lecture_date: 2019-09-30
 desc: "Introduction to CS56 and Java"
 ready: true

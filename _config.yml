@@ -47,7 +47,7 @@ cal_dates: >
   [
     {"label":"W20 1st day of instruction", "date":"2020-01-06" },	
     {"label":"Univ Holiday", "date":"2020-01-20" , "holiday": true},
-    {"label":"Univ Holiday", "date":"2020-02-17" "holiday": true},
+    {"label":"Univ Holiday", "date":"2020-02-17", "holiday": true},
     {"label":"W20 instruction ends", "date":"2020-03-13" },
     {"label":"W20 finals start", "date":"2020-03-14" },
     {"label":"W20 finals end", "date":"2020-03-20" },

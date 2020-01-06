@@ -1,5 +1,13 @@
 ---
 num: Lecture 7
+lecture_date: 2020-01-15
+desc:
+ready: false
+pdfurl:
+---
+
+---
+num: Lecture 7
 lecture_date: 2019-10-21
 desc: "Towards Our Spring Boot Projects"
 ready: false
