@@ -57,8 +57,8 @@ Because as a young software developer I saw a gap between what I learned in scho
 
 * [h00]({{ 'hwk/h00' | relative_url }}): "Listening to Developers"
    * What do new college graduates find when they go into industry?
-   
-*  The Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex00/>
+
+*  The Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex01/>
    * Start reading, and start coding.
    * Your first lab assignment will be based on this code.
    * Even if you are a Java expert, there is probably some new stuff
@@ -67,6 +67,7 @@ Because as a young software developer I saw a gap between what I learned in scho
    * Ant, Maven
    * JUnit testing
    * Packages
+
 
 # New Grads in Industry
 
