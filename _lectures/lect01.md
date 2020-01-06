@@ -1,43 +1,39 @@
 ---
 num: Lecture 1
 lecture_date: 2020-01-06
-desc:
+desc: "Introduction to CS56"
 ready: false
 pdfurl:
 ---
 
----
-num: Lecture 1
-lecture_date: 2019-09-30
-desc: "Introduction to CS56 and Java"
-ready: true
-pdfurl:
----
-
-<div style="display:none;">https://ucsb-cs56.github.io/f19/lectures/lect01
+<div style="display:none;">https://ucsb-cs56.github.io/w20/lectures/lect01
 </div>
 
-See also, code here:  <https://github.com/ucsb-cs56-f19/LECTURE_0930>
+See also, code here:  <https://github.com/ucsb-cs56-w20/LECTURE_0106>
 
-# What did you miss if you missed lab?
+# Where is the syllabus?
 
-* [ic00]({{ 'hwk/ic00' | relative_url }}): "Pair Partner Matching"
-   * Finding a pair partner with similar experience
-* [lab00]({{ 'lab/lab00' | relative_url }}): "Hello World, Gradescope"
-   * Making sure you can use Java and Gradescope
-* [lab01]({{ 'lab/lab01' | relative_url }}): A pair lab: Java tools (Ant, JUnit)
-   * Based on the Rational tutorial: <https://ucsb-cs56.github.io/tutorials/rational/>, part 00 through 08
-   
+It's here.  We're saving some trees.
+
+* <https://ucsb-cs56.github.io/w20/info/syllabus/>
+
+# Logistics
+
+* Check email for:
+  * Course survey invitation
+  * Slack invitation
+* Join ucsb-cs56-w20 github org
+  * Create account at github.com
+  * Add your @ucsb.edu or @umail.ucsb.edu email address (either one)
+  * Visit <https://ucsb-cs-github-linker.herokuapp.com> and login with your github username/password
+  * On home page of app, click to join cs56 w20
+  * Click link to accept the invite to the org
 
 
-# Homework for Wednesday, Thursday and next Monday
+# Homework for Wednesday
 
-* [h01]({{ 'hwk/h01' | relative_url }}): "Listening to Developers"
+* [h00]({{ 'hwk/h00' | relative_url }}): "Listening to Developers"
    * What do new college graduates find when they go into industry?
-* [h02]({{ 'hwk/h02' | relative_url }})
-   * HFJ 3,4; JN7 Ch2 pp 19-32; Primitives, References, Instance Variables, Method
-* [h03]({{ 'hwk/h03' | relative_url }})
-   * HFJ 5,6: Random, ArrayList, first look at the Java API
    
 # New Grads in Industry
 
@@ -81,13 +77,9 @@ Here's a link list of some of the things it includes
 * Textbooks
    * [HFJ](https://ucsb-cs56.github.io/textbooks/HFJ) - Head First Java, 2nd editino
    * [JN7](https://ucsb-cs56.github.io/textbooks/JN7) - Java in a Nutshell, 7th edition
-   * [HFDP](https://ucsb-cs56.github.io/textbooks/HFDP) - Head First Design Patterns (probably won't be time)
 * Website: <https://ucsb-cs56.github.io>
    * Especially under <https://ucsb-cs56.github.io/topics>
-   * Also, the Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
+   * Also, the Rational tutorial <https://ucsb-cs56.github.io/tutorials/rational_ex00/>
 
 With the time left, let's look at <https://ucsb-cs56.github.io/tutorials/rational_ex09/>
 
-Next up (probably not until Wednesday): A pivot from Ant to Maven and look at a Spring Boot webapp.
-
-* <https://github.com/ucsb-cs56-f19/ucsb-course-search>
