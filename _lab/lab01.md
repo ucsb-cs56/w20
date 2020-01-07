@@ -1,16 +1,16 @@
 ---
-assigned: 2020-01-07 16:00
+assigned2: 2020-01-07 16:00
+assigned: 2020-01-08 16:00
 desc: Tools for java development
-due: 2020-01-16 23:59
+due2: 2020-01-14 23:59
+due: 2020-01-15 23:59
+desc: Tools for java development
 herokuapp: https://ucsb-cs-github-linker.herokuapp.com/
 layout: lab
 num: lab01
 org: ucsb-cs56-w20
-ready: false
-
+ready: true
 ---
-
-
 
 Overview of this lab
 ====================
