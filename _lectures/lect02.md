@@ -6,7 +6,7 @@ ready: true
 pdfurl:
 ---
 
-<div style="display:none;">https://ucsb-cs56.github.io/w20/lectures/lect01
+<div style="display:none;">https://ucsb-cs56.github.io/w20/lectures/lect02
 </div>
 
 
