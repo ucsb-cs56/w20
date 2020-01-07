@@ -1,5 +1,6 @@
 ---
 desc: Getting Started
+
 assigned2: 2020-01-07 17:00
 assigned: 2020-01-08 17:00
 due2: 2020-01-13 23:59
@@ -8,7 +9,6 @@ layout: lab
 num: lab00
 ready: truey
 signup_app: https://ucsb-cs-github-linker.herokuapp.com/
-
 ---
 
 If you find typos or problems with the lab instructions, please report
