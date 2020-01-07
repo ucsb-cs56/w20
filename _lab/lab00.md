@@ -1,16 +1,28 @@
 ---
-assigned: 2020-01-07 17:00
 desc: Getting Started
+assigned2: 2020-01-07 17:00
+assigned: 2020-01-08 17:00
+due2: 2020-01-13 23:59
 due: 2020-01-13 23:59
 layout: lab
 num: lab00
-ready: false
+ready: truey
 signup_app: https://ucsb-cs-github-linker.herokuapp.com/
 
 ---
 
 If you find typos or problems with the lab instructions, please report
 them on the #typos channel on Slack
+
+# Goals
+
+This lab checks that you can succesfully edit, compile, run and submit a simple
+`HelloWorld.java` to Gradescope for grading.
+
+If all goes well, it will only take a few minutes, and then you get
+started on the next lab immediately.  That one will actually take some
+work.
+
 
 Step 0: Getting oriented
 ========================
@@ -132,4 +144,17 @@ The lab assignment {{page.num}} should appear in your Gradescope dashboard in {{
    7. Upload your work to Gradescope.com for grading.    If you are working from your own machine (i.e. ssh'ing into CSIL), you'll need to transfer the file to your own machine before you can upload it for grading.    
       * If you aren't sure how, there is a link on the CS16 web page that explains [how to copy files between CSIL and your own machine](https://ucsb-cs16.github.io/topics/csil_copying_files/).
 
-   8. Once you see that you have a score of 100 for {{page.num}} on Gradescope, you are *done* with {{page.num}}, BUT there is STILL MORE TO DO TODAY!  Get a paper copy of ic00, fill it out and use it to find your pair partner for lab01.  Then get started on [lab01](/f19/lab/lab01/).
+   8. Once you see that you have a score of 100 for {{page.num}} on Gradescope, you are *done* with {{page.num}}, BUT there is STILL MORE TO DO TODAY!
+
+      Find a pair partner for lab01 from the students on your own team.
+      (The team that you were placed on in the first lecture, and that
+      you should be sitting together with in lab.)
+
+      If there is an odd number of students on your team (or an odd number
+      that has shown up today for lab), then check in with your team's mentor.
+
+      In that case, they'll help you find a pair partner, or in rare cases,
+      you may be given permission to work along on lab01.
+
+      Then get started on [lab01](/w20/lab/lab01/).
+
