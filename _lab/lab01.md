@@ -36,9 +36,9 @@ If you find typos or problems with the lab instructions, please report them on S
 
 The URL for that org is <{{site.github_org_url}}>, and if you followed the steps in lab00, you should have an invitiation to join that org.
 
-    <img src="https://docs.google.com/drawings/d/e/2PACX-1vQVGuD1Wui6_-LvNFBuGDA7qj9IMr9lU5mtx9MmXxnxJdlCpwUk1B5UZ3oRWgWkf93F7Eh4XmZSN14v/pub?w=371&amp;h=346">
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQVGuD1Wui6_-LvNFBuGDA7qj9IMr9lU5mtx9MmXxnxJdlCpwUk1B5UZ3oRWgWkf93F7Eh4XmZSN14v/pub?w=371&amp;h=346">
 
-    If not:
+If not:
    - Be sure that you've registered for the course at <{{page.herokuapp}}>.  (If that application is not working, ask your mentor to invite you to the organization manually.)
        * MENTORS: If you invite a student to the organization manually, please note this on the instructor Slack channel, including the student's github_id and umail address.
    - Be sure that you've accepted the invitation to the organization <tt>{{page.org}}</tt> by visiting <https://github.com/{{page.org}}>
