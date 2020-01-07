@@ -26,6 +26,7 @@ If you find typos or problems with the lab instructions, please report them on S
    * They will work with the other mentors to try you pair you with someone that is in the same situation
    * If you are literally the last person in your section unpaired, then you may work alone, but you have your
      mentor send a message on Slack to the #lab01 channel indicating that you got permission to work alone.
+   * Make a note of this in your README.md file as well, when you create your GitHub repo for this assignment.
 
 1. You will need to read through the [Rational Tutorial](https://ucsb-cs56.github.io/tutorials/rational/) up through exercise 8.    This is a series of Java Lessons written by Phill Conrad that walk you through some basics of developing a simple class in Java.  Note that *even if you are an experienced Java programmer* there are likely to be a few things that are new to you.  So, at *least* skim this.   A few of the things you might not have encountered in a High School AP Java Course include:
    * The use of Ant and `build.xml` as a build tool (similar to `Makefile`s in C++ programming)
