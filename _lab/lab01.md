@@ -32,13 +32,17 @@ If you find typos or problems with the lab instructions, please report them on S
    * The use of Ant and `build.xml` as a build tool (similar to `Makefile`s in C++ programming)
    * The use of JUnit for automated testing
 
-1. Login at github.com.  Click on the drop down menu at left where your username appears, and ensure that <tt>{{page.org}}</tt> appears    among your organizations in the drop down menu.    (Note: The image might have ucsb-cs56-w18, but your page should have <tt>{{page.org}}</tt> instead.   
+1. Login at github.com.  
+   Click on the drop down menu at left where your username appears, 
+   and ensure that <tt>{{page.org}}</tt> appears    
+   among your organizations in the drop down menu.    
+   (Note: The image might have ucsb-cs56-w18, but your page should have <tt>{{page.org}}</tt> instead.   
 
-The URL for that org is <{{site.github_org_url}}>, and if you followed the steps in lab00, you should have an invitiation to join that org.
+   The URL for that org is <{{site.github_org_url}}>, and if you followed the steps in lab00, you should have an invitiation to join that org.
 
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vQVGuD1Wui6_-LvNFBuGDA7qj9IMr9lU5mtx9MmXxnxJdlCpwUk1B5UZ3oRWgWkf93F7Eh4XmZSN14v/pub?w=371&amp;h=346">
+   <img src="https://docs.google.com/drawings/d/e/2PACX-1vQVGuD1Wui6_-LvNFBuGDA7qj9IMr9lU5mtx9MmXxnxJdlCpwUk1B5UZ3oRWgWkf93F7Eh4XmZSN14v/pub?w=371&amp;h=346">
 
-If not:
+   If not:
    - Be sure that you've registered for the course at <{{page.herokuapp}}>.  (If that application is not working, ask your mentor to invite you to the organization manually.)
        * MENTORS: If you invite a student to the organization manually, please note this on the instructor Slack channel, including the student's github_id and umail address.
    - Be sure that you've accepted the invitation to the organization <tt>{{page.org}}</tt> by visiting <https://github.com/{{page.org}}>
