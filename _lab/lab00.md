@@ -7,7 +7,7 @@ due2: 2020-01-13 23:59
 due: 2020-01-13 23:59
 layout: lab
 num: lab00
-ready: truey
+ready: true
 signup_app: https://ucsb-cs-github-linker.herokuapp.com/
 ---
 
