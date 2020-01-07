@@ -179,7 +179,7 @@ It is important that you do this so that we can give you proper credit for your 
 
 * For both pair partners, add your name and your github id near the top of the file.
 * Add a link to the repo itself, e.g. https://github.com/{{page.org}}/{{page.num}}-cgaucho99-ldelplaya32
-* Add a link to your published javadoc: e.g. https://{{page.org}.github.io/{{page.num}}-cgaucho99-ldelplaya32
+* Add a link to your published javadoc: e.g. https://{{page.org}}.github.io/{{page.num}}-cgaucho99-ldelplaya32
 
 If you submitted on Gradescope and you didn't do these things yet, please submit again.
 
