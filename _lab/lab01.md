@@ -19,6 +19,14 @@ If you find typos or problems with the lab instructions, please report them on S
 
 1. You are encouraged to work with a pair partner on this project.  Don't start working unless you are sitting together.  This should be a true pair partner assignment.    In true pairing, every line of code goes through the minds of two programmers.  Please read this [blog post from the well-known Agile Coach LLewellen Falco](http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html) that explains the idea of **strong-style pairing**.
 
+   * Your pair partner should be someone from your same team, unless that is literally impossible because either
+      * Your team has an odd number of people, and everyone is already paired with someone.
+      * Your team has an even number of people, but an odd number actually came to section today.
+   * If you cannot find someone on your team, check in with the mentor for your team.
+   * They will work with the other mentors to try you pair you with someone that is in the same situation
+   * If you are literally the last person in your section unpaired, then you may work alone, but you have your
+     mentor send a message on Slack to the #lab01 channel indicating that you got permission to work alone.
+
 1. You will need to read through the [Rational Tutorial](https://ucsb-cs56.github.io/tutorials/rational/) up through exercise 8.    This is a series of Java Lessons written by Phill Conrad that walk you through some basics of developing a simple class in Java.  Note that *even if you are an experienced Java programmer* there are likely to be a few things that are new to you.  So, at *least* skim this.   A few of the things you might not have encountered in a High School AP Java Course include:
    * The use of Ant and `build.xml` as a build tool (similar to `Makefile`s in C++ programming)
    * The use of JUnit for automated testing
@@ -165,8 +173,8 @@ Go back into your README.md file and edit it so that it has the following inform
 It is important that you do this so that we can give you proper credit for your work.
 
 * For both pair partners, add your name and your github id near the top of the file.
-* Add a link to the repo itself, e.g. https://github.com/ucsb-cs56-f19/lab01-cgaucho99-ldelplaya32
-* Add a link to your published javadoc: e.g. https://ucsb-cs56-f19.github.io/lab01-cgaucho99-ldelplaya32
+* Add a link to the repo itself, e.g. https://github.com/{{page.org}}/{{page.num}}-cgaucho99-ldelplaya32
+* Add a link to your published javadoc: e.g. https://{{page.org}.github.io/{{page.num}}-cgaucho99-ldelplaya32
 
 If you submitted on Gradescope and you didn't do these things yet, please submit again.
 
