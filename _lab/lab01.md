@@ -1,32 +1,16 @@
 ---
-assigned: 2020-01-07 16:00
+assigned2: 2020-01-07 16:00
+assigned: 2020-01-08 16:00
 desc: Tools for java development
-due: 2020-01-16 23:59
+due2: 2020-01-14 23:59
+due: 2020-01-15 23:59
+desc: Tools for java development
 herokuapp: https://ucsb-cs-github-linker.herokuapp.com/
 layout: lab
 num: lab01
-org: ucsb-cs56-f19
-ready: false
-
+org: ucsb-cs56-w20
+ready: true
 ---
-
-# Lab01 Update 10/07/2019
-
-On starting to grade lab01, I realize that one element in the instructinos was not entirely clear, and it turns out to be pretty important to allowing us to grade your work within a reasonable timeframe.
-
-I need each of you to do the following steps:
-* Go back into your README.md file and edit it so that it has the following information:
-   * For both pair partners, add your name and your github id near the top of the file.
-   * Add a link to the repo itself, e.g. https://github.com/ucsb-cs56-f19/lab01-cgaucho99-ldelplaya32
-   * Add a link to your published javadoc: e.g. https://ucsb-cs56-f19.github.io/lab01-cgaucho99-ldelplaya32
-* Then, resubmit on Gradescope.
-
-The reason is that we use these links to determine whether or not you published your Javadoc, which is worth 20 points
-in the grading rubric.
-
-I will extend the deadline to 11:59pm Thursday 10/10/2019 so that I can remind you of this in lecture on Monday, Wednesday, and in lab on Thursday.    
-
-I will also ask you to do this in every future lab, including lab03 (I'm adding that to the instructions now.)
 
 Overview of this lab
 ====================
@@ -35,15 +19,30 @@ If you find typos or problems with the lab instructions, please report them on S
 
 1. You are encouraged to work with a pair partner on this project.  Don't start working unless you are sitting together.  This should be a true pair partner assignment.    In true pairing, every line of code goes through the minds of two programmers.  Please read this [blog post from the well-known Agile Coach LLewellen Falco](http://llewellynfalco.blogspot.com/2014/06/llewellyns-strong-style-pairing.html) that explains the idea of **strong-style pairing**.
 
+   * Your pair partner should be someone from your same team, unless that is literally impossible because either
+      * Your team has an odd number of people, and everyone is already paired with someone.
+      * Your team has an even number of people, but an odd number actually came to section today.
+   * If you cannot find someone on your team, check in with the mentor for your team.
+   * They will work with the other mentors to try you pair you with someone that is in the same situation
+   * If you are literally the last person in your section unpaired, then you may work alone, but you have your
+     mentor send a message on Slack to the #lab01 channel indicating that you got permission to work alone.
+   * Make a note of this in your README.md file as well, when you create your GitHub repo for this assignment.
+
 1. You will need to read through the [Rational Tutorial](https://ucsb-cs56.github.io/tutorials/rational/) up through exercise 8.    This is a series of Java Lessons written by Phill Conrad that walk you through some basics of developing a simple class in Java.  Note that *even if you are an experienced Java programmer* there are likely to be a few things that are new to you.  So, at *least* skim this.   A few of the things you might not have encountered in a High School AP Java Course include:
    * The use of Ant and `build.xml` as a build tool (similar to `Makefile`s in C++ programming)
    * The use of JUnit for automated testing
 
-1. Login at github.com.  Click on the drop down menu at left where your username appears, and ensure that <tt>{{page.org}}</tt> appears    among your organizations in the drop down menu.    (Note: The image might have ucsb-cs56-w18, but your page should have {{site.github-org-name}} instead.   The URL for that org is <{{site.github-org-url}}>, and if you followed the steps in lab00, you should have an invitiation to join that org.
+1. Login at github.com.  
+   Click on the drop down menu at left where your username appears, 
+   and ensure that <tt>{{page.org}}</tt> appears    
+   among your organizations in the drop down menu.    
+   (Note: The image might have ucsb-cs56-w18, but your page should have <tt>{{page.org}}</tt> instead.   
 
-    <img src="https://docs.google.com/drawings/d/e/2PACX-1vQVGuD1Wui6_-LvNFBuGDA7qj9IMr9lU5mtx9MmXxnxJdlCpwUk1B5UZ3oRWgWkf93F7Eh4XmZSN14v/pub?w=371&amp;h=346">
+   The URL for that org is <{{site.github_org_url}}>, and if you followed the steps in lab00, you should have an invitiation to join that org.
 
-    If not:
+   <img src="https://docs.google.com/drawings/d/e/2PACX-1vQVGuD1Wui6_-LvNFBuGDA7qj9IMr9lU5mtx9MmXxnxJdlCpwUk1B5UZ3oRWgWkf93F7Eh4XmZSN14v/pub?w=371&amp;h=346">
+
+   If not:
    - Be sure that you've registered for the course at <{{page.herokuapp}}>.  (If that application is not working, ask your mentor to invite you to the organization manually.)
        * MENTORS: If you invite a student to the organization manually, please note this on the instructor Slack channel, including the student's github_id and umail address.
    - Be sure that you've accepted the invitation to the organization <tt>{{page.org}}</tt> by visiting <https://github.com/{{page.org}}>
@@ -76,14 +75,6 @@ If you find typos or problems with the lab instructions, please report them on S
 2.  Configure your CSIL account's ssh keys for git
     - Detailed instructions: [Configuring your ssh key for Github.com](https://ucsb-cs56-pconrad.github.io/topics/github_ssh_keys/)
 
-
-3.  At the shell prompt on any of the csil machines, type the following command:
-    ```
-    ssh-keygen -f ~/.ssh/known_hosts -R csil.cs.ucsb.edu
-    ```
-    
-    - You need to do this because CSIL had new hardware installed over the summer, which caused the host key to change. 
-    - If you get a "no such file or directory" error, then you can skip this step
 
 4.  Review a few basic facts about git, github.com and github.ucsb.edu
     - detailed information [here](https://ucsb-cs56-pconrad.github.io/topics/git_overview/)
@@ -171,6 +162,21 @@ So, don't repeat yourself:
 * Define addition before subtraction, and then define subtraction in terms of addition and multiplication.
 * Define reciprocal before division, then define division as multiplication by the reciprocal.
 
+
+# IMPORTANT: Edit your README.md
+
+Go back into your README.md file and edit it so that it has the following information.
+
+It is important that you do this so that we can give you proper credit for your work.
+
+* For both pair partners, add your name and your github id near the top of the file.
+* Add a link to the repo itself, e.g. https://github.com/{{page.org}}/{{page.num}}-cgaucho99-ldelplaya32
+* Add a link to your published javadoc: e.g. https://{{page.org}}.github.io/{{page.num}}-cgaucho99-ldelplaya32
+
+If you submitted on Gradescope and you didn't do these things yet, please submit again.
+
+The reason is that we use these links to determine whether or not you published your Javadoc, which is worth 20 points in the grading rubric.     Having those links in the README.md on Gradescope makes it possible for us to check this.
+
 # Submitting on Gradescope
 
 NOTE: Before you submit on Gradescope, you must at LEAST have a "stub" for each of the methods that the assignment is expecting. Otherwise, your code will not compile at all.  
@@ -188,6 +194,5 @@ We do NOT recommmend zipping the file up yourself; when folks have tried this, t
 
 * (80 pts) of your grade is determined by the automatic points assigned  on Gradescope for automated tests.
 * The remainder is determined by manual grading using the following rubric:
-   * (10 pts) Did you follow the instructions for setting up your repo? (naming, making it private, pulling in starter code,
-     adding partner as collaborator)
+   * (10 pts) Did you follow the instructions for setting up your repo? (naming, making it private, pulling in starter code, adding partner as collaborator)
    * (10 pts) Did you publish your javadoc correctly, link to it from your README, and in general, tidy up your README as indicated?

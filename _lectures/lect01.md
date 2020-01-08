@@ -8,7 +8,6 @@ ready: false
 <div style="display:none;">https://ucsb-cs56.github.io/w20/lectures/lect01
 </div>
 
-See also, code here:  <https://github.com/ucsb-cs56-w20/LECTURE_0106>
 
 # The course website
 
