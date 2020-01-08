@@ -20,3 +20,42 @@ pdfurl:
    * HFJ 3,4; JN7 Ch2 pp 19-32;
    * Primitives, References, Instance Variables, Methods
 
+
+
+
+# New Grads in Industry
+
+* Powerpoint: 
+    * [Slide Presentation](https://docs.google.com/presentation/d/e/2PACX-1vQLnl6NhgID0xXuLPo8HbjAsXom1m77CmewfTY7Zvs0yz0BE2N2osa1T1lYaEM1bfd1utBXJYNhgKEh/pub?start=true&loop=false&delayms=180000)
+    * [View Only version of original slides](https://docs.google.com/presentation/d/1WsSQz4rh50kINs8afmNS4MkaRWHyI74EqF6qC1pDk-A/edit?usp=sharing)
+
+# What can we do?
+
+Well, the course description says:
+
+<div class="card" style="width: 50rem;">
+<div class="card-body" markdown="1">
+<h5 class="card-title">CMPSC 56</h5>
+
+Advanced Applications Programming (4) CONRAD
+
+*Prerequisite: Computer Science 24 and 32 with a grade of C or better*
+
+<p class="card-text">
+Advanced application programming using a high-level, virtual-machine-based language. Topics include generic programming, exception handling, programming language implementation; automatic memory management, and application development, management, and maintenance tools; event handling, concurrency and threading, and advanced library use.
+</p>
+</div>
+</div>
+
+A few observations:
+* Note that it says nothing about Java, per se, but it's always been understood to be the department's "Java course".
+* But, Java as a means to an end, not as the end goal
+
+What is the goal?
+* Applications Programming
+* That includes a lot more than just Java
+
+Here's a link list of some of the things it includes
+* <https://ucsb-cs56.github.io/topics/applications_programming/>
+* I made this list together with folks at AppFolio, a local software employer
+* A lot of that stuff won't be in the textbooks!
