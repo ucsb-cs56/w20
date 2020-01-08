@@ -1,8 +1,8 @@
 ---
 num: Lecture 3
 lecture_date: 2020-01-08
-desc:
-ready: false
+desc: Overview of lab01, Working in Industry
+ready: true
 pdfurl:
 ---
 
