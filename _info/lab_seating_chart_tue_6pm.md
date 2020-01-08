@@ -1,10 +1,10 @@
 ---
-title: "Lab Seating Chart 5pm"
+title: "Lab Seating Chart 6pm"
 layout: default
 ready: true
 ---
 
-# Lab Seating Chart, Tuesday 5pm
+# Lab Seating Chart, Tuesday 6pm
 
 <style>
 iframe { width: 100%; height: 1400px; overflow: scroll; }  
