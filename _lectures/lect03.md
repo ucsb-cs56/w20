@@ -20,8 +20,16 @@ pdfurl:
    * HFJ 3,4; JN7 Ch2 pp 19-32;
    * Primitives, References, Instance Variables, Methods
 
+# lab01
 
+* <https://ucsb-cs56.github.io/w20/lab/lab01/>
+* A brief demo of strong style pairing
+* A bit of a head start on 
 
+# Brief guest presentation (<5 min) by Justin fro Ugig
+
+* <https://ugig.app>
+* 415-238-1311 or email justin@ugigresearch.com
 
 # New Grads in Industry
 
