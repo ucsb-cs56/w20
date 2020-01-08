@@ -154,7 +154,7 @@ The lab assignment {{page.num}} should appear in your Gradescope dashboard in {{
       that has shown up today for lab), then check in with your team's mentor.
 
       In that case, they'll help you find a pair partner, or in rare cases,
-      you may be given permission to work along on lab01.
+      you may be given permission to work alone on lab01.
 
       Then get started on [lab01](/w20/lab/lab01/).
 
