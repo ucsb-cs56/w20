@@ -1,7 +1,7 @@
 ---
 num: Lecture 4
 lecture_date: 2020-01-09
-desc:
+desc: Overview of lab01, Working in Industry
 ready: false
 pdfurl:
 ---
