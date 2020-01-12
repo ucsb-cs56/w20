@@ -1,14 +1,15 @@
 ---
+assigned: 2020-03-05 21:00
+desc: Individual Lab Track Project, part 1
+due: 2020-03-15 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2844219&forceview=1
+github_org: ucsb-cs56-f19
 layout: lab
 num: proj01
+org: ucsb-cs56-f19
 package: earthquakes
-ready: true
-desc: "Individual Lab Track Project, part 1"
-assigned: 2019-11-22 17:00
-due: 2019-12-03 23:59
-github_org: "ucsb-cs56-f19"
-org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2844219&forceview=1"
+ready: false
+
 ---
 
 <div style="display:none" >
@@ -666,8 +667,13 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA
-
+| item | points | description |
+|-|-|-|
+| (a) | 20 | code under src/java/earthquakes is refactored into controllers, services, searches |
+| (b) | 20 | there is a Locations search item that takes you to a form where you can enter searches |
+| (c) | 20 | search results are returned for locations |
+| (d) | 20 | Cleanup: the footer has the licensing information, the raw json is no longer there, links to javadoc and travis-ci work |
+| (e) | 20 | tests pass, and there are tests for whether Earthquake Search, Locations and Users are in the nav header |
 
 
 

@@ -1,19 +1,19 @@
 ---
+assigned: 2020-03-06 21:00
+desc: Individual Lab Track Project, part 2
+due: 2020-03-16 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2845594&forceview=1
+github_org: ucsb-cs56-f19
 layout: lab
 num: proj02
+org: ucsb-cs56-f19
 package: earthquakes
-ready: true
-desc: "Individual Lab Track Project, part 2"
-assigned: 2019-11-24 21:00
-due: 2019-12-04 23:59
-github_org: "ucsb-cs56-f19"
-org: "ucsb-cs56-f19"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
+ready: false
+
 ---
 
 <div style="display:none" >
 Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/proj02
-Look here for formatted version: http://ucsb-cs56.github.io/f19/labWIP/proj02
 </div>
 
 
@@ -24,6 +24,7 @@ This project is only for those on the "individual lab" track.  It counts towards
 You may cooperate with one or more pair partners from your team to help in debugging and understanding the project, but each person should complete the work separately for themselves.
 
 Late submissions will be accepted only up until grading is complete; submissions received after grading is complete will NOT be accepted for regrades.   To ensure that your submission is accepted, be sure that you complete it and submit on Gradescope before the published deadline.
+
 
 
 # This is a Continuation of Proj01
@@ -41,12 +42,39 @@ In this steps of the project, we'll:
 In the final step, we'll:
 * Add a database table for locations, and the ability to store locations in that table
 
+# A working version
+
+Here are working versions of the staff's versions of the proj01 and proj02 code, so that you can see what the app is supposed to do when it is finished.  (Note that these are closed-source.  Sorry&mdash;you'll have to write your own code here.  If you need help, though,reach out on Slack, or come to open lab hours.)
+
+| Project | Working Version |
+|-|-|
+| [proj01]({{ '/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01.herokuapp.com> |
+| [proj02]({{ '/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad.herokuapp.com> |
+{:.table .table-sm .table-striped .table-bordered}
+
+
 # Step by step instructions
+
+
+<div style="background-color: #fec; border: 5px solid blue; margin-left: 5em; margin-right: 5em; margin-top: 1em; margin-bottom: 1em;" markdown="1">
+
+NOTE: An earlier version of these instructions indicated that you should:
 
 Continue with your:
 * Github repo: <tt>{{page.num}}-githubid</tt>
 * Heroku App:  <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
 
+If you made a new repo for proj02, and pulled in the code from proj01 as the starter, that's fine.  That was an entirely reasonably interpretation of the instructions.
+
+The intention was for you to instead to do the following, which is far easier for you and for the staff:
+
+Continue with your:
+* Github repo: <tt>proj01-githubid</tt>
+* Heroku App:  <tt>cs56-f19-proj01-<i>github</i></tt>
+
+The important thing is that you indicate which one you did when you submit on Gauchospace at the end of these instructions.
+
+</div>
 
 ## Step 7: Adding more query params
 
@@ -187,7 +215,7 @@ If/when it works, do a commit, and then do a pull request and merge it.
 
 1. Look over the staff's working version here:
 
-   * <https://cs56-f19-staff-proj02.herokuapp.com/>
+   * <https://cs56-f19-proj02-pconrad.herokuapp.com/>
    
    Compare it to your working version on Heroku.  If you see differences, try to determine which of these is true:
    * Is is a minor difference that doesn't matter?
@@ -235,9 +263,11 @@ Then, finally visit <{{page.gauchospace_url}}> and make a submission.
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
 <div style="font-family:monospace;">
-repo name: https://github.com/chrislee123/spring-boot-minimal-webapp<br>
-on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
+repo name: https://github.com/chrislee123/proj01-githubid<br>
+on heroku: https://cs56-{{site.qxx}}-proj01-chrislee123.herokuapp.com<br>
 </div>
+
+(Or, if you used <tt>proj02</tt> in your repo and Heroku name, then use that.)
 
 Then, **and this is super important**, please make both of those URLs **clickable urls**.
 
@@ -246,7 +276,16 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA
+# Grading Rubric:
+
+| item | points | description |
+|-|-|-|
+| (a) | 40 | The Earthquakes page has query params for latitude, longitude, and location |
+| (b) | 40 | You can click on "Get Earthquakes" and get earthquakes for a location result |
+| (c) | 20 | README.md has links to github pages webpage, app on Heroku, Travis-CI |
+
+
+
 
 
 
