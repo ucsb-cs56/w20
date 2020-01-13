@@ -104,7 +104,6 @@ Then you probably have a disk quota problem.
 
 If you do not already have a Heroku account, navigate to <https://www.heroku.com/> and click the "Sign up for Free" link.
 
-![Heroku Signup](HerokuSignup.png)
 
 You'll be asked for:
 
@@ -115,15 +114,11 @@ You'll be asked for:
 -   Preferred Development Language: We suggest you select "Java" if you are currently enrolled in CMPSC 56
     -   (Don't worry; this doesn't prevent you from using the account with other languages later.)
 
-<div style="clear:both;">
-</div>
-
-
 
 # Step 3: Create your repo
 
 
-Create an a new repo that is:
+Create a new repo that is:
 * is in the GitHub organization <tt>{{page.github_org}}</tt>
 * has name <tt>{{page.num}}-<i>githubid</t></tt> where <tt><i>github</i></tt> is your github id
 * is public 
