@@ -1,8 +1,8 @@
 ---
 num: Lecture 5
 lecture_date: 2020-01-13
-desc:
-ready: false
+desc: "ic01 (ux for courses search) and lab02 (Spring Boot, Heroku)"
+ready: true
 pdfurl:
 ---
 
