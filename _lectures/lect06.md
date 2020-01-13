@@ -1,15 +1,6 @@
 ---
 num: Lecture 6
 lecture_date: 2020-01-14
-desc:
-ready: false
-pdfurl:
----
-
-
----
-num: Lecture 5
-lecture_date: 2020-01-13
 desc: "ic01 (ux for courses search) and lab02 (Spring Boot, Heroku)"
 ready: true
 pdfurl:
