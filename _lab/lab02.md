@@ -148,9 +148,9 @@ Use `mvn compile` and `mvn exec:java` to try to run the code and get a web app r
 
 Note that in order to see this web app running, you'll need to be in a web browser on the same host that you are running your program on.  
 * For example, if you are running on `csil-04.cs.ucsb.edu`, you'll need to be running your web browser on `csil-04.cs.ucsb.edu`.   
-* If you are working in Phelps 3525 on `cstl-07.cs.ucs.edu`, you'll need to be running your web browser on `cstl-07.cs.ucsb.edu`.
+* If you are working in Phelps 3525 on `cstl-07.cs.ucsb.edu`, you'll need to be running your web browser on `cstl-07.cs.ucsb.edu`.
 
-## How do I access https://localhost:4567 on CSIL from my laptop?
+## How do I access https://localhost:8080 on CSIL from my laptop?
 
 Suppose you are running your Spring Boot application on `localhost:8080` on one of the CSIL 
 machines.
