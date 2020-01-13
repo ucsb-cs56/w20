@@ -6,31 +6,41 @@ ready: false
 pdfurl:
 ---
 
+
 ---
-num: Lecture 6
-lecture_date: 2019-10-16
-desc:
+num: Lecture 5
+lecture_date: 2020-01-13
+desc: "ic01 (ux for courses search) and lab02 (Spring Boot, Heroku)"
 ready: true
 pdfurl:
 ---
 
-# lab04 questions
+# You should be on Slack
 
-* The Secret Tests: how do you go about debugging those?
-   * Some hints
+It's important to be registered on the Slack.  One of the important skills we're learning in this course is professional communication, as it relates to software development.  The Slack channel will be our primary vehicle for that.
 
-# Today's Spring Boot Content:
+Important information will be disseminated there.   
 
-Pull Request: <https://github.com/ucsb-cs56-f19/ucsb-course-search/pull/2/files>
+There are clients for [iOS](https://slack.com/downloads/ios), [Android](https://slack.com/downloads/android), [Windows](https://slack.com/downloads/windows), [MacOS](https://slack.com/downloads/mac) and [Linux (.deb and .rpm)](https://slack.com/downloads/linux).
 
-* Adding a search button
-* Adding the test along with the code
-* Doing it as a pull request
-* Checking out a version of the code from before the pull request
-* Checking out the version from after the pull request
+Or you can just use the web at <https://ucsb-cs56-w20.slack.com>
+
+If you aren't on the Slack, get on the Slack!
 
 
-# Today's Java content: Sorting
+# lab02: Hello World for Spring Boot, Heroku
 
-* Review: Lambda functions <https://ucsb-cs56.github.io/tutorials/rational_ex14/>
-* Today's content: Sorting <https://ucsb-cs56.github.io/tutorials/rational_ex15/>
+In this lab, we'll get a web app up and running on both localhost and Heroku
+
+* <https://ucsb-cs56.github.io/w20/lab/lab02>
+
+A few things that the lab covers and that we might discuss briefly in lecture
+
+* web page/site vs. web app
+* port numbers
+* localhost vs. Heroku
+* Ant vs. Maven
+
+
+
+
