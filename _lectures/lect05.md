@@ -67,3 +67,24 @@ But some folks might be willing to take on the extra work for the extra benefit.
 Is there interest in also learning React?   If so, register that interest by joining the the `#react` channel on the Slack.
 
 We might offer this as an optional track if there is enough interest, and we can do so without making the course too complicated.
+
+# Some raw notes from today's lecture
+
+```
+169-231-151-162:ucsb-cs56-w20 pconrad$ git clone git@github.com:ucsb-cs56-w20/lab02-pconrad.git
+Cloning into 'lab02-pconrad'...
+warning: You appear to have cloned an empty repository.
+169-231-151-162:ucsb-cs56-w20 pconrad$ ls
+LECTURE_0108				STAFF-react-calculator-prototype
+LECTURE_0109				lab02-pconrad
+169-231-151-162:ucsb-cs56-w20 pconrad$ cd lab02-pconrad/
+169-231-151-162:lab02-pconrad pconrad$ ls
+169-231-151-162:lab02-pconrad pconrad$ ls -a
+.	..	.git
+169-231-151-162:lab02-pconrad pconrad$ # git remote add origin git@github.com:ucsb-cs56-w20/lab02-pconrad.git
+169-231-151-162:lab02-pconrad pconrad$ # git pull origin master
+169-231-151-162:lab02-pconrad pconrad$ # A good exam question: what are the four things
+169-231-151-162:lab02-pconrad pconrad$ # that git clone does?
+169-231-151-162:lab02-pconrad pconrad$ # Answer: mkdir, git init, git remote add ... , git pull origin master
+169-231-151-162:lab02-pconrad pconrad$ 
+```
