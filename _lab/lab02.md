@@ -210,7 +210,7 @@ Heroku allows us to deploy web applications in Java rather easily.
 
 # Step 6: Create a new Heroku App using the Heroku CLI
 
-In this step, we'll 
+In this step, we'll deploy our Spring Boot application to the public internet using Heroku.
 
 Logged into CSIL (or one of the machines in the CSTL, i.e. Phelps 3525), use this command to login to Heroku at the command line:
 
