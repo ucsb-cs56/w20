@@ -18,6 +18,26 @@ Or you can just use the web at <https://ucsb-cs56-w20.slack.com>
 
 If you aren't on the Slack, get on the Slack!
 
+# Setting up your laptop for Java
+
+What you need:
+
+* `git` 
+* Java JDK 11 (not less than 11, not more than 11)
+* Maven (version 3.x), i.e. any version that starts with 3
+* Ant (only if you want to work on lab01; won't need it the rest of the quarter)
+
+Optional, but encouaged:
+* Visual Studio Code
+
+Set up instructions:
+
+* Mac (https://ucsb-cs56.github.io/topics/macos/)
+* Windows (https://ucsb-cs56.github.io/topics/windows/)  Note that this one is a work in progress.   Stay tuned.
+
+We can set up slack channels for MacOS and Windows as well.
+
+Linux users "usually know what to do", but we can set up a channel for them too, if desired, collect their wisdom, and deposit it on a page for future students.
 
 # lab02: Hello World for Spring Boot, Heroku
 
