@@ -148,7 +148,38 @@ Note that in order to see this web app running, you'll need to be in a web brows
 * For example, if you are running on `csil-04.cs.ucsb.edu`, you'll need to be running your web browser on `csil-04.cs.ucsb.edu`.   
 * If you are working in Phelps 3525 on `cstl-07.cs.ucsb.edu`, you'll need to be running your web browser on `cstl-07.cs.ucsb.edu`.
 
-## How do I access https://localhost:8080 on CSIL from my laptop?
+
+## About `localhost` and "Port Numbers"
+
+The code in this repo is configured to start up a webserver on port 8080, running on `localhost`, which is a name for the machine on which the code is running.  
+
+* If you are running the code on a Phelps 3526 or CSIL machine, either because you are sitting in Phelps 3526, or sitting in CSIL, or 
+  even if it is because you ssh'd into a CSIL machine from your laptop, then `localhost` refers to that CSIL machine.
+* The port number is a more specific "communications channel" on that machine.   You can find more information on port numbers
+  at this short article, which you are encouraged to read if you are not already familiar with port numbers
+  (or, for that matter, even if you are): <https://ucsb-cs56.github.io/topics/port_numbers/>
+  
+So the web address to acccess your server is: `http://localhost:8080`.
+
+* Note: You should use `http` not `https` when running on localhost. Using `http` is the unsecure, unencrypted version.   
+* It is possible to set up Spring Boot to run `https` (the secure, encrypted version), but it's complicated and typically
+  unnecessary; Heroku sets up `https` for us automatically, so we really don't need to deal with those steps most of the time.
+
+## What if I get `port already in use`
+
+The error `port already in use` signifies that someone else on the same system (perhaps you, in another window?) is already using
+the port you are trying to use.
+
+In this case:
+* If it's you, shut down the server in the other window.
+* It it's not you, then you are probably ssh'd into CSIL, say `csil-14.cs.ucsb.edu`, and someone else is logged into the same machine,
+  doing the same assignment as you.  Therefore, they already grabbed that port number.
+* In that case, maybe:
+  * Try a different machine, say `csil-15.cs.ucsb.edu` OR
+  * Type `export PORT=8082` before running `mvn spring-boot:run`.  That should start your server on port 8082 instead of 8080.
+  * In that case, you'll need to change `http://localhost:8080` to `http://localhost:8082` of course.
+  
+## How do I access `http://localhost:8080` on CSIL from my laptop?
 
 Suppose you are running your Spring Boot application on `localhost:8080` on one of the CSIL 
 machines.
