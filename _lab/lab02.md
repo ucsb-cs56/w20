@@ -1,9 +1,9 @@
 ---
 desc: Spring Boot and Heroku Hello World
-assigned1: 2020-01-13 12:30
+assigned: 2020-01-13 12:30
 assigned2: 2020-01-14 11:00
 due2: 2020-01-22 23:59
-due1: 2020-01-22 23:59
+due: 2020-01-22 23:59
 gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=3114866
 github_org: ucsb-cs56-w20
 layout: lab
