@@ -120,7 +120,7 @@ You'll be asked for:
 
 Create a new repo that is:
 * is in the GitHub organization <tt>{{page.github_org}}</tt>
-* has name <tt>{{page.num}}-<i>githubid</t></tt> where <tt><i>github</i></tt> is your github id
+* has name <tt>{{page.num}}-<i>githubid</i></tt> where <tt><i>github</i></tt> is your github id
 * is public 
 * is initially empty, i.e. no README.md, no `.gitignore`, no license
 
