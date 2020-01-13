@@ -32,8 +32,8 @@ Optional, but encouaged:
 
 Set up instructions:
 
-* Mac (https://ucsb-cs56.github.io/topics/macos/)
-* Windows (https://ucsb-cs56.github.io/topics/windows/)  Note that this one is a work in progress.   Stay tuned.
+* Mac <https://ucsb-cs56.github.io/topics/macos/>
+* Windows <https://ucsb-cs56.github.io/topics/windows/>  Note that this one is a work in progress.   Stay tuned.
 
 We can set up slack channels for MacOS and Windows as well.
 
