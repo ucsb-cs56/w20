@@ -139,14 +139,14 @@ git pull starter master
 git push origin master
 ```
 
-# Step 4: Start your webapp on localhost
+# Step 4: Start your webapp on `localhost`
 
 Assuming you are working on CSIL, you can use `mvn` to run Maven.
 
 * If you are working on your own machine, you'll need to install Maven on your machine.
 * We've collected [advice on how to do that here](https://ucsb-cs56-pconrad.github.io/topics/maven_installing/).
 
-Use `mvn compile` and `mvn exec:java` to try to run the code and get a web app running on localhost.
+Use `mvn compile` and `mvn spring-boot:run` to try to run the code and get a web app running on `localhost`.
 
 Note that in order to see this web app running, you'll need to be in a web browser on the same host that you are running your program on.  
 * For example, if you are running on `csil-04.cs.ucsb.edu`, you'll need to be running your web browser on `csil-04.cs.ucsb.edu`.   
@@ -165,7 +165,7 @@ The code in this repo is configured to start up a webserver on port 8080, runnin
   
 So the web address to acccess your server is: `http://localhost:8080`.
 
-* Note: You should use `http` not `https` when running on localhost. Using `http` is the unsecure, unencrypted version.   
+* Note: You should use `http` not `https` when running on `localhost`. Using `http` is the unsecure, unencrypted version.   
 * It is possible to set up Spring Boot to run `https` (the secure, encrypted version), but it's complicated and typically
   unnecessary; Heroku sets up `https` for us automatically, so we really don't need to deal with those steps most of the time.
 
@@ -225,11 +225,11 @@ ssh -L 12345:localhost:8080 username@csil-10.cs.ucsb.edu
 
 What this does is make it so that when you navigate to `http://localhost:12345` on your local browser, it sends the web request and response through an "SSH Tunnel" to port `8080` on `csil-10.cs.ucsb.edu`
 
-Running on localhost is fine, but it has some limitations.  That's our next task: to understand those limitations, and why we need a cloud computing platform.
+Running on `localhost` is fine, but it has some limitations.  That's our next task: to understand those limitations, and why we need a cloud computing platform.
 
-# Step 5: Undertstanding localhost vs. Heroku
+# Step 5: Undertstanding `localhost` vs. Heroku
 
-When running on localhost:
+When running on `localhost`:
 * The web app is only runnning as long as your program is executing. 
 * As soon as you CTRL/C the program to interrupt it, the web app is no longer available.
 * The web app is only available on the machine where you are running the program; not on the public internet.
@@ -324,7 +324,7 @@ return html;
 Then:
 * use `mvn compile` to make sure your code still compiles
 * (optional, but suggested in case you need to debug)
-   * use `mvn exec:java` to test locally, perhaps with `curl http://localhost:8081`
+   * use `mvn spring-boot:run` to test locally, perhaps with `curl http://localhost:8080`
 * Use git add, git commit, and git push to push your changes to github.
 * Visit the Heroku Dashboard, and you should see that your changes are deploying to the web.
 
