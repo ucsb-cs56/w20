@@ -51,3 +51,19 @@ A few things that the lab covers and that we might discuss briefly in lecture
 * port numbers
 * localhost vs. Heroku
 * Ant vs. Maven
+
+# Server-side rendering (e.g. Thymeleaf) vs. Client-Side Rendering (e.g. React)
+
+We'll discuss the difference first.
+
+Then:
+* Server-side rendering is kind of old school.
+* There are a lot of benefits to client-side rendering.
+* The course is already really, really full of material
+
+
+But some folks might be willing to take on the extra work for the extra benefit.
+
+Is there interest in also learning React?   If so, register that interest by joining the the `#react` channel on the Slack.
+
+We might offer this as an optional track if there is enough interest, and we can do so without making the course too complicated.
