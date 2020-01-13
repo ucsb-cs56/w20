@@ -1,13 +1,15 @@
 ---
-assigned: 2020-01-13 18:15
 desc: Spring Boot and Heroku Hello World
-due: 2020-01-20 23:59
-gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2672849
-github_org: ucsb-cs56-f19
+assigned1: 2020-01-13 12:30
+assigned2: 2020-01-14 11:00
+due2: 2020-01-22 23:59
+due1: 2020-01-22 23:59
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=3114866
+github_org: ucsb-cs56-w20
 layout: lab
 num: lab02
 ready: false
-tutorial_repo_url: https://github.com/pconrad/spring-boot-minimal-webapp
+starter: https://github.com/ucsb-cs56-w20/STARTER-lab02
 
 ---
 
@@ -163,33 +165,41 @@ running on that CSIL machine.
 
 If you are ssh'ing into CSIL on your laptop (e.g. using `ssh` in a terminal session, or using an app such as `PuTTY` or `MobaXTerm` on Windows) keep in mind that if you direct your browser (running on your laptop) to `localhost:8080`, that request *never leaves your laptop*.  It looks for a web app running *on your laptop*.
 
-So, how to solve this?  There are three ways:
+So, how to solve this?  There are two ways:
 
 ### (1) Use curl 
 
 This is the least satisfying way, because you won't see a proper web page.  You'll only see a dump of the HTML content of the page.  But for a simple 'Hello World' app, this works fine.
 
 
-The `curl` program is a command line web client (curl stands for "C" the "URL").  For example, this command should show you the output from the `/` route for your webapp:
+The `curl` program is a command line web client (curl stands for "C" the "URL").  For example, this command should show you the output from the `/` route for your webapp.  Run this command at the shell prompt on the CSIL machine to which you are logged in:
 
 ```
-curl http://localhost:4567
+curl http://localhost:8080
 ```
 
-And
+A better way, which allows you to see the full web page is to use SSH Tunneling, described next.
+
+### (2) Use SSH Tunneling
+
+In F19, CS56 student Darragh B offered this tip for when you are running your Spring Boot app on CSIL but your browser is on your laptop.    It involves setting up what's called an "SSH Tunnel".
+
+Suppose you are running on port 8080 on host `csil-10.cs.ucsb.edu`
+
+Then you'll type the command: 
 
 ```
-curl http://localhost:4567/hello
+ssh -L 12345:localhost:8080 username@csil-10.cs.ucsb.edu
 ```
 
-would show the output from the `/hello` route.
+* If you have Mac or Linux, this should "just work".   
+* On Windows, you may need to install [Git For Windows](https://git-scm.com/download/win) and use the `Git Bash Shell` to do this.
 
+What this does is make it so that when you navigate to `http://localhost:12345` on your local browser, it sends the web request and response through an "SSH Tunnel" to port `8080` on `csil-10.cs.ucsb.edu`
 
+Running on localhost is fine, but it has some limitations.  That's our next task: to understand those limitations, and why we need a cloud computing platform.
 
-To get the web app running on the public internet, we'll need to use a cloud-computing platform such as Heroku.
-
-
-# Step 4: Undertstanding ocalhost vs. Heroku
+# Step 4: Undertstanding localhost vs. Heroku
 
 When running on localhost:
 * The web app is only runnning as long as your program is executing. 
@@ -198,7 +208,8 @@ When running on localhost:
 
 Running on `localhost` is fine for testing and development.  But eventually we want to know how to deploy a web application so that anyone on the internet can access it.
 
-We'll use a cloud computing platform called Heroku.  Heroku allows us to deploy web applications in Java rather easily. 
+To get the web app running on the public internet, we'll need to use a cloud-computing platform such as Heroku.
+Heroku allows us to deploy web applications in Java rather easily. 
 
 *A side note*: though we won't explore it in this course, Heroku also makes it easy to deploy webapps in *a variety of langauges*, including Python, Node (JavaScript), and Ruby just to name a few.   Many of the skills you'll learn in this course about Heroku will transfer to those other languages if you want to work with them in other courses such as CMPSC 48, CMPSC 189A/B, or personal projects.)
 
@@ -273,7 +284,7 @@ Change that code to the following.  Be sure to replace `mygithubid` with your ow
 ```
 String html = "<h1>Hello World!</h1>\n" +
     "<p>This web app is powered by \n" +
-    "<a href='https://github.com/mygithubid/spring-boot-minimal-webapp'>this github repo</a></p>\n";
+    "<a href='https://github.com/ucsb-cs56-w20/lab02-mygithubid'>this github repo</a></p>\n";
 return html;
 ```
 
@@ -297,7 +308,6 @@ You'll see that when you run "mvn test" that there are test cases, some of which
 
 The test cases are in these files:
 * `src/test/java/hello/HelloControllerTest.java` (Unit Test)
-* `src/test/java/hello/HelloControllerIT.java` (Integration Test)
 
 Run the tests and see them fail.
 
@@ -323,14 +333,10 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-* (20 pts) Having a repo that is a fork of <tt>{{page.tutorial_repo_url}}</tt>
+* (20 pts) Having a repo with the correct name in the correct organization
 * (20 pts) Having a running web app at <tt>https://cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}.herokuapp.com</tt>
 * (20 pts) Running web app has the correct "new" content as specified in Step 6
 * (20 pts) Test cases are updated for new content, and they pass (Step 7)
 * (10 pts) There is a post on Gauchospace that has the correct content
 * (10 pts) The links on Gauchospace are clickable links (to make it easier to test your app)
-
-
-
-
 
