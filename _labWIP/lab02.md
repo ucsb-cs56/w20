@@ -72,11 +72,11 @@ TL;DR: You should NOT need to enter a credit card into Heroku.  If you are asked
 You may already have some experience with creating static web pages, and/or with creating web applications (e.g. using PHP, Python (Django or Flask) or Ruby on Rails.) If so, then the "Learn More" section will be basic review.
 
 If you are new to writing software for the web, you are <em>strongly encouaged</em> to read the background information at the "learn more" link below.
--   [Web Pages vs. Web Apps](http://pconrad-webapps.github.io/topics/webpage_vs_webapp/)
+-   [Web Pages vs. Web Apps](https://ucsb-cs56.github.io/topics/webapps_webapps_vs_websites/)
 
 ### What are we trying to accomplish again in this lab?
 
-If you just did a deep dive into the article [Web Pages vs. Web Apps](http://pconrad-webapps.github.io/topics/webpage_vs_webapp/), it may be helpful to again review what we are trying to accomplish in this lab:
+If you just did a deep dive into the article [Web Pages vs. Web Apps](https://ucsb-cs56.github.io/topics/webapps_webapps_vs_websites/) it may be helpful to again review what we are trying to accomplish in this lab:
 
 -   In this lab, we will <em>create a basic "Hello, World" type web app in Java"</em>
 -   To test that, we need to run that on a server somewhere.
@@ -117,22 +117,33 @@ You'll be asked for:
 </div>
 
 
-# Step 3: Fork the tutorial repo
 
-"Fork" the tutorial repo into a public copy under your own github account.
+# Step 3: Create your repo
 
-To "fork" a repo in Github:
-* Look for the "fork" button in the upper right hand corner of the screen
-* Click it
-* You'll get a  copy of that repo under your own Github id
-* Make a "public" fork.
 
-The repo you are going to fork is here:
-*  <{{page.tutorial_repo_url}}>
+Create an a new repo that is:
+* is in the GitHub organization <tt>{{page.github_org}}</tt>
+* has name <tt>{{page.num}}-<i>githubid</t></tt> where <tt><i>github</i></tt> is your github id
+* is public 
+* is initially empty, i.e. no README.md, no `.gitignore`, no license
 
-You'll need Maven for this lab.
+Clone that repo somewhere and cd into it.
+
+Then add this remote:
+
+<tt>git remote add starter {{page.starter}}</tt>
+
+Then do:
+
+```
+git pull starter master
+git push origin master
+```
+
+# Step 4: Start your webapp on localhost
 
 Assuming you are working on CSIL, you can use `mvn` to run Maven.
+
 * If you are working on your own machine, you'll need to install Maven on your machine.
 * We've collected [advice on how to do that here](https://ucsb-cs56-pconrad.github.io/topics/maven_installing/).
 
@@ -142,7 +153,24 @@ Note that in order to see this web app running, you'll need to be in a web brows
 * For example, if you are running on `csil-04.cs.ucsb.edu`, you'll need to be running your web browser on `csil-04.cs.ucsb.edu`.   
 * If you are working in Phelps 3525 on `cstl-07.cs.ucs.edu`, you'll need to be running your web browser on `cstl-07.cs.ucsb.edu`.
 
-If you are not sitting in the CSIL or CSTL lab, i.e. you are using ssh on a laptop to access CSIL, then you might need to test your webapp using a command line web client such as `curl` (curl stands for "C" the "URL").  For example, this command should show you the output from the `/` route for your webapp:
+## How do I access https://localhost:4567 on CSIL from my laptop?
+
+Suppose you are running your Spring Boot application on `localhost:8080` on one of the CSIL 
+machines.
+
+You normally *will not* be able to access that application from any browser that is NOT directly
+running on that CSIL machine.
+
+If you are ssh'ing into CSIL on your laptop (e.g. using `ssh` in a terminal session, or using an app such as `PuTTY` or `MobaXTerm` on Windows) keep in mind that if you direct your browser (running on your laptop) to `localhost:8080`, that request *never leaves your laptop*.  It looks for a web app running *on your laptop*.
+
+So, how to solve this?  There are three ways:
+
+### (1) Use curl 
+
+This is the least satisfying way, because you won't see a proper web page.  You'll only see a dump of the HTML content of the page.  But for a simple 'Hello World' app, this works fine.
+
+
+The `curl` program is a command line web client (curl stands for "C" the "URL").  For example, this command should show you the output from the `/` route for your webapp:
 
 ```
 curl http://localhost:4567
@@ -156,15 +184,29 @@ curl http://localhost:4567/hello
 
 would show the output from the `/hello` route.
 
-This is not very satisfying.
+
+
+To get the web app running on the public internet, we'll need to use a cloud-computing platform such as Heroku.
+
+
+# Step 4: Undertstanding ocalhost vs. Heroku
+
+When running on localhost:
 * The web app is only runnning as long as your program is executing. 
 * As soon as you CTRL/C the program to interrupt it, the web app is no longer available.
 * The web app is only available on the machine where you are running the program; not on the public internet.
 
-To get the web app running on the public internet, we'll need to use a cloud-computing platform such as Heroku.
+Running on `localhost` is fine for testing and development.  But eventually we want to know how to deploy a web application so that anyone on the internet can access it.
 
-# Step 4: Create a new Heroku App using the Heroku CLI
+We'll use a cloud computing platform called Heroku.  Heroku allows us to deploy web applications in Java rather easily. 
 
+*A side note*: though we won't explore it in this course, Heroku also makes it easy to deploy webapps in *a variety of langauges*, including Python, Node (JavaScript), and Ruby just to name a few.   Many of the skills you'll learn in this course about Heroku will transfer to those other languages if you want to work with them in other courses such as CMPSC 48, CMPSC 189A/B, or personal projects.)
+
+*A note about security*: Let's say up front that this is a risky thing to do.   You need to be very careful about security when deploying web applications to the public internet.  Fortunately, this particular application is rather simple and low-risk.   We'll discuss web security throughout the course.
+
+# Step 5: Create a new Heroku App using the Heroku CLI
+
+In this step, we'll 
 
 Logged into CSIL (or one of the machines in the CSTL, i.e. Phelps 3525), use this command to login to Heroku at the command line:
 
@@ -189,7 +231,7 @@ Notes:
   in your app name; you are meant to substitute your own github id there.
 
 
-# Step 5: Login to the Heroku Dashboard
+# Step 6: Login to the Heroku Dashboard
 
 Login to <https://dashboard.heroku.com/apps> and look for the <tt>create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> app that you created.
 
