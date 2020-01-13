@@ -310,7 +310,37 @@ Then modify them so that they pass.   Note that we are doing TDD "wrong" this ti
 we should have modified the tests first, and then modified the code so that the tests pass.   We'll pivot to this
 style of working once we have a better grasp on all the moving parts here.
 
-# Step 8: Submitting your work for grading
+# Step 8: Publishing the javadoc
+
+As in lab01, we want to publish the javadoc, and put links to the javadoc and the repo in your README.md
+
+To generate the javadoc and publish it to github pages, take these steps:
+
+1. `mvn javadoc:javadoc` to generate the regular javadoc
+2. `mvn javadoc:test-javadoc` to generate javadoc for the test classes
+3. `mvn site` to generate a web page for your project
+4. `mvn site:deploy` to copy that website to the `/docs` folder of your repo
+5. `git status` to verify see that the `/docs` folder now exists.
+6. `git add docs`
+7. `git commit -m "xx - add javadoc"`  where `xx` are your initials 
+8. `git push origin master`
+9.  Then, go to the `Settings` link for your repo, and turn on GitHub pages for the `docs` folder of the master branch.
+
+Finally, check the URL shown in the settings.  It can take 3-5 minutes before it shows up.
+
+Look at the list of commits on the repo page on github.com, and you should see either a green check, a yellow circle, or a red X indicating the status of the commit.  These markers show the status of GitHub pages.   Later in the quarter, when we enable automatic testing (via a service called Travis-CI), these markers will show the status of our test cases as well.
+
+# Step 9: Adding links to javadoc and repo in the README.md
+
+Edit your README.md.  You'll find some TODO items inside indicating what edits you need to make.
+
+All quarter long, we want you to develop the habit of adding these links in your README.md:
+* A link to your javadoc
+* A link to your repo
+
+The link to your repo may seem redundant, but it helps your mentors, TAs and instructors; when you submit your work for grading to either Gradescope or Gauchospace, having those links handy really helps us navigate through your assignments quickly to evaluate them and assign grades.
+
+# Step 10: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
 
