@@ -21,8 +21,7 @@ This is an **individual** lab on the topic of Java web apps on Heroku.
 
 You may cooperate with one or more pair partners from your team to help in debugging and understanding the lab, but each person should complete the lab separately for themselves.
 
-Step 0: If you are working on your own machine
-----------------------------------------------
+# Step 0: If you are working on your own machine
 
 If you are working on CSIL, you can skip this step.
 
@@ -37,8 +36,7 @@ Here are some commands to let you be familiar with Maven in 5 mins! <https://mav
 * Install the Heroku CLI.  Instructions are here: <https://devcenter.heroku.com/articles/heroku-cli#download-and-install>
 
 
-Step 1: Understanding what we are trying to do
-----------------------------------------------
+# Step 1: Understanding what we are trying to do
 
 ### What are we trying to accomplish again in this lab?
 
@@ -194,7 +192,7 @@ What this does is make it so that when you navigate to `http://localhost:12345` 
 
 Running on localhost is fine, but it has some limitations.  That's our next task: to understand those limitations, and why we need a cloud computing platform.
 
-# Step 4: Undertstanding localhost vs. Heroku
+# Step 5: Undertstanding localhost vs. Heroku
 
 When running on localhost:
 * The web app is only runnning as long as your program is executing. 
@@ -210,7 +208,7 @@ Heroku allows us to deploy web applications in Java rather easily.
 
 *A note about security*: Let's say up front that this is a risky thing to do.   You need to be very careful about security when deploying web applications to the public internet.  Fortunately, this particular application is rather simple and low-risk.   We'll discuss web security throughout the course.
 
-# Step 5: Create a new Heroku App using the Heroku CLI
+# Step 6: Create a new Heroku App using the Heroku CLI
 
 In this step, we'll 
 
@@ -237,7 +235,7 @@ Notes:
   in your app name; you are meant to substitute your own github id there.
 
 
-# Step 6: Login to the Heroku Dashboard
+# Step 7: Login to the Heroku Dashboard
 
 Login to <https://dashboard.heroku.com/apps> and look for the <tt>create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> app that you created.
 
@@ -259,7 +257,7 @@ If it doesn't work, try these things before asking a mentor, TA, or instructor f
    * You can also see your logs in a web browser at: <https://dashboard.heroku.com/apps/app-name/logs> (note that you need to put your `app-name` in the URL instead of `app-name`.  
    * You can navigate to this from <https://dashboard.heroku.com/> by selecting your app, clicking on it,  selecting the `More` menu at upper right, and the selecting `Logs`.
 
-# Step 6: Changing what is shown on the page
+# Step 8: Changing what is shown on the page
 
 Go into the Java source code under `src` and locate the file `/src/main/java/hello/HelloController.java` 
 
@@ -297,7 +295,7 @@ If it works, then the words "this github repo" should become clickable links.
 Ok, so far, we haven't really done anything we couldn't have done with a static web page.  But we have gotten a working Java web app running on Heroku, so it's start we can build on.  
 
 
-# Step 7: The test cases
+# Step 9: The test cases
 
 You'll see that when you run "mvn test" that there are test cases, some of which are now failing.
 
@@ -310,7 +308,7 @@ Then modify them so that they pass.   Note that we are doing TDD "wrong" this ti
 we should have modified the tests first, and then modified the code so that the tests pass.   We'll pivot to this
 style of working once we have a better grasp on all the moving parts here.
 
-# Step 8: Publishing the javadoc
+# Step 10: Publishing the javadoc
 
 As in lab01, we want to publish the javadoc, and put links to the javadoc and the repo in your README.md
 
@@ -330,7 +328,7 @@ Finally, check the URL shown in the settings.  It can take 3-5 minutes before it
 
 Look at the list of commits on the repo page on github.com, and you should see either a green check, a yellow circle, or a red X indicating the status of the commit.  These markers show the status of GitHub pages.   Later in the quarter, when we enable automatic testing (via a service called Travis-CI), these markers will show the status of our test cases as well.
 
-# Step 9: Adding links to javadoc and repo in the README.md
+# Step 11: Adding links to javadoc and repo in the README.md
 
 Edit your README.md.  You'll find some TODO items inside indicating what edits you need to make.
 
@@ -340,7 +338,7 @@ All quarter long, we want you to develop the habit of adding these links in your
 
 The link to your repo may seem redundant, but it helps your mentors, TAs and instructors; when you submit your work for grading to either Gradescope or Gauchospace, having those links handy really helps us navigate through your assignments quickly to evaluate them and assign grades.
 
-# Step 10: Submitting your work for grading
+# Step 12: Submitting your work for grading
 
 When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
 
@@ -358,10 +356,12 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-* (20 pts) Having a repo with the correct name in the correct organization
+* (10 pts) Having a repo with the correct name in the correct organization
 * (20 pts) Having a running web app at <tt>https://cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}.herokuapp.com</tt>
 * (20 pts) Running web app has the correct "new" content as specified in Step 6
 * (20 pts) Test cases are updated for new content, and they pass (Step 7)
 * (10 pts) There is a post on Gauchospace that has the correct content
 * (10 pts) The links on Gauchospace are clickable links (to make it easier to test your app)
+* (10 pts) README has links to javadoc, and javadoc is accesssible on GitHub pages
+
 
