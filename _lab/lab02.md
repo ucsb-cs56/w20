@@ -218,10 +218,14 @@ Logged into CSIL (or one of the machines in the CSTL, i.e. Phelps 3525), use thi
 heroku login
 ```
 
-> NOTE: If the `heroku login` command doesn't work, you can instead create the Heroku App at the Heroku Dashboard by
-> visiting <https://dashboard.heroku.com/apps>, clicking (at upper right):  "New&nbsp;=>&nbsp;Create New App" and
-> then creating an app with the name <tt>heroku create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> as explained in > the instructions below.
->
+**NOTES**: 
+
+* If you are ssh'ing in to CSIL, you may need to use `heroku login -i` which allows you to login without having to go to a browser.
+
+* If the `heroku login` command doesn't work, you can instead create the Heroku App at the Heroku Dashboard by
+  visiting <https://dashboard.heroku.com/apps>, clicking (at upper right):  "New&nbsp;=>&nbsp;Create New App" and
+  then creating an app with the name <tt>heroku create cs56-{{site.qxx}}-<i>githubid</i>-{{page.num}}</tt> as explained in 
+  the instructions below.
 
 Then, use this command to create a new web app running on heroku.  Substitute your github id in place of `githubid`.  
 Note that you should convert your githubid to all lowercase; heroku web-app names do not permit uppercase letters.
