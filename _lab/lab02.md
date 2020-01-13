@@ -9,7 +9,7 @@ github_org: ucsb-cs56-w20
 layout: lab
 num: lab02
 ready: false
-starter: https://github.com/ucsb-cs56-w20/STARTER-lab02
+starter: https://github.com/ucsb-cs56-w20/STARTER_lab02
 
 ---
 
