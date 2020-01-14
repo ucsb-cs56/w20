@@ -6,6 +6,12 @@ ready: true
 pdfurl:
 ---
 
+# Anouncement: Please no staples/paperclips/tape on your homeworks.
+
+It damages the scanner.
+
+Just print on two sheets of paper and put your name at the top of each. 
+
 # You should be on Slack
 
 It's important to be registered on the Slack.  One of the important skills we're learning in this course is professional communication, as it relates to software development.  The Slack channel will be our primary vehicle for that.
