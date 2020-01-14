@@ -365,6 +365,11 @@ To generate the javadoc and publish it to github pages, take these steps:
 
 Finally, check the URL shown in the settings.  It can take 3-5 minutes before it shows up.
 
+Note:
+* If you are using WSL, an error `The environment variable JAVA_HOME is not correctly set.` may appear. If this does occur a temporary fix is this: 
+`export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64` 
+replace `java-1.11.0-openjdk-amd64` with whatever version of Java you have installed if needed.
+
 Look at the list of commits on the repo page on github.com, and you should see either a green check, a yellow circle, or a red X indicating the status of the commit.  These markers show the status of GitHub pages.   Later in the quarter, when we enable automatic testing (via a service called Travis-CI), these markers will show the status of our test cases as well.
 
 # Step 11: Adding links to javadoc and repo in the README.md
