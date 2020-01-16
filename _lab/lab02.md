@@ -8,7 +8,7 @@ gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=311
 github_org: ucsb-cs56-w20
 layout: lab
 num: lab02
-ready: false
+ready: true
 starter: https://github.com/ucsb-cs56-w20/STARTER_lab02
 
 ---
