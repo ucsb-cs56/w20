@@ -366,7 +366,7 @@ To generate the javadoc and publish it to github pages, take these steps:
 Finally, check the URL shown in the settings.  It can take 3-5 minutes before it shows up.
 
 Note:
-* If you are using WSL, an error `The environment variable JAVA_HOME is not correctly set.` may appear. If this does occur a temporary fix is this: 
+* If you are using Windows Subsystem Linux (WSL), an error `The environment variable JAVA_HOME is not correctly set.` may appear. If this does occur a temporary fix is this: 
 `export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64` 
 replace `java-1.11.0-openjdk-amd64` with whatever version of Java you have installed if needed.
 
