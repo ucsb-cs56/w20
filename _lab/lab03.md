@@ -217,6 +217,6 @@ README.md as to why it wasn't feasible to test those lines of code.
 
 * Make sure that your README.md file has your github id(s) and name(s) (Both if you worked as a pair.)
 * Make sure that your README.md file has a link to your javadoc, and that your javadoc is readable online
-* Make sure that your README.md file has a link to your private repo in the <tt>{{page.github_org}</tt> repo on GitHub.
+* Make sure that your README.md file has a link to your private repo in the <tt>{{page.github_org}}</tt> repo on GitHub.
 
 # End of description for {{page.num}}
