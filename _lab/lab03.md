@@ -7,13 +7,16 @@ due2: 2020-01-29 23:59
 github_org: ucsb-cs56-w20
 layout: lab
 num: lab03
-ready: false
+ready: true
 starter_repo: https://github.com/ucsb-cs56-w20/STARTER_lab03
 ---
 
 <div style="display:none;">
 https://ucsb-cs56.github.io/w20/lab/lab03
 </div>
+
+
+READY: Except for the Gradescope autograder; that should be ready by 5pm Tuesday 01/21
 
 # lab03
 
