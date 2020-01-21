@@ -1,56 +1,19 @@
 ---
-assigned: 2020-01-14 17:00
+assigned: 2020-01-21 11:00
+assigned2: 2020-01-22 12:30
 desc: Testing and Test Case Coverage
-due: 2020-01-23 16:59
-github_org: ucsb-cs56-f19
+due: 2020-01-29 23:59
+due2: 2020-01-29 23:59
+github_org: ucsb-cs56-w20
 layout: lab
 num: lab03
 ready: false
-starter_repo: https://github.com/ucsb-cs56-f19/STARTER_lab03
-
+starter_repo: https://github.com/ucsb-cs56-w20/STARTER_lab03
 ---
 
 <div style="display:none;">
-https://ucsb-cs56.github.io/f19/labWIP/lab03
+https://ucsb-cs56.github.io/w20/labWIP/lab03
 </div>
-
-
-
-# Lab03 Update 10/13/2019
-
-Last Monday and Wednesday 10/07/2019 and 10/09/2019 in lecture I mentioned that we were
-not generating the javadoc for lab03.  However, both the instructions and the grading
-rubric on Gradescope were sending a different message.
-
-Accordingly, I've now updated the instructions, and am providing a few extra days
-in case you want to review your submission.
-
-If your score on Gradescope shows 100%, there is no action you need to take.
-
-Otherwise, if you have a score less than 100% and want to try to increase your score,
-you have until the deadline shown on Gradescope to try to get additional test
-cases to pass, or troubleshoot whatever may be going awry.
-
-To review: the reason we are not generating the javadoc is that when jacoco test
-coverage reports are generated along side javadoc and published to Github pages,
-it leakes the source code.  That is of course not a good idea for a closed source
-assignment, since it may lead to a temptation of academic dishonesty.
-
-We are looking into alternative means to publish javadoc and jacoco reports in a way
-that makes it possible for the students authoring the repo and the course staff to
-see them, but no-one else.
-
-Also: if you had trouble with the `mvn jacoco:report` command:
-* It might be because the lab instructions said to run:<br>
-  `mvn jacoco:report site:deploy`.
-* That is actually doing two commands in one:
-  ```
-  mvn jacoco:report
-  mvn site:deploy
-  ```
-* The first one is fine, but the second one was disabled in the `pom.xml`
-* If you just try `mvn jacoco:report` after doing `mvn test`, it should work fine.
-* To see the resuts, look at `target/site/jacoco/index.html` in a browser.
 
 # lab03
 
@@ -59,7 +22,7 @@ In this lab:
 -   using Maven instead of Ant
 -   using packages
 -   writing your own JUnit tests
--   test coverage
+-   test coverage using Jacoco
 
 
 ## Working in a pair? Switch navigator/driver frequently and tradeoff who commits
@@ -83,8 +46,8 @@ Step-by-Step
 # Step 0: Set up your repo
 
 You may work individually or as a pair on this lab.  However, if you work as a pair, please:
-* Pair with someone *different* from who you paired with before
-* Pair with someone from your same lab section (5, 6 or 7pm)
+* Pair with someone from your same team
+* Consider pairing with someone *different* from who you paired with before
 * Remember to name the repo correctly, and also to add your pair on Gradescope each time you submit
 
 If there is some reason this is not feasible, please check with your mentor before starting.
@@ -134,8 +97,9 @@ Here are the commands you'll need as you work with the code. Try them out now.
 | compile the code | `mvn compile` | |
 | reset everything | `mvn clean` | | 
 | run the tests | `mvn test` | |
-| generate javadoc | `mvn javadoc:javadoc site:deploy` | Don't do this for lab03 |
-| generate a report of test coverage | `mvn test jacoco:report ` | Leave out the `site:deploy` |
+| generate javadoc | `mvn javadoc:javadoc site site:deploy` | 
+| generate javadoc *and* copy into docs directory for GitHub pages | `mvn javadoc:javadoc site site:deploy` | 
+| generate a report of test coverage | `mvn test jacoco:report ` | Open the file `target/site/jacoco/index.html` in a browser to read the report |
 | generate a jar file | `mvn package` | |
 
 
@@ -238,12 +202,21 @@ So if you see that you don't have 100% test coverage, go back and write some add
 
 Keep reworking your code until you get as close as you can to 100% test coverage.
 
+
 As we'll discuss in lecture, 100% coverage isn't always necessary or even desirable, but
 in this case you should be able to get there, or at least pretty close.
+
+One method that it's definitely ok to not have test coverage for (in this particular project) is the `public static void main(String [] args)` method; that method is only there as a placeholder, and contributes nothing to the correctness of the code.   If it did, we'd need to consider writing tests for it (and that is possible, though a little awkward.)
 
 Resubmit on Gradescope once you've gotten as close to 100% as you think you can get.
 
 If there are lines of code that are NOT coverage by tests, add some explanation in your
 README.md as to why it wasn't feasible to test those lines of code.
+
+# Step 6: Before final submission on Gradescope
+
+* Make sure that your README.md file has your github id(s) and name(s) (Both if you worked as a pair.)
+* Make sure that your README.md file has a link to your javadoc, and that your javadoc is readable online
+* Make sure that your README.md file has a link to your private repo in the <tt>{{page.github_org}</tt> repo on GitHub.
 
 # End of description for {{page.num}}
