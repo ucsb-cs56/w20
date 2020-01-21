@@ -6,13 +6,7 @@ ready: true
 
 # {{page.title}}
 
-<style>
-iframe { width: 100%; height: 1400px; overflow: scroll; }  
-</style>
-
-
-<iframe src= "https://open-lab-scheduler.herokuapp.com/"></iframe>
-
+See this page for open lab times and locations: https://open-lab-scheduler.herokuapp.com/
 
 
 
