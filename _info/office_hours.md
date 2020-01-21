@@ -6,8 +6,5 @@ ready: true
 
 # {{page.title}}
 
-See this page for open lab times and locations: https://open-lab-scheduler.herokuapp.com/
-
-
-
+See this page for open lab times and locations: <a href = https://open-lab-scheduler.herokuapp.com/>Open Labs</a>
 
