@@ -11,7 +11,7 @@ iframe { width: 100%; height: 1400px; overflow: scroll; }
 </style>
 
 
-<iframe src= "http://open-lab-scheduler.herokuapp.com/"></iframe>
+<iframe src= "https://open-lab-scheduler.herokuapp.com/"></iframe>
 
 
 
