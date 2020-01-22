@@ -222,4 +222,21 @@ README.md as to why it wasn't feasible to test those lines of code.
 * Make sure that your README.md file has a link to your javadoc, and that your javadoc is readable online
 * Make sure that your README.md file has a link to your private repo in the <tt>{{page.github_org}}</tt> repo on GitHub.
 
+# Troubleshooting
+
+If you get this message from Gradescope:
+
+```
+Could not locate expected jar file to run unit tests: 
+target/menuitem-1.0-fat-tests.jar
+```
+
+what that actually means is that autograder was not able to compile the instructor tests against your solution.
+
+That is probably because your solution does not yet contain stubs for one or more of the required methods.  
+
+For example, if you don't implement stubs for the `getPriceInCents()` or the `getCategory()` methods before you submit to Gradescope, then you'll probably get the message about the `target/menuitem-1.0-fat-tests.jar` being missing.
+
+You have to implement stubs for all of the specified functions before you will get test results for any of them on Gradescope.  So writing those first is a really good plan.
+
 # End of description for {{page.num}}
