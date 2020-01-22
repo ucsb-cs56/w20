@@ -10,4 +10,8 @@ Today, we are working on preparation for lab03
 
 We will discuss the concept of Test Case Coverage using JaCoCo (Java Code Coverage).
 
+This repo has a version of an attempt (a poor attempt, but an attempt, nevertheless) at lab03.
 
+We'll use this to demo Jacoco
+
+<https://github.com/ucsb-cs56-w20/LECTURE_0121>
