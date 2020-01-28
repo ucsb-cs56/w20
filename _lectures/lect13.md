@@ -104,4 +104,8 @@ In this file put some questions that you might ask Quality Assurance engineers a
 
 In this file put some questions that you might ask any industry professional about team work practices and challenges in developing real world software.
 
+# Make pull requests for each branch
+
+# Merge pull requests into Master
+
 
