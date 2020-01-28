@@ -55,6 +55,53 @@ To create the branch, type:
 
 * `git checkout -b 0128-cgaucho-ldelplaya`
 
+# Divide up these tasks among the branches
 
+You now have between three and six individuals/pairs.
+
+Divide up these tasks, in whatever way you see fit.   Only one individual/pair needs to do each of these.
+
+You'll do each of these tasks in one of your branches.   Once you've edited the file, do:
+
+```
+git add filename
+git commit -m "ab/cd - added file for attendance"
+git push origin branch-name
+```
+
+(1) Add a file called `attendance.md`.  In this file, record who is present/absent by name.  For example
+
+```
+# 01/28 Attendance
+
+Chris Gaucho (he)
+Lauren del Playa (she)
+Pat Sabado (they)
+
+(others absent)
+
+```
+
+(2) Add a file called `dev-questions.md` 
+
+In this file, put some questions that you might ask Developers about how real world practice goes when developing software.
+
+(3) Add a file called `pm-questions.md` 
+
+In this file put some questions that you might ask Product Managers about how real world practice goes when developing software.
+
+
+(4) Add a file called `ux-questions.md` 
+
+In this file put some questions that you might ask User Experience designers about how real world practice goes when developing software.
+
+
+(5) Add a file called `qa-questions.md` 
+
+In this file put some questions that you might ask Quality Assurance engineers about how real world practice goes when developing software.
+
+(6) Add a file called `team-questions.md` 
+
+In this file put some questions that you might ask any industry professional about team work practices and challenges in developing real world software.
 
 
