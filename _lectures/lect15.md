@@ -19,4 +19,6 @@ Handouts:
 
 # Sorting
 
+* <https://ucsb-cs56.github.io/topics/java_sorting/>
 * <https://ucsb-cs56.github.io/tutorials/rational_ex15/>
+
