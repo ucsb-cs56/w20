@@ -1,48 +1,22 @@
 ---
 num: Lecture 15
 lecture_date: 2020-01-30
-desc:
+desc: "Class / Interface from F19 Midterm Exam 1 (Trader Bob's), plus start sorting if time"
 ready: false
 pdfurl:
 ---
 
----
-num: Lecture 15
-lecture_date: 2019-11-18
-desc: More Spring Boot Skills
-ready: false
-pdfurl:
----
+# Class / Interface from F19 Midterm Exam 1 (Trader Bob's)
 
+Midterm Exam 1 from F19: 
 
-# The `network` tab on Github
+* <https://ucsb-cs56.github.io/f19/exam/e01/cs56-f19-e01/>
 
-Let's take a look at the Network tab on Github.
+Handouts:
 
-You'll find it under "Insights"
+* <https://ucsb-cs56.github.io/w20/hwk/h07/handout_a/>
+* <https://ucsb-cs56.github.io/w20/hwk/h07/handout_b/>
 
-Example:
-* <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/network>
+# Sorting
 
-This is helpful for tracking what branches you have and what state they are on, and whether they've been merged into `master` or not.
-
-# Adding an Inceptor
-
-* First let's review the "Request/Repsonse" cycle of how web apps work
-   * This is not just in Spring Boot, but across all web frameworks.
-   * It's the basic action of the HTTP protocol
-   * Therefore, you see it represented in every web framework, somehow
-* Then let's look at how you add an Interceptor in Spring Boot.
-
-An interceptor allows you to run some code before, and after each of the web controller methods runs.
-
-Most web frameworks have some way of doing this.
-
-It allows you to factor out things that should "always happen" at the beginning and the end.
-
-Here's a pull request that illustrates how this works:
-
-* <https://github.com/ucsb-cs56-f19/STAFF-lab07c-dev/pull/1/files>
-
-# While we are at it, let's look at at ControllerAdvice as well.
-
+* <https://ucsb-cs56.github.io/tutorials/rational_ex15/>
