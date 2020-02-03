@@ -1,36 +1,23 @@
 ---
 num: Lecture 16
 lecture_date: 2020-02-03
-desc:
-ready: false
+desc: "Sorting, and Garbage Collection Exercise (from E01 M18 p.4)"
+ready: true
 pdfurl:
 ---
 
----
-num: Lecture 16
-lecture_date: 2019-11-20
-desc: Decision Day
-ready: false
-pdfurl:
----
+# Announcements
 
-Sit with your row of your discussion section, at least initially.
 
-# First
 
-Fill out this survey: <http://bit.ly/cs56-f19-nov20>
+# Sorting
 
-# Second
+We'll go over sorting in Java, using these notes:
 
-* Login into slack.  Find your row/discussion section.
-* Discuss online, and in person, what your choice is: to form a project group, or to do the individual
-  labs.  
-* If you have questions, post them on slack on #labs-vs-projects
+* <https://ucsb-cs56.github.io/topics/java_sorting/>
 
-# Third: We'll discuss.  And then possibly rearrange.
+# Garbage Collection (midterm prep)
 
-* I'll demo the three applications and discuss the epics
-* I'll discuss what the projects will be like.
-* I'll answer questions.
+We'll go over an exercise in Garbage Collection from the M18 midterm E01, p. 4.
 
-# The big sort.
+* <https://ucsb-cs56-m18.github.io/exam/e01/cs56_m18_e01/>
