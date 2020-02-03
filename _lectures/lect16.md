@@ -21,3 +21,12 @@ We'll go over sorting in Java, using these notes:
 We'll go over an exercise in Garbage Collection from the M18 midterm E01, p. 4.
 
 * <https://ucsb-cs56-m18.github.io/exam/e01/cs56_m18_e01/>
+
+Reading on Garbage Collection:
+
+* <https://ucsb-cs56.github.io/topics/java_gc/>
+* <https://ucsb-cs56.github.io/topics/java_gc_under_the_hood/>
+
+Code: 
+
+* <https://github.com/UCSB-CS56-pconrad/java-garbage-collection-demo>
