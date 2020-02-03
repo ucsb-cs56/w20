@@ -20,6 +20,8 @@ We'll go over sorting in Java, using these notes:
 
 * <https://ucsb-cs56.github.io/topics/java_sorting/>
 
+Code: <https://github.com/UCSB-CS56-pconrad/java-sorting-and-comparators>
+
 # Garbage Collection (midterm prep)
 
 We'll go over an exercise in Garbage Collection from the M18 midterm E01, p. 4.
