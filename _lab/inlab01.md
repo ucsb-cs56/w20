@@ -1,9 +1,9 @@
 ---
 desc: "Meeting an Industry Mentor"
-assigned: 2020-01-28 17:00
-assigned2: 2020-01-29 17:00
-due2: 2020-01-29 19:50
-due: 2020-01-28 19:50
+assigned2: 2020-01-28 17:00
+assigned: 2020-01-29 17:00
+due2: 2020-01-28 19:50
+due: 2020-01-29 19:50
 layout: lab
 num: inlab01
 ready: true
