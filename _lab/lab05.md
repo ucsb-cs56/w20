@@ -9,7 +9,7 @@ assigned: 2020-02-05 12:30
 due2: 2020-02-12 23:59
 due: 2020-02-12 23:59
 github_org: "ucsb-cs56-w20"
-starter_repo: "https://github.com/ucsb-cs56-w20/STARTER-lab05"
+starter_repo: "https://github.com/ucsb-cs56-w20/STARTER_lab05"
 ---
 
 NOT READY YET!!!!   NOT READY YET !!!
