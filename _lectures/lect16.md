@@ -8,7 +8,11 @@ pdfurl:
 
 # Announcements
 
+Midterm Exam is scheduled for:
+* Tuesday February 18
+* Wednesday February 19
 
+Please make a note of it.
 
 # Sorting
 
