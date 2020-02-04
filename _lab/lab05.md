@@ -143,6 +143,26 @@ Additional Hints:
 3. Now each of the methods is essentially a call to sort, using your comparators, followed by
    a call to the `csv()` method.
 
+4. A reminder that comparators can be composed as follows, assuming that `byThis` and `byThat` are both
+   references to `Comparator<T>` and `mylist` implements `List<T>`:
+
+   ```java
+   java.util.Collections.sort(mylist, byThis.thenComparing(byThat));
+   ```
+   
+   You can also reverse a comparator by putting `.reversed()` after it:
+   
+   ```java
+   java.util.Collections.sort(mylist, byThis.reversed());
+   ```
+   
+   And this can be continued as deep as you need it to be:
+   
+   ```
+   java.util.Collections.sort(mylist, byThis.thenComparing(byThat.reversed()).thenComparing(bySomethingElse));
+   ```
+   
+   
 
 # Details about methods of Menu
 
