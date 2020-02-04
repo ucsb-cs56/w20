@@ -2,21 +2,15 @@
 layout: lab
 num: lab05
 prev_num: lab03
-ready: false
+ready: true
 desc: "Sorting"
 assigned2: 2020-02-04 11:00
 assigned: 2020-02-05 12:30
-due2: 2020-02-12 23:59
-due: 2020-02-12 23:59
+due2: 2020-02-13 23:59
+due: 2020-02-13 23:59
 github_org: "ucsb-cs56-w20"
 starter_repo: "https://github.com/ucsb-cs56-w20/STARTER_lab05"
 ---
-
-NOT READY YET!!!!   NOT READY YET !!!
-
-PLEASE WAIT UNTIL THIS IS MARKED AS READY!!!
-
-IF YOU START NOW, YOU'LL RUN INTO PROBLEMS.  PLEASE WAIT.
 
 In this lab:
 
