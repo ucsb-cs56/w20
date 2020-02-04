@@ -122,6 +122,28 @@ I suggest that you work in this order:
    * Then submit on Gradescope and see if the test for that method passes on Gradescope
    * Continue until all of your methods work.
 
+Additional Hints:
+
+1.  You may find it helpful to declare private instance variables for these `Comparator<MenuItem>` objects:
+
+    ```java
+    private Comparator<MenuItem> byPrice = ...;
+    private Comparator<MenuItem> byName = ...;
+    private Comparator<MenuItem> byCategory ...;
+    ```
+
+   Note that the `...` needs to be replaced by a lambda expression that sorts by that 
+   part of the class.
+   
+2. You may find it helpful to fill in the `csv()` function with code that loops through the
+   list of menu items, and produces one line of the comma separated output.  You can see the expected
+   format in the test cases. Note that you have
+   to `return` this output; it does you no good to print it.
+   
+3. Now each of the methods is essentially a call to sort, using your comparators, followed by
+   a call to the `csv()` method.
+
+
 # Details about methods of Menu
 
 
@@ -136,9 +158,14 @@ The methods for `Menu` are as follows:
 |`String`|	`csvSortedByCategoryThenPriceDescendingThenByName()` | same as `csv()`, but the items should be sorted by category.  With the same category, the items should be sorted by name. |
 |`String`|	`csvSortedByPriceThenName()` | same as `csv()`, but the items should be sorted by price, from lowest to highest.  When more than one items has the same price, the items of the same price should be sorted by name. |
 
+
 # Step 3: Checking Test Case Coverage 
 
-As you did last week, be sure that you've added your pair partner to your submissions on Gauchospace
+As in previous labs, be sure that you've:
+
+* added your pair partner to your submissions on Gradescope
+* put your name and your pair partner's names in the README.md
+* generated javadoc and put a link to your javadoc and your repo in the README.md
 
 Then, check your test coverage: 
 * Run: `mvn test jacoco:report`
