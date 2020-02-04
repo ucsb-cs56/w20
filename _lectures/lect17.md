@@ -5,30 +5,33 @@ desc:
 ready: false
 pdfurl:
 ---
+# Announcements
 
----
-num: Lecture 17
-lecture_date: 2019-11-25
-desc: "Standup Meetings"
-ready: false
-pdfurl:
----
+Midterm Exam is scheduled for:
+* Tuesday February 18
+* Wednesday February 19
 
+Please make a note of it.
 
-# Individual Track:
+# Sorting
 
-* Proj01 and Proj02 have dropped and are on the the lab list
-* Proj03 will drop tomorrow.
-* Proj01 + Proj02 + Proj03 is your project grade (20% of your course grade).
-* Proj04 will be the extra credit portion
+We'll go over sorting in Java, using these notes:
 
+* <https://ucsb-cs56.github.io/topics/java_sorting/>
 
-# Questions on Individual Track Projects?
+Code: <https://github.com/UCSB-CS56-pconrad/java-sorting-and-comparators>
 
-Ask now, or on slack later.
+# Garbage Collection (midterm prep)
 
-# Project Track
+We'll go over an exercise in Garbage Collection from the M18 midterm E01, p. 4.
 
-* Today we'll do standup meetings.
-* Then there is time to work on your projects.
-* I'll circulate
+* <https://ucsb-cs56-m18.github.io/exam/e01/cs56_m18_e01/>
+
+Reading on Garbage Collection:
+
+* <https://ucsb-cs56.github.io/topics/java_gc/>
+* <https://ucsb-cs56.github.io/topics/java_gc_under_the_hood/>
+
+Code: 
+
+* <https://github.com/UCSB-CS56-pconrad/java-garbage-collection-demo>
