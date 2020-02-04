@@ -51,7 +51,7 @@ Your starter code will be your <tt>{{page.prev_num}}</tt> repo, with a small num
 Pull from your <tt>{{page.prev_num}}</tt> repo into your <tt>{{page.num}}</tt> repo, and then push to github.
 
 
-<tt>git pull {{page.prev_num}} master</tt>
+<tt>git pull {{page.prev_num}} master</tt><br />
 <tt>git push origin master</tt>
   
 
@@ -66,11 +66,11 @@ proper spots.  In that repo, <{{page.starter_repo}}>, you'll find these files:
 
 | File | Where to copy it in your {{page.num}} repo |
 |------|----------|
-| `.gitignore` | root of repo |
-| `pom.xml` | root of repo |
 | `Menu.java` | `src/main/java/edu/ucsb/cs56/pconrad/menuitem` |
 | `MenuTest.java` | `src/test/java/edu/ucsb/cs56/pconrad/menuitem` |
-| `site.xml` | `src/site` (you may need to create this directory) |
+
+It is **important** that you copy `Menu.java` under <tt>src/<b>main</b>/java/...</tt> and `MenuTest.java` under  <tt>src/<b>test</b>/java/...</tt>&mdash;if you don't, you'll have trouble compiling the test code.  You'll get errors
+saying that `org.junit` is not defined, etc.    So pay attention to this detail.
 
 To copy these to their proper spots, you could do any of the following.  How you get the file there is up to you.   At this point, you will be expected to have the skills to do that, but if you need some suggestions, here you go:
 
@@ -86,13 +86,14 @@ To copy these to their proper spots, you could do any of the following.  How you
 In the previous lab, {{page.prev_num}}, you implemented several methods of a class called `MenuItem` that represents
 item on a restaurant Menu.   Now, we will implement the `Menu` class.   The details about the `Menu` class appear below.
 
-Ideally, we'd need to discuss sorting, `java.lang.Comparable`, `java.util.Comparator`, 
-and Java lambda expressions in lecture first; instead, here is a link to some materials you can read to learn what you need to know:
+In lecture, we recently discussed `java.lang.Comparable`, `java.util.Comparator`, 
+and Java lambda expressions.  You'll need that information.  If you missed it, read this article, which outlines
+what we covered:
+
 * <https://ucsb-cs56-pconrad.github.io/topics/java_sorting/>
 
 
-
-Just like last week, note that the starter code:
+Just like in the previous lab ({{page.prev_num}}), note that the starter code:
 * Has stubs for SOME of the needed methods, but NOT ALL of them
 * Has unit tests for SOME of the needed methods, but NOT ALL of them
 
