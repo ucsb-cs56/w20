@@ -98,7 +98,20 @@ Just like in the previous lab ({{page.prev_num}}), note that the starter code:
 * Has unit tests for SOME of the needed methods, but NOT ALL of them
 
 I suggest that you work in this order:
-* <b>First, Add stubs for all of the methods that don't have them yet.</b>  
+* **First**, look over the test code in `MenuTest.java`
+   * Understand what the tests are doing.
+   * Compare this with the list of methods that you are supposed to implement in this lab description.
+   * Pay attention especially to this line of code:
+     ```java
+         private String nl = System.lineSeparator();
+     ```
+    
+     This defines `nl` as the *line separator*, i.e. the character(s) that occur(s) between new lines.  As it turns out,
+     this is *system dependent* (it may be different on Mac, Windows and Unix.).  So it is important to implement line
+     breaks between items in
+     the same way that they are going to be tested.  
+  
+* **Then, Add stubs in `Menu.java` for all of the methods that don't have them yet.**  
    * Until you do this, you won't be able to run any of the instructor unit tests on Gradescope.
    * The reasons is that the instructor tests won't compile against your code unless and until you have those methods.
 * <b>Then, try submitting on Gradescope</b>
