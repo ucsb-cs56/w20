@@ -45,8 +45,8 @@ If you are working on your own machine, revisit {{page.prev}} for software that 
 
 Create a new repo
 * UNDER the organization <tt>{{page.github_org}}</tt>
-* cal`lab06-githubid` 
-* private 
+* call it `lab06-githubid` 
+* make it **private**
 * initially **empty** (no `README.md`, no `.gitignore`, no license)
 
 Clone that repo somewhere and cd into.
@@ -64,8 +64,7 @@ git push origin master
 
 # Step 2: Get OAuth working on Localhost
 
-
-1.  You *must first* configure a GitHub OAuth app for http://localhost:8080 and obtain the client-id and client-secret.
+1.  You *must first* configure a GitHub OAuth app for <http://localhost:8080> and obtain the client-id and client-secret.
 
     Follow the instructions here: <https://ucsb-cs56.github.io/topics/oauth_github_setup>.
 
@@ -103,7 +102,7 @@ To run on Heroku, you must go BACK to GitHub and set up a DIFFERENT client id an
 localhost.
 
 
-1.  Go to the heroku.com dashboard and create a new Heroku app with the name `cs56-w20-lab06-githubid`, replacing `github` with your
+1.  Go to the heroku.com dashboard and create a new Heroku app with the name <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>, replacing `github` with your
     github id.
 
     If that name is too long, abbreviate as needed. 
