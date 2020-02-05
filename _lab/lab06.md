@@ -131,6 +131,8 @@ localhost.
     
     <tt>./setHerokuEnv.py --app cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>
     
+    * Note that it may be difficult to read, but <tt>--app</tt> is two hyphens followed by <tt>app</tt>
+    * You can also just use <tt>-a</tt> which is a single hyphen followed by the letter <tt>a</tt>
 
     You should now be able to go to the Heroku Dashboard for your app online, e.g. this link (replacing 
     <tt>app-name-here</tt> with your appname, e.g. <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>)
