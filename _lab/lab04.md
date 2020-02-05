@@ -40,7 +40,7 @@ Otherwise, revisit step 0 of lab02, and install the software mentioned there.
 Create a new repo that is:
 * is in the GitHub organization <tt>{{page.github_org}}</tt>
 * has name <tt>{{page.num}}-<i>githubid</i></tt> where <tt><i>github</i></tt> is your github id
-* is public 
+* is <s>public</s> **private** (Sorry, this was a typo!)
 * is initially empty, i.e. no README.md, no `.gitignore`, no license
 
 Clone that repo somewhere and cd into it.
