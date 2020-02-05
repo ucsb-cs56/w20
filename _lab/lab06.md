@@ -41,15 +41,17 @@ See {{page.prev}} for information about Heroku.
 If you are working on your own machine, revisit {{page.prev}} for software that you will need on your machine (Maven and the Heroku CLI).
 
 
-# Step 1: Create an empty PUBLIC repo called `lab06-githubid`
+# Step 1: Create your repo
 
-Create an empty PUBLIC repo called `lab06-githubid` UNDER the organization <tt>{{page.github_org}}</tt>.
-* Initially, no README.md, no `.gitignore`, no license
+Create a new repo
+* UNDER the organization <tt>{{page.github_org}}</tt>
+* cal`lab06-githubid` 
+* private 
+* initially **empty** (no `README.md`, no `.gitignore`, no license)
 
 Clone that repo somewhere and cd into.
 
 Then add this remote:
-
 
 <tt>git remote add starter {{page.starter}}</tt>
 
@@ -57,6 +59,7 @@ Then do:
 
 ```
 git pull starter master
+git push origin master
 ```
 
 # Step 2: Get OAuth working on Localhost
@@ -74,7 +77,7 @@ Follow these instructions.
 
 # Step 4: Submitting your work for grading
 
-When you have a running web app, visit <{{page.gauchospace_url}}> and make a submission.
+When you have a running web app that you can login to and logout from, visit <{{page.gauchospace_url}}> and make a submission.
 
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
