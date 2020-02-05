@@ -23,7 +23,7 @@ NOT READY YET!!!
 
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab06
+Look here for formatted version: http://ucsb-cs56.github.io/w20/lab/lab06
 </div>
 
 This is an **individual** lab on the topic of Java web apps on Heroku.
