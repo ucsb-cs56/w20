@@ -8,7 +8,7 @@ assigned: 2020-02-05 12:30
 due: 2019-02-13 23:59
 due2: 2019-02-13 23:59
 github_org: "ucsb-cs56-w20"
-gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=3183791&forceview=1"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=3183791"
 starter: "https://github.com/ucsb-cs56-w20/STARTER_lab06"
 prev: lab02
 ---
