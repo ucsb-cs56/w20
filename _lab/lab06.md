@@ -102,20 +102,21 @@ To run on Heroku, you must go BACK to GitHub and set up a DIFFERENT client id an
 localhost.
 
 
-1.  Go to the heroku.com dashboard and create a new Heroku app with the name <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>, replacing `github` with your
+1.  Go to the heroku.com dashboard and create a new Heroku app with the name 
+    <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>, replacing <tt><i>githubid</i></tt> with your
     github id.
 
     If that name is too long, abbreviate as needed. 
 
-1.  Now you must create an GitHub OAuth app for `https://cs56-w20-lab06-githubid.herokuapp.com` and obtain the client-id and client-secret.
+1.  Now you must create an GitHub OAuth app for <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i>.herokuapp.com</tt> and obtain the client-id and client-secret.
 
     Follow the instructions here: <https://ucsb-cs56.github.io/topics/oauth_github_setup>.
 
-    In the urls below, substitute your actual Heroku app name in place of `cs56-w20-lab06-githubid`&mdash;if you shortened it in the step above,
+    In the urls below, substitute your actual Heroku app name in place of <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>&mdash;if you shortened it in the step above,
     you need to be sure that what you put in matches your shortened name.  Do not literally put in `githubid`.
   
-    * For the application url, use <https://cs56-w20-lab06-githubid.herokuapp.com>
-    * For the callback url, also use <https://cs56-w20-lab06-githubid.herokuapp.com>
+    * For the application url, use <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i>.herokuapp.com</tt>
+    * For the callback url, also use <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i>.herokuapp.com</tt>
     * Note that on Heroku, you typically need use `https` not `http`
      
 2.  You must then copy the file `heroku.json.SAMPLE` to the file `heroku.json`.
@@ -135,14 +136,16 @@ localhost.
 
     The name of the Heroku app should match yours (e.g. change `githubid` to your githubid)
 
-    ```
-    ./setHerokuEnv.py --app cs56-w20-lab06-githubid
-    ```
+    
+    <tt>./setHerokuEnv.py --app cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>
+    
 
-    You should now be able to go to the Heroku Dashboard for your app online, e.g. this link (replacing `githubid` with yours)
+    You should now be able to go to the Heroku Dashboard for your app online, e.g. this link (replacing 
+    <tt>app-name-here</tt> with your appname, e.g. <tt>cs56-{{site.qxx}}-{{page.num}}-<i>githubid</i></tt>)
 
-    * <https://dashboard.heroku.com/apps/cs56-w20-lab06-githubid/settings>
- Click "Reveal Config Vars".   You should see a configuration variable called `SPRING_APPLICATION_JSON` that contains
+    * <https://dashboard.heroku.com/apps/app-name-here/settings>
+      
+    Click "Reveal Config Vars".   You should see a configuration variable called `SPRING_APPLICATION_JSON` that contains
     the values that you entered for client id and client secret (i.e the contents of `heroku.json`).
     
 
@@ -152,11 +155,11 @@ localhost.
 
 
 If you get all of that running, you are done with lab06, with the exception of doing some documentation on your links on Gauchospace (as you did for lab02.)
+
 Lab06 only requires you to get this up and running on Heroku and gets you used to
 configuring an OAuth app.
 
-
-
+The next Spring Boot labs will move us into working with APIs and creating database tables.
 
 # Step 4: Submitting your work for grading
 
