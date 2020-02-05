@@ -13,7 +13,7 @@ pdfurl:
 
 # Finish up Garbage Collection
 
-# Talk about Continuous Integration / Continuous Development (CI/CD)
+# Talk about Continuous Integration / Continuous Delivery (CI/CD)
 
 * Automated testing
 * Systems such as Travis-CI, CircleCI, Github Actions
