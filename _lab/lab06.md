@@ -1,25 +1,17 @@
 ---
 layout: lab
 num: lab06
-ready: false
+ready: true
 desc: "Spring Boot OAuth Hello World"
-assigned: 2019-10-31 17:00
-due: 2019-11-05 23:59
+assigned2: 2020-02-04 17:00
+assigned: 2020-02-05 12:30
+due: 2019-02-13 23:59
+due2: 2019-02-13 23:59
 github_org: "ucsb-cs56-w20"
 gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=TBD"
 starter: "https://github.com/ucsb-cs56-w20/STARTER_lab06"
 prev: lab02
 ---
-
-NOT READY YET!!!
-
-NOT READY YET!!!
-
-NOT READY YET!!!
-
-NOT READY YET!!!
-
-NOT READY YET!!!
 
 
 <div style="display:none" >
