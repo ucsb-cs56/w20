@@ -1,54 +1,24 @@
 ---
 assigned: 2020-02-18 17:00
-desc: Spring Boot Skills
+desc: "Spring Boot Skills, Part 1"
 due: 2020-02-24 23:59
-gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=2786079&forceview=1
-github_org: ucsb-cs56-f19
+gauchospace_url: tbd
+github_org: ucsb-cs56-w20
 labnum: lab07
 layout: lab
 num: lab07a
 org: ucsb-cs56-f19
 prev: lab06
 ready: false
-starter: https://github.com/ucsb-cs56-f19/STARTER-lab07
+starter: https://github.com/ucsb-cs56-w20/STARTER_lab07
 
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/lab07a
+    <p>Look here for formatted version: http://ucsb-cs56.github.io/w20/labWIP/lab07a</p>
+    <p>Look here for formatted version: http://ucsb-cs56.github.io/w20/lab/lab07a</p>
 </div>
 
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-A few updates if you are having trouble getting the app running on Heroku.  
-
-We added two items to Step&nbsp;5.
-
-<div style="text-align:left;" markdown="1">
-
-1.  You need to copy a file called `system.properties` from the starter repo into the root directory.  See the
-    instructions for Step&nbsp;5b for details.  This is needed for running Java&nbsp;11 on Heroku.
-    
-2.  For the 5pm and 6pm labs, there was an error in `pom.xml` at line 186.  (It was fixed before the 7pm lab started).
-
-    Check what you have on line 186 to make sure you have the correct version:
-    
-    | WRONG: | `<mainClass>edu.ucsb.cs56.pconrad.menuitem.MenuItem</mainClass>` |
-    | CORRECT: | `<mainClass>hello.Application</mainClass>` 
-
-</div>
-
-</div>
-
-This lab builds on your work from {{page.prev}}.
-
-# What if I didn't finish {{page.prev}}
-
-If you were not successful in completing {{page.prev}}, you should go
-back and complete any unfinished steps from {{page.prev}} first.  You
-will get partial credit for this lab simply for doing the unfinished
-steps from {{page.prev}}, even if you missed the deadline for
-{{page.prev}}
 
 # Individual lab
 
@@ -60,13 +30,6 @@ You may cooperate with one or more pair partners from your team to help in debug
 # Goals
 
 You will learn:
-
-*  How to set up a repo for automated testing with Travis-CI.  This
-   kind of automated testing is called "continuous integration".
-
-*  You'll make a few simple changes to static HTML, along with unit
-   tests for those changes.   In the process you'll learn about making
-   clean git commits that combine tests and changes.
 
 *  You'll then add an HTML form using Thymeleaf that can gather some
    information from a user, and echo back that information on another page.
@@ -92,52 +55,21 @@ so that you can get the big picture before you start.
    We are making the repo public so that we can set up Travis-CI; the
    free tier requires the repo to be public.
 
-2. We'll then add a remote for our code from {{page.prev}}, and pull in that
-   code as our starting point.
+2. We'll then add a remote the starter code.
 
-3. We'll next see that when we type `mvn test`
-   some of the unit tests in the starter
-   code are not passing.   
-   
-   We'll create a bug fix branch in which
-   we make the necessary changes to fix this.
+3. We'll then get the app running on both localhost and Heroku.  We'll have to set up 
+   OAuth as we did in 
+   {{prev.num}}, but this time instead of GitHub, we are setting up OAuth for Google.
 
-   We'll then do a pull request on that branch.
-
-   Finally, we'll merge that branch into master.
-
-4. Next, now that our test cases are passing,
-   we'll set up the javadoc, website, and jacoco report, and publish it
-   to github pages on the master branch.
-
-5. We'll then get the app running on both localhost and Heroku as we did for
-   {{prev.num}}.  For `localhost`, this should be straightforward; we can reuse the
-   localhost credentials from {{prev.num}}.  For Heroku, we'll have to create a new
-   Github OAuth client id and client secret, since the Heroku URL will have
-   changed.
-
-That's all we'll do in lab07a.  However, we'll continue with this same code in lab07b.  Lab07b will have these additional steps:
-
-6. We'll then set up the repo for Travis-CI.   This allows us to ensure
-   that all of the test cases are run automatically each time we
-   do a pull request from a branch.
-
-7. We'll then create a feature branch with
+4. We'll now create feature branch with:
 
    ```
-    git checkout -b branchName
-   ``` 
-   to make some small, simple changes to the static HTML along
-   with writing test cases for those changes.  In the process we'll discuss
-   writing good commit messages, making frequent small commits,
-   and combining changes with the test cases
-   for those changes in single commits.
+   git checkout -b abBranchName
+   ```
 
-   We'll finish this step by doing a pull request for that branch,
-   and then merging it into master.
-
-8. We'll now create a second branch for creating a form.
-
+   where `ab` is your initials, and `branchName` describes what you are going to do 
+   on the branch.
+   
    On this branch, we will create a simple HTML form using Thymeleaf.
 
    We'll need to add a controller method that routes the user to this form,
@@ -150,10 +82,10 @@ That's all we'll do in lab07a.  However, we'll continue with this same code in l
    useful in and of itself.  In the next step, we'll do something useful
    with that information.
 
-   This step will end with a second pull request.  You should then merge
+   This step will end with a pull request.  You should then merge
    that pull request into master.
 
-9. In this step, we'll make yet another 
+5. In this step, we'll make yet another 
    branch where we do something useful
    with the information on the results page.  We'll make a call to an API
    that provides information in JSON format.
@@ -163,12 +95,13 @@ That's all we'll do in lab07a.  However, we'll continue with this same code in l
    that is pleasing to an end user.   But we'll be able to see that we
    are making progress.
 
-10. In this final step, we'll learn how 
+6. In this final step, we'll learn how 
     to transform that JSON string into
     usable Java objects, and use those Java objects to put useful information
     on the page.
 
-    There will be one final pull request at this stage, and we'll be done.n
+    There will be one final pull request at this stage, and we'll be done with
+    lab07a.tttttttt
    
 # Step by step instructions (lab07a)
 
@@ -183,23 +116,20 @@ free tier requires the repo to be public.
 
 ## Step 2. Add remote for {{page.prev}}
 
-Now add a remote for the code from your {{page.prev}} repo:
+Now add a remote for the starer code.
 
-<tt markdown="1">git remote add {{page.prev}} git@github.com:{{page.org}}/{{page.prev}}-<i>githubid</i>.git</tt>
+<tt markdown="1">git remote add starter {{page.starter}}</tt>
 
 Then, to pull the code from your {{page.prev}}  work into this new repo, use:
 
-<tt markdown="1">git pull {{page.prev}} master</tt>
-
-Finally, to push this to github, do:
-
 ```
+git pull starter master
 git push origin master
 ```
 
 Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
 
-**Note:** you will need to copy `localhost.json`, `heroku.json`, and `env.sh` from your {{page.prev}} folder to the root directory of this lab, or recreate them as detailed in {{page.prev}}. Then you should run `source env.sh` in the root directory of this lab.
+
 
 
 ## Step 3: Fixing tests in a bug fix branch.
