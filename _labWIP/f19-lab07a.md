@@ -101,7 +101,7 @@ so that you can get the big picture before you start.
     on the page.
 
     There will be one final pull request at this stage, and we'll be done with
-    lab07a.tttttttt
+    lab07a.
    
 # Step by step instructions (lab07a)
 
@@ -130,371 +130,64 @@ git push origin master
 Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
 
 
-
-
-## Step 3: Fixing tests in a bug fix branch.
-
-### Step 3a: Seeing that there are test failures
-
-
-Now, type `mvn test`.  You'll see that there
-are some test failures.
-
-We are going to create a separate branch
-in github in which we fix those problems,
-and then we'll do a pull request to merge that
-branch into master.
-
-### Step 3b: Pull from master
-
-Now, to be sure you have the latest code (in case you changed anything on another computer, or on github), do this in your terminal before proceeding:
-
-```
-git pull origin master
-```
-### Step 3c: Create a feature branch
-
-We will now create a feature branch. The first two letters should be your initials, e.g. `pc`, `ab`, etc.  
-
-The rest should be `fixFailingTests`.  So the branch name will be something like `pcFixFailingTests` or `abFixFailingTests`.
-
-Type this (but not literally `xx` unless your first and last name both start with `x`)
-
-```
-git checkout -b xxFixFailingTests
-```
-
-### Step 3d: Fix the tests
-
-Now we are ready to look at the code that needs to be fixed.
-
-Running `mvn test` shows us two tests that are failing:
-
-```
-HomePageTest.getHomePage_BootstrapLoaded:43 Status expected:<200> but was:<302>
-[ERROR]   HomePageTest.getHomePage_hasCorrectTitle:54 XPath //title expected:<Getting Started: Serving Web Content> but was:<Title of your page goes here>
-```
-
-Let's tackle these one at a time.
-
-First, open up the file `src/test/java/hello/HomePageTest.java` and look for the method `getHomePage_hasCorrectTitle` at line `54`.
-
-Notice that this comes directly from the test failure message.  JUnit test output may look very messy at first, but when you learn how to read it, you can find exactly where to go in the code to fix a problem.
-
-What we see is that this test is looking for the `<title>` element on the home page (i.e. `/`).
-
-It is looking for that to be the value 
-```
-Getting Started: Serving Web Content
-```
-
-But what it is finding instead is:
-
-```
-Title of your page goes here
-```
-
-Neither of those, however, is really a good title for our page.  Let's change the test so that it is looking for:
-
-```
-CS56 Spring Boot Practice App
-```
-
-After making this change, run the test again with , and it should fail again, but with the message that it was expecting `"CS56 Spring Boot Practice App"` and it got instead `"Getting Started: Serving Web Content"`.
-
-Now, we need to find the actual place in the code that has the content `Title of your page goes here`.  Note that when we search for it, we should NOT include the `""`, since those might or might not be part of the code; it depends on where that value is coming from (HTML code, JavaScript code, Thymeleaf template, or Java code).
-
-If you are using a IDE that allows you to search across multiple files, you can use that to search for the string.  However, if you don't know how to do that, it is handy to know this Unix trick you can use at command line.
-
-```
-mvn clean
-grep -r "Title of your page goes here" .
-```
-
-The `grep -r` command recursively searches a directory for a string.  The `""` here are not part of what is being searched for; they tell the Unix shell that `"Title of your page here"` is one argument to `grep`.   The `.` signifies the curent directory.
-
-Here's the output I got:
-
-```
-pconrad$ grep -r "Title of your page goes here" .
-./src/main/resources/templates/page1.html:    <title>Title of your page goes here</title>
-./src/main/resources/templates/index.html:    <title>Title of your page goes here</title>
-./src/main/resources/templates/page2.html:    <title>Title of your page goes here</title>
-pconrad$
-``` 
-
-We can see that this string appears in three files, all of them `html` files under `src/main/resourcs/templates`.  The one we want is `index.html`, since that is the home page of the application.
-
-Side note: I do a `mvn clean` first before I do the `grep -r`.  That's because if I don't, the `grep -r` will also search my `target` directory and come up with many distracting false hits.  The `mvn clean` gets rid of the `target` directory. (It will come back each time I use `mvn` commands to build my project.)
-
-Now, back to coding: change the `<title>` element in `index.html` to the string in our test.
-
-It should look like this (probably on line 4):
-
-```
-<title>CS56 Spring Boot Practice App</title>
-```
-
-Re-run `mvn test`.  The test should now pass.  
-
-### Step 3e: Commit the changes
-
-So, now that the tests are passing, we'll do a commit with a commit message, where `xx` is replaced by your initials:
-
-```
-git commit -m "xx - fix failing test for title element on home page"
-```
-
-Then, do this (remembering to replace `xx` with your initials for branch name:)
-
-```
-git push origin xxFixFailingTests -u
-```
-
-The `-u` specifies the `upstream` for `git`.  It makes that remote (`origin`) and branch (`xxFixFailingTests`) the default for `git push` unless and until you change the `upstream` to something else.  This is handy if you are going to be doing many commits in a row on the same branch.
-
-We are now going to tackle the other failing test.
-
-The message on this one is:
-```
-HomePageTest.getHomePage_BootstrapLoaded:43 Status expected:<200> but was:<302>
-```
-
-The status code here refers to an HTTP status code.  Each time we make a web request, if we get back a response, that response contains a status code.   
-
-The status code `200` is we get back a reponse  `200`, which signifies `OK`, i.e a normal successful completion of the request.
-
-What we got instead was `302`, which signifies `Found`.   This is used when a URL is being redirected to another URL.   
-
-This is typically a symptom that we are trying to access a page that requires authentication without being authenticated yet.    However, note that this test is supposed to be access the home page, which typically does NOT require authentication.
-
-As it turns out, the test has a simple typo in it.  The test code looks like this:
-
-```
-@Test
-    public void getHomePage_BootstrapLoaded() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
-                .andExpect(xpath(BootstrapLiterals.bootstrapCSSXpath).exists());
-        for (String s: BootstrapLiterals.bootstrapJSurls) {
-            String jsXPath = String.format("//script[@src='%s']",s);
-            mvc.perform(MockMvcRequestBuilders.get("/greeting").accept(MediaType.TEXT_HTML))
-              .andExpect(status().isOk())
-              .andExpect(xpath(jsXPath).exists());
-        }
-    }
-```
-
-What is happening here is that the test is trying to load the home page (`get("/")`) and then it makes sure that the page loads ok.
-
-It then tries to ensure that the CSS file for Bootstrap loaded ok.
-
-Finally, it checks that three different JavaScript files loaded ok; it does that in a loop.  But here, we find the typo: 
-
-```
-MockMvcRequestBuilders.get("/greeting")
-```
-
-That is trying to access the page `/greeting` which is a page that doesn't even exist in the web app anymore!   Instead, that call should read:
-
-```
-MockMvcRequestBuilders.get("/")
-```
-
-Note: the part that comes before and after should remain unchanged, so the entire line after the change should read:
-
-```
-mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
-```
-
-Make this change.  Then try running `mvn test` again.  
-
-Note: If the tests don't pass because of a "compilation problem" where the class `BootstrapLiterals` cannot be found, try doing
-`mvn clean test` instead.  This cleans out all of the old compiled code  before running the test; it's equivalent to doing:
-
-```
-mvn clean
-mvn test
-```
-
-I have found that sometimes if you get compilation problems, doing a `mvn clean` makes them go away.  Not always; sometimes you really did miss a semicolon or something.  But if it's saying that a given class is not there, when it clearly is, sometimes it's just confused, and a fresh compile fixes things.
-
-At this point, you should have a clean `mvn test` run.  If so, commit your second change to `HomePageTest.java` (remember, your initials, not `xx`)
-
-```
-git add src/test/java/hello/HomePageTest.java
-git commit -m "xx - fix typo in test cases for bootstrap"
-git push 
-```
-
-### Step 3f: Pull Request
-
-You should now be ready to do a pull request from this branch to master.
-
-You can do this by going to the pull request menu on github.com for your repo.
-
-Here's what a PR should look like for this branch:
-
-![]({{'/lab/lab07a/newpr-01-30.png' | relative_url }})
-
-Create the pull request.
-
-Then merge the pull request into the master branch.   You do this on the Github website by clicking the green "Merge" button.
-
-After you do that, at the command line, do this:
-
-```
-git checkout master
-git pull origin master
-```
-
-This should pull the changes into the master branch on your local repo.  Try running `mvn clean test` again to be sure.
-
-Then you are ready for the next step.
-
-## Step 4: javadoc, jacoco, website
-
-We'll set up the javadoc, website, and jacoco report next, and publish it to github pages on the master branch.
-
-### Step 4a: Fix some javadoc problems
-
-First, though, we'll have to fix some Javadoc issues.  In this case, we'll work directly on the master branch, because we want to be able to see the javadoc publish on github pages.  This is a rare exception to our general rule of working only on feature or bug fix branches.
-
-Start by running the command `mvn javadoc:javadoc`.
-
-You'll see that there are some issues in the file `src/main/java/hello/MembershipService.java`.
-
-In particular, a few methods have javadoc comments that lack the `@param` and `@return` items.  We'll fix that.  I'll show you how to do the first one, and you'll figure out how to do the other two.
-
-Change the javadoc for the `isMember` function from:
-
-```
- /** is current logged in user a member but NOT an admin
-     * of the github org */
-```
-
-To:
-
-```
-   /** check membership
-     * @param oAuth2AuthenticationToken oauth token 
-     * @return is current logged in user a member but NOT an admin of the github org?
-     * */
-```
-
-Make similar changes for the next two methods, as well as the `hasRole` method in `/src/main/java/hello/GithubOrgMembershipService.java`
-
-Then run `mvn javadoc:javadoc`, and you should
-see a clean run.
-
-Commit this change with an appropriate commit message.
-
-### Step 4b: Fix the pom.xml
-
-Next, we'll need to make a change to the `pom.xml` so that deploying the website works properly.
-
-In the repo <{{page.starter}}> there is a `pom.xml` that you should copy into your repo, replacing the current `pom.xml`.   
-
-Next, create a directory called `src/site` and copy the file `site.xml` from <{{page.starter}}>  into `src/site/site.xml`.  
-
-Then commit these changes (the new `pom.xml` and the new `src/site/site.xml`)
-
-### Step 4c: Generate Jacoco Report
-
-
-Next, run these commands:
-
-```
-mvn javadoc:javadoc
-mvn test
-mvn jacoco:report
-mvn site
-mvn site:deploy
-git add docs
-```
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-An update:
-
-<div style="text-align:left;" markdown="1">
-
-Note: You can also do this step, which was NOT in the original instructions for lab07a when published.
-
-```
-mvn javadoc:test-javadoc
-mvn site:deploy
-git add docs
-```
-
-That should fix the problem that the link to `Javadoc (test code)` is a dead link.  Since this wasn't part of the original instructions, we will not check that link when grading {{page.num}}
-
-</div>
-</div>
-
-Then do a `git status`.  You should see under the `docs` directory that you now have an `index.html` file as well as a subdirectory for `apidocs` and a subdirectory for `jacoco`.   
-
-### Step 4d: Commit docs directory to master branch
-
-
-Use these commands to push these changes to github pages:
-
-```
-git commit -m "add javadoc and jacoco report"
-git push origin master
-```
-
-### Step 4e: Set up GitHub pages
-
-
-Then, visit the settings page of your repo, i.e. 
-
-* <https://github.com/{{page.org}}/{{page.labnum}}-githubid/settings>
-
-Find the section where you turn on GitHub pages.  Turn this on, and then visit the page.  You should see a web page with links to your javadoc, and your jacoco report.  
-
-Make sure it works before moving on.  
-
-If it does, then do an additional commit where you add a link to the web page of your documentation into your README.md, i.e. a link to this URL (where githubid is replaced with yours)
-
-<https://ucsb-cs56-f19.github.io/lab07-githubid/>
-
-Commit this change to the master branch.
-
-
-## Step 5: Deploy app on localhost and heroku
+## Step 3: Deploy app on localhost and heroku
 
 Now, we'll get the app running on localhost first, then heroku.
 
-### Step 5a: Running on localhost
+### Step 3a: Running on localhost
 
-To get it running on localhost, copy the `localhost.json` from the directory where you worked on {{page.prev}} into your current directory.   You should be able to reuse the client-id and client-secret values, since you are still running on the same web address, i.e. `http://localhost:8080`.
+To get it running on localhost:
+1. Copy from `localhost.json.SAMPLE` to `localhost.json`.   
+2. Follow the instructions in the README.md to setup OAuth for Google, and put the correct values into the
+   `localhost.json` for client-id and client-secret.
+3. Type `source env.sh`
+4.  Type `mvn spring-boot:run` and see if you can access the web app, login, and logout.
 
-Type `mvn spring-boot:run` and see if you can access the web app, login, and logout.
+### Step 3b: Add yourself as an admin in `application.properties`
 
+As shown in lecture, the file `src/main/resources/application.properties` has this line of code:
 
-### Step 5b: Running on Heroku
+```
+app.admin.emails=phtcon@ucsb.edu,scottpchow@ucsb.edu,zsisco@ucsb.edu,pingyuan@ucsb.edu
+```
+
+This is a comma-separated list of emails of users that are designated as admins in the app.  Add your email to this list (leaving the emails for your instructor and TAs intact).
+
+Then restart the app, login again, and see if you are now an admin user.  You should be able to see the Admin and User menus.
+
+Commit this change with an appropriate commit message, e.g.
+
+```
+git commit -m "cg - added my email to app.admin.emails in application.properties
+```
+
+Push this change to the master branch.
+
+### Step 3c: Running on Heroku
 
 Next we'll try getting the app running on Heroku. 
 
-The first step is that we need to add one more file from the <{{page.starter}}> repo.  Copy the file `system.properties` from that repo into the root of your {{page.num}} repo.  This file contains one line:
+Create a new heroku app called `cs56-w20-lab07-githubid`
+
+That is, your app URL should be:
+
+`cs56-w20-lab07-githubid.herokuapp.com`.
+
+Link this with your Github Repo.
+
+You'll have to set up a new Google OAuth app.  You can find the instructions in the README.md for the starter code from {{page.prev}} which you copied into your current lab.    The client-id and client-secret have to be different, because the callback-url has to be different.
+
+Then, run the command
 
 ```
-java.runtime.version=11
+./setHerokuEnv.py -a cs56-w20-lab07-githubid
 ```
 
-According to [this article](https://devcenter.heroku.com/changelog-items/1489) this is needed if you are using Java 11 on Heroku (instead of Java 8).
+replacing `cs56-w20-lab07-githubid` with your app name.
 
-Then, following the same steps as you did in {{page.prev}}, get your app working on heroku, under the app name `cs56-f19-lab07-githubid`.
+You should then be able to deploy on heroku and get the app working.
 
 
-That is, your URL should be:
-
-`cs56-f19-lab07-githubid.herokuapp.com`.
-
-You'll have to set up a new Github OAuth app.  You can find the instructions in the README.md for the starter code from {{page.prev}} which you copied into your current lab.
-
-Once you have your app running on heroku, put the link to the running app in the README.md, commit this change with an appropriate commit message, and push that change to master.
 
 
 # Final Step: Submitting your work for grading
@@ -515,19 +208,10 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 # Grading Rubric:
 
-TBA.  It will be 100 points divided across the five steps in the lab.
+TBA.  It will be 100 points divided across the  steps in the lab.
 
 
 | Rubric Item | Points |
 |-------------|--------|
-| Clickable links on Gauchospace to repo and running Heroku app | 10 | 
-| Heroku app comes up ok | 10 |
-| OAuth works | 10 |
-| Title is `CS56 Spring Boot Practice App`           |  10  |
-| Test case for `CS56 Spring Boot Practice App`           |  10  |
-| There is a branch named `xxFixFailingTests`          |  10  |
-| There is a pull request for fixing the failing tests   |  10  |
-| The README.md has a link to the GitHub pages webpage   |  10  |
-| The GitHub pages webpage links to javadoc  |  10  |
-| The GitHub pages webpage links to jacoco report  |  10  |
+| All items TBA | 100 |
 
