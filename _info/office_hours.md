@@ -8,6 +8,8 @@ ready: true
 
 See this page for open lab times and locations: [Open Labs](https://open-lab-scheduler.herokuapp.com)
 
+Conrad's office hours are 3-5pm on Fridays in Phelps 2510, except 2/14.
+
 
 <style>
   iframe { width: 100%; height: 1000px; overflow: scroll; }  
