@@ -97,7 +97,7 @@ Then restart the app, login again, and see if you are now an admin user.  You sh
 Commit this change with an appropriate commit message, e.g.
 
 ```
-git commit -m "cg - added my email to app.admin.emails in application.properties
+git commit -m "cg - added my email to app.admin.emails in application.properties"
 ```
 
 Push this change to the master branch.
