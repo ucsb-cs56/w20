@@ -455,12 +455,19 @@ Do a `git log` command to be sure that you see all of those commits before proce
 
 ### Step 9b: Add an `EarthquakeQueryService` that generates fake data for now.
 
-For this step, we will use the idea that a commit can be more than just a way of organizing your
-changes to a project.   Rather walk you through the changes you need to make,
-I will refer you to a commit that shows you the changes needed.
+As we discussed in lecture, a commit can be more than just a way of organizing your
+changes to a project.  
+
+* **It can also serve as documentation of how to do something in the code**
+* It is a common industry practice to refer co-workers to a commit that documents a technique that they 
+  will then imitate in some other part of the code.
+* So Rather walk you through the changes you need to make, I will refer you to a commit that shows you the changes needed.
 
 That commit is here:
 * <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/pull/3/commits/4581f91f90cd03ef76a95970b55f2e2fb78d6461>
+
+Note that the `package` in this commit is different (`package hello`) vs. the package in your code base, but otherwise
+it is pretty much on point with what you need in your next step.
 
 In this commit, you see that:
 * There is a new file called `src/main/java/hello/EarthquakeQueryService.java`.  You should 
