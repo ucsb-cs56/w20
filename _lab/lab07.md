@@ -217,7 +217,8 @@ To be able to use this form we need:
 Thymeleaf and Spring Boot work with Java Beans to move form information around.  So we'll need to make a "Java Bean" class
 that corresponds to the information in our form.
 
-Make a new directory called `/src/main/java/edu/ucsb/cs56/w20/lab07/formbeans`
+Make a new directory called `src/main/java/edu/ucsb/cs56/w20/lab07/formbeans`
+* Hint: remember the `mkdir -p` command from earlier
 
 In that directory, create a Java class called `EqSearch.java`.
 
