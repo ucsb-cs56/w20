@@ -707,7 +707,7 @@ These two lines of code:
 You will need to add an import for `FeatureCollection` since it is in a different package:
 
 ```java
-import hello.geojson.FeatureCollection;
+import geojson.FeatureCollection;
 ```
 
 To see if it worked, we need to add some code in the view that uses this.   Inside `results.html`, we'll add
