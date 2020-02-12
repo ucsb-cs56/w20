@@ -10,14 +10,7 @@ layout: default
 |[Mapache Search](https://github.com/ucsb-cs56-w20/mapache-search) | [mapache-search](https://mapache-search.herokuapp.com) | [mapache-search-qa](https://mapache-search-qa.herokuapp.com) | [PRs](https://github.com/ucsb-cs56-w20/mapache-search/pulls) |
 {:.table .table-sm .table-striped .table-bordered}
 
-# open-lab-scheduler W20 Epics
+# W20 Epics
 
-   
-
-
-# ucsb-courses-search W20 Epics
-
-
-
-# Mapache Search W20 Epics
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSSyXoAgSQFnivqHvXxTaLgQNosTU2NzuFsrCihr3Q3-Z-skYQxRKxdrfQ04nMvnB35UaDg2Rov9DXK/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 
