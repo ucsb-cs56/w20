@@ -166,26 +166,14 @@ For the UCSB campus location, we are using 34.4140°N, 119.8489°W as the latitu
 Under `src/main/resources/templates` make a folder called `earthquakes` so that you have:
 `src/main/resources/templates/earthquakes`.
 
-Copy the file `page1.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
+Copy the file `src/main/resouces/templates/index.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
 
-In `search.html`, replace this line of code:
-
-```html
-    <title>Title of your page goes here</title>
-```
-
-with this:
-
-```html
-    <title>Earthquake Search</title>
-```
+In `search.html`
 
 Find the part of the page that reads like this:
 
 ```html
-<h1>Page 1</h1>
-
-<p>This page is a placeholder.</p>
+ <p>This is the home page placeholder.</p>
 ```
 
 Replace it with this code, which is a heading and a Thymeleaf form:
@@ -206,16 +194,21 @@ Replace it with this code, which is a heading and a Thymeleaf form:
             </table>
 
             <input type="submit" class="btn btn-primary" value="Search">
-        </form>
+</form>
 ```
 
-## Step 8: Adding the form
+## Step 8: Making the form work
 
-Thymeleaf and Spring Boot work with Java Beans to move form information around.
+To be able to use this form we need:
 
-So we need a Java Bean that corresponds to this form.
+* a Java Bean that corresponds to this form 
+* a Controller to route to this form
+* a menu item to get to the form
 
 ### Step 8a: Add a bean that corresponds to the form
+
+Thymeleaf and Spring Boot work with Java Beans to move form information around.  So we'll need to make a "Java Bean" class
+that corresponds to the information in our form.
 
 Make a new directory called `/src/main/java/edu/ucsb/cs56/w20/lab07/formbeans`
 
