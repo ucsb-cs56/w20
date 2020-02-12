@@ -45,9 +45,9 @@ Throughout, most of the steps will be pretty cookbook.   You'll be walked throug
 
 # Step by step instructions (lab07a)
 
-## Step 1: New empty public repo
+## Step 1: New empty <s>public</s> private repo
 
-We will start with a new, empty, public repo called:
+We will start with a new, empty, <s>public</s> private repo called:
 
 * <tt>{{page.labnum}}-githubid</tt>.
 
