@@ -42,66 +42,7 @@ You will learn:
 
 Throughout, most of the steps will be pretty cookbook.   You'll be walked through most of what you need to do.   These are skills though, that when you do this in the context of a project, you'll have to figure out for yourself.
 
-# How we will proceed
 
-Here is an overview of how the lab will go.  These are not the detailed
-instruction; those follow later on this web page.  This is just an outline
-so that you can get the big picture before you start.
-
-1. We will start with a new, empty, public repo called:
-
-   * <tt>{{page.labnum}}-githubid</tt>.
-
-   We are making the repo public so that we can set up Travis-CI; the
-   free tier requires the repo to be public.
-
-2. We'll then add a remote the starter code.
-
-3. We'll then get the app running on both localhost and Heroku.  We'll have to set up 
-   OAuth as we did in 
-   {{prev.num}}, but this time instead of GitHub, we are setting up OAuth for Google.
-
-4. We'll now create feature branch to add a form for location search to the app.
-
-   ```
-   git checkout -b abLocationSearch
-   ```
-
-   where `ab` is your initials, and `LocationSearch` describes what you are going to do 
-   on the branch.  Use your own initials, not `ab` (unless your initials literally *are* `ab`).
-   
-   On this branch, we will create a simple HTML form using Thymeleaf.
-
-   We'll need to add a controller method that routes the user to this form,
-   and be sure that a link on the navigation menu routes to this page.
-
-   That page will gather some information from the user, and then
-   echo that information back on a second "results" page.
-
-   This is an intermediate step; echoing the information back is not
-   useful in and of itself.  In the next step, we'll do something useful
-   with that information.
-
-   This step will end with a pull request.  You should then merge
-   that pull request into master.
-
-5. In this step, we'll make yet another 
-   branch where we do something useful
-   with the information on the results page.  We'll make a call to an API
-   that provides information in JSON format.
-
-   In this step we'll only
-   echo that JSON information on the page; it won't yet be in a format
-   that is pleasing to an end user.   But we'll be able to see that we
-   are making progress.
-
-6. In this final step, we'll learn how 
-    to transform that JSON string into
-    usable Java objects, and use those Java objects to put useful information
-    on the page.
-
-    There will be one final pull request at this stage, and we'll be done with
-    lab07a.
    
 # Step by step instructions (lab07a)
 
@@ -130,11 +71,10 @@ git push origin master
 Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
 
 
-## Step 3: Deploy app on localhost and heroku
+## Step 3: Deploy on Localhost
 
-Now, we'll get the app running on localhost first, then heroku.
+Now, we'll get the app running on localhost.
 
-### Step 3a: Running on localhost
 
 To get it running on localhost:
 1. Copy from `localhost.json.SAMPLE` to `localhost.json`.   
@@ -143,7 +83,7 @@ To get it running on localhost:
 3. Type `source env.sh`
 4.  Type `mvn spring-boot:run` and see if you can access the web app, login, and logout.
 
-### Step 3b: Add yourself as an admin in `application.properties`
+## Step 4:  Add yourself as an admin in `application.properties`
 
 As shown in lecture, the file `src/main/resources/application.properties` has this line of code:
 
@@ -163,7 +103,7 @@ git commit -m "cg - added my email to app.admin.emails in application.properties
 
 Push this change to the master branch.
 
-### Step 3c: Running on Heroku
+## Step 5: Running on Heroku
 
 Next we'll try getting the app running on Heroku. 
 
@@ -188,12 +128,9 @@ replacing `cs56-w20-lab07-githubid` with your app name.
 You should then be able to deploy on heroku and get the app working.
 
 
-### FROM HERE
+## Step 6: Create a Feature Branch: `xxCreateForm`
 
-
-## Step 8: Next feature branch: `xxCreateForm`
-
-We'll now create a second branch for creating a form.
+We'll now create a feature branch for creating a form.
 
 Before we create the branch, we need to be sure we are working 
 with a fresh copy of master.  So do:
@@ -203,12 +140,14 @@ git checkout master
 git pull origin master
 ```
 
-### Step 8a: Next feature branch: `xxCreateForm`
-
-Then create a new branch called `xxCreateForm` (as always, `xx` should be your actual initials, not literally `xx`, unless your name
+Then, to create a feature branch, type this command, substituting your initials in place of `xx`.  `xx` should be your actual initials, not literally `xx`, unless your name
 is, for example, "Xavier Xie".)
 
-### Step 8b: Create the form
+```
+git checkout -b xxCreateForm`
+```
+
+## Step 7: Create the form
 
 On this branch, we will create a simple HTML form using Thymeleaf.
 
@@ -271,13 +210,23 @@ Replace it with this code, which is a heading and a Thymeleaf form:
         </form>
 ```
 
-### Step 8c: Add a bean that corresponds to the form
+## Step 8: Adding the form
 
 Thymeleaf and Spring Boot work with Java Beans to move form information around.
 
 So we need a Java Bean that corresponds to this form.
 
-Create a Java class in the same directory as your other Java code called EqSearch.java.
+### Step 8a: Add a bean that corresponds to the form
+
+Make a new directory called `/src/main/java/edu/ucsb/cs56/w20/lab07/formbeans`
+
+In that directory, create a Java class called `EqSearch.java`.
+
+At the top, the package should be:
+
+```
+package edu.ucsb.cs56.w20.lab07.formbeans;
+```
 
 It should be a plain old Java class with these private data members:
 
@@ -301,14 +250,13 @@ you follow the conventions strictly.  Everything has to match, or it just won't 
 For example, don't be tempted to use: `getMinMag` unless you are prepared to make that change everywhere in 
 all of the Thymeleaf and Java code, consistently.
 
-Finally, be sure this `EqSearch.java` file is in the same package as the rest of your code.   That package is currently `hello`.
-
-
-### Step 8d: Add a controller method for the form
+### Step 8b: Add a controller method for the form
 
 In order to be able to see this form in the webapp, we need a controller method for it.
 
-In the file `WebController.java`, add this code:
+Make a new controller class called `EarthquakesController.java` in the controllers directory.
+
+You'll want to have this controller method:
 
 ```java
  @GetMapping("/earthquakes/search")
@@ -329,58 +277,50 @@ This code says
    * The fields of that Bean must correspond to the fields in the form (`distance` and `minmag`).
 * The return value corresponds to the HTML template that we defined, without the trailing `.html`, i.e. `earthquakes/search.html` inside `src/main/resources/templates/`.
 
+You'll need to import the `EqSearch` object since it is in a different package.
+
 Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
 
-### Step 8e: Add a menu item that routes to the form.
+### Step 8c: Add a menu item that routes to the form.
 
 To make it easier to get to this form, we'll add a link to it to our navigation bar.
 
 In the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html` you should find this code:
 
 ```html
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li th:if="${isAdmin}" class="nav-item ">
+                <a class="nav-link" href="/users" id="navbarDropdown" role="button">
+                    Users
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/page1">Earthquake Search</a>
+            <li th:if="${isAdmin}" class="nav-item ">
+                <a class="nav-link" href="/admin" id="navbarDropdown" role="button">
+                    Admin
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/page2">Page 2</a>
-            </li>`
+        </ul>
+      
 ```
 
-This are three `<li>` elements (list items), each of which:
+This are two `<li>` elements (list items), each of which:
 * starts with `<li>` (the `li` open tag)
 * ends with `</li>` (the `li` close tag)
 
 In case we haven't mentioned it before: it is important to understand that an HTML element starts with an open tag, ends with a close tag, and everything in between is the elements "content".   
 
-What you'll be doing is modifying the `href` attribute on `<a>` element in the middle `<li>` so that the code looks like this:
+What you'll be doing is adding a new <li> element in front of the other two that looks like this:
 
 ```html
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/earthquakes/search">Earthquake Search</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/page2">Page 2</a>
-            </li>`
 ```
 
 Run this, and you should see that there is now a link on the navigation bar that takes you to your page.
 
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
 
-HINT: Remember that note at Step 7e about maybe needing to modify tests if/when you modify that navigation bar?
-
-You might want to try running `mvn test` right now, and if it's broken, see if you can fix it.  Just saying.
-
-</div>
-
-
-### Step 8f: Add a controller method for the form results.
+### Step 8d: Add a controller method for the form results.
 
 Now we need a controller method for displaying the results.
 
@@ -413,7 +353,7 @@ For now all we are doing is echoing back the information that the user entered. 
 
 That comment will be replace with code that actually goes out to the web to get information on earthquakes.  We'll retreive that information and add it to the model.   That will make it available in the view.
 
-### Step 8g: Add a view for the results page.
+### Step 8e: Add a view for the results page.
 
 The view page `results.html` will be very similar to the page `search.html`.  Create it in the same directory,
 i.e. `src/main/resources/templates/earthquakes`.   Start by copying all of the code from `search.html`. 
@@ -440,254 +380,9 @@ Now try running (you should restart), clicking on your `Earthquake Search` link 
 
 When you click the `Search` button, you should see the numbers echoed back to you.
 
-If that works, we are ready to add some tests.
+If that works, we are ready for a pull request.
 
-### Step 8h: Add tests
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-Note: This step has been updated. 
-
-<div style="text-align:left;" markdown="1">
-
-* You'll need to come back and apply these updates before submitting.
-* If you already submitted, no problem; but you still need to do this before the assignment deadline.   (Your links are still valid).
-* You may do so in a new branch and do a pull request, or directly on master.
-
-#### Why the update? 
-
-As it turns out, because this application is protected with OAuth login, we have to take that into account when writing
-unit tests for any endpoint other than the home page (`"/"`).
-
-Otherwise, you'll get a message such as: 
-
-```
-[ERROR]   EarthquakeSearchTest.getEarthquakeSearch:38 Status expected:<200> but was:<302>
-```
-
-The `200` is the expected `OK` status.  The `302` is status you get when the server is redirecting the client to another page, in this case the `"/login"` page.
-
-If you were getting that message, the new code here should fix that.  Together with the updates to step 6b, this should get you "green on CI", that is:
-* you should get a green check on your commits <svg aria-label="3 / 3 checks OK" class="octicon octicon-check" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill="#00FF00" fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
-* instead of a red X <svg aria-label="2 / 3 checks OK" class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill="#FF0000" fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
-
-</div>
-</div>
-
-Ideally, you write the tests first.  But it isn't always feasible, especially when you are learning a new framework.
-
-A thorough job of testing is a whole lab unto itself, so we'll just add a few small tests for now.   
-
-Let me stress it again: the code here in this step is *an inadequate job of testing* the code that we've added in this step.
-But it's at least a start.
-
-First, let's add a test that makes sure that there is indeed a page at the address `/earthquakes/search` and that we can
-retrieve that page without the server crashing.   To do that, we can use the following code, which we'll put into a file called `/src/test/java/hello/EarthquakeSearchTest.java`
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-UPDATE:
-
-<div style="text-align:left;" markdown="1">
-
-Replace the entire contents of `/src/test/java/hello/EarthquakeSearchTest.java` with this new version.
-
-</div>
-</div>
-
-```java
-package hello;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
-
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.junit.Before;
-
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
-
-
-@RunWith(SpringRunner.class)
-@WebMvcTest(WebController.class)
-public class EarthquakeSearchTest {
-
-    @Autowired
-    private MockMvc mvc;
-
-    @MockBean
-    private AuthControllerAdvice aca;
-
-    @MockBean
-    private ClientRegistrationRepository crr;
-
-    private OAuth2User principal;
-
-    /**
-     * Set up an OAuth mock user so that we can unit test protected endpoints
-     */
-    @Before
-    public void setUpUser() {
-        principal = OAuthUtils.createOAuth2User("Chris Gaucho", "cgaucho@example.com");
-    }
-
-    @Test
-    @WithMockUser
-    public void getEarthquakeSearch() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/earthquakes/search")
-            .with(authentication(OAuthUtils.getOauthAuthenticationFor(principal)))
-            .accept(MediaType.TEXT_HTML))
-            .andExpect(status().isOk())
-            .andExpect(xpath("//title").exists())
-            .andExpect(xpath("//title").string("Earthquake Search"));
-    }
-}
-```
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-UPDATE:
-
-<div style="text-align:left;" markdown="1">
-
-This is an entirely new file you should add to your project.
-
-</div>
-</div>
-
-We also need the following file, which you should put into `/src/test/java/hello/OAuthUtils.java`.  This file is adapted from code describing in [this article about testing OAuth secured Spring Boot Applications](https://medium.com/@mark.hoogenboom/testing-a-spring-boot-application-secured-by-oauth-e40d1e9a6f60) and that appears in [this repo](https://github.com/mark-hoogenboom/spring-boot-oauth-testing)
-
-```java
-package hello;
-
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
-import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
-import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.security.oauth2.core.user.OAuth2UserAuthority;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.HashSet;
-
-
-/**
- * Utility methods for testing OAuth protected endpoints.
- * <a href="https://github.com/mark-hoogenboom/spring-boot-oauth-testing">
- * https://github.com/mark-hoogenboom/spring-boot-oauth-testing
- * </a>
- */
-
-public class OAuthUtils {
-
-    public static OAuth2User createOAuth2User(String name, String email) {
-
-        Map<String, Object> authorityAttributes = new HashMap<>();
-        authorityAttributes.put("key", "value");
-
-        GrantedAuthority authority = new OAuth2UserAuthority(authorityAttributes);
-
-        Map<String, Object> attributes = new HashMap<>();
-        attributes.put("sub", "1234567890");
-        attributes.put("name", name);
-        attributes.put("email", email);
-
-        Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-        authorities.add(authority);
-
-        return new DefaultOAuth2User(authorities, attributes, "sub");
-    }
-
-    public static Authentication getOauthAuthenticationFor(OAuth2User principal) {
-
-        Collection<? extends GrantedAuthority> authorities = principal.getAuthorities();
-
-        String authorizedClientRegistrationId = "my-oauth-client";
-
-        return new OAuth2AuthenticationToken(principal, authorities, authorizedClientRegistrationId);
-    }
-}
-```
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-UPDATE:
-
-<div style="text-align:left;" markdown="1">
-
-You need this change to the `pom.xml`
-
-</div>
-</div>
-
-We also need a new depenedency in the `pom.xml`.  Add it into the `<dependencies>` section, in between two other `<dependency>` elements.
-
-```xml
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-```
-
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-UPDATE:
-
-<div style="text-align:left;" markdown="1">
-
-You need this change in `/src/main/resources/template/earthquakes/search.html` 
-
-</div>
-</div>
-
-Unless you started the lab very late, if you run the tests at this point with `mvn test`, you'll discover that they may still be failing, because one other change is needed.
-The reason is that the packages we are using to do unit tests on the HTML code are very picky about the formatting of the HTML.
-
-If you already created the form in `/src/main/resources/template/earthquakes/search.html` before the typos were fixed, your input elements are "not properly closed".  That is, they look like these:
-
-* `<td><input type="number" th:field="*{distance}" class="form-control" id="distance"></td>`
-* `<td><input type="number" th:field="*{minmag}" class="form-control" id="minmag"></td>`
-* `<input type="submit" class="btn btn-primary" value="Search">`
-
-However, they should look like this instead.  The change is subtle, but crucial.   While most web browsers just silently ignore the error, and everything looks fine, in fact, the HTML above is malformed.   The fix is to add a `/` just before the end of each `<input>` tag so that it becomes a "self-closing" element.
-
-* `<td><input type="number" th:field="*{distance}" class="form-control" id="distance" /></td>`
-* `<td><input type="number" th:field="*{minmag}" class="form-control" id="minmag" /></td>`
-* `<input type="submit" class="btn btn-primary" value="Search" />`
-
-Fix each of these typos in `/src/main/resources/template/earthquakes/search.html`
-
-At that point, your `mvn test` should return no test failures.  When that's true, do a commit.
-
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
-
-UPDATE:
-
-<div style="text-align:left;" markdown="1">
-
-Be sure that you commit and merge the changes above, and that it gets you "green on Travis-CI". 
-</div>
-</div>
-
-### Step 8i: Pull request
+### Step 8f: Pull request
 
 Do a pull request from your `xxCreateForm` branch into `master`.
 
@@ -719,7 +414,7 @@ made in the previous pull request for `xxCreateForm`.
 
 Do a `git log` command to be sure that you see all of those commits before proceeding.
 
-### Step 9b: Add an `EarthquakeQueryService` that generate fake data for now.
+### Step 9b: Add an `EarthquakeQueryService` that generates fake data for now.
 
 For this step, we will use the idea that a commit can be more than just a way of organizing your
 changes to a project.   Rather walk you through the changes you need to make,
@@ -801,9 +496,9 @@ on the page.
 
 ### Step 10a: Create object for the top level GeoJSON returned
 
-Under the directory `src/main/java/hello`, create a subdirectory called `geojson`.
+Under the directory `src/main/java/`, create a subdirectory called `geojson`.
 
-We will be putting the classes that represent the JSON objects into a package called `hello.geojson`.
+We will be putting the classes that represent the JSON objects into a package called `geojson`.
 
 Putting them into a separate package is a way of keeping them together, and keeping the code organized.
 
@@ -825,7 +520,7 @@ We are also, (perhaps controversially), initially going to just use public data 
 So, the Java class will look like this:
 
 ```java
-package hello.geojson;
+package geojson;
 
 public class FeatureCollection {
   public String type;
@@ -1023,7 +718,7 @@ So, for example, in our `FeatureCollection` object, the second key in the object
 We can create an class called `Metadata` in a file `src/main/java/hello/geojson/Metadata.java` with the appropriate fields of the appropriate types:
 
 ```java
-package hello.geojson;
+package geojson;
 
 public class Metadata {
   public long generated; // need a long for very large ints
@@ -1108,7 +803,7 @@ all of the properties, we are only going to put in the ones we have an immediate
 later as they are needed.  Put this in a file `Properties.java` under the `hello.geojson` package:
 
 ```java
-package hello.geojson;
+package geojson;
 
 public class Properties {
   public double mag;
@@ -1250,19 +945,7 @@ A few last cleanup items:
   and remove the first table.
 * On the opening `<table>` tags, change them to `<table class="table">`.  This will bring in the Boostrap CSS
   that makes the tables look much nicer.
-* Remove `Page 2` from the Navigation header (and `Page 1` if it is still there).  You don't have to remove the template files
-  and the controller methods; just remove the links to them in the file where the navigation header is 
-  defined.  (If you've forgotten how, look back at earlier steps.)
- 
-<div style="background-color: #fed; border: 4px inset #c00; font-size: 120%; width:80%; margin-left:auto;margin-right:auto;text-align:center;" markdown="1">
 
-HINT: Remember that note at Step 7e about maybe needing to modify tests if/when you modify that navigation bar?
-
-Removing  `Page 2` from the Navigation header counts.
-
-You might want to try running `mvn test` right now, and if it's broken, see if you can fix it.  Just saying.
-
-</div>
  
 Do a commit for these cleanup items.  
 
@@ -1272,45 +955,8 @@ Finally, do a pull request from the `xxJavaObjects` branch.
 
 Accept the pull request.  Then, you are almost done!
 
-# Step 11: A small fix to `application.properties`
-
-There is one final change to make (if you haven't done it already).
-
-The GitHub login/logout is supposed to show your status in the GitHub organization <tt>{{page.org}}</tt>, either
-as an `admin`, a `member` or a `guest`.   However, this doesn't work properly unless you add this line into your
-`application.properties` file:
-
-CORRECT: 
-```
-spring.security.oauth2.client.registration.github.scope: user,read:org
-```
-
-This should replace this incorrect line which may be there in the starter code:
-
-INCORRECT:
-```
-spring.security.oauth2.client.registration.github.scope: "read:user", "read:org"
-```
-
-
-Add this in.  For this small change, you may just do a commit directly on the master branch.
-
-If you'd like to understand more about what this change means, you can read more about OAuth Scopes here: <https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/>.
-
-Before you do, you should accept your previous pull request(s), and then do:
-
-```
-git checkout master
-git pull origin master
-```
-
-Test it, and make sure that when you logout and login, you see `member` by your username.
-
-You can ask a TA, mentor or instructor to try your app as well. They should see `admin` when they login.
 
 # Step 11: Login into Heroku and deploy your Master Branch
-
-Back in lab07a, you created a Heroku app for lab07.
 
 Login into the Heroku dashboard, find that app, and deploy your master branch from Github to that app.
 
@@ -1333,43 +979,10 @@ git commit -m "xx - update javadoc and jacoco report"
 git push origin master
 ```
 
-Check that your README.md has a link to your GitHub pages webpage, and that the webpage is published.
-
-## Lucky Step 13: Revisit steps 6b and 8h, and revisit the step 7e hint, for good luck.
-
-Depending on when you started this lab, Steps 6b and 8h might not have been complete at the time you did them.  If not, you might be getting ugly red X's on your commits instead of nice green checks.
-
-Steps 6b and 8h fix the code so that the unit tests pass on Travis-CI and we get a nice green check instead of the ugly red X.
-
-These steps go pretty quickly.    Please go back and do them now if you didn't do them before.  Either way, double check.
-
-Also, revisit the hint at Step 7e. There were some small adjustments to the Navigation bar, and the instructions about changing it and testing it.  You want to make sure you are update to date on all of those.
+Check that your README.md has a link to your GitHub pages webpage, and to repo, as well as your name
+and your github it.   Be sure that the GitHub pages page is published.
 
 # Final Step: Submitting your work for grading
-
-When you have:
-* a running web app
-* your code is green on CI
-* you have an updated GitHub page for javadoc/jacoco
-
-Then you are probably ready to submit on Gauchospace.
-
-BUT BEFORE YOU DO:
-
-* Check that your lab07 web app runs on Heroku. 
-* Check that you deployed your *latest* version of master to your Heroku app
-* ACTUALLY check that you can log out and log back in, and that you can retrieve Earthquake results.
-   * I found some lab07 instances on Heroku that were redirecting back to lab06.
-   * That suggests the author tried to reuse their client id and client secret from lab06 instead of creating a new one.
-   * You have to create a new one any time the URL changes, which means *different* client-id/client-secret for:
-      * localhost
-      * lab06 on Heroku
-      * lab07 on Heroku
-* Check that your `README.md` has a correct link to your GitHub pages documentation and that it is updated.
-* Check that your `README.md` has a correct link to your running Heroku app.
-* Check that you revisited steps 6b and 8h, and that you made the necessary changes so that your submission is green on Travis-CI.
-* Check that you have all of the tests that were required by the lab and that your test cases pass locally (with `mvn test`) and
-  on Travis-CI.
 
 Then, finally visit <{{page.gauchospace_url}}> and make a submission.
 
@@ -1383,24 +996,6 @@ on heroku: https://cs56-{{site.qxx}}-{{page.num}}-chrislee123.herokuapp.com<br>
 Then, **and this is super important**, please make both of those URLs **clickable urls**.
 
 The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauchospace_clickable_urls/>
-
-
-# Grading Rubric:
-
-| Points | Item |
-|--------|------------------------------|
-|  10    | Repo is set up for Travis-CI | 
-|  10    | The app runs on Heroku |
-|  10    | There is a form at `/earthquakes/search` where you can type in distance and minimum magnitude |
-|  10    | There is a menu item that takes you to the `earthquakes/search` endpoint |
-|  10    | When you submit the form, you can see information about Earthquakes near UCSB | 
-|  10    | The id link of each earthquake is clickable | 
-|  10    | There are pull requests for branches `xxSmallUIFixes`, `xxCreateForm`, `xxCallAPI`, rather than the changes just all being made on the `master` branch |
-|  10    | Comments on commits are reasonably descriptive | 
-|  10    | Javadoc and Jacoco are published and linked to from README.md | 
-|  10    | All other instructions were followed (e.g. clickable links on Gauchospace, cleanup items at step 10i, etc. |
-
-
 
 
 # Final Step: Submitting your work for grading
