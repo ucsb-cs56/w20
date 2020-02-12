@@ -684,7 +684,7 @@ The downside of this is that we might be missing some fields, or there could be 
 
 We can now try using our `FeatureCollection` object.  It won't be very exciting because we won't yet be able to format a list of earthquakes.  But we will be able to check that all of the parts are wired up correctly.
 
-Back in `WebController.java`, find these lines of code:
+Back in `EarthquakesController.java`, find these lines of code:
 
 ```java
         model.addAttribute("eqSearch", eqSearch);
