@@ -1023,7 +1023,20 @@ Then visit the app on Heroku and make sure it works there as well.
 
 # Step 12: Update your javadoc and jacoco report
 
-To update your javadoc and jacoco report, do this:
+Before updating your javadoc, pull some updates from the starter repo.  You might not see any updates if you started the lab on Wednesday, but if you started it on Tuesday, there are a few updates that fix javadoc formatting errors:
+
+```
+git pull starter master
+```
+
+Note that if you are working on a different computer from the one where you originally set up `starter` as a remote,
+this won't work unless you first define `starer` as a remote, as we did back at Step 1.
+
+
+<tt>git remote add starter {{page.starter}}</tt>
+
+
+Then, to update your javadoc and jacoco report, do this:
 
 ```
 mvn clean
