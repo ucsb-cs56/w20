@@ -469,18 +469,28 @@ That commit is here:
 Note that the `package` in this commit is different (`package hello`) vs. the package in your code base, but otherwise
 it is pretty much on point with what you need in your next step.
 
-In this commit, you see that:
-* There is a new file called `src/main/java/hello/EarthquakeQueryService.java`.  You should 
-  create a file like this one and add it to your code base.  This is a placeholder for the 
-  code that will get the Earthquake data in JSON format.  (At a later step, we'll add in the
-  code that retrieves the information.)
-* There are also some changes to `src/main/java/hello/WebController.java`. These changes 
-  call out to the new `EarthquakeService` object and retrieve the information in JSON 
-  format.  We store that into an attribute in the model called `json`.
-* Finally, we see that we've modified the `src/main/resources/templates/earthquakes/results.html` file
-  by adding in a `<pre>` element with the `th:text` attribute.   The `th:text` attribute value
-  of `"${json}"` will fill the `<pre>` element with the value of the `json` attribute in the model,
-  replacing the `This is placeholder` text. 
+In this commit, you see several changes that need to be made:
+
+1. There is a new file called `src/main/java/hello/EarthquakeQueryService.java`.  You should 
+   create a file like this one and add it to your code base.  
+  
+   * HOWEVER, please create your file under `src/main/java/edu/ucsb/cs56/w20/lab07/services`
+   * And, use `package edu.ucsb.cs56.w20.lab07.services` as the package.
+  
+2. The class `EarthquakeQueryService` is a placeholder for the 
+   code that will get the Earthquake data in JSON format.  (At a later step, we'll add in the
+   code that retrieves the information.)
+3. There are also some changes to the controller methods.   In the original commit these
+   were in the file `WebController.java` but in our code base, those will go into
+  `EarthquakesController.java`.
+  
+   These changes 
+   call out to the new `EarthquakeService` object and retrieve the information in JSON 
+   format.  We store that into an attribute in the model called `json`.
+4. Finally, we see that we've modified the `src/main/resources/templates/earthquakes/results.html` file
+   by adding in a `<pre>` element with the `th:text` attribute.   The `th:text` attribute value
+   of `"${json}"` will fill the `<pre>` element with the value of the `json` attribute in the model,
+   replacing the `This is placeholder` text. 
   
 Make all of these changes to your code, and then run the application.  You should see that
 when you type in values in the search form, you now get a results page that shows the "fake json"
