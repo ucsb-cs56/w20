@@ -54,7 +54,7 @@ We will start with a new, empty, <s>public</s> private repo called:
 We are making the repo public so that we can set up Travis-CI; the
 free tier requires the repo to be public.
 
-## Step 2. Add remote for {{page.prev}}
+## Step 2. Add remote for starter code
 
 Now add a remote for the starer code.
 
