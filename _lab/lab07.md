@@ -166,6 +166,12 @@ For the UCSB campus location, we are using 34.4140°N, 119.8489°W as the latitu
 Under `src/main/resources/templates` make a folder called `earthquakes` so that you have:
 `src/main/resources/templates/earthquakes`.
 
+* Hint: At command line, you can do this with a single command:
+  ```
+  mkdir -p src/main/resources/templates/earthquakes
+  ```
+  The `-p` flag means *path* and it makes the whole path at once.
+
 Copy the file `src/main/resouces/templates/index.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
 
 In `search.html`
