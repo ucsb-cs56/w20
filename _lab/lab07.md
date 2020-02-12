@@ -262,6 +262,10 @@ Here's the starting point:
 package edu.ucsb.cs56.w20.lab07.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class EarthquakesController {
@@ -292,7 +296,6 @@ This code says
 * The return value corresponds to the HTML template that we defined, without the trailing `.html`, i.e. `earthquakes/search.html` inside `src/main/resources/templates/`.
 
 You'll need to import:
-* `@GetMapping` with `import org.springframework.web.bind.annotation.GetMapping;`
 * the `EqSearch` object since it is in a different package (you should be able to figure this one out yourself).
 
 Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
