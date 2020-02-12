@@ -529,6 +529,9 @@ For now, though, just make the indicated changes.    You should see that with th
 when you run the application, it now retrieves JSON for earthquakes at the specified distance
 and minimum magnitude, and displays that JSON in the results form.
 
+* TIP: To get some earthquakes to show up, use 200 as the minimum distance, and 0 as the minimum magnitude.  There are almost always
+  a reasonably large number of earthquakes within 200km of Isla Vista on any given day.
+
 Commit this code with an appropriate commit message that explains what change you made and why.
 Again, it should be a message that reflects an understanding of the code:
 
