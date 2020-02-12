@@ -398,7 +398,7 @@ The view page `results.html` will be very similar to the page `search.html`.  Cr
 i.e. `src/main/resources/templates/earthquakes`.   Start by copying all of the code from `search.html`. 
 
 Then:
-* Change the `title` element and the `h1` element to be `Earthquake Search Results`.
+* Change the `h1` element to be `Earthquake Search Results`.
 * Remove the `form` element entirely.
 * Replace it with this `table` element:
 
