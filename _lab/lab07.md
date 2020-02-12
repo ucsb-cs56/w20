@@ -185,22 +185,23 @@ Find the part of the page that reads like this:
 Replace it with this code, which is a heading and a Thymeleaf form:
 
 ```html
- <h1>Earthquake Search</h1>
 
- <form action="#" th:action="@{/earthquakes/results}" th:object="${eqSearch}" method="get">
-            <table>
-                <tr class="form-group">
-                    <th><label for="distance" class="col-form-label">Distance (km)</label></th>
-                    <td><input type="number" th:field="*{distance}" class="form-control" id="distance"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="minmag" class="col-form-label">Minimum Magnitude</label></th>
-                    <td><input type="number" th:field="*{minmag}" class="form-control" id="minmag"></td>
-                </tr>
-            </table>
+    <h1>Earthquake Search</h1>
 
-            <input type="submit" class="btn btn-primary" value="Search">
-</form>
+    <form action="#" th:action="@{/earthquakes/results}" th:object="${eqSearch}" method="get">
+      <table>
+        <tr class="form-group">
+          <th><label for="distance" class="col-form-label">Distance (km)</label></th>
+          <td><input type="number" th:field="*{distance}" class="form-control" id="distance"></td>
+        </tr>
+        <tr class="form-group">
+          <th><label for="minmag" class="col-form-label">Minimum Magnitude</label></th>
+          <td><input type="number" th:field="*{minmag}" class="form-control" id="minmag"></td>
+        </tr>
+      </table>
+
+      <input type="submit" class="btn btn-primary" value="Search">
+    </form>
 ```
 
 ## Step 8: Making the form work
