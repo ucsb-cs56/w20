@@ -298,7 +298,9 @@ This code says
 You'll need to import:
 * the `EqSearch` object since it is in a different package (you should be able to figure this one out yourself).
 
-Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
+Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  
+
+Clicking on the button on the form won't work yet; making that work is a separate step.  One step at a time.
 
 ### Step 8c: Add a menu item that routes to the form.
 
