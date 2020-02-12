@@ -250,6 +250,8 @@ you follow the conventions strictly.  Everything has to match, or it just won't 
 For example, don't be tempted to use: `getMinMag` unless you are prepared to make that change everywhere in 
 all of the Thymeleaf and Java code, consistently.
 
+We won't commit this yet; let's add the controller first to make sure that the bean and the controller work together.
+
 ### Step 8b: Add a controller method for the form
 
 In order to be able to see this form in the webapp, we need a controller method for it.
@@ -300,6 +302,13 @@ You'll need to import:
 
 Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  
 
+If this works, do a commit with an appropriate commit message.    I've suggested one below, but you can make up your own as long as it is a reasonable descrition of the code you added in this step:
+
+```
+git commit -m "xx - added form for search at url /earthquakes/search"
+git push origin xxCreateForm
+```
+
 Clicking on the button on the form won't work yet; making that work is a separate step.  One step at a time.
 
 ### Step 8c: Add a menu item that routes to the form.
@@ -324,13 +333,13 @@ In the file `src/main/resources/templates/bootstrap/bootstrap_nav_header.html` y
       
 ```
 
-This are two `<li>` elements (list items), each of which:
+This are two `li` elements (list items), each of which:
 * starts with `<li>` (the `li` open tag)
 * ends with `</li>` (the `li` close tag)
 
 In case we haven't mentioned it before: it is important to understand that an HTML element starts with an open tag, ends with a close tag, and everything in between is the elements "content".   
 
-What you'll be doing is adding a new <li> element in front of the other two that looks like this:
+What you'll be doing is adding a new `li` element just before the other two that looks like this:
 
 ```html
             <li class="nav-item">
@@ -338,8 +347,17 @@ What you'll be doing is adding a new <li> element in front of the other two that
             </li>
 ```
 
+This new `li` element should be placed immediately after the `<ul class="navbar-nav mr-auto mt-2 mt-lg-0">` line.
+
 Run this, and you should see that there is now a link on the navigation bar that takes you to your page.
 
+If so, do a commit with an appropriate commit message.  The commit message should describe what you did in this commit
+(adding a form to enter information to search for earthquakes).
+
+```
+git commit -m "xx - your commit messsage goes here"
+git push origin xxCreateForm
+```
 
 ### Step 8d: Add a controller method for the form results.
 
@@ -401,7 +419,7 @@ Now try running (you should restart), clicking on your `Earthquake Search` link 
 
 When you click the `Search` button, you should see the numbers echoed back to you.
 
-If that works, we are ready for a pull request.
+If that works, we are ready for a final commit on this branch and then a pull request.
 
 ### Step 8f: Pull request
 
