@@ -732,7 +732,7 @@ this code right after the `<pre>` element where we display the JSON:
 
 The part of this that is most important is the `<td>` element with the attribute `th:text`.
 
-Here, we are referencing `featureCollection` which was added to the model by this code in `WebController.java`:
+Here, we are referencing `featureCollection` which was added to the model by this code in `EarthquakesController.java`:
 
 ```java        
    model.addAttribute("featureCollection",featureCollection);
