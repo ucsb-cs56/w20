@@ -12,20 +12,12 @@ layout: default
 
 # open-lab-scheduler W20 Epics
 
-| Mentor | Team | Kanban Board |
-|--------|--------|------|
-|        |        | [W20-Personal-Schedule-Weekly-View-Google-Calendar](https://github.com/ucsb-cs56-w20/ucsb-courses-search/projects/16) | 
-|        |        | [W20-Personal-Schedule-Multiple-Schedules](https://github.com/ucsb-cs56-w20/ucsb-courses-search/projects/15) |     
+   
 
 
 # ucsb-courses-search W20 Epics
 
-| Kanban Board | Mentor | Team |
-|--------------|--------|------|
-|              |        |      |
+
 
 # Mapache Search W20 Epics
 
-| Kanban Board | Mentor | Team |
-|--------------|--------|------|
-|              |        |      |
