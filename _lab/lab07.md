@@ -60,14 +60,14 @@ Now add a remote for the starer code.
 
 <tt markdown="1">git remote add starter {{page.starter}}</tt>
 
-Then, to pull the code from your {{page.prev}}  work into this new repo, use:
+Then, pull the starter code into your repo, and push it back to master:
 
 ```
 git pull starter master
 git push origin master
 ```
 
-Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt>.
+Check that you see your code on github under the  repo name <tt>{{page.labnum}}-githubid</tt> on GitHub.
 
 
 ## Step 3: Deploy on Localhost
