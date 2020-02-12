@@ -143,7 +143,7 @@ Then, to create a feature branch, type this command, substituting your initials 
 is, for example, "Xavier Xie".)
 
 ```
-git checkout -b xxCreateForm`
+git checkout -b xxCreateForm
 ```
 
 ## Step 7: Create the form
