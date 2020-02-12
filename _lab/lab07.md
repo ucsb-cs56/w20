@@ -774,7 +774,7 @@ So, for example, in our `FeatureCollection` object, the second key in the object
 }
 ```
 
-We can create an class called `Metadata` in a file `src/main/java/hello/geojson/Metadata.java` with the appropriate fields of the appropriate types:
+We can create an class called `Metadata` in a file `src/main/java/geojson/Metadata.java` with the appropriate fields of the appropriate types:
 
 ```java
 package geojson;
@@ -859,7 +859,7 @@ object for both the Feature and the Properties.
 
 The Properties object will look very similar to the `Metadata` object, but this time, instead of putting in 
 all of the properties, we are only going to put in the ones we have an immediate use for.  Others can be added
-later as they are needed.  Put this in a file `Properties.java` under the `hello.geojson` package:
+later as they are needed.  Put this in a file `Properties.java` under the `geojson` package:
 
 ```java
 package geojson;
@@ -875,7 +875,7 @@ public class Properties {
 The `Feature.java` file will be similar:
 
 ```java
-package hello.geojson;
+package geojson;
 
 public class Feature {
   public String type;
