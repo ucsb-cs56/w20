@@ -172,7 +172,7 @@ Under `src/main/resources/templates` make a folder called `earthquakes` so that 
   ```
   The `-p` flag means *path* and it makes the whole path at once.
 
-Copy the file `src/main/resouces/templates/index.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
+Copy the file `src/main/resources/templates/index.html` to a file under `src/main/resources/templates/earthquakes` called `search.html`.
 
 In `search.html`
 
