@@ -9,7 +9,7 @@ layout: lab
 num: lab07
 org: ucsb-cs56-w20
 prev: lab06
-ready: false
+ready: true
 starter: https://github.com/ucsb-cs56-w20/STARTER_lab07
 
 ---
