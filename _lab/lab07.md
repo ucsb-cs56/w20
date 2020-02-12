@@ -256,7 +256,21 @@ In order to be able to see this form in the webapp, we need a controller method 
 
 Make a new controller class called `EarthquakesController.java` in the controllers directory.
 
-You'll want to have this controller method:
+Here's the starting point:
+
+```java
+package edu.ucsb.cs56.w20.lab07.controllers;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class EarthquakesController {
+
+   
+}
+```
+
+You'll want to then add this controller method:
 
 ```java
  @GetMapping("/earthquakes/search")
@@ -277,7 +291,9 @@ This code says
    * The fields of that Bean must correspond to the fields in the form (`distance` and `minmag`).
 * The return value corresponds to the HTML template that we defined, without the trailing `.html`, i.e. `earthquakes/search.html` inside `src/main/resources/templates/`.
 
-You'll need to import the `EqSearch` object since it is in a different package.
+You'll need to import:
+* `@GetMapping` with `import org.springframework.web.bind.annotation.GetMapping;`
+* the `EqSearch` object since it is in a different package (you should be able to figure this one out yourself).
 
 Test this by running `mvn spring-boot:run` and by hand entering the web address <http://localhost:8080/earthquakes/search> and you should see the form.  Clicking on it won't work yet; making that work is a separate step.  One step at a time.
 
