@@ -51,8 +51,10 @@ We will start with a new, empty, <s>public</s> private repo called:
 
 * <tt>{{page.labnum}}-githubid</tt>.
 
-We are making the repo public so that we can set up Travis-CI; the
-free tier requires the repo to be public.
+<s>We are making the repo public so that we can set up Travis-CI; the
+free tier requires the repo to be public.</s>
+
+No, just kidding!  Now that we are using GitHub Actions as our CI system instead of Travis-CI, all our repos can be private.
 
 ## Step 2. Add remote for starter code
 
