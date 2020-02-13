@@ -114,7 +114,7 @@ localhost.
 2.  You must then copy the file `heroku.json.SAMPLE` to the file `heroku.json`.
 
     * Note that you SHOULD NOT edit `heroku.json.SAMPLE` directly.
-    * The copied file `localhost.json` will NOT be commited to GitHub; it's in the `.gitignore`
+    * The copied file `heroku.json` will NOT be commited to GitHub; it's in the `.gitignore`
 
 3.  Then, edit the `heroku.json` file and put in your client id and client secret in the places indicated.
 
