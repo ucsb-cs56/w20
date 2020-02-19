@@ -186,6 +186,16 @@ Now, make a pull request (BUT DO NOT MERGE IT) for your lab08 branch to the mast
 
 Then, put a link to that PR on your team's slack channel. This is how you submit your work for grading to your mentor.
 
+# Beyond lab08
+
+Now that you've done what was needed for the grade for lab08, I suggest the following steps:
+
+* Look at the the epic list again, and look at the other teams in your discussion section: <https://ucsb-cs56.github.io/w20/info/projects/>
+* Look at the seating charts to see who else is in your discussion section <https://ucsb-cs56.github.io/w20/info/>
+* Consider whether you want to work on a legacy code project, or whether you'd prefer to do individual work on 
+  throwaway code (traditional homework assignments.)
+* Consider whether you want to stay with the team to which you were assigned, or switch to another team.
+
 # Rubric
 
 * (10 pts) There is a pull request in the correct repo for the correct file
