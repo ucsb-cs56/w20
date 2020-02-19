@@ -81,8 +81,19 @@ Go through each of the stories at a high level, so you have a general sense of t
 
 Again, take notes.  Time box this 
 
-# Step 3: Groom the first story (:20 to :30)
+# Step 3: Get app running on localhost (:20 to :35)
 
+In order to be able to work with this app, you need to be able to get it running on localhost.
+
+Find the repo for your teams project, and clone it.   Configure it for OAuth on localhost.
+
+Run `mvn spring-boot:run` and explore the app.  Ask your mentor for help with understanding the current features.
+
+If this takes longer than past :35, you can go to :40 if needed, but by :40 move on to Step 4.
+
+# Step 4: Groom at least one story (:35 to :50)
+
+(preferably two, unless you are running late)
 
 Then take the first story on the board.
 
@@ -92,16 +103,6 @@ Then take the first story on the board.
 * If it does not, as team, lead by your mentor, add clear acceptance criteria to the story.
 
 The process of adding clear acceptance criteria to stories is sometimes called "Grooming".
-
-Time box this: 
-
-# Step 4: Get app running on localhost (:30 to :50)
-
-In order to be able to work with this app, you need to be able to get it running on localhost.
-
-Find the repo for your teams project, and clone it.   Configure it for OAuth on localhost.
-
-Run `mvn spring-boot:run` and explore the app.  Ask your mentor for help with understanding the current features.
 
 
 # Step 5:  Record your observations (after lab).  
