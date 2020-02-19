@@ -7,7 +7,7 @@ due2: 2020-02-19 23:59
 layout: lab
 num: lab08
 org: ucsb-cs56-w20
-ready: false
+ready: true
 ---
 
 # This lab requires in-person participation
