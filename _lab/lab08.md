@@ -137,10 +137,52 @@ Then, fill in the file, replacing the placeholder text with your own answers and
 
 * For reference here are the projects and the epics:  <https://ucsb-cs56.github.io/w20/info/projects/>
 
-Commit that and make a pull request to your TEAM repo.   Do not merge the pull request.   Later on, your mentor will accept the pull request and give you credit for the the assignment.
+Commit that to your branch and push that commit to GitHub.   Do not make a pull request yet.
+
+# Step 6:  Choose a story, and describe how you would go about it
+
+Now, choose one story from your team's Kanban board that does not already have any comments fron your team members.
+
+Look at that story, and determine one place in the code that you would have to make changes in order to work on the story.
+* That could be making changes in Java code, or HTML code.
+* It could be adding new code to an existing file, or adding a new file.
+* Whatever it is, you do *NOT* need to actually make the change at this time.
+* But you DO need to describe, in words, at a high level, what change you would make to the file, or what new file you would add, and what needs to go into that file.
+
+Make a comment on the issue with your ideas.
+
+Then, link to the issue in your team's slack chanel.
+
+If you are completely lost, then USE THE SLACK CHANNEL for your team, and ask your mentor and your fellow team members questions.   Do this sooner, rather than later (not at the last minute).
+
+You may also use the three slack channels for the projects:
+* `#project-tutor-scheduler`
+* `#project-mapache-search`
+* `#project-courses-search`
+
+You are not necessarily expected to know how to address the issue. But you *are* expected to ask enough questions until you *learn* how to address the issue.  
+
+Once you've done this, add a section to your  <tt>lab08-<i>githubid</i>-<i>githubid2</i>.md</tt> file on your branch.
+
+```
+# Issue Commented on
+
+Link to the issue goes here
+
+```
+
+Add that to your branch, and commit it.
+
+# Step 7:  Make a pull request, and link to the PR in your team's slack channel
+
+Now, make a pull request (BUT DO NOT MERGE IT) for your lab08 branch to the master branch.
+
+Then, put a link to that PR on your team's slack channel. This is how you submit your work for grading to your mentor.
 
 # Rubric
 
-* (20 pts) There is a pull request in the correct repo for the correct file
-* (40 pts) There is a description of the project
-* (40 pts) There is a description of the epic
+* (10 pts) There is a pull request in the correct repo for the correct file
+* (10 pts) The pull request is posted on the Slack channel
+* (30 pts) There is a description of the project
+* (30 pts) There is a description of the epic
+* (20 pts) There is a comment on one of the team's issues describing the code changes needed to implement that issue
