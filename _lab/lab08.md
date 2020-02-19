@@ -104,9 +104,20 @@ Find the repo for your teams project, and clone it.   Configure it for OAuth on 
 Run `mvn spring-boot:run` and explore the app.  Ask your mentor for help with understanding the current features.
 
 
-# Step 5:  Record your observations (after lab)
+# Step 5:  Record your observations (after lab).  
+
 
 This is an individual step to be done after lab is over.
+
+The way you do this step depends on whether you are on a mapache-search team or not.
+
+## Step 5a: Mapache Search Teams 
+
+Please fill out this survey: <https://docs.google.com/forms/d/e/1FAIpQLSdN02OEYKx9T43tdoECkzLPW20KbTDL8P7pZxzJeYJLQ9hRAg/viewform?usp=sf_link>
+
+This counts in place of the rest of step 5.
+
+## Step 5b: Other Teams
 
 Your team has a repo called, for example `TEAM-w-5pm-b`.
 
@@ -127,6 +138,7 @@ On this branch, create a directory called lab08 in the repo, and under that dire
 Link to project here: 
 
 (Briefly describe the purpose of the project to which your team is assigned.)
+(NOTE: Mapache Search folks can leave this out
 
 # Our Epic
 
@@ -144,7 +156,11 @@ Then, fill in the file, replacing the placeholder text with your own answers and
 
 * For reference here are the projects and the epics:  <https://ucsb-cs56.github.io/w20/info/projects/>
 
-Commit that to your branch and push that commit to GitHub.   Do not make a pull request yet.
+Commit that to your branch and push that commit to GitHub.  
+
+Now, make a pull request (BUT DO NOT MERGE IT) for your lab08 branch to the master branch.
+
+Then, put a link to that PR on your team's slack channel. This is how you submit your work for grading to your mentor.
 
 # Step 6:  Choose a story, and describe how you would go about it
 
@@ -169,30 +185,6 @@ You may also use the three slack channels for the projects:
 
 You are not necessarily expected to know how to address the issue. But you *are* expected to ask enough questions until you *learn* how to address the issue.  
 
-Once you've done this, add a section to your  <tt>lab08-<i>githubid</i>-<i>githubid2</i>.md</tt> file on your branch.
-
-```
-# Issue Commented on
-
-Link to the issue goes here
-
-```
-
-Add that to your branch, and commit it.
-
-# Step 7:  Make a pull request, and link to the PR in your team's slack channel
-
-Now, make a pull request (BUT DO NOT MERGE IT) for your lab08 branch to the master branch.
-
-Then, put a link to that PR on your team's slack channel. This is how you submit your work for grading to your mentor.
-
-# Mapache Search Teams Only
-
-The Mapache Search Team has asked for some feedback on the product.
-
-If you are on one of the Mapache Search Teams, please fill out this brief survey
-
-* <https://docs.google.com/forms/d/e/1FAIpQLSdN02OEYKx9T43tdoECkzLPW20KbTDL8P7pZxzJeYJLQ9hRAg/viewform?usp=sf_link>
 
 # Beyond lab08
 
@@ -206,8 +198,8 @@ Now that you've done what was needed for the grade for lab08, I suggest the foll
 
 # Rubric
 
-* (10 pts) There is a pull request in the correct repo for the correct file
-* (10 pts) The pull request is posted on the Slack channel
-* (30 pts) There is a description of the project
-* (30 pts) There is a description of the epic
+
+* (80 pts) Description of project and epic
+   * Mapache Search teams: via the survey
+   * Other team: via pull request posted to slack channel, per instructions.
 * (20 pts) There is a comment on one of the team's issues describing the code changes needed to implement that issue
