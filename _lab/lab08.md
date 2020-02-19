@@ -35,6 +35,13 @@ This will be explained in more detail on the Slack and in lecture on
 *  Thursday 11am 2/20/2020 for the TR folks
 *  Monday 12:30pm 2/24/2020 for the MW folks
 
+# This lab is required in any case
+
+Even if you already know you prefer to work alone on "conventional labs" for the rest of the quarter rather than
+on a legacy code project, you still need to complete *this* lab.
+
+This gives you at least a *taste* of real world software development practice. 
+
 # This lab has a quick turn around time
 
 This lab should be completed MOSTLY within your 50 minute discussion section, though there is somework that you might need to continue over the subsequent 24 hours.
