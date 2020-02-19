@@ -141,6 +141,6 @@ Commit that and make a pull request to your TEAM repo.   Do not merge the pull r
 
 # Rubric
 
-(20 pts) There is a pull request in the correct repo for the correct file
-(40 pts) There is a description of the project
-(40 pts) There is a description of the epic
+* (20 pts) There is a pull request in the correct repo for the correct file
+* (40 pts) There is a description of the project
+* (40 pts) There is a description of the epic
