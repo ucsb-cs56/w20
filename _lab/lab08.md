@@ -186,6 +186,14 @@ Now, make a pull request (BUT DO NOT MERGE IT) for your lab08 branch to the mast
 
 Then, put a link to that PR on your team's slack channel. This is how you submit your work for grading to your mentor.
 
+# Mapache Search Teams Only
+
+The Mapache Search Team has asked for some feedback on the product.
+
+If you are on one of the Mapache Search Teams, please fill out this brief survey
+
+* <https://docs.google.com/forms/d/e/1FAIpQLSdN02OEYKx9T43tdoECkzLPW20KbTDL8P7pZxzJeYJLQ9hRAg/viewform?usp=sf_link>
+
 # Beyond lab08
 
 Now that you've done what was needed for the grade for lab08, I suggest the following steps:
