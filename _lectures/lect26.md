@@ -10,6 +10,12 @@ pdfurl:
 
 Please sit with your teams initially.
 
+# 11:00 - 11:10 Epic Roll Call
+
+I will ask one member from each team to summarize your team's project and epic in 60 seconds or less.
+
+* One sentence on the project.
+* Two sentences on the epic
 
 # 11:10-11:20 Compare your epic with the others
 
