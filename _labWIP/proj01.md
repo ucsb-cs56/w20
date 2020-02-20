@@ -28,7 +28,9 @@ Late submissions will be accepted only up until grading is complete; submissions
 
 # Goals
 
-The goal of this project is to determine whether you can apply the skills covered in lab07a, lab07b and lab07c in a new context, and to see if you can apply those skills in a new context.
+The goal of this project is:
+* determine whether you can apply the skills covered in lab07 in a new context
+* learn some additional skills, and also see if you can apply those in a new context as well.
 
 We'll add the ability for the user to search for earthquakes at some distance from any location, not just the hardcoded latitude and longitude of the UCSB campus.
 
