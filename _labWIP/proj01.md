@@ -508,11 +508,10 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 | item | points | description |
 |-|-|-|
-| (a) | 20 | code under src/java/earthquakes is refactored into controllers, services, searches |
-| (b) | 20 | there is a Locations search item that takes you to a form where you can enter searches |
-| (c) | 20 | search results are returned for locations |
-| (d) | 20 | Cleanup: the footer has the licensing information, the raw json is no longer there, links to javadoc and travis-ci work |
-| (e) | 20 | tests pass, and there are tests for whether Earthquake Search, Locations and Users are in the nav header |
+| (a) | 20 | there is a Locations search item that takes you to a form where you can enter searches |
+| (b) | 20 | search results are returned for locations |
+| (c) | 20 | Cleanup: the footer has the licensing information, the raw json is no longer there, links to javadoc and travis-ci work |
+| (d) | 40 | tests pass, and there are tests for whether Earthquake Search, Locations and Users are in the nav header |
 
 
 
