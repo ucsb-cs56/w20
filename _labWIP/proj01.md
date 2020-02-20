@@ -13,7 +13,12 @@ prev_lab: lab07
 ---
 
 <div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/proj01
+Look here for formatted version: http://ucsb-cs56.github.io/w20/labWIP/proj01
+</div>
+
+
+<div style="display:none" >
+Look here for formatted version: http://ucsb-cs56.github.io/w20/lab/proj01
 </div>
 
 
