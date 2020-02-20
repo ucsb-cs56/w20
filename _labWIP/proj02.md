@@ -46,35 +46,21 @@ In the final step, we'll:
 
 Here are working versions of the staff's versions of the proj01 and proj02 code, so that you can see what the app is supposed to do when it is finished.  (Note that these are closed-source.  Sorry&mdash;you'll have to write your own code here.  If you need help, though,reach out on Slack, or come to open lab hours.)
 
+TODO: FIX THESE
+
 | Project | Working Version |
 |-|-|
-| [proj01]({{ '/lab/proj01' | relative_url }}) | <https://cs56-f19-staff-proj01.herokuapp.com> |
-| [proj02]({{ '/lab/proj02' | relative_url }}) | <https://cs56-f19-proj02-pconrad.herokuapp.com> |
+| [proj01]({{ '/lab/proj01' | relative_url }}) | <https://cs56-w20-staff-proj01.herokuapp.com> |
+| [proj02]({{ '/lab/proj02' | relative_url }}) | <https://cs56-w20-staff-proj02.herokuapp.com> |
 {:.table .table-sm .table-striped .table-bordered}
 
 
 # Step by step instructions
 
+Continue with the same repo and Heroku App that you started with in proj01:
 
-<div style="background-color: #fec; border: 5px solid blue; margin-left: 5em; margin-right: 5em; margin-top: 1em; margin-bottom: 1em;" markdown="1">
-
-NOTE: An earlier version of these instructions indicated that you should:
-
-Continue with your:
-* Github repo: <tt>{{page.num}}-githubid</tt>
-* Heroku App:  <tt>cs56-f19-{{page.num}}-<i>github</i></tt>
-
-If you made a new repo for proj02, and pulled in the code from proj01 as the starter, that's fine.  That was an entirely reasonably interpretation of the instructions.
-
-The intention was for you to instead to do the following, which is far easier for you and for the staff:
-
-Continue with your:
-* Github repo: <tt>proj01-githubid</tt>
-* Heroku App:  <tt>cs56-f19-proj01-<i>github</i></tt>
-
-The important thing is that you indicate which one you did when you submit on Gauchospace at the end of these instructions.
-
-</div>
+* Github repo: <tt>project-githubid</tt>
+* Heroku App:  <tt>cs56-w20-project-<i>github</i></tt>
 
 ## Step 7: Adding more query params
 
@@ -98,7 +84,7 @@ towards being able to automatically link from the location search to an Earthqua
 We'll start by looking at your current application as it runs on localhost, or alternatively, the reference implementation
 of proj1 running on heroku here:
 
-* <https://cs56-f19-staff-proj01.herokuapp.com/>
+* <https://cs56-w20-staff-proj01.herokuapp.com/>
 
 Navigate to the page that performs an Earthquake search.
 * Fill in the value 500 for distance and 2 for minimum magnitude.
@@ -106,7 +92,7 @@ Navigate to the page that performs an Earthquake search.
 
 You'll see that the URL that results has this structure:
 
-* <https://cs56-f19-staff-proj01.herokuapp.com/earthquakes/results?distance=500&minmag=2>
+* <https://cs56-w20-staff-proj01.herokuapp.com/earthquakes/results?distance=500&minmag=2>
 
 Look at the part of the URL after the `?` and you'll see that it consists of key value pairs.
 * `distance` is a key, and `500` is a value
