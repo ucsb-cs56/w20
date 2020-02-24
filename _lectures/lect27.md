@@ -35,6 +35,14 @@ You may have life or academic circumstances that make it difficult to make the n
 
 So, there is no shame in choosing the individual project track, if that's the better choice.
 
+## Grading
+
+* Individual Track: Graded individually, like regular programming assignments.
+* Legacy Code Track: Grading is rubric based, but inherently subjective, and all grades applied to the entire group.
+  * Committing to the legacy code track is an act of faith and trust on both sides
+  * You express trust in your team, and trust in the grading staff to treat you fairly.
+  * We express trust that you will make a good faith effort to commit to your learning and to completing the tasks to the best of your ability.
+
 ## Attendance
 
 Project Track:
