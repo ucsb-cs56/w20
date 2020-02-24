@@ -14,7 +14,9 @@ Please sit with your teams initially.
 
 I will ask one member from each team to summarize your team's project and epic in 60 seconds or less.
 
-Double check your epic: one or two epics have changed since you did lab08.
+Double check your epic: one or two epics have changed since you did lab08>
+
+* They are here: <https://ucsb-cs56.github.io/w20/info/projects/>
 
 * One sentence on the project.
 * Two sentences on the epic
