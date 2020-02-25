@@ -8,7 +8,7 @@ layout: lab
 num: proj01
 org: ucsb-cs56-f19
 package: earthquakes
-ready: false
+ready: true
 prev_lab: lab07
 ---
 
