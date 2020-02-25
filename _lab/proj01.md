@@ -83,7 +83,7 @@ git push origin master
 
 * Create a Heroku app with the name <tt>cs56-w20-project-<i>github</i></tt>.
 * Provision that Heroku app with a Heroku Postgres database.
-* Configure this a GitHub OAuth client-id/client-secret for this Heroku app. 
+* Configure this a Google OAuth client-id/client-secret for this Heroku app. 
    * Note that you won't be able to reuse the client-id/client-secret from previous Heroku apps, because
      the URL is different.
    * Remember that you'll need to copy `heroku.json.SAMPLE` to `heroku.json`, put in the values, and then
