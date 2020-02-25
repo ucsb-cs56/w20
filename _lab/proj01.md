@@ -96,7 +96,7 @@ git push origin master
      to load those values into Heroku in the `SPRING_APPLICATION_JSON` environment variable.
  * Deploy your master branch to your Heroku app and make sure that is loads and operates correctly.
 
-Now, add links to your Heroku App, your app's GitHub pages home page, and your Travis-CI page into your README.md.
+Now, add links to your Heroku App, your app's GitHub pages home page, into your README.md.
 * You may make that change directly on the master branch.
 
 
@@ -491,7 +491,6 @@ git push origin master
 Check that your README.md has links to
 * your GitHub pages webpage, and that the webpage is published.
 * your app running on Heroku
-* your repos Travis-CI status
 
 ## Final Step 4: Submit on Gauchospace
 
@@ -515,7 +514,7 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 |-|-|-|
 | (a) | 20 | there is a Locations search item that takes you to a form where you can enter searches |
 | (b) | 20 | search results are returned for locations |
-| (c) | 20 | Cleanup: the footer has the licensing information, the raw json is no longer there, links to javadoc and travis-ci work |
+| (c) | 20 | Cleanup: the footer has the licensing information, the raw json is no longer there, links to javadoc work |
 | (d) | 40 | tests pass, and there are tests for whether Earthquake Search, Locations and Users are in the nav header |
 
 
