@@ -30,6 +30,15 @@ You are encouraged to come to lecture for the remainder of the quarter, unless t
 # Today's goals
 
 By the end of today's lecture:
+* Review your team agreements (this was a task from Monday), and post an updated version on the Slack.
+  * Each team member, please either indicate your committment to these team agreements with a `:+1` emoji, or else
+    post a comment indicating what issue you think needs further discussion.
+  * I really don't want to micro manage you by making this be a thing that's "for a grade".  
+  * That runs contrary to the spirit of "trusting your team".
+  * But all the experience of real world teams suggests that having solid team agreements is the FOUNDATION of success.
+  * So I really, really, really, want you to take this seriously.
+  * If you don't do this, and don't hold each other accountable to this, I can't be responsible for any "team problems" that
+    arise later.
 * On each group's project board, each team member should be assigned to at least one issue in the "in-progress" column.
 * Start discussing the issue by making comments on the issue itself, and/or using your team's slack channel.
 * Clone your project repo and make a branch for your issue
