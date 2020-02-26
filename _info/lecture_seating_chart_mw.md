@@ -7,7 +7,7 @@ ready: true
 # Final {{page.title}}
 
 <style>
-div.container { width: 100%; }
+div.container { width: 100%; max-width: 2000px; }
 iframe { width: 100%; height: 1400px; overflow: scroll; }  
 </style>
 
