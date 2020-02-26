@@ -35,4 +35,6 @@ By the end of today's lecture:
 * Clone your project repo and make a branch for your issue
    * The project repo is one of: [ucsb-courses-search](https://github.com/ucsb-cs56-w20/ucsb-courses-search), [mapache-search](https://github.com/ucsb-cs56-w20/mapache-search) , [open-lab-scheduler](https://github.com/ucsb-cs56-w20/open-lab-scheduler) 
    * The branch name should start with your team name, and end with a summary of your issue in a few words.
-   * Example: 
+   * Examples:
+      * [This issue](https://github.com/ucsb-cs56-w20/mapache-search/issues/154): `w-5pm-a-landing-page`
+      
