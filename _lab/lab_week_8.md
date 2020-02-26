@@ -22,7 +22,7 @@ You can get help with this at the following times:
 |-----|------|----------|------|
 | Tue | 5-5:50pm | Phelps 3525 | Sit in BACK row only; help from Zach and Ben  |
 | Tue | 6-6:50pm | Phelps 3525 | Sit in FRONT row only; help from Zach, Jacqui and Kerem |
-| Tue | 7-9pm | Phelps 2510 | Open lab hours (see: <https://ucsb-cs56.github.io/w20/info/office_hours/> ) |
+| Tue | 7-9pm | Phelps 3526 | Open lab hours (see: <https://ucsb-cs56.github.io/w20/info/office_hours/> ) |
 | Wed | 5-9pm | Phelps 2510 | Open lab hours (see: <https://ucsb-cs56.github.io/w20/info/office_hours/> ) |
 
 You are NOT required to come to your assigned discussion section. You may if you need help, but unless
