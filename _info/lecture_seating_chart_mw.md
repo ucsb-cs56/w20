@@ -4,7 +4,7 @@ layout: default
 ready: true
 ---
 
-# Final {{page.title}}
+# Updated for project groups {{page.title}}
 
 <style>
 div.container { width: 100%; max-width: 2000px; }
