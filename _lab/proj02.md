@@ -12,10 +12,6 @@ ready: false
 
 ---
 
-<div style="display:none" >
-Look here for formatted version: http://ucsb-cs56.github.io/f19/lab/proj02
-</div>
-
 
 # This project is only for the individual lab track
 
@@ -187,7 +183,7 @@ That link will look like this:
 ```
 
 In case you are wondering, the syntax of this link comes from the the Thymeleaf Tutorial, [Section 4.4 on Link URLs](https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#link-urls).  This generates a link that is
-* automatically prefixed with the correct root (e.g. `http://localhost:8080`, or `https://cs56-f19-proj01-githubid.herokuapp.com`)
+* automatically prefixed with the correct root (e.g. `http://localhost:8080`, or `https://cs56-w20-project-githubid.herokuapp.com`)
 * has the appropriate query params appended (all of the key values pairs inside the parentheses), in the correct syntax for URLs.
 
 To test this out, try doing a search on a location.  You should find that there is a link in each row of the location results that takes you to the earthquakes search page, where you can then do an earthquakes search on that latitude, and longitude, and location.  You'll still have to specify the distance and the minimum magnitude on that page.
@@ -201,7 +197,9 @@ If/when it works, do a commit, and then do a pull request and merge it.
 
 1. Look over the staff's working version here:
 
-   * <https://cs56-f19-proj02-pconrad.herokuapp.com/>
+   TODO: FIX THIS
+
+   * <https://cs56-w20-proj02-pconrad.herokuapp.com/>
    
    Compare it to your working version on Heroku.  If you see differences, try to determine which of these is true:
    * Is is a minor difference that doesn't matter?
@@ -240,7 +238,6 @@ git push origin master
 Check that your README.md has links to
 * your GitHub pages webpage, and that the webpage is published.
 * your app running on Heroku
-* your repos Travis-CI status
 
 ## Final Step 4: Submit on Gauchospace
 
@@ -249,11 +246,10 @@ Then, finally visit <{{page.gauchospace_url}}> and make a submission.
 In the text area, enter something like this, substituting your repo name and your Heroku app name:
 
 <div style="font-family:monospace;">
-repo name: https://github.com/chrislee123/proj01-githubid<br>
-on heroku: https://cs56-{{site.qxx}}-proj01-chrislee123.herokuapp.com<br>
+repo name: https://github.com/chrislee123/project-githubid<br>
+on heroku: https://cs56-{{site.qxx}}-project-chrislee123.herokuapp.com<br>
 </div>
 
-(Or, if you used <tt>proj02</tt> in your repo and Heroku name, then use that.)
 
 Then, **and this is super important**, please make both of those URLs **clickable urls**.
 
@@ -268,7 +264,7 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 |-|-|-|
 | (a) | 40 | The Earthquakes page has query params for latitude, longitude, and location |
 | (b) | 40 | You can click on "Get Earthquakes" and get earthquakes for a location result |
-| (c) | 20 | README.md has links to github pages webpage, app on Heroku, Travis-CI |
+| (c) | 20 | README.md has links to github pages webpage, app on Heroku |
 
 
 
