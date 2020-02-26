@@ -7,7 +7,7 @@ due2: 2020-03-06 23:59
 gauchospace_url: TBD
 github_org: ucsb-cs56-w20
 layout: lab
-num: proj01
+num: proj02
 org: ucsb-cs56-w20
 package: earthquakes
 ready: true
