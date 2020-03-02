@@ -4,7 +4,7 @@ assigned2: 2020-02-26 12:30
 desc: Individual Lab Track Project, part 1
 due: 2020-03-04 23:59
 due2: 2020-03-04 23:59
-gauchospace_url: TBD
+gauchospace_url: https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=3261011
 github_org: ucsb-cs56-w20
 layout: lab
 num: proj01
