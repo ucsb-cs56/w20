@@ -71,6 +71,36 @@ More generally: Serializer/deserializer code converts between:
 * objects of any given programming language, and 
 * a "serial format" that can be stored in a disk file, or sent over a network connection.
 
-Examples from our code bases: 
-* 
+# Examples from our code bases: 
+
+
+From UCSB Courses Search: <https://github.com/ucsb-cs56-w20/ucsb-courses-search/blob/8cb242874d34aec4e3f2bf62baf220b464655221/src/main/java/edu/ucsb/cs56/ucsbapi/academics/curriculums/v1/classes/CoursePage.java#L39>
+
+From lab07: 
+
+```
+/**
+     * Create a FeatureCollection object from json representation
+     * 
+     * @param json String of json returned by API endpoint {@code /classes/search}
+     * @return a new FeatureCollection object
+     * @see <a href=
+     *      "https://tools.ietf.org/html/rfc7946">https://tools.ietf.org/html/rfc7946</a>
+     */
+    public static FeatureCollection fromJSON(String json) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+            FeatureCollection featureCollection = objectMapper.readValue(json, FeatureCollection.class);
+            return featureCollection;
+        } catch (JsonProcessingException jpe) {
+            logger.error("JsonProcessingException:" + jpe);
+            return null;
+        } catch (Exception e) {
+            logger.error("Exception:" + e);
+            return null;
+        }
+    }
+```    
 
