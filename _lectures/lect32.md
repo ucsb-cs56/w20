@@ -33,7 +33,7 @@ This page explains the six types quite nicely: <https://restfulapi.net/json-data
    * It stores json data that we load into an environment variable `SPRING_APPLICATION_JSON` that can override values in 
      the `application.properties` files
 * lab07 and the individual project track for API access
-   * USGS Earthquakes API
+   * USGS Earthquakes API, e.g. <https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2&maxradiuskm=100&latitude=34.414000&longitude=-119.848900>
    * Location Search API
 * [ucsb-courses-search](https://github.com/ucsb-cs56-w20/ucsb-courses-search) for:
   * the UCSB Curriculums API
