@@ -39,3 +39,38 @@ This page explains the six types quite nicely: <https://restfulapi.net/json-data
   * the UCSB Curriculums API
 
 
+# JSON in Java
+
+Note that the following is general Java, NOT Spring Boot specific.
+
+There are a variety of libraries for dealing with JSON in Java.  
+* To the best of my knowledge, are all third-party, and thus require you to have appropriate `dependency` elements in your Maven `pom.xml` (or the equivalent for whatever build system you are using; in this course, it's always Maven for now.)
+
+The library we are using is called Jackson. In the pom.xml you'll find:
+
+```xml
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+```
+
+With these two libraries, we can write so-called *serializer/deserializer* code for JSON.
+
+* Serializer code turns Java Objects in JSON
+* Deserializer code turns JSON into Java Objects.
+
+More generally: Serializer/deserializer code converts between:
+* objects of any given programming language, and 
+* a "serial format" that can be stored in a disk file, or sent over a network connection.
+
+Examples from our code bases: 
+* 
+
