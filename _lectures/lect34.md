@@ -1,10 +1,34 @@
 ---
 num: Lecture 34
 lecture_date: 2020-03-05
-desc: "GET vs POST vs. all the others"
+desc: "MVC and GET vs POST vs. all the others"
 ready: false
 pdfurl:
 ---
+
+# Model View Controller
+
+Now that we have some Spring Boot experience, and in anticipation of the final, let's review Model View Controller
+
+* Model: In general, Basic Java classes that don't necessarily reflect that they are part of a web app
+   * Often includes the database, as well as "services" that just do basic computation, or lookup on APIs, etc.
+   * More specifically in Spring Boot, `Model` is a key/value store used to send information to the view. 
+* View: The Thymeleaf files that are the user interface of the application
+* Controller: the part that links the model and the view
+
+In a web app, Controllers typically:
+* connects a web endpoint (e.g. `/` or `/search/bydept`) to the code that 
+  * reads a request
+  * produces a response
+* The response is typically a "mashup" of data from a Model object and an HTML template.  
+  
+# An important principle: Don't do too much computation in the View!
+
+If you are writing really complicated code in Thymeleaf, you are *probably doing something wrong*
+
+Consider moving the complicated calculation into a method of an object in your model, and then
+invoking that method.
+  
 
 # The HTTP protocol
 
