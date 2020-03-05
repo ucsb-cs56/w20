@@ -30,6 +30,10 @@ Consider moving the complicated calculation into a method of an object in your m
 invoking that method.
   
 
+# A whitelabel error message
+
+![post-not-supported.png](post-not-supported.png)
+
 # The HTTP protocol
 
 HTTP`, and it's secure cousin `HTTPS`, are *protocols* for communication between
