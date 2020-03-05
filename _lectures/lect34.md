@@ -47,7 +47,16 @@ POST:
    * also used for login/logout because that changes the state of the users's session, which is stored on the server
 * often has CSRF protection enabled; see Scott Chow's writeup here: <https://ucsb-cs56.github.io/topics/spring_boot_post_and_csrf/>
 
+# Example of logout form using POST from lab07
 
+* This [excerpt from lab07](https://github.com/ucsb-cs56-w20/STARTER_lab07/blob/f437a29da7534058c9edfc39ab00f07a1d479d25/src/main/resources/templates/bootstrap/bootstrap_nav_header.html#L36-L39)
+  shows the Spring Boot CSRF protection in a logout form.
+  ```html
+  <form method="POST" action="/logout" class="form-inline" th:if="${isLoggedIn}">
+    <button class="navbar-btn" type="submit">Logout</button>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+  </form>
+  ```
 
 # For more detail
 
