@@ -6,6 +6,10 @@ ready: false
 pdfurl:
 ---
 
+# MongoDB ArchivedCourse table
+
+* A brief real time update
+
 # Model View Controller
 
 Now that we have some Spring Boot experience, and in anticipation of the final, let's review Model View Controller
