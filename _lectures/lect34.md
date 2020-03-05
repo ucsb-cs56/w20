@@ -32,7 +32,7 @@ invoking that method.
 
 # A whitelabel error message
 
-![post-not-supported.png](post-not-supported.png)
+![post-not-supported.png](/w20/lecture/lect34/post-not-supported.png)
 
 # The HTTP protocol
 
