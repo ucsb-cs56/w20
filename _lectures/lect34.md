@@ -45,7 +45,7 @@ POST:
 * is typically used when something is going to CHANGE on the server
    * e.g. you are going to update a database, or some other change to server state in some way
    * also used for login/logout because that changes the state of the users's session, which is stored on the server
-* often has CSRF protection enabled; see Scott Chow's writeup here: <>
+* often has CSRF protection enabled; see Scott Chow's writeup here: <https://ucsb-cs56.github.io/topics/spring_boot_post_and_csrf/>
 
 
 
