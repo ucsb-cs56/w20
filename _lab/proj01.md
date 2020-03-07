@@ -217,13 +217,13 @@ TIPS:
 * A common source of errors is using one model/view/controller trio (e.g. the ones for earthquakes) as a starting point, and then forgetting to change part of it as you go through.   For instance, mine didn't work the first time because I had `EqSearch locSearch` as one of my parameters to a controller method in my `LocationsController` class.  This will *compile* just fine, but it certainly won't run.   So watch out for stuff such as that.
 
 
-Once you've tested this all thoroughly, this is enough for a pull request, just like it was in lab07b.   
+Once you've tested this all thoroughly, this is enough for a pull request, just like it was in lab07.   
 
 Do a pull request, merge it into master, and deploy it to Heroku and test there.
 
 ## Step 4: Implement a Location Query Service
 
-This step will proceed in a manner similar to step 9 of lab07b.
+This step will proceed in a manner similar to adding the EarthquakeQueryService in lab07.
 
 
 ## Step 4a: Fake Location Query Service
@@ -236,7 +236,7 @@ Then, when you go to focus on the part where you try to get results from the rea
 
 So: in the `services` directory, create a `LocationQueryService` similar to the `EarthquakeQueryService`. 
 
-Your first version of it should return fake JSON, just as we did in lab7b (step 9b).
+Your first version of it should return fake JSON, just as we did in lab07.
 
 * You may want to just comment out all of the code inside the body of the `getJSON` method for now.
 * The parameters should not be `int distance, int minmag`.   What should the parameter(s) be?  That's up to you to figure out.
@@ -244,7 +244,7 @@ Your first version of it should return fake JSON, just as we did in lab7b (step 
     pass that data to an API, the looks up information, and get back answers formatted as JSON, which we display on the results
     page.   
 * As a reminder, the original "stub" version of `getJSON` in `EarthquakeQueryService` had this in the body of the method when
-  we first wrote it in lab07b.  I recommend exactly the same starting point here:
+  we first wrote it in lab07.  I recommend exactly the same starting point here:
 
   ```java
         String fakeJson = "{ \"key\": \"value\" }";
