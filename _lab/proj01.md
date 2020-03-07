@@ -159,7 +159,7 @@ For this step, I recommend that you proceed in a manner similar to <s>Step 8 of 
 
    Try clicking on the new menu item and see whether it works properly.
 
-6. Now add tests in `src/test/java/earthquakes/HomePageTest.java` that tests check whether thesse menu items are there.  Here is
+6. Now add tests in `src/test/java/earthquakes/HomePageTest.java` that tests check whether these menu items are there.  Here is
    one example of such a test:
   
    ```
