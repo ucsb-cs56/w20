@@ -8,7 +8,7 @@ assigned: 2020-03-06 17:00
 due: 2020-03-14 13:00
 github_org: "ucsb-cs56-w20"
 org: "ucsb-cs56-w20"
-gauchospace_url: "TBD"
+gauchospace_url: "https://gauchospace.ucsb.edu/courses/mod/assign/view.php?id=3288526&forceview=1"
 ---
 
 <div style="display:none" >
