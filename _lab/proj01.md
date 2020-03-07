@@ -127,39 +127,34 @@ For this step, I recommend that you proceed in a manner similar to <s>Step 8 of 
    * I will however, give you two hints: 
       * For `location`, you should use: `input type="text"`, not `input type="number"` 
       * For `th:object` you specify the name of the instance of a Java Bean.  If you look ahead to the next step, you'll get a clue.
-3. In the `searches` directory, create a bean called `LocSearch` similar to the `EqSearch` bean we created in Step 8c.
+3. In the `searches` directory, create a bean called `LocSearch` similar to the `EqSearch` bean we created in lab07.
    * The object represented by this class will have only one field, a `String` field called `location`.
 4. In the `controllers` directory, create a new controller called `LocationsController.java`.  
    You can use `EarthquakesController.java` as an example to follow.  
 
    As for what code goes in this controller, my advice to you is to look both at the code you have for the `EarthquakesController`,
-   as well as the code that you used to *start out* the `EarthquakesController` in Step 8d of lab07b.   That code started much
+   as well as the code that you used to *start out* the `EarthquakesController` in lab07.   That code started much
    simpler at first, and we added to it a bit a time.   
 
-   At first, you'll only want a controller method that routes to your search form, just as in Step 8d of lab07b.
+   At first, you'll only want a controller method that routes to your search form, just as in lab07.
   
-5. Add a menu item called "Locations" that routes to the form, just like you did in Step 8e of lab07b.  
+5. Add a menu item called "Locations" that routes to the form, just like you did in lab07.  
 
-   At this point, we can remove the menu item for the home page, since it is redundant with the "brand" link:
-   ```
-   <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-   </li>
-   ```         
-   Leaving three menu items, which you may put in any order. This order is suggested, but as long as your tests
-   (which we'll revisit in the next step) match your order, it's fine:
+ 
+   Add it between Earthquake Search and Users, so that your menu items look like this:
 
    ```
-            <li class="nav-item">
+           <li class="nav-item">
                 <a class="nav-link" href="/earthquakes/search">Earthquake Search</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/locations/search">Locations</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/users">Users</a>
-            </li>
-           
+            <li th:if="${isAdmin}" class="nav-item ">
+                <a class="nav-link" href="/users" id="navbarDropdown" role="button">
+                    Users
+                </a>
+            </li>  
    ```
 
    Try clicking on the new menu item and see whether it works properly.
