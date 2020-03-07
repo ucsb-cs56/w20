@@ -89,71 +89,95 @@ In this option, you make it so that each individual user that logs in your appli
        
 
 5. Now modify the `locations/admin` page to be a view that is similar to the view for `Favorites`, except that this
-   one also includes the `uid` values.  If you have a friend with a Google account
-   handy, you can ask them to login to your localhost app in a different browser, and try adding some favorites.  
-   Those should show up
-   on this page with a differnet uid.  
+   one also includes the `uid` values.
 
-   If you don't have a friend like that hand, don't worry about it for now; you can test this during closed or open
-   lab hours by asking a mentor or TA to login for you.
+   To test this feature, you'll need users to login with two different
+   Google accounts.  Some suggestions on how to do that appear below
+   in the section "Testing with two different Google Accounts".
 
-4. Now, to prepare for showing only the individual users favorites, add a `findByUid` method to the 
-   `LocationRepository` interface.
-   Note that you don't have to write any code for it; you just have to specify the method with the correct 
-   naming convention,
-   and Spring Boot will make sure that the proper code gets generated.  
-   You need to make sure the return value and parameter types
-   and names are correct though.  See other examples of Spring Boot database repositories for examples.
+   You want to check whether different users can have different favorites.
+   Eventually (though perhaps not yet at this step):
+
+   * All users show up on the Users menu (for Admins only) as having logged in
+     (this should already be true)
+   * Admins can see all users favorites on the "Admin/All Favorites" menu
+     item, each with different uid values.  (This should already be true)
+   * Each user sees only their *own* Favorites when logged in under their account (this should not be true yet; we are implementing this at the next step.)
+
+
+4. Now, to prepare for showing only the individual users favorites,
+   add a `findByUid` method to the `LocationRepository` interface.
+   Note that you don't have to write any code for it; you just have to
+   specify the method with the correct naming convention, and Spring
+   Boot will make sure that the proper code gets generated.  You need
+   to make sure the return value and parameter types and names are
+   correct though.  See other examples of Spring Boot database
+   repositories for examples.
    
-5. Now, in the controller method for the the list of favorite locations at the `/locations` endpoint, 
-   use the `findByUid` instead of the `findAll` method, and only show the favorites of the 
-   currently logged in user.   
-   This view doesn't need the `uid` field, since it is implied that only favorite locations of the currently
+5. Now, in the controller method for the the list of favorite
+   locations at the `/locations` endpoint, use the `findByUid` instead
+   of the `findAll` method, and only show the favorites of the
+   currently logged in user.  This view doesn't need the `uid` field,
+   since it is implied that only favorite locations of the currently
    logged in user are being shown.
 
-   Of course you'll need to know the uid of the currently logged in user so that you can pass it to 
-   `findByUid`. You already did that
-   once in another controller method, so you'll need that same trick again.
+   Of course you'll need to know the uid of the currently logged in
+   user so that you can pass it to `findByUid`. You already did that
+   once in another controller method, so you'll need that same trick
+   again.
    
-6. At this point, if you've followed all the instructions and  you are able to test, you'll see that things *almost* work,
-   but there still may be a bug: 
+6. At this point, if you've followed all the instructions and you are
+   able to test, you'll see that things *almost* work, but there still
+   may be a bug:
    
    * When selected, the Admin menu correctly shows all locations for all users
    * When selected, the Favorites menu correctly shows only locations added by the current user
    * BUT, when a user adds a new favorite, they are redirected to a page showing ALL of the favorite locations for all users.
    
-   Locate the root cause of this bug, and fix it.   To do that, you'll need to trace through the code that
-   handles the case of
-   adding a new favorite.  Since you wrote that code in an earlier part of the project, 
-   you should be able to find it, and know
-   how to fix it.
+   Locate the root cause of this bug, and fix it.  To do that, you'll
+   need to trace through the code that handles the case of adding a
+   new favorite.  Since you wrote that code in an earlier part of the
+   project, you should be able to find it, and know how to fix it.
    
-7. Of course, to really know whether any of this is working or not, you'll need to have a separate 
-   Google user test your app.   If you have a friend with
-   a Google account handy, you can test on localhost, by opening a different browser.  
-   
-   But if you can't test with multiple Google users on localhost, because no-one else is around, then here's what to do:
 
-   * Do a pull request and accept it to deploy
-     your app to Heroku, and then go on the Slack, in `#individual-project-track`  channel 
-     and ask for a buddy to help test your app.  
-     Hopefully, they can
-     help test yours as well.
-    
-   * Post a link to your running Heroku app, and indicate you need someone to login,  
-     try add a "favorite location" or two, and then
-     ping you back on Slack.
-
-   This should allow you to check whether different users can have different favorites.   You should see the others users show up
-   in the users menu, and you should see the other users Favorites show up in the Admin menu, but you should *only* see your
-   own favorites under the favorites menu.   And after adding a new favorite, you should see only your own favorites in the page
-   to which you are redirected.
-   
 When all seems to be working, merge into master (if not already done), and proceed to the "final steps" below.
    
-# How to test if you don't have a friend handy
+# Testing with another Google Account
+
+There are several options for testing with multiple Google Accounts to
+be sure that your app works properly.
 
 
+1. If you yourself have both an `@ucsb.edu` Google Account, as well
+   as a non-ucsb Google account, you can test that way, logging in yourself
+   with the two different accounts.
+
+2. If you don't have more than one Google Account yourself, you can
+   try to find another UCSB student that can help you test.  If there is
+   one handy in person, ask them.
+
+3. If neither options 2 or 3 work, then you can post on the Slack in the
+   `#individual-project-track` channel and ask for someone to try testing
+   your app. It's nice if you can volunteer to test their app as well in
+   return.
+
+   For this approach, you need to:
+
+   * do a pull request and accept it to deploy your app to Heroku.
+   * post a link to your running Heroku app, and indicate you need
+     someone to login, try add a "favorite location" or two, and then
+     ping you back on Slack.
+
+4. Finally, try coming to either open or closed lab hours, and ask a
+   fellow student, mentor or TA in person.
+
+
+Whether running on `localhost` you'll want to either:
+* logout and login again under the other account
+* use a different browser to login to the second account
+* use a "Private Browsing" or "Incognito" window to login to the second account.
+
+On Heroku, you have all the options above, plus the option of being on another computer.
 
 # Final Steps
 
@@ -208,12 +232,13 @@ The instructions for doing so are here: <https://ucsb-cs56.github.io/topics/gauc
 
 | item | points | description |
 |------|--------|-------------|
-| (a) |	25 | You can login and add a favorite |
-| (b) |	25 | On the favorites menu you only see your own favorites (the ones for the logged in user |
-| (c) |	10 | The admin menu item on the navigation bar is now a drop down that has two items on it |
-| (d) |	10 | The two items on the admin menu are `Update Admins` and `All Favorites` | 
-| (e) |	10 | The `Update Admins` meny item takes you to the old admin table |
-| (f) |	20 | The `All Favorites` menu item takes you to a list of favorites for ALL users |
+| (a) |	20 | You can login and add a favorite |
+| (b) |	20 | On the favorites menu you only see your own favorites (the ones for the logged in user |
+| (c) |	10 | After adding a new favorite, the page to which you are redirected still shows only your own favorites |
+| (d) |	10 | The admin menu item on the navigation bar is now a drop down that has two items on it |
+| (e) |	10 | The two items on the admin menu are `Update Admins` and `All Favorites` | 
+| (f) |	10 | The `Update Admins` meny item takes you to the old admin table |
+| (g) |	20 | The `All Favorites` menu item takes you to a list of favorites for ALL users |
 
 
 
