@@ -117,11 +117,11 @@ There will be a search button.   Eventually, when that button is clicked, a loca
 matching locations.  The latitude and longitude of each of those will then be displayed.  For now, though, we'll just echo back
 the location entered.
 
-For this step, I recommend that you proceed in a manner similar to Step 8 lab07b. 
+For this step, I recommend that you proceed in a manner similar to <s>Step 8 of lab07b</s><span>Steps 7 and 8 of lab07</span>. 
 
 1. Create a feature branch off of master with an appropriate name.
 2. In `src/main/resources/templates/` create a directory called `locations`.  
-   * In it, create a form for your location search (similar to the form you created in Step 8b of lab07b), called `search.html`.  You can use `earthquakes/search.html` as your example to follow.
+   * In it, create a form for your location search (similar to the form you created in <s>Step 8b of lab07b</s><span>Steps 7 and 8 of lab07</span>), called `search.html`.  You can use `earthquakes/search.html` as your example to follow.
    * It will have just one field on it called `location`.
    * I'm not going to walk you through every change that you'll need to make to the form.  Go through it line by line, and make the changes that seem obvious. 
    * I will however, give you two hints: 
