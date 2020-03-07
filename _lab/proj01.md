@@ -73,7 +73,6 @@ mvn clean
 mvn javadoc:javadoc
 mvn javadoc:test-javadoc
 mvn test
-mvn jacoco:report
 mvn site
 mvn site:deploy
 git add docs
