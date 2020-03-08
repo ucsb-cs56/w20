@@ -254,7 +254,7 @@ Your first version of it should return fake JSON, just as we did in lab07.
   ```
 
 * Also add some code into the results form that displays the json, so that you know it is coming through.
-  * This commit from lab07b shows how we did this for earthquake searches: <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/pull/3/commits/4581f91f90cd03ef76a95970b55f2e2fb78d6461> 
+  * This commit from a F19 lab shows how we did this for earthquake searches: <https://github.com/ucsb-cs56-f19/STAFF-lab07-dev-WIP/pull/3/commits/4581f91f90cd03ef76a95970b55f2e2fb78d6461> 
   * You need to do something parallel to that for location searches.
 * Once you've made these changes, manually test doing a location search, and making sure that when you search for "Santa Barbara" or "Goleta" then you see the fake json returned by the service.
 
