@@ -289,11 +289,24 @@ The JSON that should come back for a query to "Santa Barbara" is shown at either
 * A snapshot of that on Github: <https://github.com/ucsb-cs56/f19/blob/master/_lab/proj01/Santa%20Barbara.json>
 * The "live" raw result: <https://nominatim.openstreetmap.org/search/Santa%20Barbara?format=json>
 
-(Note that the `%20` in the URL shown is the result of converting the space between `Santa` and `Barbara` into something escaped for a URL)
 
 You'll see that for "Santa Barbara" we get not only Santa Barbara, California, but several other places in the world with that name.  We'll eventually show all of these to the user, and let the user choose which result they want to work with.
 
-Armed with this information you should be able to adapt the code from the `EarthquakeQueryService` to the code you need for the `LocationQueryService.   If you need more information about the `RestTemplate` object, you can start here: <https://ucsb-cs56.github.io/topics/spring_boot_resttemplate/>.
+**Notes about URL escaping:** 
+* Note that the `%20` in the URL shown is the result of converting the space between `Santa` and `Barbara` into 
+  something   escaped for a URL
+* One way to do this is with the following code.  Some versions of this code may use a different way of accomplishing
+  this, using a special plus symbol instead of `%20`:
+
+  This method comes from [this web page](https://www.baeldung.com/java-url-encoding-decoding).
+  ```java
+  private String encodeValue(String value) {
+    return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
+  }
+  ```
+  You'll need imports for `URLEncoder` and `StandardCharsets`; you can look these up yourself.
+
+With this information you should be able to adapt the code from the `EarthquakeQueryService` to the code you need for the `LocationQueryService.   If you need more information about the `RestTemplate` object, you can start here: <https://ucsb-cs56.github.io/topics/spring_boot_resttemplate/>.
 
 Once you've implemented the service, test it with some queries such as "Santa Barbara", "Goleta", etc. and see what comes up.  When you are satisfied that you are getting
 good results for the JSON returned, commit this, do a pull request, and merge into master.
