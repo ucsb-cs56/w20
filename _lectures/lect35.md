@@ -43,6 +43,10 @@ The University takes course evaluations seriously.
   numerical ratings.
 * Comments that focus on what helped or detracted fron your *learning* are the most on point.
 
+# Instructor must leave the room while evals are completed
+
+* However, please do not use this time as an opportunity for "office hours".
+
 # Review for Final
 
 * [lab07](https://ucsb-cs56.github.io/w20/lab/lab07/) Make sure you understand all the steps
