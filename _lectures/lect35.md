@@ -24,7 +24,7 @@ As for contingency plans for COVID-19:
 
 # Review for Final
 
-
+* [lab07](https://ucsb-cs56.github.io/w20/lab/lab07/) Make sure you understand all the steps
 * [Lecture 31](https://ucsb-cs56.github.io/w20/lectures/lect31/) on Spring Boot Databases
 * [Lecture 33](https://ucsb-cs56.github.io/w20/lectures/lect33/) on JSON
 * [Lecture 35](https://ucsb-cs56.github.io/w20/lectures/lect35/) (today) MongoDB and GET vs POST
