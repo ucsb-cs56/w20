@@ -21,3 +21,10 @@ As for contingency plans for COVID-19:
 * I don't know any more than you do.
 * As of right now, everything is on as scheduled
 * We'll follow the directions of the Chancellor as they are announced.  
+
+# Review For Final
+
+* [Lecture 30](https://ucsb-cs56.github.io/w20/lectures/lect30/) on Spring Boot Databases
+* [Lecture 32](https://ucsb-cs56.github.io/w20/lectures/lect32/) on JSON
+* [Lecture 34](https://ucsb-cs56.github.io/w20/lectures/lect32/) on MongoDB and GET vs POST
+
