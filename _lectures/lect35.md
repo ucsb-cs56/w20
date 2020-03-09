@@ -22,6 +22,14 @@ As for contingency plans for COVID-19:
 * As of right now, everything is on as scheduled
 * We'll follow the directions of the Chancellor as they are announced.  
 
+# Review for Final
+
+
+* [Lecture 31](https://ucsb-cs56.github.io/w20/lectures/lect31/) on Spring Boot Databases
+* [Lecture 33](https://ucsb-cs56.github.io/w20/lectures/lect33/) on JSON
+* [Lecture 35](https://ucsb-cs56.github.io/w20/lectures/lect35/) (today) MongoDB and GET vs POST
+
+
 # MongoDB ArchivedCourse table
 
 * A brief real time update
@@ -109,3 +117,5 @@ POST:
 # For more detail
 
 * <https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/>
+
+
