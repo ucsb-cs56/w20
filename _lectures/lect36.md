@@ -24,7 +24,9 @@ As for contingency plans for COVID-19:
 
 # Review For Final
 
+* [lab07](https://ucsb-cs56.github.io/w20/lab/lab07/) Make sure you understand all the steps
 * [Lecture 30](https://ucsb-cs56.github.io/w20/lectures/lect30/) on Spring Boot Databases
 * [Lecture 32](https://ucsb-cs56.github.io/w20/lectures/lect32/) on JSON
 * [Lecture 34](https://ucsb-cs56.github.io/w20/lectures/lect32/) on MongoDB and GET vs POST
+* Exceptions HFJ Chapter 11
 
