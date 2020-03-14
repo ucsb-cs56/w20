@@ -71,6 +71,9 @@ public class TraderBobs {
   }
 
   public static void main (String [] args) {
+
+    System.out.println("TB20");
+    TB20();
     System.out.println("TB21");
     TB21();
     System.out.println("TB22");

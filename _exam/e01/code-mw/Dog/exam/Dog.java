@@ -15,11 +15,11 @@ public class Dog {
     
     public static void main(String [] args) {
 	
-	Dog d1 = new Dog("Fido");
-	Dog d2 = new Dog("Ginger");
-	Dog d3 = new Dog("Harry");
-	Dog d4 = new Dog("Izzy");
-	Dog d5 = new Dog("Jack");
+	Dog d1 = new Dog("Kiki");
+	Dog d2 = new Dog("Logan");
+	Dog d3 = new Dog("Max");
+	Dog d4 = new Dog("Nicky");
+	Dog d5 = new Dog("Olive");
 	Dog d6 = d5;
 	
 	setBestInShow(d1);
