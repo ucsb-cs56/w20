@@ -51,6 +51,8 @@ cal_dates: >
     {"label":"W20 instruction ends", "date":"2020-03-13" },
     {"label":"W20 finals start", "date":"2020-03-14" },
     {"label":"W20 finals end", "date":"2020-03-20" },
+    {"label":"TR final noon-3pm", "date":"2020-03-18" },
+    {"label":"MW final noon-3pm", "date":"2020-03-17" },		
     {"label":"W20 qtr ends", "date":"2020-03-20" }
   ]
 
